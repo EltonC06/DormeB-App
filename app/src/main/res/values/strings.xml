@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DormeBApp</string>
+    <string name="barulho_de_chuva">Barulho de chuva</string>
+    <string name="melodia_chuva">Essa melodia suave e calma é um dos métodos mais antigos usados para cair no sono</string>
+    <string name="barulho_de_chuva_com_trovao">Barulho de chuva com trovão</string>
+    <string name="desc_trovao">Diferente de um simples barulho de chuva, esta melodia liberta o guerreiro dentro de sua alma que o-faz dormir instantaneamente</string>
+    <string name="barulho_de_ventilador">Barulho de ventilador</string>
+    <string name="desc_ventilador">Essa melodia, um pouco moderna, além de esfriar o ambiente (as vezes) também ajuda a relaxar o seu corpo depois de um dia corrido</string>
+    <string name="sirene_do_guarda_nortuno">Sirene do guarda nortuno</string>
+    <string name="desc_guarda">Nem tanto desconhecida, essa é a melodia favorita dos que dormem tranquilo somente quando se sentem seguros</string>
+</resources>
