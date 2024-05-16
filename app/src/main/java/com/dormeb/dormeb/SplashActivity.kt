@@ -39,13 +39,13 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun initialAnimation() {
-        textWelcome.animate().setDuration(1000).alpha(1F)
+        textWelcome.animate().setDuration(1000).alpha(0.8F)
 
-        textFirst.animate().setDuration(1500).alpha(1F)
-        textSecond.animate().setDuration(2000).alpha(1F)
-        textThird.animate().setDuration(2500).alpha(1F)
+        textFirst.animate().setDuration(1500).alpha(0.8F)
+        textSecond.animate().setDuration(2000).alpha(0.8F)
+        textThird.animate().setDuration(2500).alpha(0.8F)
 
-        btnStart.animate().setDuration(3000).alpha(1F)
+        btnStart.animate().setDuration(3500).alpha(0.85F)
 
     }
 

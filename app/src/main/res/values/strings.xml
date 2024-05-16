@@ -8,4 +8,6 @@
     <string name="desc_ventilador">Essa melodia, um pouco moderna, além de esfriar o ambiente (as vezes) também ajuda a relaxar o seu corpo depois de um dia corrido</string>
     <string name="sirene_do_guarda_nortuno">Sirene do guarda nortuno</string>
     <string name="desc_guarda">Nem tanto desconhecida, essa é a melodia favorita dos que dormem tranquilo somente quando se sentem seguros</string>
+    <string name="First_message">Selecione um áudio para dormir</string>
+    <string name="first_message_desc">Usando as 2 listas de audios, você pode mixar 2 tipos de áudios diferentes</string>
 </resources>

@@ -2,6 +2,7 @@ package com.dormeb.dormeb
 
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.widget.HorizontalScrollView
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -11,11 +12,17 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
-    var mp3 = MediaPlayer()
-    var mp32 = MediaPlayer()
+    private var mp3 = MediaPlayer()
+    private var mp32 = MediaPlayer()
 
     private lateinit var textMusic: TextView
     private lateinit var textDesc: TextView
+
+    private lateinit var optionFirst: TextView
+    private lateinit var horizontalScroll: HorizontalScrollView
+
+    private lateinit var optionSecond: TextView
+    private lateinit var horizontalScrollSecond: HorizontalScrollView
 
     private lateinit var btnChuva: ImageButton
     private lateinit var btnTrovao: ImageButton
@@ -26,13 +33,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnTrovao2: ImageButton
     private lateinit var btnVentilador2: ImageButton
     private lateinit var btnGuarda2: ImageButton
-
-
-    override fun onStop() { // o som ficava tocando quando voltava pra splash activity
-        super.onStop()
-
-
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,10 +46,10 @@ class MainActivity : AppCompatActivity() {
 
 
         iniciarComponentesInterface()
-        // posso limitar o audio é so um e fazer dois mp3, duas listas para a pessoa mesclar :)
+        initialAnimation()
+
         btnChuva.setOnClickListener {
-            textMusic.text = getString(R.string.barulho_de_chuva)
-            textDesc.text = getString(R.string.melodia_chuva)
+            changeMusicandDescText(SoundsName.CHUVA)
 
             if (btnChuva.tag == "paused") { // se estiver pausado:
                 verifyIfisPlaying()
@@ -67,9 +67,7 @@ class MainActivity : AppCompatActivity() {
         }
         // o codigo executa normal, mas quando é pra pausar ele não pausa o audio atual pois o mp3 é um recurso global aí se eu pedir pra pausar fora da ordem reversa, ele buga o sistema e nunca da pra pausar um elemento
         btnTrovao.setOnClickListener { // posso criar uma variavel mp3 para cada audio
-            textMusic.text = getString(R.string.barulho_de_chuva_com_trovao)
-            textDesc.text = getString(R.string.desc_trovao)
-
+            changeMusicandDescText(SoundsName.TROVAO)
 
             if (btnTrovao.tag == "paused") {
                 verifyIfisPlaying()
@@ -88,8 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnVentilador.setOnClickListener {
-            textMusic.text = getString(R.string.barulho_de_ventilador)
-            textDesc.text = getString(R.string.desc_ventilador)
+            changeMusicandDescText(SoundsName.VENTILADOR)
 
             if (btnVentilador.tag == "paused") {
                 verifyIfisPlaying()
@@ -107,8 +104,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnGuarda.setOnClickListener {
-            textMusic.text = getString(R.string.sirene_do_guarda_nortuno)
-            textDesc.text = getString(R.string.desc_guarda)
+            changeMusicandDescText(SoundsName.GUARDA)
+
             if (btnGuarda.tag == "paused") {
                 verifyIfisPlaying()
                 mp3 = MediaPlayer.create(this, R.raw.ambiente_rua_guarda)
@@ -127,8 +124,7 @@ class MainActivity : AppCompatActivity() {
         // ----- segundo horizontal view
 
         btnChuva2.setOnClickListener {
-            textMusic.text = getString(R.string.barulho_de_chuva)
-            textDesc.text = getString(R.string.melodia_chuva)
+            changeMusicandDescText(SoundsName.CHUVA)
 
             if (btnChuva2.tag == "paused") { // se estiver pausado:
                 verifyIfisPlaying2()
@@ -145,9 +141,7 @@ class MainActivity : AppCompatActivity() {
         }
         // o codigo executa normal, mas quando é pra pausar ele não pausa o audio atual pois o mp3 é um recurso global aí se eu pedir pra pausar fora da ordem reversa, ele buga o sistema e nunca da pra pausar um elemento
         btnTrovao2.setOnClickListener { // posso criar uma variavel mp3 para cada audio
-            textMusic.text = getString(R.string.barulho_de_chuva_com_trovao)
-            textDesc.text = getString(R.string.desc_trovao)
-
+            changeMusicandDescText(SoundsName.TROVAO)
 
             if (btnTrovao2.tag == "paused") {
                 verifyIfisPlaying2()
@@ -166,8 +160,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnVentilador2.setOnClickListener {
-            textMusic.text = getString(R.string.barulho_de_ventilador)
-            textDesc.text = getString(R.string.desc_ventilador)
+            changeMusicandDescText(SoundsName.VENTILADOR)
 
             if (btnVentilador2.tag == "paused") {
                 verifyIfisPlaying2()
@@ -185,8 +178,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnGuarda2.setOnClickListener {
-            textMusic.text = getString(R.string.sirene_do_guarda_nortuno)
-            textDesc.text = getString(R.string.desc_guarda)
+            changeMusicandDescText(SoundsName.GUARDA)
+
             if (btnGuarda2.tag == "paused") {
                 verifyIfisPlaying2()
                 mp32 = MediaPlayer.create(this, R.raw.ambiente_rua_guarda)
@@ -205,10 +198,80 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun changeMusicandDescText(enum: SoundsName) {
+        if (enum == SoundsName.CHUVA) {// aqui eu criei um enum para resumir mais o codigo e editar toodo o texto em um so lugar
+            // animate: preventing the text to begin already transparent
+            textMusic.alpha = 1F
+            textDesc.alpha = 1F // i cant do 2 animation in same function, this will cause conflict and one animation will interrupt another
+
+            // change text:
+            textMusic.text = getString(R.string.barulho_de_chuva)
+            textDesc.text = getString(R.string.melodia_chuva)
+
+            // animate:
+            textMusic.animate().setDuration(15000).alpha(0.1F)
+            textDesc.animate().setDuration(15000).alpha(0.1F)
+        }
+        else if (enum == SoundsName.TROVAO) {
+            textMusic.alpha = 1F
+            textDesc.alpha = 1F
+
+            textMusic.text = getString(R.string.barulho_de_chuva_com_trovao)
+            textDesc.text = getString(R.string.desc_trovao)
+
+            textMusic.animate().setDuration(15000).alpha(0.1F)
+            textDesc.animate().setDuration(15000).alpha(0.1F)
+        }
+        else if (enum == SoundsName.VENTILADOR) {
+            textMusic.alpha = 1F
+            textDesc.alpha = 1F
+
+            textMusic.text = getString(R.string.barulho_de_ventilador)
+            textDesc.text = getString(R.string.desc_ventilador)
+
+            textMusic.animate().setDuration(15000).alpha(0.1F)
+            textDesc.animate().setDuration(15000).alpha(0.1F)
+        }
+        else if (enum == SoundsName.GUARDA) {
+            textMusic.alpha = 1F
+            textDesc.alpha = 1F
+
+            textMusic.text = getString(R.string.sirene_do_guarda_nortuno)
+            textDesc.text = getString(R.string.desc_guarda)
+
+            textMusic.animate().setDuration(15000).alpha(0.1F)
+            textDesc.animate().setDuration(15000).alpha(0.1F)
+        }
+
+    }
+
+    private fun initialAnimation() {
+        textMusic.text = getString(R.string.First_message)
+        textMusic.alpha = 0.7F
+
+        textDesc.text = getString(R.string.first_message_desc)
+        textDesc.alpha = 0.7F
+
+        optionFirst.animate().setDuration(4000).alpha(0.8F)
+        horizontalScroll.animate().setDuration(2000).alpha(0.8F)
+
+        optionSecond.animate().setDuration(4500).alpha(0.8F)
+        horizontalScrollSecond.animate().setDuration(2500).alpha(0.8F)
+    }
+
     private fun iniciarComponentesInterface() {
 
         textMusic = findViewById(R.id.textMusicaNome)
+        textMusic.alpha = 0F
+
         textDesc = findViewById(R.id.textDesc)
+        textDesc.alpha = 0F
+
+        optionFirst = findViewById(R.id.opcao1)
+        optionFirst.alpha = 0F
+
+        horizontalScroll = findViewById(R.id.horizontalScrollView)
+        horizontalScroll.alpha = 0F
 
         btnChuva = findViewById(R.id.btnChuva)
         btnChuva.tag = "paused"
@@ -223,6 +286,11 @@ class MainActivity : AppCompatActivity() {
         btnGuarda.tag = "paused"
 
         // -----
+        optionSecond = findViewById(R.id.opcao2)
+        optionSecond.alpha = 0F
+
+        horizontalScrollSecond = findViewById(R.id.horizontalScrollView2)
+        horizontalScrollSecond.alpha = 0F
 
         btnChuva2 = findViewById(R.id.btnChuva2)
         btnChuva2.tag = "paused"
@@ -239,7 +307,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun verifyIfisPlaying(){
+    private fun verifyIfisPlaying(){
         val simpleArray = arrayOf(btnChuva, btnTrovao, btnVentilador, btnGuarda)
         // aq eu posso verificar se alguma ta tocando e pausar (vou botar dentro das funções de play)
         for (audioBtn in simpleArray){
@@ -251,7 +319,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun verifyIfisPlaying2(){ // ter isso 2 vezes vai permitir tocar 2 audios ao msm tempo
+    private fun verifyIfisPlaying2(){ // ter isso 2 vezes vai permitir tocar 2 audios ao msm tempo
         val simpleArray = arrayOf(btnChuva2, btnTrovao2, btnVentilador2, btnGuarda2)
         // aq eu posso verificar se alguma ta tocando e pausar (vou botar dentro das funções de play)
         for (audioBtn in simpleArray){
@@ -279,6 +347,4 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-
 }

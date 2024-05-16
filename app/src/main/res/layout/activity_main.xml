@@ -10,13 +10,12 @@
     android:background="@drawable/main_background">
 
     <HorizontalScrollView
-        android:id="@+id/horizontalScrollView2"
+        android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
         android:fadeScrollbars="true"
         android:scrollbarSize="0.5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -64,12 +63,12 @@
     </HorizontalScrollView>
 
     <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
+        android:id="@+id/horizontalScrollView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fadeScrollbars="true"
         android:scrollbarSize="0.5dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -153,8 +152,9 @@
         android:layout_marginTop="24dp"
         android:text="Som selecionado"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/BlueforText"
         android:textSize="30sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
@@ -165,8 +165,9 @@
         android:layout_height="wrap_content"
         android:text="Descrição"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/AnotherBlueforText"
         android:textSize="12sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
@@ -192,7 +193,7 @@
         android:layout_marginBottom="8dp"
         android:text="PRIMEIRA OPÇÃO"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/BlueforText"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
@@ -201,10 +202,10 @@
         android:id="@+id/opcao2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="12dp"
         android:text="SEGUNDA OPÇÃO"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/BlueforText"
         app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView2"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
