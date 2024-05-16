@@ -6,26 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_tela_dormeb" />
+    tools:context=".MainActivity"
+    android:background="@drawable/main_background">
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
-        android:scrollbarSize="1dp"
+        android:fadeScrollbars="true"
+        android:scrollbarSize="0.5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -77,7 +67,8 @@
         android:id="@+id/horizontalScrollView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:scrollbarSize="1dp"
+        android:fadeScrollbars="true"
+        android:scrollbarSize="0.5dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -123,6 +114,7 @@
                 android:contentDescription="guarda"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/guarda_play" />
+
         </LinearLayout>
     </HorizontalScrollView>
 

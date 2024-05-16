@@ -28,6 +28,12 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnGuarda2: ImageButton
 
 
+    override fun onStop() { // o som ficava tocando quando voltava pra splash activity
+        super.onStop()
+
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
