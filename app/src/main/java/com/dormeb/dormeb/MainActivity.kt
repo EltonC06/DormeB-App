@@ -2,7 +2,6 @@ package com.dormeb.dormeb
 
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.view.View
 import android.widget.HorizontalScrollView
 import android.widget.ImageButton
 import android.widget.TextView
@@ -10,11 +9,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.dormeb.dormeb.enums.SoundsName
+import com.dormeb.dormeb.values.AlphaValues
 
 class MainActivity : AppCompatActivity() {
 
-    private var mp3 = MediaPlayer()
-    private var mp32 = MediaPlayer()
+    private var firstMediaPlayer = MediaPlayer()
+    private var secondMediaPlayer = MediaPlayer()
 
     private lateinit var textMusic: TextView
     private lateinit var textDesc: TextView
@@ -55,14 +56,14 @@ class MainActivity : AppCompatActivity() {
 
             if (btnChuva.tag == "paused") { // se estiver pausado:
                 verifyIfisPlaying()
-                mp3 = MediaPlayer.create(this, R.raw.chuva)
-                mp3.isLooping = true
-                mp3.start()
+                firstMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
+                firstMediaPlayer.isLooping = true
+                firstMediaPlayer.start()
                 btnChuva.setImageResource(R.drawable.chuva_pause)
                 btnChuva.tag = "played"
             }
             else {  // se estiver tocando, e clicar vai dá o comando mp3.pause
-                mp3.pause()
+                firstMediaPlayer.pause()
                 btnChuva.setImageResource(R.drawable.chuva_play)
                 btnChuva.tag = "paused"
             }
@@ -74,14 +75,14 @@ class MainActivity : AppCompatActivity() {
 
             if (btnTrovao.tag == "paused") {
                 verifyIfisPlaying()
-                mp3 = MediaPlayer.create(this, R.raw.trovao)
-                mp3.isLooping = true
-                mp3.start()
+                firstMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
+                firstMediaPlayer.isLooping = true
+                firstMediaPlayer.start()
                 btnTrovao.setImageResource(R.drawable.trovao_pause)
                 btnTrovao.tag = "played"
             }
             else {
-                mp3.pause()
+                firstMediaPlayer.pause()
                 btnTrovao.setImageResource(R.drawable.trovao_play)
                 btnTrovao.tag = "paused"
             }
@@ -94,14 +95,14 @@ class MainActivity : AppCompatActivity() {
 
             if (btnVentilador.tag == "paused") {
                 verifyIfisPlaying()
-                mp3 = MediaPlayer.create(this, R.raw.ambiente_rua)
-                mp3.isLooping = true
-                mp3.start()
+                firstMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
+                firstMediaPlayer.isLooping = true
+                firstMediaPlayer.start()
                 btnVentilador.setImageResource(R.drawable.ventilador_pause)
                 btnVentilador.tag = "played"
             }
             else {
-                mp3.pause()
+                firstMediaPlayer.pause()
                 btnVentilador.setImageResource(R.drawable.ventilador_play)
                 btnVentilador.tag = "paused"
             }
@@ -113,14 +114,14 @@ class MainActivity : AppCompatActivity() {
 
             if (btnGuarda.tag == "paused") {
                 verifyIfisPlaying()
-                mp3 = MediaPlayer.create(this, R.raw.ambiente_rua_guarda)
-                mp3.isLooping = true
-                mp3.start()
+                firstMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua_guarda)
+                firstMediaPlayer.isLooping = true
+                firstMediaPlayer.start()
                 btnGuarda.setImageResource(R.drawable.guarda_pause)
                 btnGuarda.tag = "played"
             }
             else {
-                mp3.pause()
+                firstMediaPlayer.pause()
                 btnGuarda.setImageResource(R.drawable.guarda_play)
                 btnGuarda.tag = "paused"
             }
@@ -134,13 +135,13 @@ class MainActivity : AppCompatActivity() {
 
             if (btnChuva2.tag == "paused") { // se estiver pausado:
                 verifyIfisPlaying2()
-                mp32 = MediaPlayer.create(this, R.raw.chuva)
-                mp32.start()
+                secondMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
+                secondMediaPlayer.start()
                 btnChuva2.setImageResource(R.drawable.chuva_pause)
                 btnChuva2.tag = "played"
             }
             else {  // se estiver tocando, e clicar vai dá o comando mp3.pause
-                mp32.pause()
+                secondMediaPlayer.pause()
                 btnChuva2.setImageResource(R.drawable.chuva_play)
                 btnChuva2.tag = "paused"
             }
@@ -152,14 +153,14 @@ class MainActivity : AppCompatActivity() {
 
             if (btnTrovao2.tag == "paused") {
                 verifyIfisPlaying2()
-                mp32 = MediaPlayer.create(this, R.raw.trovao)
-                mp32.isLooping = true
-                mp32.start()
+                secondMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
+                secondMediaPlayer.isLooping = true
+                secondMediaPlayer.start()
                 btnTrovao2.setImageResource(R.drawable.trovao_pause)
                 btnTrovao2.tag = "played"
             }
             else {
-                mp32.pause()
+                secondMediaPlayer.pause()
                 btnTrovao2.setImageResource(R.drawable.trovao_play)
                 btnTrovao2.tag = "paused"
             }
@@ -172,14 +173,14 @@ class MainActivity : AppCompatActivity() {
 
             if (btnVentilador2.tag == "paused") {
                 verifyIfisPlaying2()
-                mp32 = MediaPlayer.create(this, R.raw.ambiente_rua)
-                mp32.isLooping = true
-                mp32.start()
+                secondMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
+                secondMediaPlayer.isLooping = true
+                secondMediaPlayer.start()
                 btnVentilador2.setImageResource(R.drawable.ventilador_pause)
                 btnVentilador2.tag = "played"
             }
             else {
-                mp32.pause()
+                secondMediaPlayer.pause()
                 btnVentilador2.setImageResource(R.drawable.ventilador_play)
                 btnVentilador2.tag = "paused"
             }
@@ -191,14 +192,14 @@ class MainActivity : AppCompatActivity() {
 
             if (btnGuarda2.tag == "paused") {
                 verifyIfisPlaying2()
-                mp32 = MediaPlayer.create(this, R.raw.ambiente_rua_guarda)
-                mp32.isLooping = true
-                mp32.start()
+                secondMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua_guarda)
+                secondMediaPlayer.isLooping = true
+                secondMediaPlayer.start()
                 btnGuarda2.setImageResource(R.drawable.guarda_pause)
                 btnGuarda2.tag = "played"
             }
             else {
-                mp32.pause()
+                secondMediaPlayer.pause()
                 btnGuarda2.setImageResource(R.drawable.guarda_play)
                 btnGuarda2.tag = "paused"
             }
@@ -207,20 +208,20 @@ class MainActivity : AppCompatActivity() {
         // ------------------ animation of list of sounds part
         // preciso deixar todas essas variaveis de transparencia em um so lugar
         horizontalScroll.setOnScrollChangeListener { _, _, _, _, _ ->
-            horizontalScroll.alpha = 0.8F
-            horizontalScroll.animate().setDuration(15000).alpha(0.1F)
+            horizontalScroll.alpha = AlphaValues.TransparencyMax
+            horizontalScroll.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
 
-            optionFirst.alpha = 0.8F
-            optionFirst.animate().setDuration(10000).alpha(0.1F)
+            optionFirst.alpha = AlphaValues.TransparencyMax
+            optionFirst.animate().setDuration(10000).alpha(AlphaValues.AlmostTransparent)
 
         }
 
         horizontalScrollSecond.setOnScrollChangeListener { _, _, _, _, _ ->
-            horizontalScrollSecond.alpha = 0.8F
-            horizontalScrollSecond.animate().setDuration(15000).alpha(0.1F)
+            horizontalScrollSecond.alpha = AlphaValues.TransparencyMax
+            horizontalScrollSecond.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
 
-            optionSecond.alpha = 0.8F
-            optionSecond.animate().setDuration(10000).alpha(0.1F)
+            optionSecond.alpha = AlphaValues.TransparencyMax
+            optionSecond.animate().setDuration(10000).alpha(AlphaValues.AlmostTransparent)
         }
 
 
@@ -229,103 +230,94 @@ class MainActivity : AppCompatActivity() {
 
     private fun changeScrollsVisibility(scroll: Int) {
         if (scroll == 1) {
-            horizontalScroll.alpha = 0.8F
-            horizontalScroll.animate().setDuration(15000).alpha(0.1F)
+            horizontalScroll.alpha = AlphaValues.TransparencyMax
+            horizontalScroll.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
 
-            optionFirst.alpha = 0.8F
-            optionFirst.animate().setDuration(10000).alpha(0.1F)
+            optionFirst.alpha = AlphaValues.TransparencyMax
+            optionFirst.animate().setDuration(10000).alpha(AlphaValues.AlmostTransparent)
         }
         else{
-            horizontalScrollSecond.alpha = 0.8F
-            horizontalScrollSecond.animate().setDuration(15000).alpha(0.1F)
+            horizontalScrollSecond.alpha = AlphaValues.TransparencyMax
+            horizontalScrollSecond.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
 
-            optionSecond.alpha = 0.8F
-            optionSecond.animate().setDuration(10000).alpha(0.1F)
+            optionSecond.alpha = AlphaValues.TransparencyMax
+            optionSecond.animate().setDuration(10000).alpha(AlphaValues.AlmostTransparent)
         }
     }
 
     private fun changeMusicandDescText(enum: SoundsName) {
         if (enum == SoundsName.CHUVA) {// aqui eu criei um enum para resumir mais o codigo e editar toodo o texto em um so lugar
             // animate: preventing the text to begin already transparent
-            textMusic.alpha = 1F
-            textDesc.alpha = 1F // i cant do 2 animation in same function, this will cause conflict and one animation will interrupt another
+            textMusic.alpha = AlphaValues.fullVisibility
+            textDesc.alpha = AlphaValues.fullVisibility // i cant do 2 animation in same function, this will cause conflict and one animation will interrupt another
 
             // change text:
             textMusic.text = getString(R.string.barulho_de_chuva)
             textDesc.text = getString(R.string.melodia_chuva)
 
             // animate:
-            textMusic.animate().setDuration(15000).alpha(0.1F)
-            textDesc.animate().setDuration(15000).alpha(0.1F)
+            textMusic.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
+            textDesc.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
         }
         else if (enum == SoundsName.TROVAO) {
-            textMusic.alpha = 1F
-            textDesc.alpha = 1F
+            textMusic.alpha = AlphaValues.fullVisibility
+            textDesc.alpha = AlphaValues.fullVisibility
 
             textMusic.text = getString(R.string.barulho_de_chuva_com_trovao)
             textDesc.text = getString(R.string.desc_trovao)
 
-            textMusic.animate().setDuration(15000).alpha(0.1F)
-            textDesc.animate().setDuration(15000).alpha(0.1F)
+            textMusic.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
+            textDesc.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
         }
         else if (enum == SoundsName.VENTILADOR) {
-            textMusic.alpha = 1F
-            textDesc.alpha = 1F
+            textMusic.alpha = AlphaValues.fullVisibility
+            textDesc.alpha = AlphaValues.fullVisibility
 
             textMusic.text = getString(R.string.barulho_de_ventilador)
             textDesc.text = getString(R.string.desc_ventilador)
 
-            textMusic.animate().setDuration(15000).alpha(0.1F)
-            textDesc.animate().setDuration(15000).alpha(0.1F)
+            textMusic.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
+            textDesc.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
         }
         else if (enum == SoundsName.GUARDA) {
-            textMusic.alpha = 1F
-            textDesc.alpha = 1F
+            textMusic.alpha = AlphaValues.fullVisibility
+            textDesc.alpha = AlphaValues.fullVisibility
 
             textMusic.text = getString(R.string.sirene_do_guarda_nortuno)
             textDesc.text = getString(R.string.desc_guarda)
 
-            textMusic.animate().setDuration(15000).alpha(0.1F)
-            textDesc.animate().setDuration(15000).alpha(0.1F)
+            textMusic.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
+            textDesc.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
         }
-
-    }
-
-    private fun runningAnimation() {
-        horizontalScroll.setOnClickListener { // detecta se o usuario tocou na lista (vou usar isso pra animar a transparencia da lista)
-            horizontalScroll.alpha = 0.8F
-            horizontalScroll.animate().setDuration(10000).alpha(0.5F)
-        }
-
     }
 
     private fun initialAnimation() {
         textMusic.text = getString(R.string.First_message)
-        textMusic.alpha = 0.7F
+        textMusic.alpha = AlphaValues.TransparencyMin
 
         textDesc.text = getString(R.string.first_message_desc)
-        textDesc.alpha = 0.7F
+        textDesc.alpha = AlphaValues.TransparencyMin
 
-        optionFirst.animate().setDuration(4000).alpha(0.8F)
-        horizontalScroll.animate().setDuration(2000).alpha(0.8F)
+        optionFirst.animate().setDuration(4000).alpha(AlphaValues.TransparencyMax)
+        horizontalScroll.animate().setDuration(2000).alpha(AlphaValues.TransparencyMax)
 
-        optionSecond.animate().setDuration(4500).alpha(0.8F)
-        horizontalScrollSecond.animate().setDuration(2500).alpha(0.8F)
+        optionSecond.animate().setDuration(4500).alpha(AlphaValues.TransparencyMax)
+        horizontalScrollSecond.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
     }
 
     private fun iniciarComponentesInterface() {
 
         textMusic = findViewById(R.id.textMusicaNome)
-        textMusic.alpha = 0F
+        textMusic.alpha = AlphaValues.initialTransparency
 
         textDesc = findViewById(R.id.textDesc)
-        textDesc.alpha = 0F
+        textDesc.alpha = AlphaValues.initialTransparency
 
         optionFirst = findViewById(R.id.opcao1)
-        optionFirst.alpha = 0F
+        optionFirst.alpha = AlphaValues.initialTransparency
 
         horizontalScroll = findViewById(R.id.horizontalScrollView)
-        horizontalScroll.alpha = 0F
+        horizontalScroll.alpha = AlphaValues.initialTransparency
 
         btnChuva = findViewById(R.id.btnChuva)
         btnChuva.tag = "paused"
@@ -341,10 +333,10 @@ class MainActivity : AppCompatActivity() {
 
         // -----
         optionSecond = findViewById(R.id.opcao2)
-        optionSecond.alpha = 0F
+        optionSecond.alpha = AlphaValues.initialTransparency
 
         horizontalScrollSecond = findViewById(R.id.horizontalScrollView2)
-        horizontalScrollSecond.alpha = 0F
+        horizontalScrollSecond.alpha = AlphaValues.initialTransparency
 
         btnChuva2 = findViewById(R.id.btnChuva2)
         btnChuva2.tag = "paused"
@@ -366,7 +358,7 @@ class MainActivity : AppCompatActivity() {
         // aq eu posso verificar se alguma ta tocando e pausar (vou botar dentro das funções de play)
         for (audioBtn in simpleArray){
             if (audioBtn.tag == "played"){
-                mp3.stop()
+                firstMediaPlayer.stop()
                 audioBtn.tag = "paused"
                 changeIcon(audioBtn)
             }
@@ -378,7 +370,7 @@ class MainActivity : AppCompatActivity() {
         // aq eu posso verificar se alguma ta tocando e pausar (vou botar dentro das funções de play)
         for (audioBtn in simpleArray){
             if (audioBtn.tag == "played"){
-                mp32.stop()
+                secondMediaPlayer.stop()
                 audioBtn.tag = "paused"
                 changeIcon(audioBtn)
             }
@@ -399,6 +391,6 @@ class MainActivity : AppCompatActivity() {
         else if (imagem.contentDescription.toString() == "guarda"){
             imagem.setImageResource(R.drawable.guarda_play)
         }
-
     }
+
 }
