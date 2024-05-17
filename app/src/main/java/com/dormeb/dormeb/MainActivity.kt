@@ -2,6 +2,7 @@ package com.dormeb.dormeb
 
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.view.View
 import android.widget.HorizontalScrollView
 import android.widget.ImageButton
 import android.widget.TextView
@@ -50,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         btnChuva.setOnClickListener {
             changeMusicandDescText(SoundsName.CHUVA)
+            changeScrollsVisibility(1)
 
             if (btnChuva.tag == "paused") { // se estiver pausado:
                 verifyIfisPlaying()
@@ -68,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         // o codigo executa normal, mas quando é pra pausar ele não pausa o audio atual pois o mp3 é um recurso global aí se eu pedir pra pausar fora da ordem reversa, ele buga o sistema e nunca da pra pausar um elemento
         btnTrovao.setOnClickListener { // posso criar uma variavel mp3 para cada audio
             changeMusicandDescText(SoundsName.TROVAO)
+            changeScrollsVisibility(1)
 
             if (btnTrovao.tag == "paused") {
                 verifyIfisPlaying()
@@ -87,6 +90,7 @@ class MainActivity : AppCompatActivity() {
 
         btnVentilador.setOnClickListener {
             changeMusicandDescText(SoundsName.VENTILADOR)
+            changeScrollsVisibility(1)
 
             if (btnVentilador.tag == "paused") {
                 verifyIfisPlaying()
@@ -105,6 +109,7 @@ class MainActivity : AppCompatActivity() {
 
         btnGuarda.setOnClickListener {
             changeMusicandDescText(SoundsName.GUARDA)
+            changeScrollsVisibility(1)
 
             if (btnGuarda.tag == "paused") {
                 verifyIfisPlaying()
@@ -125,6 +130,7 @@ class MainActivity : AppCompatActivity() {
 
         btnChuva2.setOnClickListener {
             changeMusicandDescText(SoundsName.CHUVA)
+            changeScrollsVisibility(2)
 
             if (btnChuva2.tag == "paused") { // se estiver pausado:
                 verifyIfisPlaying2()
@@ -142,6 +148,7 @@ class MainActivity : AppCompatActivity() {
         // o codigo executa normal, mas quando é pra pausar ele não pausa o audio atual pois o mp3 é um recurso global aí se eu pedir pra pausar fora da ordem reversa, ele buga o sistema e nunca da pra pausar um elemento
         btnTrovao2.setOnClickListener { // posso criar uma variavel mp3 para cada audio
             changeMusicandDescText(SoundsName.TROVAO)
+            changeScrollsVisibility(2)
 
             if (btnTrovao2.tag == "paused") {
                 verifyIfisPlaying2()
@@ -161,6 +168,7 @@ class MainActivity : AppCompatActivity() {
 
         btnVentilador2.setOnClickListener {
             changeMusicandDescText(SoundsName.VENTILADOR)
+            changeScrollsVisibility(2)
 
             if (btnVentilador2.tag == "paused") {
                 verifyIfisPlaying2()
@@ -179,6 +187,7 @@ class MainActivity : AppCompatActivity() {
 
         btnGuarda2.setOnClickListener {
             changeMusicandDescText(SoundsName.GUARDA)
+            changeScrollsVisibility(2)
 
             if (btnGuarda2.tag == "paused") {
                 verifyIfisPlaying2()
@@ -195,7 +204,44 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // ------------------ animation of list of sounds part
+        // preciso deixar todas essas variaveis de transparencia em um so lugar
+        horizontalScroll.setOnScrollChangeListener { _, _, _, _, _ ->
+            horizontalScroll.alpha = 0.8F
+            horizontalScroll.animate().setDuration(15000).alpha(0.1F)
 
+            optionFirst.alpha = 0.8F
+            optionFirst.animate().setDuration(10000).alpha(0.1F)
+
+        }
+
+        horizontalScrollSecond.setOnScrollChangeListener { _, _, _, _, _ ->
+            horizontalScrollSecond.alpha = 0.8F
+            horizontalScrollSecond.animate().setDuration(15000).alpha(0.1F)
+
+            optionSecond.alpha = 0.8F
+            optionSecond.animate().setDuration(10000).alpha(0.1F)
+        }
+
+
+
+    }
+
+    private fun changeScrollsVisibility(scroll: Int) {
+        if (scroll == 1) {
+            horizontalScroll.alpha = 0.8F
+            horizontalScroll.animate().setDuration(15000).alpha(0.1F)
+
+            optionFirst.alpha = 0.8F
+            optionFirst.animate().setDuration(10000).alpha(0.1F)
+        }
+        else{
+            horizontalScrollSecond.alpha = 0.8F
+            horizontalScrollSecond.animate().setDuration(15000).alpha(0.1F)
+
+            optionSecond.alpha = 0.8F
+            optionSecond.animate().setDuration(10000).alpha(0.1F)
+        }
     }
 
     private fun changeMusicandDescText(enum: SoundsName) {
@@ -241,6 +287,14 @@ class MainActivity : AppCompatActivity() {
 
             textMusic.animate().setDuration(15000).alpha(0.1F)
             textDesc.animate().setDuration(15000).alpha(0.1F)
+        }
+
+    }
+
+    private fun runningAnimation() {
+        horizontalScroll.setOnClickListener { // detecta se o usuario tocou na lista (vou usar isso pra animar a transparencia da lista)
+            horizontalScroll.alpha = 0.8F
+            horizontalScroll.animate().setDuration(10000).alpha(0.5F)
         }
 
     }
