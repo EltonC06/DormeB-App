@@ -52,6 +52,15 @@
                 app:srcCompat="@drawable/ventilador_play" />
 
             <ImageButton
+                android:id="@+id/btnClimatizador"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                android:contentDescription="climatizador"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/climatizador_play"/>
+
+            <ImageButton
                 android:id="@+id/btnGuarda"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
@@ -67,7 +76,35 @@
                 android:background="@null"
                 android:contentDescription="cidade"
                 android:scaleType="centerInside"
-                app:srcCompat="@drawable/cidade_play" />
+                app:srcCompat="@drawable/cidade_play"/>
+
+            <ImageButton
+                android:id="@+id/btnFloresta"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                android:contentDescription="floresta"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/floresta_play"/>
+
+            <ImageButton
+                android:id="@+id/btnPraia"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                android:contentDescription="praia"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/praia_play"/>
+
+            <ImageButton
+                android:id="@+id/btnFogueira"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                android:contentDescription="fogueira"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/fogueira_play"/>
+
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -115,6 +152,15 @@
                 app:srcCompat="@drawable/ventilador_play" />
 
             <ImageButton
+                android:id="@+id/btnClimatizador2"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                android:contentDescription="climatizador"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/climatizador_play"/>
+
+            <ImageButton
                 android:id="@+id/btnGuarda2"
                 android:layout_width="170dp"
                 android:layout_height="170dp"
@@ -131,6 +177,33 @@
                 android:contentDescription="cidade"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/cidade_play" />
+
+            <ImageButton
+                android:id="@+id/btnFloresta2"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                android:contentDescription="floresta"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/floresta_play"/>
+
+            <ImageButton
+                android:id="@+id/btnPraia2"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                android:contentDescription="praia"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/praia_play"/>
+
+            <ImageButton
+                android:id="@+id/btnFogueira2"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                android:contentDescription="fogueira"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/fogueira_play"/>
 
         </LinearLayout>
     </HorizontalScrollView>

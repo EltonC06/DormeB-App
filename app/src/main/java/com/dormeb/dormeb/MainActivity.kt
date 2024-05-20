@@ -31,12 +31,20 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnVentilador: ImageButton
     private lateinit var btnGuarda: ImageButton
     private lateinit var btnCidade: ImageButton
+    private lateinit var btnClimatizador: ImageButton
+    private lateinit var btnFloresta: ImageButton
+    private lateinit var btnPraia: ImageButton
+    private lateinit var btnFogueira: ImageButton
 
     private lateinit var btnChuva2: ImageButton
     private lateinit var btnTrovao2: ImageButton
     private lateinit var btnVentilador2: ImageButton
     private lateinit var btnGuarda2: ImageButton
     private lateinit var btnCidade2: ImageButton
+    private lateinit var btnClimatizador2: ImageButton
+    private lateinit var btnFloresta2: ImageButton
+    private lateinit var btnPraia2: ImageButton
+    private lateinit var btnFogueira2: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -146,6 +154,79 @@ class MainActivity : AppCompatActivity() {
                 btnCidade.tag = "paused"
             }
         }
+
+        btnClimatizador.setOnClickListener {
+            changeMusicandDescText(SoundsName.CLIMATIZADOR)
+            changeScrollsVisibility(1)
+
+            if (btnClimatizador.tag == "paused") {
+                verifyIfisPlaying()
+                firstMediaPlayer = MediaPlayer.create(this, R.raw.arcondicionado)
+                firstMediaPlayer.isLooping = true
+                firstMediaPlayer.start()
+                btnClimatizador.setImageResource(R.drawable.climatizador_pause)
+                btnClimatizador.tag = "played"
+            } else {
+                firstMediaPlayer.pause()
+                btnClimatizador.setImageResource(R.drawable.climatizador_play)
+                btnClimatizador.tag = "paused"
+            }
+        }
+
+        btnFloresta.setOnClickListener {
+            changeMusicandDescText(SoundsName.FLORESTA)
+            changeScrollsVisibility(1)
+
+            if (btnFloresta.tag == "paused") {
+                verifyIfisPlaying()
+                firstMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
+                firstMediaPlayer.isLooping = true
+                firstMediaPlayer.start()
+                btnFloresta.setImageResource(R.drawable.floresta_pause)
+                btnFloresta.tag = "played"
+            } else {
+                firstMediaPlayer.pause()
+                btnFloresta.setImageResource(R.drawable.floresta_play)
+                btnFloresta.tag = "paused"
+            }
+        }
+
+        btnPraia.setOnClickListener {
+            changeMusicandDescText(SoundsName.PRAIA)
+            changeScrollsVisibility(1)
+
+            if (btnPraia.tag == "paused") {
+                verifyIfisPlaying()
+                firstMediaPlayer = MediaPlayer.create(this, R.raw.praia)
+                firstMediaPlayer.isLooping = true
+                firstMediaPlayer.start()
+                btnPraia.setImageResource(R.drawable.praia_pause)
+                btnPraia.tag = "played"
+            } else {
+                firstMediaPlayer.pause()
+                btnPraia.setImageResource(R.drawable.praia_play)
+                btnPraia.tag = "paused"
+            }
+        }
+
+        btnFogueira.setOnClickListener {
+            changeMusicandDescText(SoundsName.FOGUEIRA)
+            changeScrollsVisibility(1)
+
+            if (btnFogueira.tag == "paused") {
+                verifyIfisPlaying()
+                firstMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
+                firstMediaPlayer.isLooping = true
+                firstMediaPlayer.start()
+                btnFogueira.setImageResource(R.drawable.fogueira_pause)
+                btnFogueira.tag = "played"
+            } else {
+                firstMediaPlayer.pause()
+                btnFogueira.setImageResource(R.drawable.fogueira_play)
+                btnFogueira.tag = "paused"
+            }
+        }
+
         // ----- segundo horizontal view
 
         btnChuva2.setOnClickListener {
@@ -229,7 +310,7 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (btnCidade2.tag == "paused") {
-                verifyIfisPlaying()
+                verifyIfisPlaying2()
                 secondMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
                 secondMediaPlayer.isLooping = true
                 secondMediaPlayer.start()
@@ -241,6 +322,82 @@ class MainActivity : AppCompatActivity() {
                 btnCidade2.tag = "paused"
             }
         }
+
+        btnClimatizador2.setOnClickListener {
+            changeMusicandDescText(SoundsName.CLIMATIZADOR)
+            changeScrollsVisibility(2)
+
+            if (btnClimatizador2.tag == "paused") {
+                verifyIfisPlaying2()
+                secondMediaPlayer = MediaPlayer.create(this, R.raw.arcondicionado)
+                secondMediaPlayer.isLooping = true
+                secondMediaPlayer.start()
+                btnClimatizador2.setImageResource(R.drawable.climatizador_pause)
+                btnClimatizador2.tag = "played"
+            } else {
+                secondMediaPlayer.pause()
+                btnClimatizador2.setImageResource(R.drawable.climatizador_play)
+                btnClimatizador2.tag = "paused"
+            }
+        }
+
+        btnFloresta2.setOnClickListener {
+            changeMusicandDescText(SoundsName.FLORESTA)
+            changeScrollsVisibility(2)
+
+            if (btnFloresta2.tag == "paused") {
+                verifyIfisPlaying2()
+                secondMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
+                secondMediaPlayer.isLooping = true
+                secondMediaPlayer.start()
+                btnFloresta2.setImageResource(R.drawable.floresta_pause)
+                btnFloresta2.tag = "played"
+            } else {
+                secondMediaPlayer.pause()
+                btnFloresta2.setImageResource(R.drawable.floresta_play)
+                btnFloresta2.tag = "paused"
+            }
+        }
+
+        btnPraia2.setOnClickListener {
+            changeMusicandDescText(SoundsName.PRAIA)
+            changeScrollsVisibility(2)
+
+            if (btnPraia2.tag == "paused") {
+                verifyIfisPlaying2()
+                secondMediaPlayer = MediaPlayer.create(this, R.raw.praia)
+                secondMediaPlayer.isLooping = true
+                secondMediaPlayer.start()
+                btnPraia2.setImageResource(R.drawable.praia_pause)
+                btnPraia2.tag = "played"
+            } else {
+                secondMediaPlayer.pause()
+                btnPraia2.setImageResource(R.drawable.praia_play)
+                btnPraia2.tag = "paused"
+            }
+        }
+
+        btnFogueira2.setOnClickListener {
+            changeMusicandDescText(SoundsName.FOGUEIRA)
+            changeScrollsVisibility(2)
+
+            if (btnFogueira2.tag == "paused") {
+                verifyIfisPlaying2()
+                secondMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
+                secondMediaPlayer.isLooping = true
+                secondMediaPlayer.start()
+                btnFogueira2.setImageResource(R.drawable.fogueira_pause)
+                btnFogueira2.tag = "played"
+            } else {
+                secondMediaPlayer.pause()
+                btnFogueira2.setImageResource(R.drawable.fogueira_play)
+                btnFogueira2.tag = "paused"
+            }
+        }
+
+
+
+
 
         // ------------------ animation of list of sounds part
         // preciso deixar todas essas variaveis de transparencia em um so lugar
@@ -381,6 +538,18 @@ class MainActivity : AppCompatActivity() {
         btnCidade = findViewById(R.id.btnCidade)
         btnCidade.tag = "paused"
 
+        btnClimatizador = findViewById(R.id.btnClimatizador)
+        btnClimatizador.tag = "paused"
+
+        btnFloresta = findViewById(R.id.btnFloresta)
+        btnFloresta.tag = "paused"
+
+        btnPraia = findViewById(R.id.btnPraia)
+        btnPraia.tag = "paused"
+
+        btnFogueira = findViewById(R.id.btnFogueira)
+        btnFogueira.tag = "paused"
+
         // -----
 
         optionSecond = findViewById(R.id.opcao2)
@@ -404,11 +573,23 @@ class MainActivity : AppCompatActivity() {
         btnCidade2 = findViewById(R.id.btnCidade2)
         btnCidade2.tag = "paused"
 
+        btnClimatizador2 = findViewById(R.id.btnClimatizador2)
+        btnClimatizador2.tag = "paused"
+
+        btnFloresta2 = findViewById(R.id.btnFloresta2)
+        btnFloresta2.tag = "paused"
+
+        btnPraia2 = findViewById(R.id.btnPraia2)
+        btnPraia2.tag = "paused"
+
+        btnFogueira2 = findViewById(R.id.btnFogueira2)
+        btnFogueira2.tag = "paused"
+
 
     }
 
     private fun verifyIfisPlaying(){
-        val simpleArray = arrayOf(btnChuva, btnTrovao, btnVentilador, btnGuarda)
+        val simpleArray = arrayOf(btnChuva, btnTrovao, btnVentilador, btnGuarda, btnCidade, btnClimatizador, btnFloresta, btnPraia, btnFogueira)
         // aq eu posso verificar se alguma ta tocando e pausar (vou botar dentro das funções de play)
         for (audioBtn in simpleArray){
             if (audioBtn.tag == "played"){
@@ -420,7 +601,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun verifyIfisPlaying2(){ // ter isso 2 vezes vai permitir tocar 2 audios ao msm tempo
-        val simpleArray = arrayOf(btnChuva2, btnTrovao2, btnVentilador2, btnGuarda2)
+        val simpleArray = arrayOf(btnChuva2, btnTrovao2, btnVentilador2, btnGuarda2, btnCidade2, btnClimatizador2, btnFloresta2, btnPraia2, btnFogueira2)
         // aq eu posso verificar se alguma ta tocando e pausar (vou botar dentro das funções de play)
         for (audioBtn in simpleArray){
             if (audioBtn.tag == "played"){
@@ -445,6 +626,25 @@ class MainActivity : AppCompatActivity() {
         else if (imagem.contentDescription.toString() == "guarda"){
             imagem.setImageResource(R.drawable.guarda_play)
         }
-    }
 
+        else if (imagem.contentDescription.toString() == "cidade"){
+            imagem.setImageResource(R.drawable.cidade_play)
+        }
+
+        else if (imagem.contentDescription.toString() == "climatizador"){
+            imagem.setImageResource(R.drawable.climatizador_play)
+        }
+
+        else if (imagem.contentDescription.toString() == "floresta"){
+            imagem.setImageResource(R.drawable.floresta_play)
+        }
+
+        else if (imagem.contentDescription.toString() == "fogueira"){
+            imagem.setImageResource(R.drawable.fogueira_play)
+        }
+
+        else if (imagem.contentDescription.toString() == "praia"){
+            imagem.setImageResource(R.drawable.praia_play)
+        }
+    }
 }
