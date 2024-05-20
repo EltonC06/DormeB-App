@@ -59,6 +59,15 @@
                 android:contentDescription="guarda"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/guarda_play" />
+
+            <ImageButton
+                android:id="@+id/btnCidade"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                android:contentDescription="cidade"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/cidade_play" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -113,6 +122,15 @@
                 android:contentDescription="guarda"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/guarda_play" />
+
+            <ImageButton
+                android:id="@+id/btnCidade2"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:background="@null"
+                android:contentDescription="cidade"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/cidade_play" />
 
         </LinearLayout>
     </HorizontalScrollView>

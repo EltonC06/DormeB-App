@@ -30,11 +30,13 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnTrovao: ImageButton
     private lateinit var btnVentilador: ImageButton
     private lateinit var btnGuarda: ImageButton
+    private lateinit var btnCidade: ImageButton
 
     private lateinit var btnChuva2: ImageButton
     private lateinit var btnTrovao2: ImageButton
     private lateinit var btnVentilador2: ImageButton
     private lateinit var btnGuarda2: ImageButton
+    private lateinit var btnCidade2: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,7 +97,7 @@ class MainActivity : AppCompatActivity() {
 
             if (btnVentilador.tag == "paused") {
                 verifyIfisPlaying()
-                firstMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
+                firstMediaPlayer = MediaPlayer.create(this, R.raw.som_ventilador)
                 firstMediaPlayer.isLooping = true
                 firstMediaPlayer.start()
                 btnVentilador.setImageResource(R.drawable.ventilador_pause)
@@ -127,6 +129,23 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        btnCidade.setOnClickListener { // ao inves dessa complexidade, eu posso fazer uma fun (nome do som) e associar os dois botões a uma so função
+            changeMusicandDescText(SoundsName.RUA)
+            changeScrollsVisibility(1)
+
+            if (btnCidade.tag == "paused") {
+                verifyIfisPlaying()
+                firstMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
+                firstMediaPlayer.isLooping = true
+                firstMediaPlayer.start()
+                btnCidade.setImageResource(R.drawable.cidade_pause)
+                btnCidade.tag = "played"
+            } else {
+                firstMediaPlayer.pause()
+                btnCidade.setImageResource(R.drawable.cidade_play)
+                btnCidade.tag = "paused"
+            }
+        }
         // ----- segundo horizontal view
 
         btnChuva2.setOnClickListener {
@@ -173,7 +192,7 @@ class MainActivity : AppCompatActivity() {
 
             if (btnVentilador2.tag == "paused") {
                 verifyIfisPlaying2()
-                secondMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
+                secondMediaPlayer = MediaPlayer.create(this, R.raw.som_ventilador)
                 secondMediaPlayer.isLooping = true
                 secondMediaPlayer.start()
                 btnVentilador2.setImageResource(R.drawable.ventilador_pause)
@@ -202,6 +221,24 @@ class MainActivity : AppCompatActivity() {
                 secondMediaPlayer.pause()
                 btnGuarda2.setImageResource(R.drawable.guarda_play)
                 btnGuarda2.tag = "paused"
+            }
+        }
+
+        btnCidade2.setOnClickListener { // ao inves dessa complexidade, eu posso fazer uma fun (nome do som) e associar os dois botões a uma so função (if está na segunda horizontal, usar second mediaplayer)
+            changeMusicandDescText(SoundsName.RUA)
+            changeScrollsVisibility(2)
+
+            if (btnCidade2.tag == "paused") {
+                verifyIfisPlaying()
+                secondMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
+                secondMediaPlayer.isLooping = true
+                secondMediaPlayer.start()
+                btnCidade2.setImageResource(R.drawable.cidade_pause)
+                btnCidade2.tag = "played"
+            } else {
+                secondMediaPlayer.pause()
+                btnCidade2.setImageResource(R.drawable.cidade_play)
+                btnCidade2.tag = "paused"
             }
         }
 
@@ -289,6 +326,16 @@ class MainActivity : AppCompatActivity() {
             textMusic.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
             textDesc.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
         }
+        else if (enum == SoundsName.RUA) {
+            textMusic.alpha = AlphaValues.fullVisibility
+            textDesc.alpha = AlphaValues.fullVisibility
+
+            textMusic.text = getString(R.string.som_rua)
+            textDesc.text = getString(R.string.desc_rua)
+
+            textMusic.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
+            textDesc.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
+        }
     }
 
     private fun initialAnimation() {
@@ -331,7 +378,11 @@ class MainActivity : AppCompatActivity() {
         btnGuarda = findViewById(R.id.btnGuarda)
         btnGuarda.tag = "paused"
 
+        btnCidade = findViewById(R.id.btnCidade)
+        btnCidade.tag = "paused"
+
         // -----
+
         optionSecond = findViewById(R.id.opcao2)
         optionSecond.alpha = AlphaValues.initialTransparency
 
@@ -349,6 +400,9 @@ class MainActivity : AppCompatActivity() {
 
         btnGuarda2 = findViewById(R.id.btnGuarda2)
         btnGuarda2.tag = "paused"
+
+        btnCidade2 = findViewById(R.id.btnCidade2)
+        btnCidade2.tag = "paused"
 
 
     }

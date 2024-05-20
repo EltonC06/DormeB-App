@@ -4,5 +4,6 @@ enum class SoundsName {
     CHUVA,
     TROVAO,
     VENTILADOR,
-    GUARDA
+    GUARDA,
+    RUA
 }

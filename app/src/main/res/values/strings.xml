@@ -10,4 +10,6 @@
     <string name="desc_guarda">Nem tanto desconhecida, essa é a melodia favorita dos que dormem tranquilo somente quando se sentem seguros</string>
     <string name="First_message">Selecione um áudio para dormir</string>
     <string name="first_message_desc">Usando as 2 listas de audios, você pode mixar 2 tipos de áudios diferentes</string>
+    <string name="som_rua">Som ambiente de rua</string>
+    <string name="desc_rua">O relaxante som ambiente de rua \"pouco\" movimentada dispensa explicações, é simplesmente relaxante</string>
 </resources>
