@@ -18,93 +18,126 @@
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/guideline6">
 
-
-        <LinearLayout
+        <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:stretchColumns="0,1">
 
-            <ImageButton
-                android:id="@+id/btnChuva"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@null"
-                android:contentDescription="chuva"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/chuva_play" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/btnTrovao"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@null"
-                android:contentDescription="trovao"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/trovao_play" />
+                <ImageButton
+                    android:id="@+id/btnTrovao"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="TROVAO"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/trovao" />
 
-            <ImageButton
-                android:id="@+id/btnVentilador"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@null"
-                android:contentDescription="ventilador"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/ventilador_play" />
+                <ImageButton
+                    android:id="@+id/btnVentilador"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="VENTILADOR"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ventilador" />
 
-            <ImageButton
-                android:id="@+id/btnClimatizador"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@null"
-                android:contentDescription="climatizador"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/climatizador_play" />
+                <ImageButton
+                    android:id="@+id/btnGuarda"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="GUARDA"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/guarda" />
 
-            <ImageButton
-                android:id="@+id/btnGuarda"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@null"
-                android:contentDescription="guarda"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/guarda_play" />
+            </TableRow>
 
-            <ImageButton
-                android:id="@+id/btnCidade"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@null"
-                android:contentDescription="cidade"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/cidade_play" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
 
-            <ImageButton
-                android:id="@+id/btnFloresta"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@null"
-                android:contentDescription="floresta"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/floresta_play" />
+                <ImageButton
+                    android:id="@+id/btnCidade"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="CIDADE"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/cidade" />
 
-            <ImageButton
-                android:id="@+id/btnPraia"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@null"
-                android:contentDescription="praia"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/praia_play" />
+                <ImageButton
+                    android:id="@+id/btnPraia"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="PRAIA"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/praia" />
 
-            <ImageButton
-                android:id="@+id/btnFogueira"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:background="@null"
-                android:contentDescription="fogueira"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/fogueira_play" />
-        </LinearLayout>
+                <ImageButton
+                    android:id="@+id/btnFloresta"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="FLORESTA"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/floresta" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageButton
+                    android:id="@+id/btnFogueira"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="FOGUEIRA"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/fogueira" />
+
+                <ImageButton
+                    android:id="@+id/btnClimatizador"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="CLIMATIZADOR"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/arcondicionado" />
+
+                <ImageButton
+                    android:id="@+id/btnChuva"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="CHUVA"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/chuva" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+            </TableRow>
+
+
+        </TableLayout>
     </ScrollView>
 
 
@@ -113,14 +146,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.05" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.95" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"

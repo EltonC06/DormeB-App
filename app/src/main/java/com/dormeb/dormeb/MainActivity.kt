@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dormeb.dormeb.enums.SoundsName
 import com.dormeb.dormeb.values.AlphaValues
+import kotlin.math.E
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,14 +51,14 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.CHUVA)
             changeScrollsVisibility(1)
 
-            if (btnChuva.tag == "paused") { // se estiver pausado:
+            if (btnChuva.tag == "not_pressed") { // se estiver pausado:
 
-                btnChuva.setImageResource(R.drawable.chuva_pause)
-                btnChuva.tag = "played"
+                btnChuva.setImageResource(R.drawable.chuva_pressed)
+                btnChuva.tag = "pressed"
             } else {  // se estiver tocando, e clicar vai dá o comando mp3.pause
 
-                btnChuva.setImageResource(R.drawable.chuva_play)
-                btnChuva.tag = "paused"
+                btnChuva.setImageResource(R.drawable.chuva)
+                btnChuva.tag = "not_pressed"
             }
         }
         // o codigo executa normal, mas quando é pra pausar ele não pausa o audio atual pois o mp3 é um recurso global aí se eu pedir pra pausar fora da ordem reversa, ele buga o sistema e nunca da pra pausar um elemento
@@ -65,14 +66,14 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.TROVAO)
             changeScrollsVisibility(1)
 
-            if (btnTrovao.tag == "paused") {
+            if (btnTrovao.tag == "not_pressed") {
 
-                btnTrovao.setImageResource(R.drawable.trovao_pause)
-                btnTrovao.tag = "played"
+                btnTrovao.setImageResource(R.drawable.trovao_pressed)
+                btnTrovao.tag = "pressed"
             } else {
 
-                btnTrovao.setImageResource(R.drawable.trovao_play)
-                btnTrovao.tag = "paused"
+                btnTrovao.setImageResource(R.drawable.trovao)
+                btnTrovao.tag = "not_pressed"
             }
 
         }
@@ -81,14 +82,14 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.VENTILADOR)
             changeScrollsVisibility(1)
 
-            if (btnVentilador.tag == "paused") {
+            if (btnVentilador.tag == "not_pressed") {
 
-                btnVentilador.setImageResource(R.drawable.ventilador_pause)
-                btnVentilador.tag = "played"
+                btnVentilador.setImageResource(R.drawable.ventilador_pressed)
+                btnVentilador.tag = "pressed"
             } else {
 
-                btnVentilador.setImageResource(R.drawable.ventilador_play)
-                btnVentilador.tag = "paused"
+                btnVentilador.setImageResource(R.drawable.ventilador)
+                btnVentilador.tag = "not_pressed"
             }
         }
 
@@ -96,29 +97,29 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.GUARDA)
             changeScrollsVisibility(1)
 
-            if (btnGuarda.tag == "paused") {
+            if (btnGuarda.tag == "not_pressed") {
 
-                btnGuarda.setImageResource(R.drawable.guarda_pause)
-                btnGuarda.tag = "played"
+                btnGuarda.setImageResource(R.drawable.guarda_pressed)
+                btnGuarda.tag = "pressed"
             } else {
 
-                btnGuarda.setImageResource(R.drawable.guarda_play)
-                btnGuarda.tag = "paused"
+                btnGuarda.setImageResource(R.drawable.guarda)
+                btnGuarda.tag = "not_pressed"
             }
         }
 
         btnCidade.setOnClickListener { // ao inves dessa complexidade, eu posso fazer uma fun (nome do som) e associar os dois botões a uma so função
-            changeMusicandDescText(SoundsName.RUA)
+            changeMusicandDescText(SoundsName.CIDADE)
             changeScrollsVisibility(1)
 
-            if (btnCidade.tag == "paused") {
+            if (btnCidade.tag == "not_pressed") {
 
-                btnCidade.setImageResource(R.drawable.cidade_pause)
-                btnCidade.tag = "played"
+                btnCidade.setImageResource(R.drawable.cidade_pressed)
+                btnCidade.tag = "pressed"
             } else {
 
-                btnCidade.setImageResource(R.drawable.cidade_play)
-                btnCidade.tag = "paused"
+                btnCidade.setImageResource(R.drawable.cidade)
+                btnCidade.tag = "not_pressed"
             }
         }
 
@@ -126,14 +127,14 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.CLIMATIZADOR)
             changeScrollsVisibility(1)
 
-            if (btnClimatizador.tag == "paused") {
+            if (btnClimatizador.tag == "not_pressed") {
 
-                btnClimatizador.setImageResource(R.drawable.climatizador_pause)
-                btnClimatizador.tag = "played"
+                btnClimatizador.setImageResource(R.drawable.arcondicionado_pressed)
+                btnClimatizador.tag = "pressed"
             } else {
 
-                btnClimatizador.setImageResource(R.drawable.climatizador_play)
-                btnClimatizador.tag = "paused"
+                btnClimatizador.setImageResource(R.drawable.arcondicionado)
+                btnClimatizador.tag = "not_pressed"
             }
         }
 
@@ -141,14 +142,14 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.FLORESTA)
             changeScrollsVisibility(1)
 
-            if (btnFloresta.tag == "paused") {
+            if (btnFloresta.tag == "not_pressed") {
 
-                btnFloresta.setImageResource(R.drawable.floresta_pause)
-                btnFloresta.tag = "played"
+                btnFloresta.setImageResource(R.drawable.floresta_pressed)
+                btnFloresta.tag = "pressed"
             } else {
 
-                btnFloresta.setImageResource(R.drawable.floresta_play)
-                btnFloresta.tag = "paused"
+                btnFloresta.setImageResource(R.drawable.floresta)
+                btnFloresta.tag = "not_pressed"
             }
         }
 
@@ -156,14 +157,14 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.PRAIA)
             changeScrollsVisibility(1)
 
-            if (btnPraia.tag == "paused") {
+            if (btnPraia.tag == "not_pressed") {
 
-                btnPraia.setImageResource(R.drawable.praia_pause)
-                btnPraia.tag = "played"
+                btnPraia.setImageResource(R.drawable.praia_pressed)
+                btnPraia.tag = "pressed" // i need to put these variables in a separated class
             } else {
 
-                btnPraia.setImageResource(R.drawable.praia_play)
-                btnPraia.tag = "paused"
+                btnPraia.setImageResource(R.drawable.praia)
+                btnPraia.tag = "not_pressed"
             }
         }
 
@@ -171,19 +172,22 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.FOGUEIRA)
             changeScrollsVisibility(1)
 
-            if (btnFogueira.tag == "paused") {
+            if (btnFogueira.tag == "not_pressed") {
 
-                btnFogueira.setImageResource(R.drawable.fogueira_pause)
-                btnFogueira.tag = "played"
+                btnFogueira.setImageResource(R.drawable.fogueira_pressed)
+                btnFogueira.tag = "pressed"
             } else {
 
-                btnFogueira.setImageResource(R.drawable.fogueira_play)
-                btnFogueira.tag = "paused"
+                btnFogueira.setImageResource(R.drawable.fogueira)
+                btnFogueira.tag = "not_pressed"
             }
         }
 
+        // migrating all data to another class VVV
+
         btnPlay.setOnClickListener {
-            startActivity(Intent(this, SecondActivity::class.java))
+            // todo passar os audios escolhidos pelo usuario para outra tela
+            startActivity(intent)
         }
 
 
@@ -247,7 +251,7 @@ class MainActivity : AppCompatActivity() {
 
             textMusic.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
             textDesc.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
-        } else if (enum == SoundsName.RUA) {
+        } else if (enum == SoundsName.CIDADE) {
             textMusic.alpha = AlphaValues.fullVisibility
             textDesc.alpha = AlphaValues.fullVisibility
 
@@ -283,31 +287,31 @@ class MainActivity : AppCompatActivity() {
         verticalScroll = findViewById(R.id.verticalScroll)
 
         btnChuva = findViewById(R.id.btnChuva)
-        btnChuva.tag = "paused"
+        btnChuva.tag = "not_pressed"
 
         btnTrovao = findViewById(R.id.btnTrovao)
-        btnTrovao.tag = "paused"
+        btnTrovao.tag = "not_pressed"
 
         btnVentilador = findViewById(R.id.btnVentilador)
-        btnVentilador.tag = "paused"
+        btnVentilador.tag = "not_pressed"
 
         btnGuarda = findViewById(R.id.btnGuarda)
-        btnGuarda.tag = "paused"
+        btnGuarda.tag = "not_pressed"
 
         btnCidade = findViewById(R.id.btnCidade)
-        btnCidade.tag = "paused"
+        btnCidade.tag = "not_pressed"
 
         btnClimatizador = findViewById(R.id.btnClimatizador)
-        btnClimatizador.tag = "paused"
+        btnClimatizador.tag = "not_pressed"
 
         btnFloresta = findViewById(R.id.btnFloresta)
-        btnFloresta.tag = "paused"
+        btnFloresta.tag = "not_pressed"
 
         btnPraia = findViewById(R.id.btnPraia)
-        btnPraia.tag = "paused"
+        btnPraia.tag = "not_pressed"
 
         btnFogueira = findViewById(R.id.btnFogueira)
-        btnFogueira.tag = "paused"
+        btnFogueira.tag = "not_pressed"
 
         // -----
     }
@@ -327,23 +331,23 @@ class MainActivity : AppCompatActivity() {
     private fun changeIcon(imagem: ImageButton) { // salvei todos os id de imagem em uma classe
         println(imagem.contentDescription.toString())
         if (imagem.contentDescription.toString() == "chuva") {
-            imagem.setImageResource(R.drawable.chuva_play)
+            imagem.setImageResource(R.drawable.chuva_pressed)
         } else if (imagem.contentDescription.toString() == "trovao") {
-            imagem.setImageResource(R.drawable.trovao_play)
+            imagem.setImageResource(R.drawable.trovao_pressed)
         } else if (imagem.contentDescription.toString() == "ventilador") {
-            imagem.setImageResource(R.drawable.ventilador_play)
+            imagem.setImageResource(R.drawable.ventilador_pressed)
         } else if (imagem.contentDescription.toString() == "guarda") {
-            imagem.setImageResource(R.drawable.guarda_play)
+            imagem.setImageResource(R.drawable.guarda_pressed)
         } else if (imagem.contentDescription.toString() == "cidade") {
-            imagem.setImageResource(R.drawable.cidade_play)
+            imagem.setImageResource(R.drawable.cidade_pressed)
         } else if (imagem.contentDescription.toString() == "climatizador") {
-            imagem.setImageResource(R.drawable.climatizador_play)
+            imagem.setImageResource(R.drawable.arcondicionado_pressed)
         } else if (imagem.contentDescription.toString() == "floresta") {
-            imagem.setImageResource(R.drawable.floresta_play)
+            imagem.setImageResource(R.drawable.floresta_pressed)
         } else if (imagem.contentDescription.toString() == "fogueira") {
-            imagem.setImageResource(R.drawable.fogueira_play)
+            imagem.setImageResource(R.drawable.fogueira_pressed)
         } else if (imagem.contentDescription.toString() == "praia") {
-            imagem.setImageResource(R.drawable.praia_play)
+            imagem.setImageResource(R.drawable.praia_pressed)
         }
     }
 }

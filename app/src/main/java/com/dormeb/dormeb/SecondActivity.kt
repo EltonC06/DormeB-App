@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dormeb.dormeb.R
+import com.dormeb.dormeb.enums.SoundsName
 
 class SecondActivity : AppCompatActivity() {
 
@@ -25,9 +26,7 @@ class SecondActivity : AppCompatActivity() {
         initInterfaceComponents()
 
 
-
-
-        btnPause.setOnClickListener(){
+        btnPause.setOnClickListener{
             finish()
         }
 

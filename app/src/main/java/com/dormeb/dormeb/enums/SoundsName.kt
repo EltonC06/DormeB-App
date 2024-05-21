@@ -5,7 +5,7 @@ enum class SoundsName {
     TROVAO,
     VENTILADOR,
     GUARDA,
-    RUA,
+    CIDADE,
     CLIMATIZADOR,
     FLORESTA,
     PRAIA,
