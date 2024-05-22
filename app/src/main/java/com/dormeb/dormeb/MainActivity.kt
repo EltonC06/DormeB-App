@@ -46,34 +46,46 @@ class MainActivity : AppCompatActivity() {
 
         iniciarComponentesInterface()
         initialAnimation()
+        val audiosArray = arrayOf(btnChuva, btnTrovao, btnVentilador, btnClimatizador, btnCidade, btnFloresta, btnFogueira, btnPraia)
+
+        var selectCount = 0
 
         btnChuva.setOnClickListener {
             changeMusicandDescText(SoundsName.CHUVA)
             changeScrollsVisibility(1)
 
-            if (btnChuva.tag == "not_pressed") { // se estiver pausado:
+            if (selectCount < 3) { // isso vai limitar escolher muito auido
+                if (btnChuva.tag == "not_pressed") { // se estiver pausado:
 
-                btnChuva.setImageResource(R.drawable.chuva_pressed)
-                btnChuva.tag = "pressed"
-            } else {  // se estiver tocando, e clicar vai dá o comando mp3.pause
+                    btnChuva.setImageResource(R.drawable.chuva_pressed)
+                    btnChuva.tag = "pressed"
+                    selectCount += 1
+                } else {  // se estiver tocando, e clicar vai dá o comando mp3.pause
 
-                btnChuva.setImageResource(R.drawable.chuva)
-                btnChuva.tag = "not_pressed"
+                    btnChuva.setImageResource(R.drawable.chuva)
+                    btnChuva.tag = "not_pressed"
+                    selectCount -= 1
+                }
             }
+
         }
         // o codigo executa normal, mas quando é pra pausar ele não pausa o audio atual pois o mp3 é um recurso global aí se eu pedir pra pausar fora da ordem reversa, ele buga o sistema e nunca da pra pausar um elemento
         btnTrovao.setOnClickListener { // posso criar uma variavel mp3 para cada audio
             changeMusicandDescText(SoundsName.TROVAO)
             changeScrollsVisibility(1)
 
-            if (btnTrovao.tag == "not_pressed") {
+            if (selectCount < 3) {
+                if (btnTrovao.tag == "not_pressed") {
 
-                btnTrovao.setImageResource(R.drawable.trovao_pressed)
-                btnTrovao.tag = "pressed"
-            } else {
+                    btnTrovao.setImageResource(R.drawable.trovao_pressed)
+                    btnTrovao.tag = "pressed"
+                    selectCount += 1
+                } else {
 
-                btnTrovao.setImageResource(R.drawable.trovao)
-                btnTrovao.tag = "not_pressed"
+                    btnTrovao.setImageResource(R.drawable.trovao)
+                    btnTrovao.tag = "not_pressed"
+                    selectCount -= 1
+                }
             }
 
         }
@@ -82,14 +94,18 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.VENTILADOR)
             changeScrollsVisibility(1)
 
-            if (btnVentilador.tag == "not_pressed") {
+            if (selectCount < 3) {
+                if (btnVentilador.tag == "not_pressed") {
 
-                btnVentilador.setImageResource(R.drawable.ventilador_pressed)
-                btnVentilador.tag = "pressed"
-            } else {
+                    btnVentilador.setImageResource(R.drawable.ventilador_pressed)
+                    btnVentilador.tag = "pressed"
+                    selectCount += 1
+                } else {
 
-                btnVentilador.setImageResource(R.drawable.ventilador)
-                btnVentilador.tag = "not_pressed"
+                    btnVentilador.setImageResource(R.drawable.ventilador)
+                    btnVentilador.tag = "not_pressed"
+                    selectCount -= 1
+                }
             }
         }
 
@@ -97,14 +113,18 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.GUARDA)
             changeScrollsVisibility(1)
 
-            if (btnGuarda.tag == "not_pressed") {
+            if (selectCount < 3) {
+                if (btnGuarda.tag == "not_pressed") {
 
-                btnGuarda.setImageResource(R.drawable.guarda_pressed)
-                btnGuarda.tag = "pressed"
-            } else {
+                    btnGuarda.setImageResource(R.drawable.guarda_pressed)
+                    btnGuarda.tag = "pressed"
+                    selectCount += 1
+                } else {
 
-                btnGuarda.setImageResource(R.drawable.guarda)
-                btnGuarda.tag = "not_pressed"
+                    btnGuarda.setImageResource(R.drawable.guarda)
+                    btnGuarda.tag = "not_pressed"
+                    selectCount -= 1
+                }
             }
         }
 
@@ -112,14 +132,18 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.CIDADE)
             changeScrollsVisibility(1)
 
-            if (btnCidade.tag == "not_pressed") {
+            if (selectCount < 3) {
+                if (btnCidade.tag == "not_pressed") {
 
-                btnCidade.setImageResource(R.drawable.cidade_pressed)
-                btnCidade.tag = "pressed"
-            } else {
+                    btnCidade.setImageResource(R.drawable.cidade_pressed)
+                    btnCidade.tag = "pressed"
+                    selectCount += 1
+                } else {
 
-                btnCidade.setImageResource(R.drawable.cidade)
-                btnCidade.tag = "not_pressed"
+                    btnCidade.setImageResource(R.drawable.cidade)
+                    btnCidade.tag = "not_pressed"
+                    selectCount -= 1
+                }
             }
         }
 
@@ -127,14 +151,18 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.CLIMATIZADOR)
             changeScrollsVisibility(1)
 
-            if (btnClimatizador.tag == "not_pressed") {
+            if (selectCount < 3) {
+                if (btnClimatizador.tag == "not_pressed") {
 
-                btnClimatizador.setImageResource(R.drawable.arcondicionado_pressed)
-                btnClimatizador.tag = "pressed"
-            } else {
+                    btnClimatizador.setImageResource(R.drawable.arcondicionado_pressed)
+                    btnClimatizador.tag = "pressed"
+                    selectCount += 1
+                } else {
 
-                btnClimatizador.setImageResource(R.drawable.arcondicionado)
-                btnClimatizador.tag = "not_pressed"
+                    btnClimatizador.setImageResource(R.drawable.arcondicionado)
+                    btnClimatizador.tag = "not_pressed"
+                    selectCount -= 1
+                }
             }
         }
 
@@ -142,14 +170,18 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.FLORESTA)
             changeScrollsVisibility(1)
 
-            if (btnFloresta.tag == "not_pressed") {
+            if (selectCount < 3) {
+                if (btnFloresta.tag == "not_pressed") {
 
-                btnFloresta.setImageResource(R.drawable.floresta_pressed)
-                btnFloresta.tag = "pressed"
-            } else {
+                    btnFloresta.setImageResource(R.drawable.floresta_pressed)
+                    btnFloresta.tag = "pressed"
+                    selectCount += 1
+                } else {
 
-                btnFloresta.setImageResource(R.drawable.floresta)
-                btnFloresta.tag = "not_pressed"
+                    btnFloresta.setImageResource(R.drawable.floresta)
+                    btnFloresta.tag = "not_pressed"
+                    selectCount -= 1
+                }
             }
         }
 
@@ -157,14 +189,18 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.PRAIA)
             changeScrollsVisibility(1)
 
-            if (btnPraia.tag == "not_pressed") {
+            if (selectCount < 3) {
+                if (btnPraia.tag == "not_pressed") {
 
-                btnPraia.setImageResource(R.drawable.praia_pressed)
-                btnPraia.tag = "pressed" // i need to put these variables in a separated class
-            } else {
+                    btnPraia.setImageResource(R.drawable.praia_pressed)
+                    btnPraia.tag = "pressed" // i need to put these variables in a separated class
+                    selectCount += 1
+                } else {
 
-                btnPraia.setImageResource(R.drawable.praia)
-                btnPraia.tag = "not_pressed"
+                    btnPraia.setImageResource(R.drawable.praia)
+                    btnPraia.tag = "not_pressed"
+                    selectCount -= 1
+                }
             }
         }
 
@@ -172,21 +208,37 @@ class MainActivity : AppCompatActivity() {
             changeMusicandDescText(SoundsName.FOGUEIRA)
             changeScrollsVisibility(1)
 
-            if (btnFogueira.tag == "not_pressed") {
+            if (selectCount < 3) {
+                if (btnFogueira.tag == "not_pressed") {
 
-                btnFogueira.setImageResource(R.drawable.fogueira_pressed)
-                btnFogueira.tag = "pressed"
-            } else {
+                    btnFogueira.setImageResource(R.drawable.fogueira_pressed)
+                    btnFogueira.tag = "pressed"
+                    selectCount += 1
+                } else {
 
-                btnFogueira.setImageResource(R.drawable.fogueira)
-                btnFogueira.tag = "not_pressed"
+                    btnFogueira.setImageResource(R.drawable.fogueira)
+                    btnFogueira.tag = "not_pressed"
+                    selectCount -= 1
+                }
             }
         }
 
         // migrating all data to another class VVV
 
         btnPlay.setOnClickListener {
-            // todo passar os audios escolhidos pelo usuario para outra tela
+            //verifyQuantity()
+
+            val audioMutable = mutableListOf<String>()
+            for (audio in audiosArray) {
+                if (audio.tag == "pressed") {
+                    audioMutable.add(audio.contentDescription.toString()) // pegando a descrição do audio
+                }
+            }
+            var transfer = AudiostoPass(audioMutable)
+
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("Sounds", transfer) // passando como string o nome dos audios
+
             startActivity(intent)
         }
 
@@ -201,6 +253,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+
 
     private fun changeScrollsVisibility(scroll: Int) {
         if (scroll == 1) {
@@ -274,6 +328,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun iniciarComponentesInterface() {
+
 
         btnPlay = findViewById(R.id.playButton)
 

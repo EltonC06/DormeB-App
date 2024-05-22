@@ -1,5 +1,7 @@
 package com.dormeb.dormeb.enums
 
+import android.os.Parcelable
+
 enum class SoundsName {
     CHUVA,
     TROVAO,
