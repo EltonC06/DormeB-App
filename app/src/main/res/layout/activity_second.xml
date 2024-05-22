@@ -62,6 +62,15 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
 
+    <SeekBar
+        android:id="@+id/volumeSeekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

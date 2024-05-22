@@ -1,19 +1,26 @@
 package com.dormeb.dormeb
 
+import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.ImageButton
+import android.widget.SeekBar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.dormeb.dormeb.R
 import com.dormeb.dormeb.enums.SoundsName
 
 class SecondActivity : AppCompatActivity() {
 
-    private var mediaPlayer = MediaPlayer()
+    private var firstMediaPlayer = MediaPlayer()
+    private var secondMediaPlayer = MediaPlayer()
+    private var thirdMediaPlayer = MediaPlayer()
+
+
     private lateinit var btnPause: ImageButton
+
+    private lateinit var volumeBar: SeekBar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,56 +37,182 @@ class SecondActivity : AppCompatActivity() {
         if (transferList != null) {
             for (audios in transferList){
                 if (audios == SoundsName.CHUVA.toString()) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.chuva)
-                    mediaPlayer.isLooping = true
-                    mediaPlayer.start()
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
+                        firstMediaPlayer.isLooping = true
+                        firstMediaPlayer.start()
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
+                        secondMediaPlayer.isLooping = true
+                        secondMediaPlayer.start()
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
+                        thirdMediaPlayer.isLooping = true
+                        thirdMediaPlayer.start()
+                    }
                 }
+
                 else if (audios == SoundsName.TROVAO.toString()) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.trovao)
-                    mediaPlayer.isLooping = true
-                    mediaPlayer.start()
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
+                        firstMediaPlayer.isLooping = true
+                        firstMediaPlayer.start()
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
+                        secondMediaPlayer.isLooping = true
+                        secondMediaPlayer.start()
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
+                        thirdMediaPlayer.isLooping = true
+                        thirdMediaPlayer.start()
+                    }
+
+
                 }
                 else if (audios == SoundsName.VENTILADOR.toString()) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.ventilador)
-                    mediaPlayer.isLooping = true
-                    mediaPlayer.start()
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.ventilador)
+                        firstMediaPlayer.isLooping = true
+                        firstMediaPlayer.start()
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.ventilador)
+                        secondMediaPlayer.isLooping = true
+                        secondMediaPlayer.start()
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.ventilador)
+                        thirdMediaPlayer.isLooping = true
+                        thirdMediaPlayer.start()
+                    }
                 }
                 else if (audios == SoundsName.CIDADE.toString()) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
-                    mediaPlayer.isLooping = true
-                    mediaPlayer.start()
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
+                        firstMediaPlayer.isLooping = true
+                        firstMediaPlayer.start()
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
+                        secondMediaPlayer.isLooping = true
+                        secondMediaPlayer.start()
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua)
+                        thirdMediaPlayer.isLooping = true
+                        thirdMediaPlayer.start()
+                    }
                 }
                 else if (audios == SoundsName.CLIMATIZADOR.toString()) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.arcondicionado)
-                    mediaPlayer.isLooping = true
-                    mediaPlayer.start()
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.climatizador)
+                        firstMediaPlayer.isLooping = true
+                        firstMediaPlayer.start()
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.climatizador)
+                        secondMediaPlayer.isLooping = true
+                        secondMediaPlayer.start()
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.climatizador)
+                        thirdMediaPlayer.isLooping = true
+                        thirdMediaPlayer.start()
+                    }
                 }
                 else if (audios == SoundsName.FLORESTA.toString()) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.floresta)
-                    mediaPlayer.isLooping = true
-                    mediaPlayer.start()
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
+                        firstMediaPlayer.isLooping = true
+                        firstMediaPlayer.start()
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
+                        secondMediaPlayer.isLooping = true
+                        secondMediaPlayer.start()
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
+                        thirdMediaPlayer.isLooping = true
+                        thirdMediaPlayer.start()
+                    }
                 }
                 else if (audios == SoundsName.FOGUEIRA.toString()) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
-                    mediaPlayer.isLooping = true
-                    mediaPlayer.start()
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
+                        firstMediaPlayer.isLooping = true
+                        firstMediaPlayer.start()
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
+                        secondMediaPlayer.isLooping = true
+                        secondMediaPlayer.start()
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
+                        thirdMediaPlayer.isLooping = true
+                        thirdMediaPlayer.start()
+                    }
                 }
                 else if (audios == SoundsName.PRAIA.toString()) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.praia)
-                    mediaPlayer.isLooping = true
-                    mediaPlayer.start()
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.praia)
+                        firstMediaPlayer.isLooping = true
+                        firstMediaPlayer.start()
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.praia)
+                        secondMediaPlayer.isLooping = true
+                        secondMediaPlayer.start()
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.praia)
+                        thirdMediaPlayer.isLooping = true
+                        thirdMediaPlayer.start()
+                    }
                 }
                 else if (audios == SoundsName.GUARDA.toString()) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua_guarda)
-                    mediaPlayer.isLooping = true
-                    mediaPlayer.start()
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua_guarda)
+                        firstMediaPlayer.isLooping = true
+                        firstMediaPlayer.start()
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua_guarda)
+                        secondMediaPlayer.isLooping = true
+                        secondMediaPlayer.start()
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.ambiente_rua_guarda)
+                        thirdMediaPlayer.isLooping = true
+                        thirdMediaPlayer.start()
+                    }
                 }
 
             }
         }
 
+        volumeBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) { // seekbar.progress return a percent value (so i just need to divide /2 to adptate to mediaplayer)
+                var volume = seekBar!!.progress.toFloat() / 2
+
+                println("onProgressChanged: " + seekBar.progress.toFloat())
+                // firstMediaPlayer.setVolume(volume, volume)
+
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+
+            }
+
+
+        })
+
         btnPause.setOnClickListener{
-            mediaPlayer.stop()
+
+            firstMediaPlayer.stop()
+            secondMediaPlayer.stop()
+            thirdMediaPlayer.stop()
+
             finish()
         }
 
@@ -91,6 +224,7 @@ class SecondActivity : AppCompatActivity() {
 
     private fun initInterfaceComponents() {
         btnPause = findViewById(R.id.pauseButton)
+        volumeBar = findViewById(R.id.volumeSeekBar)
     }
 
 }
