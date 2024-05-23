@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
     var selectCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // tornando a variavel global para ser usada na função
 
 
         super.onCreate(savedInstanceState)
@@ -48,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
 
 
         iniciarComponentesInterface()
@@ -231,18 +231,17 @@ class MainActivity : AppCompatActivity() {
                         audioMutable.add(audio.contentDescription.toString()) // pegando a descrição do audio
                     }
                 }
-                var transfer = AudiostoPass(audioMutable)
+                val transfer = AudiostoPass(audioMutable)
 
                 val intent = Intent(this, SecondActivity::class.java)
                 intent.putExtra("Sounds", transfer) // passando como string o nome dos audios
-
                 startActivity(intent)
+                finish()
             }
         }
 
 
         // ------------------ animation of list of sounds part
-        // preciso deixar todas essas variaveis de transparencia em um so lugar
         verticalScroll.setOnScrollChangeListener { _, _, _, _, _ ->
             verticalScroll.alpha = AlphaValues.TransparencyMax
             verticalScroll.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
@@ -254,11 +253,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayErrorMsg(context: Int) {
         when (context) {
-
             1 -> Toast.makeText(this, "Você só pode escolher no máximo 3 áudios para tocar", Toast.LENGTH_SHORT).show() // mensagem de erro se o usuario tentar escolher 4 elementos
-
             2 -> Toast.makeText(this, "Escolha ao menos 1 áudio para tocar", Toast.LENGTH_SHORT).show()
-
         }
     }
 
@@ -294,7 +290,7 @@ class MainActivity : AppCompatActivity() {
             textMusic.text = getString(R.string.som_rua)
             textDesc.text = getString(R.string.desc_rua)
         } else if (enum == SoundsName.FLORESTA) {
-            textMusic.text = "Floresta"
+            textMusic.text = getString(R.string.floresta)
             textDesc.text = "O agradável som da floresta lorem ipsum"
         } else if (enum == SoundsName.CLIMATIZADOR) {
             textMusic.text = "Ar-Condicionado"
@@ -312,16 +308,19 @@ class MainActivity : AppCompatActivity() {
         textMusic.text = getString(R.string.First_message)
         textMusic.alpha = AlphaValues.TransparencyMin
 
-        textDesc.text = getString(R.string.first_message_desc)
+        textDesc.text = ""
         textDesc.alpha = AlphaValues.TransparencyMin
 
         verticalScroll.animate().setDuration(2000).alpha(AlphaValues.TransparencyMax)
+
+
     }
 
     private fun iniciarComponentesInterface() {
 
 
         btnPlay = findViewById(R.id.playButton)
+        btnPlay.alpha = AlphaValues.TransparencyMin
 
         textMusic = findViewById(R.id.textMusicaNome)
         textMusic.alpha = AlphaValues.initialTransparency
@@ -359,20 +358,8 @@ class MainActivity : AppCompatActivity() {
         btnFogueira = findViewById(R.id.btnFogueira)
         btnFogueira.tag = "not_pressed"
 
-        // -----
-    }
 
-    /*    private fun verifyIfisPlaying(){
-            val simpleArray = arrayOf(btnChuva, btnTrovao, btnVentilador, btnGuarda, btnCidade, btnClimatizador, btnFloresta, btnPraia, btnFogueira)
-            // aq eu posso verificar se alguma ta tocando e pausar (vou botar dentro das funções de play)
-            for (audioBtn in simpleArray){
-                if (audioBtn.tag == "played"){
-                    firstMediaPlayer.stop()
-                    audioBtn.tag = "paused"
-                    changeIcon(audioBtn)
-                }
-            }
-        }*/
+    }
 
     private fun changeIcon(imagem: ImageButton) { // salvei todos os id de imagem em uma classe
         println(imagem.contentDescription.toString())
