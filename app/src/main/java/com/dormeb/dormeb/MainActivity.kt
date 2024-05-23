@@ -2,7 +2,6 @@ package com.dormeb.dormeb
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.HorizontalScrollView
 import android.widget.ImageButton
 import android.widget.ScrollView
 import android.widget.TextView
@@ -13,7 +12,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dormeb.dormeb.enums.SoundsName
 import com.dormeb.dormeb.values.AlphaValues
-import kotlin.math.E
 
 class MainActivity : AppCompatActivity() {
 
@@ -152,12 +150,12 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(1)
 
             if (btnClimatizador.tag == "pressed") {
-                btnClimatizador.setImageResource(R.drawable.arcondicionado)
+                btnClimatizador.setImageResource(R.drawable.climatizador)
                 btnClimatizador.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
-                btnClimatizador.setImageResource(R.drawable.arcondicionado_pressed)
+                btnClimatizador.setImageResource(R.drawable.climatizador_pressed)
                 btnClimatizador.tag = "pressed"
                 selectCount += 1
             } else {
@@ -374,7 +372,7 @@ class MainActivity : AppCompatActivity() {
         } else if (imagem.contentDescription.toString() == "cidade") {
             imagem.setImageResource(R.drawable.cidade_pressed)
         } else if (imagem.contentDescription.toString() == "climatizador") {
-            imagem.setImageResource(R.drawable.arcondicionado_pressed)
+            imagem.setImageResource(R.drawable.climatizador_pressed)
         } else if (imagem.contentDescription.toString() == "floresta") {
             imagem.setImageResource(R.drawable.floresta_pressed)
         } else if (imagem.contentDescription.toString() == "fogueira") {

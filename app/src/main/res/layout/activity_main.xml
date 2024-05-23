@@ -93,7 +93,7 @@
                     android:contentDescription="CLIMATIZADOR"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
-                    app:srcCompat="@drawable/arcondicionado" />
+                    app:srcCompat="@drawable/climatizador" />
 
             </TableRow>
 

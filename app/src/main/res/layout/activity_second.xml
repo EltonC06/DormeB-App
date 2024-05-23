@@ -2,12 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/second_activity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/second_background"
     android:orientation="vertical"
-    tools:context=".SecondActivity"
-    android:background="@drawable/second_background" >
+    tools:context=".SecondActivity">
 
     <ImageButton
         android:id="@+id/pauseButton"
@@ -67,7 +67,7 @@
         android:id="@+id/firstVolumeBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -78,24 +78,84 @@
         android:id="@+id/secondVolumeBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/firstVolumeBar"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/firstVolumeBar" />
 
     <SeekBar
         android:id="@+id/thirdVolumeBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/secondVolumeBar" />
+
+    <ImageView
+        android:id="@+id/firstVolumeImg"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/firstVolumeBar"
+        app:layout_constraintEnd_toStartOf="@+id/firstVolumeBar"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/firstVolumeBar"
+        app:srcCompat="@drawable/botao_play" />
+
+    <ImageView
+        android:id="@+id/thirdVolumeImg"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/thirdVolumeBar"
+        app:layout_constraintEnd_toStartOf="@+id/thirdVolumeBar"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/thirdVolumeBar"
+        app:srcCompat="@drawable/botao_play" />
+
+    <ImageView
+        android:id="@+id/secondVolumeImg"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/secondVolumeBar"
+        app:layout_constraintEnd_toStartOf="@+id/secondVolumeBar"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/secondVolumeBar"
+        app:srcCompat="@drawable/botao_play" />
+
+    <Button
+        android:id="@+id/btnSleep"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Soneca"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/thirdVolumeBar" />
+
+    <ImageView
+        android:id="@+id/sleepCover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fundo_preto" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
