@@ -12,6 +12,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.SeekBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +27,8 @@ class SecondActivity : AppCompatActivity() {
     private var firstMediaPlayer = MediaPlayer()
     private var secondMediaPlayer = MediaPlayer()
     private var thirdMediaPlayer = MediaPlayer()
+
+    private lateinit var desligarText: TextView
 
     private lateinit var quiCheck: CheckBox
     private lateinit var triCheck: CheckBox
@@ -50,8 +53,16 @@ class SecondActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         firstMediaPlayer.stop()
+        firstMediaPlayer.release()
+
         secondMediaPlayer.stop()
+        secondMediaPlayer.release()
+
         thirdMediaPlayer.stop()
+        thirdMediaPlayer.release()
+
+        count?.cancel()
+
         super.onDestroy()
     }
 
@@ -318,6 +329,12 @@ class SecondActivity : AppCompatActivity() {
                 btnPause.animate().setDuration(2500).alpha(AlphaValues.AlmostTransparent)
                 btnSleep.animate().setDuration(2500).alpha(AlphaValues.AlmostTransparent)
 
+                desligarText.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+
+                quiCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                triCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                umaCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+
             }
             else {
                 btnSleep.tag = "wake"
@@ -335,15 +352,18 @@ class SecondActivity : AppCompatActivity() {
                 btnPause.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
                 btnSleep.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
+                desligarText.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+
+                quiCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                triCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                umaCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+
+
             }
 
         }
 
         btnPause.setOnClickListener{
-
-            firstMediaPlayer.stop()
-            secondMediaPlayer.stop()
-            thirdMediaPlayer.stop()
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -351,7 +371,7 @@ class SecondActivity : AppCompatActivity() {
         }
 
         quiCheck.setOnClickListener{
-            if (quiCheck.isChecked) {
+            if (!quiCheck.isChecked) {
                 timerConfig(action = 1)
             } else {
                 if (triCheck.isChecked) {
@@ -369,7 +389,7 @@ class SecondActivity : AppCompatActivity() {
         }
 
         triCheck.setOnClickListener{
-            if (triCheck.isChecked) {
+            if (!triCheck.isChecked) {
                 timerConfig(action = 1)
             } else {
                 if (quiCheck.isChecked) {
@@ -387,7 +407,7 @@ class SecondActivity : AppCompatActivity() {
         }
 
         umaCheck.setOnClickListener{
-            if (umaCheck.isChecked) {
+            if (!umaCheck.isChecked) {
                 timerConfig(action = 1)
             } else {
                 if (quiCheck.isChecked) {
@@ -403,25 +423,28 @@ class SecondActivity : AppCompatActivity() {
 
     }
 
-    var count = object : CountDownTimer(1000, 1000) {
-        override fun onTick(millisUntilFinished: Long) {
-            println("Funcionando cronometro")
-        }
-        override fun onFinish() {
-            println("Acabou")
-            finish()
-        }
-    }
-
-
+    var count : CountDownTimer? = null
     private fun timerConfig(minTime: Double = 0.1, action: Int = 0) { // action 1 to cancel and action 2 to start
         val convertedTime = minTime * 60000
-        count = object : CountDownTimer(convertedTime.toLong(), 1000)
-        when (action) {
-            1 -> count.cancel()
 
+        when (action) {
+            1-> {
+                count?.cancel()
+                count = null
+            }
             2 -> {
-                count.start()
+                count?.cancel()
+                count = null
+                count = object : CountDownTimer(convertedTime.toLong(), 1000) {
+                    override fun onTick(millisUntilFinished: Long) {
+                    }
+
+                    override fun onFinish() {
+                        finish()
+                    }
+
+
+                }.start()
             }
         }
     }
@@ -608,11 +631,20 @@ class SecondActivity : AppCompatActivity() {
 
         thisActivity = findViewById<View>(R.id.second_activity) // tentando
 
-        quiCheck = findViewById(R.id.quinzeCheck)
-        triCheck = findViewById(R.id.trintaCheck)
-        umaCheck = findViewById(R.id.umaCheck)
+        desligarText = findViewById(R.id.turnOffText)
+        desligarText.alpha = AlphaValues.TransparencyMin
 
+        quiCheck = findViewById(R.id.quinzeCheck)
+        quiCheck.alpha = AlphaValues.TransparencyMin
+
+        triCheck = findViewById(R.id.trintaCheck)
+        triCheck.alpha = AlphaValues.TransparencyMin
+
+        umaCheck = findViewById(R.id.umaCheck)
+        umaCheck.alpha = AlphaValues.TransparencyMin
 
     }
+
+
 
 }

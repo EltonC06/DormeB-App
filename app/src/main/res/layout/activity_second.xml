@@ -138,11 +138,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Soneca"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        tools:layout_editor_absoluteY="44dp" />
+        app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <CheckBox
         android:id="@+id/quinzeCheck"
@@ -150,6 +151,7 @@
         android:layout_height="wrap_content"
         android:paddingEnd="8dp"
         android:text="15 min"
+        android:background="@drawable/checkbox_border"
         android:textColor="@color/BlueforText"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/trintaCheck"
@@ -162,6 +164,7 @@
         android:layout_height="wrap_content"
         android:paddingEnd="8dp"
         android:text="30 min"
+        android:background="@drawable/checkbox_border"
         android:textColor="@color/BlueforText"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/umaCheck"
@@ -174,6 +177,7 @@
         android:layout_height="wrap_content"
         android:paddingEnd="8dp"
         android:text="1 h"
+        android:background="@drawable/checkbox_border"
         android:textColor="@color/BlueforText"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -181,12 +185,13 @@
         app:layout_constraintStart_toEndOf="@+id/trintaCheck" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/turnOffText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Desligar em:"
-        android:textColor="@color/AnotherBlueforText"
+        android:background="@drawable/text_border"
+        android:text="   Desligar em:   "
+        android:textColor="@color/BlueforText"
         app:layout_constraintBottom_toTopOf="@+id/trintaCheck"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.019"
