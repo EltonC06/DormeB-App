@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var btnPlay: ImageButton
 
+
     private lateinit var textMusic: TextView
     private lateinit var textDesc: TextView
 
@@ -223,6 +224,7 @@ class MainActivity : AppCompatActivity() {
             if (selectCount == 0) { // não pode apertar play sem ter escolhido ao menos 1 audio
                 displayErrorMsg(2)
             } else {
+                // Me
                 val audioMutable = mutableListOf<String>()
                 for (audio in audiosArray) { // lista com todos os botões (vou percorre-la e procurar qual botão está pressionado
                     if (audio.tag == "pressed") {

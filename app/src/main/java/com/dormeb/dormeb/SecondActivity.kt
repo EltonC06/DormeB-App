@@ -4,8 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -17,12 +19,17 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dormeb.dormeb.enums.SoundsName
 import com.dormeb.dormeb.values.AlphaValues
+import kotlin.concurrent.timer
 
 class SecondActivity : AppCompatActivity() {
 
     private var firstMediaPlayer = MediaPlayer()
     private var secondMediaPlayer = MediaPlayer()
     private var thirdMediaPlayer = MediaPlayer()
+
+    private lateinit var quiCheck: CheckBox
+    private lateinit var triCheck: CheckBox
+    private lateinit var umaCheck: CheckBox
 
 
     private lateinit var btnPause: ImageButton
@@ -49,6 +56,7 @@ class SecondActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_second)
@@ -57,6 +65,8 @@ class SecondActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
 
         initInterfaceComponents()
         initialAnimation()
@@ -340,6 +350,80 @@ class SecondActivity : AppCompatActivity() {
             finish()
         }
 
+        quiCheck.setOnClickListener{
+            if (quiCheck.isChecked) {
+                timerConfig(action = 1)
+            } else {
+                if (triCheck.isChecked) {
+                    triCheck.isChecked = false
+                }
+                else if (umaCheck.isChecked) {
+                    umaCheck.isChecked = false
+                }
+                timerConfig(15.0, 2)
+            }
+
+
+
+
+        }
+
+        triCheck.setOnClickListener{
+            if (triCheck.isChecked) {
+                timerConfig(action = 1)
+            } else {
+                if (quiCheck.isChecked) {
+                    quiCheck.isChecked = false
+                }
+                else if (umaCheck.isChecked) {
+                    umaCheck.isChecked = false
+                }
+                timerConfig(30.0, 2)
+            }
+
+
+
+
+        }
+
+        umaCheck.setOnClickListener{
+            if (umaCheck.isChecked) {
+                timerConfig(action = 1)
+            } else {
+                if (quiCheck.isChecked) {
+                    quiCheck.isChecked = false
+                }
+                else if (triCheck.isChecked) {
+                    triCheck.isChecked = false
+                }
+                timerConfig(60.0, 2)
+            }
+
+        }
+
+    }
+
+    var count = object : CountDownTimer(1000, 1000) {
+        override fun onTick(millisUntilFinished: Long) {
+            println("Funcionando cronometro")
+        }
+        override fun onFinish() {
+            println("Acabou")
+            finish()
+        }
+    }
+
+
+    private fun timerConfig(minTime: Double = 0.1, action: Int = 0) { // action 1 to cancel and action 2 to start
+        val convertedTime = minTime * 60000
+        count = object : CountDownTimer(convertedTime.toLong(), 1000)
+        when (action) {
+            1 -> count.cancel()
+
+            2 -> {
+                count.start()
+            }
+        }
     }
 
     private fun initialAnimation() {
@@ -522,9 +606,12 @@ class SecondActivity : AppCompatActivity() {
         secondMediaPlayer.setVolume(0.5F, 0.5F)
         thirdMediaPlayer.setVolume(0.5F, 0.5F)
 
-        sleepBackground = findViewById(R.id.sleepCover)
-
         thisActivity = findViewById<View>(R.id.second_activity) // tentando
+
+        quiCheck = findViewById(R.id.quinzeCheck)
+        triCheck = findViewById(R.id.trintaCheck)
+        umaCheck = findViewById(R.id.umaCheck)
+
 
     }
 

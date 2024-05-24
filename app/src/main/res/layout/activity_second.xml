@@ -137,25 +137,60 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:text="Soneca"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/thirdVolumeBar" />
+        tools:layout_editor_absoluteY="44dp" />
 
-    <ImageView
-        android:id="@+id/sleepCover"
+    <CheckBox
+        android:id="@+id/quinzeCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingEnd="8dp"
+        android:text="15 min"
+        android:textColor="@color/BlueforText"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/trintaCheck"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/trintaCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="8dp"
+        android:text="30 min"
+        android:textColor="@color/BlueforText"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/umaCheck"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/quinzeCheck" />
+
+    <CheckBox
+        android:id="@+id/umaCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="8dp"
+        android:text="1 h"
+        android:textColor="@color/BlueforText"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fundo_preto" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/trintaCheck" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Desligar em:"
+        android:textColor="@color/AnotherBlueforText"
+        app:layout_constraintBottom_toTopOf="@+id/trintaCheck"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.019"
+        app:layout_constraintStart_toStartOf="@+id/guideline" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
