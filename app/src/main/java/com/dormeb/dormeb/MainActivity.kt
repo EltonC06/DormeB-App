@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnFogueira: ImageButton
     var selectCount = 0
 
+    private lateinit var btnInfo: ImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
@@ -51,7 +53,17 @@ class MainActivity : AppCompatActivity() {
 
         initInterfaceComponents()
         initialAnimation()
-        val audiosArray = arrayOf(btnChuva, btnTrovao, btnVentilador, btnClimatizador, btnCidade, btnFloresta, btnFogueira, btnPraia, btnGuarda)
+        val audiosArray = arrayOf(
+            btnChuva,
+            btnTrovao,
+            btnVentilador,
+            btnClimatizador,
+            btnCidade,
+            btnFloresta,
+            btnFogueira,
+            btnPraia,
+            btnGuarda
+        )
 
         
 
@@ -234,8 +246,11 @@ class MainActivity : AppCompatActivity() {
         verticalScroll.setOnScrollChangeListener { _, _, _, _, _ ->
             verticalScroll.alpha = AlphaValues.TransparencyMax
             verticalScroll.animate().setDuration(12000).alpha(AlphaValues.AlmostTransparent)
+        }
 
 
+        btnInfo.setOnClickListener{
+            TODO("Aprender a como abrir um fragment e fazer botão de fechar")
         }
 
     }
@@ -248,12 +263,12 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
     private fun changeScrollsVisibility(scroll: Int) {
-        if (scroll == 1) {
-            verticalScroll.alpha = AlphaValues.TransparencyMax
-            verticalScroll.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
-
+        when (scroll) {
+            1 -> {
+                verticalScroll.alpha = AlphaValues.TransparencyMax
+                verticalScroll.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
+            }
         }
     }
 
@@ -322,33 +337,51 @@ class MainActivity : AppCompatActivity() {
 
         textMusic.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
         textDesc.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
-        if (enum == SoundsName.CHUVA) {// aqui eu criei um enum para resumir mais o codigo e editar toodo o texto em um so lugar
-            textMusic.text = getString(R.string.barulho_de_chuva)
-            textDesc.text = getString(R.string.melodia_chuva)
-        } else if (enum == SoundsName.TROVAO) {
-            textMusic.text = getString(R.string.barulho_de_chuva_com_trovao)
-            textDesc.text = getString(R.string.desc_trovao)
-        } else if (enum == SoundsName.VENTILADOR) {
-            textMusic.text = getString(R.string.barulho_de_ventilador)
-            textDesc.text = getString(R.string.desc_ventilador)
-        } else if (enum == SoundsName.GUARDA) {
-            textMusic.text = getString(R.string.sirene_do_guarda_nortuno)
-            textDesc.text = getString(R.string.desc_guarda)
-        } else if (enum == SoundsName.CIDADE) {
-            textMusic.text = getString(R.string.som_rua)
-            textDesc.text = getString(R.string.desc_rua)
-        } else if (enum == SoundsName.FLORESTA) {
-            textMusic.text = getString(R.string.floresta)
-            textDesc.text = getString(R.string.desc_floresta)
-        } else if (enum == SoundsName.CLIMATIZADOR) {
-            textMusic.text = getString(R.string.ar_condicionado)
-            textDesc.text = getString(R.string.desc_ar_condicionado)
-        } else if (enum == SoundsName.PRAIA) {
-            textMusic.text = getString(R.string.praia)
-            textDesc.text = getString(R.string.desc_praia)
-        } else if (enum == SoundsName.FOGUEIRA) {
-            textMusic.text = getString(R.string.fogueira)
-            textDesc.text = getString(R.string.desc_fogueira)
+        when (enum) {
+            SoundsName.CHUVA -> {// aqui eu criei um enum para resumir mais o codigo e editar toodo o texto em um so lugar
+                textMusic.text = getString(R.string.barulho_de_chuva)
+                textDesc.text = getString(R.string.melodia_chuva)
+            }
+
+            SoundsName.TROVAO -> {
+                textMusic.text = getString(R.string.barulho_de_chuva_com_trovao)
+                textDesc.text = getString(R.string.desc_trovao)
+            }
+
+            SoundsName.VENTILADOR -> {
+                textMusic.text = getString(R.string.barulho_de_ventilador)
+                textDesc.text = getString(R.string.desc_ventilador)
+            }
+
+            SoundsName.GUARDA -> {
+                textMusic.text = getString(R.string.sirene_do_guarda_nortuno)
+                textDesc.text = getString(R.string.desc_guarda)
+            }
+
+            SoundsName.CIDADE -> {
+                textMusic.text = getString(R.string.som_rua)
+                textDesc.text = getString(R.string.desc_rua)
+            }
+
+            SoundsName.FLORESTA -> {
+                textMusic.text = getString(R.string.floresta)
+                textDesc.text = getString(R.string.desc_floresta)
+            }
+
+            SoundsName.CLIMATIZADOR -> {
+                textMusic.text = getString(R.string.ar_condicionado)
+                textDesc.text = getString(R.string.desc_ar_condicionado)
+            }
+
+            SoundsName.PRAIA -> {
+                textMusic.text = getString(R.string.praia)
+                textDesc.text = getString(R.string.desc_praia)
+            }
+
+            SoundsName.FOGUEIRA -> {
+                textMusic.text = getString(R.string.fogueira)
+                textDesc.text = getString(R.string.desc_fogueira)
+            }
         }
     }
 
@@ -362,6 +395,8 @@ class MainActivity : AppCompatActivity() {
         verticalScroll.animate().setDuration(750).alpha(AlphaValues.TransparencyMax)
 
         btnPlay.animate().setDuration(750).alpha(AlphaValues.TransparencyMin)
+
+        btnInfo.animate().setDuration(1000).alpha(AlphaValues.transparencyMedium)
 
 
     }
@@ -409,29 +444,9 @@ class MainActivity : AppCompatActivity() {
         btnFogueira = findViewById(R.id.btnFogueira)
         btnFogueira.tag = "not_pressed"
 
+        btnInfo = findViewById(R.id.btnInfo)
+        btnInfo.alpha = AlphaValues.initialTransparency
 
-    }
 
-    private fun changeIcon(imagem: ImageButton) { // salvei todos os id de imagem em uma classe
-        println(imagem.contentDescription.toString())
-        if (imagem.contentDescription.toString() == "chuva") {
-            imagem.setImageResource(R.drawable.chuva_pressed)
-        } else if (imagem.contentDescription.toString() == "trovao") {
-            imagem.setImageResource(R.drawable.trovao_pressed)
-        } else if (imagem.contentDescription.toString() == "ventilador") {
-            imagem.setImageResource(R.drawable.ventilador_pressed)
-        } else if (imagem.contentDescription.toString() == "guarda") {
-            imagem.setImageResource(R.drawable.guarda_pressed)
-        } else if (imagem.contentDescription.toString() == "cidade") {
-            imagem.setImageResource(R.drawable.cidade_pressed)
-        } else if (imagem.contentDescription.toString() == "climatizador") {
-            imagem.setImageResource(R.drawable.climatizador_pressed)
-        } else if (imagem.contentDescription.toString() == "floresta") {
-            imagem.setImageResource(R.drawable.floresta_pressed)
-        } else if (imagem.contentDescription.toString() == "fogueira") {
-            imagem.setImageResource(R.drawable.fogueira_pressed)
-        } else if (imagem.contentDescription.toString() == "praia") {
-            imagem.setImageResource(R.drawable.praia_pressed)
-        }
     }
 }

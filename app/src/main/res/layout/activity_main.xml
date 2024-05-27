@@ -226,4 +226,18 @@
         app:layout_constraintTop_toTopOf="@+id/guideline5"
         app:srcCompat="@drawable/botao_play" />
 
+    <ImageButton
+        android:id="@+id/btnInfo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="21dp"
+        android:background="@null"
+        android:foregroundGravity="center"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/info" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
