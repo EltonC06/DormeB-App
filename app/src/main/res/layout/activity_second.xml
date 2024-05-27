@@ -132,19 +132,6 @@
         app:layout_constraintTop_toTopOf="@+id/secondVolumeBar"
         app:srcCompat="@drawable/botao_play" />
 
-    <Button
-        android:id="@+id/btnSleep"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Soneca"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
-
     <CheckBox
         android:id="@+id/quinzeCheck"
         android:layout_width="wrap_content"
@@ -196,6 +183,19 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
+
+    <ImageButton
+        android:id="@+id/btnSleep"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="21dp"
+        android:background="@null"
+        android:foregroundGravity="center"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/soneca" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,4 +62,8 @@
     <string name="desc_praia">Relaxe ao som das ondas quebrando suavemente na costa</string>
     <string name="fogueira">Fogueira</string>
     <string name="desc_fogueira">Uma atmosfera acolhedora criada pelo crepitar reconfortante das chamas</string>
+
+
+
+    <string name="preference_file_key">com.dormeb.dormeb.PREFERENCE_FILE_KEY</string>
 </resources>

@@ -233,7 +233,7 @@ class MainActivity : AppCompatActivity() {
 
         verticalScroll.setOnScrollChangeListener { _, _, _, _, _ ->
             verticalScroll.alpha = AlphaValues.TransparencyMax
-            verticalScroll.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
+            verticalScroll.animate().setDuration(12000).alpha(AlphaValues.AlmostTransparent)
 
 
         }
@@ -354,12 +354,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun initialAnimation() {
         textMusic.text = getString(R.string.First_message)
-        textMusic.alpha = AlphaValues.TransparencyMin
+        textMusic.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
 
         textDesc.text = ""
-        textDesc.alpha = AlphaValues.TransparencyMin
+        textDesc.animate().setDuration(200).alpha(AlphaValues.TransparencyMin)
 
-        verticalScroll.animate().setDuration(2000).alpha(AlphaValues.TransparencyMax)
+        verticalScroll.animate().setDuration(750).alpha(AlphaValues.TransparencyMax)
+
+        btnPlay.animate().setDuration(750).alpha(AlphaValues.TransparencyMin)
 
 
     }
@@ -368,7 +370,7 @@ class MainActivity : AppCompatActivity() {
 
 
         btnPlay = findViewById(R.id.playButton)
-        btnPlay.alpha = AlphaValues.TransparencyMin
+        btnPlay.alpha = AlphaValues.initialTransparency
 
         textMusic = findViewById(R.id.textMusicaNome)
         textMusic.alpha = AlphaValues.initialTransparency
@@ -378,6 +380,7 @@ class MainActivity : AppCompatActivity() {
 
 
         verticalScroll = findViewById(R.id.verticalScroll)
+        verticalScroll.alpha = AlphaValues.initialTransparency
 
         btnChuva = findViewById(R.id.btnChuva)
         btnChuva.tag = "not_pressed"

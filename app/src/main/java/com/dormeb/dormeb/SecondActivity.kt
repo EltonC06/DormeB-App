@@ -36,7 +36,7 @@ class SecondActivity : AppCompatActivity() {
 
 
     private lateinit var btnPause: ImageButton
-    private lateinit var btnSleep: Button
+    private lateinit var btnSleep: ImageButton
 
     private lateinit var firstVolumeBar: SeekBar
     private lateinit var firstVolumeImg: ImageView
@@ -315,6 +315,8 @@ class SecondActivity : AppCompatActivity() {
             if (btnSleep.tag == "wake") { // animações de  elementos sumindo e ficando tudo escuro
                 btnSleep.tag = "sleep"
 
+                btnSleep.setImageResource(R.drawable.acordar)
+
                 thisActivity.setBackgroundResource(R.drawable.fundo_preto)
 
                 firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
@@ -338,6 +340,9 @@ class SecondActivity : AppCompatActivity() {
             }
             else {
                 btnSleep.tag = "wake"
+
+                btnSleep.setImageResource(R.drawable.soneca)
+
                 thisActivity.setBackgroundResource(R.drawable.second_background)
 
                 firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
@@ -350,7 +355,7 @@ class SecondActivity : AppCompatActivity() {
                 thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
                 btnPause.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-                btnSleep.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                btnSleep.animate().setDuration(2500).alpha(AlphaValues.transparencyMedium)
 
                 desligarText.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
@@ -450,31 +455,36 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun initialAnimation() {
-        btnPause.animate().setDuration(1000).alpha(AlphaValues.TransparencyMin)
-        btnSleep.animate().setDuration(1000).alpha(AlphaValues.TransparencyMin)
+        btnPause.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+        btnSleep.animate().setDuration(275).alpha(AlphaValues.transparencyMedium)
 
+        desligarText.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+
+        quiCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+        triCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+        umaCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
     }
 
     private fun verifySoundQuantity(listSize: Int? = 0) {
         when (listSize) {
             0 -> displayErrorMsg(0)
             1 -> {
-                firstVolumeBar.alpha = AlphaValues.TransparencyMax
-                firstVolumeImg.alpha = AlphaValues.TransparencyMin
+                firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
             }
             2 -> {
-                firstVolumeBar.alpha = AlphaValues.TransparencyMax
-                firstVolumeImg.alpha = AlphaValues.TransparencyMin
-                secondVolumeBar.alpha = AlphaValues.TransparencyMax
-                secondVolumeImg.alpha = AlphaValues.TransparencyMin
+                firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
             }
             3 -> {
-                firstVolumeBar.alpha = AlphaValues.TransparencyMax
-                firstVolumeImg.alpha = AlphaValues.TransparencyMin
-                secondVolumeBar.alpha = AlphaValues.TransparencyMax
-                secondVolumeImg.alpha = AlphaValues.TransparencyMin
-                thirdVolumeBar.alpha = AlphaValues.TransparencyMax
-                thirdVolumeImg.alpha = AlphaValues.TransparencyMin
+                firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                thirdVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                thirdVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
             }
         }
     }
@@ -602,11 +612,15 @@ class SecondActivity : AppCompatActivity() {
     private fun initInterfaceComponents() {
 
         btnPause = findViewById(R.id.pauseButton)
+        btnPause.alpha = AlphaValues.initialTransparency
+
         btnSleep = findViewById(R.id.btnSleep)
         btnSleep.tag = "wake"
+        btnSleep.alpha = AlphaValues.initialTransparency
 
         firstVolumeBar = findViewById(R.id.firstVolumeBar)
         firstVolumeBar.progress = 50
+        firstVolumeBar.alpha = AlphaValues.initialTransparency
 
         firstVolumeImg = findViewById(R.id.firstVolumeImg)
         firstVolumeImg.alpha = AlphaValues.initialTransparency
@@ -632,16 +646,16 @@ class SecondActivity : AppCompatActivity() {
         thisActivity = findViewById<View>(R.id.second_activity) // tentando
 
         desligarText = findViewById(R.id.turnOffText)
-        desligarText.alpha = AlphaValues.TransparencyMin
+        desligarText.alpha = AlphaValues.initialTransparency
 
         quiCheck = findViewById(R.id.quinzeCheck)
-        quiCheck.alpha = AlphaValues.TransparencyMin
+        quiCheck.alpha = AlphaValues.initialTransparency
 
         triCheck = findViewById(R.id.trintaCheck)
-        triCheck.alpha = AlphaValues.TransparencyMin
+        triCheck.alpha = AlphaValues.initialTransparency
 
         umaCheck = findViewById(R.id.umaCheck)
-        umaCheck.alpha = AlphaValues.TransparencyMin
+        umaCheck.alpha = AlphaValues.initialTransparency
 
     }
 

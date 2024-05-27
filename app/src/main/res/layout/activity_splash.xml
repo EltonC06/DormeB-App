@@ -58,7 +58,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Escolha de Sons: Personalize sua experiência escolhendo entre dois tipos de sons relaxantes para dormir."
+        android:text="Escolha de Sons: Personalize sua experiência escolhendo entre três tipos de sons relaxantes para dormir."
         android:textAlignment="center"
         android:textColor="@color/BlueforText"
         android:textSize="18sp"
@@ -100,12 +100,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="128dp"
         android:text="INICIAR EXPERIÊNCIA"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toBottomOf="@+id/textThird" />
+
+    <CheckBox
+        android:id="@+id/dontshowBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Não mostrar isso novamente"
+        android:textColor="@color/BlueforText"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintStart_toStartOf="@+id/guideline9"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 </androidx.constraintlayout.widget.ConstraintLayout>
