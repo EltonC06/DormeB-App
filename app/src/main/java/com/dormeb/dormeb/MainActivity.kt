@@ -1,7 +1,10 @@
 package com.dormeb.dormeb
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ScrollView
 import android.widget.TextView
@@ -14,6 +17,12 @@ import com.dormeb.dormeb.enums.SoundsName
 import com.dormeb.dormeb.values.AlphaValues
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var btnDialogCancel: Button
+
+    private lateinit var dialog: Dialog
+
+
 
     private lateinit var btnPlay: ImageButton
 
@@ -35,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     var selectCount = 0
 
     private lateinit var btnInfo: ImageButton
+    private lateinit var btnCancelInfo: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -48,6 +58,13 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        dialog = Dialog(this@MainActivity)
+        dialog.setContentView(R.layout.dialog_box)
+        dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setBackgroundDrawableResource(R.drawable.background_dialog_box)
+        dialog.setCancelable(true) // se o usuario clicar fora, ela vai desaparecer
+
 
 
 
@@ -250,10 +267,22 @@ class MainActivity : AppCompatActivity() {
 
 
         btnInfo.setOnClickListener{
-            TODO("Aprender a como abrir um fragment e fazer botão de fechar")
+            if (btnInfo.tag == "pressed") {
+                btnInfo.tag = "not_pressed"
+            } else {
+                btnInfo.tag = "pressed"
+            }
+
+            dialog.show()
+
+
+            println("Info clicado")
         }
 
     }
+
+
+
 
     private fun displayErrorMsg(context: Int) {
         when (context) {
@@ -446,6 +475,7 @@ class MainActivity : AppCompatActivity() {
 
         btnInfo = findViewById(R.id.btnInfo)
         btnInfo.alpha = AlphaValues.initialTransparency
+        btnInfo.tag = "not_pressed"
 
 
     }
