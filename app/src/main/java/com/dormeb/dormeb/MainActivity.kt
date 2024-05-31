@@ -41,10 +41,16 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnFloresta: ImageButton
     private lateinit var btnPraia: ImageButton
     private lateinit var btnFogueira: ImageButton
+    private lateinit var btnRelogio: ImageButton
+    private lateinit var btnVento: ImageButton
+    private lateinit var btnGrilo: ImageButton
+    private lateinit var btnCigarra: ImageButton
+
+
+
     var selectCount = 0
 
     private lateinit var btnInfo: ImageButton
-    private lateinit var btnCancelInfo: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -79,7 +85,11 @@ class MainActivity : AppCompatActivity() {
             btnFloresta,
             btnFogueira,
             btnPraia,
-            btnGuarda
+            btnGuarda,
+            btnRelogio,
+            btnVento,
+            btnGrilo,
+            btnCigarra
         )
 
         
@@ -238,6 +248,74 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        btnRelogio.setOnClickListener {
+            changeScrollsVisibility(1)
+
+            if (btnRelogio.tag == "pressed") {
+                changeImgButtonandText(SoundsName.RELOGIO, 2)
+                btnRelogio.tag = "not_pressed"
+                selectCount -= 1
+            }
+            else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.RELOGIO, 1)
+                btnRelogio.tag = "pressed"
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
+        btnVento.setOnClickListener {
+            changeScrollsVisibility(1)
+
+            if (btnVento.tag == "pressed") {
+                changeImgButtonandText(SoundsName.VENTO, 2)
+                btnVento.tag = "not_pressed"
+                selectCount -= 1
+            }
+            else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.VENTO, 1)
+                btnVento.tag = "pressed"
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
+        btnGrilo.setOnClickListener {
+            changeScrollsVisibility(1)
+
+            if (btnGrilo.tag == "pressed") {
+                changeImgButtonandText(SoundsName.GRILO, 2)
+                btnGrilo.tag = "not_pressed"
+                selectCount -= 1
+            }
+            else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.GRILO, 1)
+                btnGrilo.tag = "pressed"
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
+        btnCigarra.setOnClickListener {
+            changeScrollsVisibility(1)
+
+            if (btnCigarra.tag == "pressed") {
+                changeImgButtonandText(SoundsName.CIGARRA, 2)
+                btnCigarra.tag = "not_pressed"
+                selectCount -= 1
+            }
+            else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.CIGARRA, 1)
+                btnCigarra.tag = "pressed"
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
         // migrating all data to another class VVV
 
         btnPlay.setOnClickListener {
@@ -248,7 +326,7 @@ class MainActivity : AppCompatActivity() {
                 val audioMutable = mutableListOf<String>()
                 for (audio in audiosArray) { // lista com todos os botões (vou percorre-la e procurar qual botão está pressionado
                     if (audio.tag == "pressed") {
-                        audioMutable.add(audio.contentDescription.toString()) // pegando a descrição do audio
+                        audioMutable.add(audio.contentDescription.toString()) // pegando a descrição do audio (que é o nome dos enum)
                     }
                 }
                 val transfer = AudiostoPass(audioMutable)
@@ -341,6 +419,23 @@ class MainActivity : AppCompatActivity() {
                         btnFogueira.setImageResource(R.drawable.fogueira_pressed)
                         changeMusicandDescText(SoundsName.FOGUEIRA)
                     }
+
+                    SoundsName.RELOGIO -> {
+                        btnRelogio.setImageResource(R.drawable.relogio_pressed)
+                        changeMusicandDescText(SoundsName.RELOGIO)
+                    }
+                    SoundsName.CIGARRA -> {
+                        btnCigarra.setImageResource(R.drawable.cigarra_pressed)
+                        changeMusicandDescText(SoundsName.CIGARRA)
+                    }
+                    SoundsName.GRILO -> {
+                        btnGrilo.setImageResource(R.drawable.grilo_pressed)
+                        changeMusicandDescText(SoundsName.GRILO)
+                    }
+                    SoundsName.VENTO -> {
+                        btnVento.setImageResource(R.drawable.vento_pressed)
+                        changeMusicandDescText(SoundsName.VENTO)
+                    }
                 }
             }
             2 -> {
@@ -354,6 +449,10 @@ class MainActivity : AppCompatActivity() {
                     SoundsName.FLORESTA -> btnFloresta.setImageResource(R.drawable.floresta)
                     SoundsName.PRAIA -> btnPraia.setImageResource(R.drawable.praia)
                     SoundsName.FOGUEIRA -> btnFogueira.setImageResource(R.drawable.fogueira)
+                    SoundsName.RELOGIO -> btnRelogio.setImageResource(R.drawable.relogio)
+                    SoundsName.CIGARRA -> btnCigarra.setImageResource(R.drawable.cigarra)
+                    SoundsName.GRILO -> btnGrilo.setImageResource(R.drawable.grilo)
+                    SoundsName.VENTO -> btnVento.setImageResource(R.drawable.vento)
                 }
             }
         }
@@ -410,6 +509,23 @@ class MainActivity : AppCompatActivity() {
             SoundsName.FOGUEIRA -> {
                 textMusic.text = getString(R.string.fogueira)
                 textDesc.text = getString(R.string.desc_fogueira)
+            }
+
+            SoundsName.RELOGIO -> {
+                textMusic.text = getString(R.string.relogio)
+                textDesc.text = getString(R.string.desc_relogio)
+            }
+            SoundsName.CIGARRA -> {
+                textMusic.text = getString(R.string.cigarra)
+                textDesc.text = getString(R.string.desc_cigarra)
+            }
+            SoundsName.GRILO -> {
+                textMusic.text = getString(R.string.grilo)
+                textDesc.text = getString(R.string.desc_grilo)
+            }
+            SoundsName.VENTO -> {
+                textMusic.text = getString(R.string.vento)
+                textDesc.text = getString(R.string.desc_vento)
             }
         }
     }
@@ -476,6 +592,18 @@ class MainActivity : AppCompatActivity() {
         btnInfo = findViewById(R.id.btnInfo)
         btnInfo.alpha = AlphaValues.initialTransparency
         btnInfo.tag = "not_pressed"
+
+        btnRelogio = findViewById(R.id.btnRelogio)
+        btnRelogio.tag = "not_pressed"
+
+        btnVento = findViewById(R.id.btnVento)
+        btnVento.tag = "not_pressed"
+
+        btnGrilo = findViewById(R.id.btnGrilo)
+        btnGrilo.tag = "not_pressed"
+
+        btnCigarra = findViewById(R.id.btnCigarra)
+        btnCigarra.tag = "not_pressed"
 
 
     }

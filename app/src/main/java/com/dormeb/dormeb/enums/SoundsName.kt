@@ -11,6 +11,10 @@ enum class SoundsName {
     CLIMATIZADOR,
     FLORESTA,
     PRAIA,
-    FOGUEIRA
+    FOGUEIRA,
+    RELOGIO,
+    CIGARRA,
+    GRILO,
+    VENTO
 
 }

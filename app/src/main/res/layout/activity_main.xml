@@ -139,10 +139,56 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <ImageButton
+                    android:id="@+id/btnRelogio"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="RELOGIO"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/relogio" />
+
+                <ImageButton
+                    android:id="@+id/btnVento"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="VENTO"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/vento" />
+
+                <ImageButton
+                    android:id="@+id/btnGrilo"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="GRILO"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/grilo" />
+
             </TableRow>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/btnCigarra"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="CIGARRA"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/cigarra" />
+
+            </TableRow>
 
         </TableLayout>
+
     </ScrollView>
 
 

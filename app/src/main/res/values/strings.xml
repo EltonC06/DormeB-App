@@ -68,4 +68,12 @@
     <string name="preference_file_key">com.dormeb.dormeb.PREFERENCE_FILE_KEY</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="relogio">Relógio</string>
+    <string name="cigarra">Cigarra</string>
+    <string name="grilo">Grilo</string>
+    <string name="vento">Vento</string>
+    <string name="desc_relogio">Som de tic tac do relógio para quem tem medo de perder a hora</string>
+    <string name="desc_vento">O clássico barulho de vento que dá a sensação de estar voando</string>
+    <string name="desc_grilo">Primitivo barulho de grilo usado desde 7500 AC para dormir e relaxar</string>
+    <string name="desc_cigarra">Essa \"baixa\" canção da cigarra pode tanto relaxar quanto ensurdecer quem estiver por perto</string>
 </resources>

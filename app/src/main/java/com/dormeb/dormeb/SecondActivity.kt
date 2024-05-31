@@ -92,18 +92,18 @@ class SecondActivity : AppCompatActivity() {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
                         changeImgIcon(1, SoundsName.CHUVA)
                         mediaPlayerConfig(1)
-                        firstMediaPlayer.start()
+
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
                         changeImgIcon(2, SoundsName.CHUVA)
                         mediaPlayerConfig(2)
-                        secondMediaPlayer.start()
+
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
                         changeImgIcon(3, SoundsName.CHUVA)
                         mediaPlayerConfig(3)
-                        thirdMediaPlayer.start()
+
                     }
                 }
 
@@ -112,18 +112,18 @@ class SecondActivity : AppCompatActivity() {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
                         changeImgIcon(1, SoundsName.TROVAO)
                         mediaPlayerConfig(1)
-                        firstMediaPlayer.start()
+
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
                         changeImgIcon(2, SoundsName.TROVAO)
                         mediaPlayerConfig(2)
-                        secondMediaPlayer.start()
+
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
                         changeImgIcon(3, SoundsName.TROVAO)
                         mediaPlayerConfig(3)
-                        thirdMediaPlayer.start()
+
                     }
 
 
@@ -133,18 +133,15 @@ class SecondActivity : AppCompatActivity() {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.ventilador)
                         changeImgIcon(1, SoundsName.VENTILADOR)
                         mediaPlayerConfig(1)
-                        firstMediaPlayer.start()
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.ventilador)
                         changeImgIcon(2, SoundsName.VENTILADOR)
                         mediaPlayerConfig(2)
-                        secondMediaPlayer.start()
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.ventilador)
                         changeImgIcon(3, SoundsName.VENTILADOR)
                         mediaPlayerConfig(3)
-                        thirdMediaPlayer.start()
                     }
                 }
                 else if (audios == SoundsName.CIDADE.toString()) {
@@ -152,18 +149,15 @@ class SecondActivity : AppCompatActivity() {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.cidade)
                         changeImgIcon(1, SoundsName.CIDADE)
                         mediaPlayerConfig(1)
-                        firstMediaPlayer.start()
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.cidade)
                         changeImgIcon(2, SoundsName.CIDADE)
                         mediaPlayerConfig(2)
-                        secondMediaPlayer.start()
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.cidade)
                         changeImgIcon(3, SoundsName.CIDADE)
                         mediaPlayerConfig(3)
-                        thirdMediaPlayer.start()
                     }
                 }
                 else if (audios == SoundsName.CLIMATIZADOR.toString()) {
@@ -171,18 +165,15 @@ class SecondActivity : AppCompatActivity() {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.climatizador)
                         changeImgIcon(1, SoundsName.CLIMATIZADOR)
                         mediaPlayerConfig(1)
-                        firstMediaPlayer.start()
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.climatizador)
                         changeImgIcon(2, SoundsName.CLIMATIZADOR)
                         mediaPlayerConfig(2)
-                        secondMediaPlayer.start()
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.climatizador)
                         changeImgIcon(3, SoundsName.CLIMATIZADOR)
                         mediaPlayerConfig(3)
-                        thirdMediaPlayer.start()
                     }
                 }
                 else if (audios == SoundsName.FLORESTA.toString()) {
@@ -190,18 +181,15 @@ class SecondActivity : AppCompatActivity() {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
                         changeImgIcon(1, SoundsName.FLORESTA)
                         mediaPlayerConfig(1)
-                        firstMediaPlayer.start()
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
                         changeImgIcon(2, SoundsName.FLORESTA)
                         mediaPlayerConfig(2)
-                        secondMediaPlayer.start()
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
                         changeImgIcon(3, SoundsName.FLORESTA)
                         mediaPlayerConfig(3)
-                        thirdMediaPlayer.start()
                     }
                 }
                 else if (audios == SoundsName.FOGUEIRA.toString()) {
@@ -209,18 +197,15 @@ class SecondActivity : AppCompatActivity() {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
                         changeImgIcon(1, SoundsName.FOGUEIRA)
                         mediaPlayerConfig(1)
-                        firstMediaPlayer.start()
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
                         changeImgIcon(2, SoundsName.FOGUEIRA)
                         mediaPlayerConfig(2)
-                        secondMediaPlayer.start()
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
                         changeImgIcon(3, SoundsName.FOGUEIRA)
                         mediaPlayerConfig(3)
-                        thirdMediaPlayer.start()
                     }
                 }
                 else if (audios == SoundsName.PRAIA.toString()) {
@@ -228,18 +213,15 @@ class SecondActivity : AppCompatActivity() {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.praia)
                         changeImgIcon(1, SoundsName.PRAIA)
                         mediaPlayerConfig(1)
-                        firstMediaPlayer.start()
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.praia)
                         changeImgIcon(2, SoundsName.PRAIA)
                         mediaPlayerConfig(2)
-                        secondMediaPlayer.start()
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.praia)
                         changeImgIcon(3, SoundsName.PRAIA)
                         mediaPlayerConfig(3)
-                        thirdMediaPlayer.start()
                     }
                 }
                 else if (audios == SoundsName.GUARDA.toString()) {
@@ -247,20 +229,88 @@ class SecondActivity : AppCompatActivity() {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.guarda)
                         changeImgIcon(1, SoundsName.GUARDA)
                         mediaPlayerConfig(1)
-                        firstMediaPlayer.start()
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.guarda)
                         changeImgIcon(2, SoundsName.GUARDA)
                         mediaPlayerConfig(2)
-                        secondMediaPlayer.start()
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.guarda)
                         changeImgIcon(3, SoundsName.GUARDA)
                         mediaPlayerConfig(3)
-                        thirdMediaPlayer.start()
                     }
                 }
+
+                if (audios == SoundsName.RELOGIO.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.relogio)
+                        changeImgIcon(1, SoundsName.RELOGIO)
+                        mediaPlayerConfig(1)
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.relogio)
+                        changeImgIcon(2, SoundsName.RELOGIO)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.relogio)
+                        changeImgIcon(3, SoundsName.RELOGIO)
+                        mediaPlayerConfig(3)
+                    }
+                }
+
+                if (audios == SoundsName.VENTO.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.vento)
+                        changeImgIcon(1, SoundsName.VENTO)
+                        mediaPlayerConfig(1)
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.vento)
+                        changeImgIcon(2, SoundsName.VENTO)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.vento)
+                        changeImgIcon(3, SoundsName.VENTO)
+                        mediaPlayerConfig(3)
+                    }
+                }
+
+                if (audios == SoundsName.GRILO.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.grilo)
+                        changeImgIcon(1, SoundsName.GRILO)
+                        mediaPlayerConfig(1)
+                        firstMediaPlayer.start()
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.grilo)
+                        changeImgIcon(2, SoundsName.GRILO)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.grilo)
+                        changeImgIcon(3, SoundsName.GRILO)
+                        mediaPlayerConfig(3)
+                    }
+                }
+
+                if (audios == SoundsName.CIGARRA.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.cigarra)
+                        changeImgIcon(1, SoundsName.CIGARRA)
+                        mediaPlayerConfig(1)
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.cigarra)
+                        changeImgIcon(2, SoundsName.CIGARRA)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.cigarra)
+                        changeImgIcon(3, SoundsName.CIGARRA)
+                        mediaPlayerConfig(3)
+                    }
+                }
+
+
             }
         }
 
@@ -544,6 +594,18 @@ class SecondActivity : AppCompatActivity() {
                 else if (nameOfSound == SoundsName.FLORESTA) {
                     firstVolumeImg.setImageResource(R.drawable.floresta)
                 }
+                else if (nameOfSound == SoundsName.RELOGIO) {
+                    firstVolumeImg.setImageResource(R.drawable.relogio)
+                }
+                else if (nameOfSound == SoundsName.VENTO) {
+                    firstVolumeImg.setImageResource(R.drawable.vento)
+                }
+                else if (nameOfSound == SoundsName.GRILO) {
+                    firstVolumeImg.setImageResource(R.drawable.grilo)
+                }
+                else if (nameOfSound == SoundsName.CIGARRA) {
+                    firstVolumeImg.setImageResource(R.drawable.cigarra)
+                }
 
             }
             2-> {
@@ -574,6 +636,18 @@ class SecondActivity : AppCompatActivity() {
                 else if (nameOfSound == SoundsName.FLORESTA) {
                     secondVolumeImg.setImageResource(R.drawable.floresta)
                 }
+                else if (nameOfSound == SoundsName.RELOGIO) {
+                    secondVolumeImg.setImageResource(R.drawable.relogio)
+                }
+                else if (nameOfSound == SoundsName.VENTO) {
+                    secondVolumeImg.setImageResource(R.drawable.vento)
+                }
+                else if (nameOfSound == SoundsName.GRILO) {
+                    secondVolumeImg.setImageResource(R.drawable.grilo)
+                }
+                else if (nameOfSound == SoundsName.CIGARRA) {
+                    secondVolumeImg.setImageResource(R.drawable.cigarra)
+                }
             }
             3 ->{
                 if (nameOfSound == SoundsName.CHUVA){
@@ -603,7 +677,18 @@ class SecondActivity : AppCompatActivity() {
                 else if (nameOfSound == SoundsName.FLORESTA) {
                     thirdVolumeImg.setImageResource(R.drawable.floresta)
                 }
-
+                else if (nameOfSound == SoundsName.RELOGIO) {
+                    thirdVolumeImg.setImageResource(R.drawable.relogio)
+                }
+                else if (nameOfSound == SoundsName.VENTO) {
+                    thirdVolumeImg.setImageResource(R.drawable.vento)
+                }
+                else if (nameOfSound == SoundsName.GRILO) {
+                    thirdVolumeImg.setImageResource(R.drawable.grilo)
+                }
+                else if (nameOfSound == SoundsName.CIGARRA) {
+                    thirdVolumeImg.setImageResource(R.drawable.cigarra)
+                }
             }
         }
     }
