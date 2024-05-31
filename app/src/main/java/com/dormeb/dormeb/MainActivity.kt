@@ -3,67 +3,39 @@ package com.dormeb.dormeb
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ScrollView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.dormeb.dormeb.databinding.ActivityMainBinding
 import com.dormeb.dormeb.enums.SoundsName
 import com.dormeb.dormeb.values.AlphaValues
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var btnDialogCancel: Button
 
     private lateinit var dialog: Dialog
-
-
-
-    private lateinit var btnPlay: ImageButton
-
-
-    private lateinit var textMusic: TextView
-    private lateinit var textDesc: TextView
-
-    private lateinit var verticalScroll: ScrollView
-
-    private lateinit var btnChuva: ImageButton
-    private lateinit var btnTrovao: ImageButton
-    private lateinit var btnVentilador: ImageButton
-    private lateinit var btnGuarda: ImageButton
-    private lateinit var btnCidade: ImageButton
-    private lateinit var btnClimatizador: ImageButton
-    private lateinit var btnFloresta: ImageButton
-    private lateinit var btnPraia: ImageButton
-    private lateinit var btnFogueira: ImageButton
-    private lateinit var btnRelogio: ImageButton
-    private lateinit var btnVento: ImageButton
-    private lateinit var btnGrilo: ImageButton
-    private lateinit var btnCigarra: ImageButton
-
-
-
-    var selectCount = 0
-
-    private lateinit var btnInfo: ImageButton
+    private lateinit var binding: ActivityMainBinding // agr eu vou inflar ele la no init
+    private var selectCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        initInterfaceComponents()
 
         dialog = Dialog(this@MainActivity)
         dialog.setContentView(R.layout.dialog_box)
@@ -74,54 +46,53 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        initInterfaceComponents()
         initialAnimation()
         val audiosArray = arrayOf(
-            btnChuva,
-            btnTrovao,
-            btnVentilador,
-            btnClimatizador,
-            btnCidade,
-            btnFloresta,
-            btnFogueira,
-            btnPraia,
-            btnGuarda,
-            btnRelogio,
-            btnVento,
-            btnGrilo,
-            btnCigarra
-        )
+            binding.btnChuva,
+            binding.btnTrovao,
+            binding.btnVentilador,
+            binding.btnClimatizador,
+            binding.btnCidade,
+            binding.btnFloresta,
+            binding.btnFogueira,
+            binding.btnPraia,
+            binding.btnGuarda,
+            binding.btnRelogio,
+            binding.btnVento,
+            binding.btnGrilo,
+            binding.btnCigarra,
+            binding.btnCachoeira
+        ) // o codigo pra passar pra second activity vai percorrer essa lista e vai verificar quais audios estão "pressed"
 
-        
 
-        btnChuva.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnChuva.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnChuva.tag == "pressed") {
+            if (binding.btnChuva.tag == "pressed") {
                 changeImgButtonandText(SoundsName.CHUVA, 2)
-                btnChuva.tag = "not_pressed"
+                binding.btnChuva.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.CHUVA, 1)
-                btnChuva.tag = "pressed"
+                binding.btnChuva.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
         // o codigo executa normal, mas quando é pra pausar ele não pausa o audio atual pois o mp3 é um recurso global aí se eu pedir pra pausar fora da ordem reversa, ele buga o sistema e nunca da pra pausar um elemento
-        btnTrovao.setOnClickListener { // posso criar uma variavel mp3 para cada audio
-            changeScrollsVisibility(1)
+        binding.btnTrovao.setOnClickListener { // posso criar uma variavel mp3 para cada audio
+            changeScrollsVisibility()
 
-            if (btnTrovao.tag == "pressed") {
+            if (binding.btnTrovao.tag == "pressed") {
                 changeImgButtonandText(SoundsName.TROVAO, 2)
-                btnTrovao.tag = "not_pressed"
+                binding.btnTrovao.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.TROVAO, 1)
-                btnTrovao.tag = "pressed"
+                binding.btnTrovao.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
@@ -129,187 +100,204 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        btnVentilador.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnVentilador.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnVentilador.tag == "pressed") {
+            if (binding.btnVentilador.tag == "pressed") {
                 changeImgButtonandText(SoundsName.VENTILADOR, 2)
-                btnVentilador.tag = "not_pressed"
+                binding.btnVentilador.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.VENTILADOR, 1)
-                btnVentilador.tag = "pressed"
+                binding.btnVentilador.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
 
-        btnGuarda.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnGuarda.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnGuarda.tag == "pressed") {
+            if (binding.btnGuarda.tag == "pressed") {
                 changeImgButtonandText(SoundsName.GUARDA, 2)
-                btnGuarda.tag = "not_pressed"
+                binding.btnGuarda.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.GUARDA, 1)
-                btnGuarda.tag = "pressed"
+                binding.btnGuarda.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
 
-        btnCidade.setOnClickListener { // ao inves dessa complexidade, eu posso fazer uma fun (nome do som) e associar os dois botões a uma so função
-            changeScrollsVisibility(1)
+        binding.btnCidade.setOnClickListener { // ao inves dessa complexidade, eu posso fazer uma fun (nome do som) e associar os dois botões a uma so função
+            changeScrollsVisibility()
 
-            if (btnCidade.tag == "pressed") {
+            if (binding.btnCidade.tag == "pressed") {
                 changeImgButtonandText(SoundsName.CIDADE, 2)
-                btnCidade.tag = "not_pressed"
+                binding.btnCidade.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.CIDADE, 1)
-                btnCidade.tag = "pressed"
+                binding.btnCidade.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
 
-        btnClimatizador.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnClimatizador.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnClimatizador.tag == "pressed") {
+            if (binding.btnClimatizador.tag == "pressed") {
                 changeImgButtonandText(SoundsName.CLIMATIZADOR, 2)
-                btnClimatizador.tag = "not_pressed"
+                binding.btnClimatizador.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.CLIMATIZADOR, 1)
-                btnClimatizador.tag = "pressed"
+                binding.btnClimatizador.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
 
-        btnFloresta.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnFloresta.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnFloresta.tag == "pressed") {
+            if (binding.btnFloresta.tag == "pressed") {
                 changeImgButtonandText(SoundsName.FLORESTA, 2)
-                btnFloresta.tag = "not_pressed"
+                binding.btnFloresta.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.FLORESTA, 1)
-                btnFloresta.tag = "pressed"
+                binding.btnFloresta.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
 
-        btnPraia.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnPraia.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnPraia.tag == "pressed") {
+            if (binding.btnPraia.tag == "pressed") {
                 changeImgButtonandText(SoundsName.PRAIA, 2)
-                btnPraia.tag = "not_pressed"
+                binding.btnPraia.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.PRAIA, 1)
-                btnPraia.tag = "pressed"
+                binding.btnPraia.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
 
-        btnFogueira.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnFogueira.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnFogueira.tag == "pressed") {
+            if (binding.btnFogueira.tag == "pressed") {
                 changeImgButtonandText(SoundsName.FOGUEIRA, 2)
-                btnFogueira.tag = "not_pressed"
+                binding.btnFogueira.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.FOGUEIRA, 1)
-                btnFogueira.tag = "pressed"
+                binding.btnFogueira.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
 
-        btnRelogio.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnRelogio.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnRelogio.tag == "pressed") {
+            if (binding.btnRelogio.tag == "pressed") {
                 changeImgButtonandText(SoundsName.RELOGIO, 2)
-                btnRelogio.tag = "not_pressed"
+                binding.btnRelogio.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.RELOGIO, 1)
-                btnRelogio.tag = "pressed"
+                binding.btnRelogio.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
 
-        btnVento.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnVento.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnVento.tag == "pressed") {
+            if (binding.btnVento.tag == "pressed") {
                 changeImgButtonandText(SoundsName.VENTO, 2)
-                btnVento.tag = "not_pressed"
+                binding.btnVento.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.VENTO, 1)
-                btnVento.tag = "pressed"
+                binding.btnVento.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
 
-        btnGrilo.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnGrilo.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnGrilo.tag == "pressed") {
+            if (binding.btnGrilo.tag == "pressed") {
                 changeImgButtonandText(SoundsName.GRILO, 2)
-                btnGrilo.tag = "not_pressed"
+                binding.btnGrilo.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.GRILO, 1)
-                btnGrilo.tag = "pressed"
+                binding.btnGrilo.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
 
-        btnCigarra.setOnClickListener {
-            changeScrollsVisibility(1)
+        binding.btnCigarra.setOnClickListener {
+            changeScrollsVisibility()
 
-            if (btnCigarra.tag == "pressed") {
+            if (binding.btnCigarra.tag == "pressed") {
                 changeImgButtonandText(SoundsName.CIGARRA, 2)
-                btnCigarra.tag = "not_pressed"
+                binding.btnCigarra.tag = "not_pressed"
                 selectCount -= 1
             }
             else if (selectCount < 3) {
                 changeImgButtonandText(SoundsName.CIGARRA, 1)
-                btnCigarra.tag = "pressed"
+                binding.btnCigarra.tag = "pressed"
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
+        binding.btnCachoeira.setOnClickListener {
+            changeScrollsVisibility()
+
+            if (binding.btnCachoeira.tag == "pressed") {
+                changeImgButtonandText(SoundsName.CACHOEIRA, 2)
+                binding.btnCachoeira.tag = "not_pressed"
+                selectCount -= 1
+            }
+            else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.CACHOEIRA, 1)
+                binding.btnCachoeira.tag = "pressed"
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
@@ -318,7 +306,7 @@ class MainActivity : AppCompatActivity() {
 
         // migrating all data to another class VVV
 
-        btnPlay.setOnClickListener {
+        binding.btnPlay.setOnClickListener {
             if (selectCount == 0) { // não pode apertar play sem ter escolhido ao menos 1 audio
                 displayErrorMsg(2)
             } else {
@@ -338,23 +326,21 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        verticalScroll.setOnScrollChangeListener { _, _, _, _, _ ->
-            verticalScroll.alpha = AlphaValues.TransparencyMax
-            verticalScroll.animate().setDuration(12000).alpha(AlphaValues.AlmostTransparent)
+        binding.verticalScroll.setOnScrollChangeListener { _, _, _, _, _ ->
+            binding.verticalScroll.alpha = AlphaValues.TransparencyMax
+            binding.verticalScroll.animate().setDuration(12000).alpha(AlphaValues.AlmostTransparent)
         }
 
 
-        btnInfo.setOnClickListener{
-            if (btnInfo.tag == "pressed") {
-                btnInfo.tag = "not_pressed"
+        binding.btnInfo.setOnClickListener{
+            if (binding.btnInfo.tag == "pressed") {
+                binding.btnInfo.tag = "not_pressed"
             } else {
-                btnInfo.tag = "pressed"
+                binding.btnInfo.tag = "pressed"
             }
 
             dialog.show()
 
-
-            println("Info clicado")
         }
 
     }
@@ -370,13 +356,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun changeScrollsVisibility(scroll: Int) {
-        when (scroll) {
-            1 -> {
-                verticalScroll.alpha = AlphaValues.TransparencyMax
-                verticalScroll.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
-            }
-        }
+    private fun changeScrollsVisibility() {
+        binding.verticalScroll.alpha = AlphaValues.TransparencyMax
+        binding.verticalScroll.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
     }
 
     private fun changeImgButtonandText(enum: SoundsName, playorpause: Int) { // 1 - play and 2 - pause
@@ -384,75 +366,81 @@ class MainActivity : AppCompatActivity() {
             1-> {
                 when (enum) {
                     SoundsName.CHUVA -> {
-                        btnChuva.setImageResource(R.drawable.chuva_pressed)
+                        binding.btnChuva.setImageResource(R.drawable.chuva_pressed)
                         changeMusicandDescText(SoundsName.CHUVA)
                     }
                     SoundsName.TROVAO -> {
-                        btnTrovao.setImageResource(R.drawable.trovao_pressed)
+                        binding.btnTrovao.setImageResource(R.drawable.trovao_pressed)
                         changeMusicandDescText(SoundsName.TROVAO)
                     }
                     SoundsName.VENTILADOR -> {
-                        btnVentilador.setImageResource(R.drawable.ventilador_pressed)
+                        binding.btnVentilador.setImageResource(R.drawable.ventilador_pressed)
                         changeMusicandDescText(SoundsName.VENTILADOR)
                     }
                     SoundsName.GUARDA -> {
-                        btnGuarda.setImageResource(R.drawable.guarda_pressed)
+                        binding.btnGuarda.setImageResource(R.drawable.guarda_pressed)
                         changeMusicandDescText(SoundsName.GUARDA)
                     }
                     SoundsName.CIDADE -> {
-                        btnCidade.setImageResource(R.drawable.cidade_pressed)
+                        binding.btnCidade.setImageResource(R.drawable.cidade_pressed)
                         changeMusicandDescText(SoundsName.CIDADE)
                     }
                     SoundsName.CLIMATIZADOR -> {
-                        btnClimatizador.setImageResource(R.drawable.climatizador_pressed)
+                        binding.btnClimatizador.setImageResource(R.drawable.climatizador_pressed)
                         changeMusicandDescText(SoundsName.CLIMATIZADOR)
                     }
                     SoundsName.FLORESTA -> {
-                        btnFloresta.setImageResource(R.drawable.floresta_pressed)
+                        binding.btnFloresta.setImageResource(R.drawable.floresta_pressed)
                         changeMusicandDescText(SoundsName.FLORESTA)
                     }
                     SoundsName.PRAIA -> {
-                        btnPraia.setImageResource(R.drawable.praia_pressed)
+                        binding.btnPraia.setImageResource(R.drawable.praia_pressed)
                         changeMusicandDescText(SoundsName.PRAIA)
                     }
                     SoundsName.FOGUEIRA -> {
-                        btnFogueira.setImageResource(R.drawable.fogueira_pressed)
+                        binding.btnFogueira.setImageResource(R.drawable.fogueira_pressed)
                         changeMusicandDescText(SoundsName.FOGUEIRA)
                     }
 
                     SoundsName.RELOGIO -> {
-                        btnRelogio.setImageResource(R.drawable.relogio_pressed)
+                        binding.btnRelogio.setImageResource(R.drawable.relogio_pressed)
                         changeMusicandDescText(SoundsName.RELOGIO)
                     }
                     SoundsName.CIGARRA -> {
-                        btnCigarra.setImageResource(R.drawable.cigarra_pressed)
+                        binding.btnCigarra.setImageResource(R.drawable.cigarra_pressed)
                         changeMusicandDescText(SoundsName.CIGARRA)
                     }
                     SoundsName.GRILO -> {
-                        btnGrilo.setImageResource(R.drawable.grilo_pressed)
+                        binding.btnGrilo.setImageResource(R.drawable.grilo_pressed)
                         changeMusicandDescText(SoundsName.GRILO)
                     }
                     SoundsName.VENTO -> {
-                        btnVento.setImageResource(R.drawable.vento_pressed)
+                        binding.btnVento.setImageResource(R.drawable.vento_pressed)
                         changeMusicandDescText(SoundsName.VENTO)
+                    }
+
+                    SoundsName.CACHOEIRA -> {
+                        binding.btnCachoeira.setImageResource(R.drawable.cachoeira_pressed)
+                        changeMusicandDescText(SoundsName.CACHOEIRA)
                     }
                 }
             }
             2 -> {
                 when (enum) {
-                    SoundsName.CHUVA -> btnChuva.setImageResource(R.drawable.chuva)
-                    SoundsName.TROVAO -> btnTrovao.setImageResource(R.drawable.trovao)
-                    SoundsName.VENTILADOR -> btnVentilador.setImageResource(R.drawable.ventilador)
-                    SoundsName.GUARDA -> btnGuarda.setImageResource(R.drawable.guarda)
-                    SoundsName.CIDADE -> btnCidade.setImageResource(R.drawable.cidade)
-                    SoundsName.CLIMATIZADOR -> btnClimatizador.setImageResource(R.drawable.climatizador)
-                    SoundsName.FLORESTA -> btnFloresta.setImageResource(R.drawable.floresta)
-                    SoundsName.PRAIA -> btnPraia.setImageResource(R.drawable.praia)
-                    SoundsName.FOGUEIRA -> btnFogueira.setImageResource(R.drawable.fogueira)
-                    SoundsName.RELOGIO -> btnRelogio.setImageResource(R.drawable.relogio)
-                    SoundsName.CIGARRA -> btnCigarra.setImageResource(R.drawable.cigarra)
-                    SoundsName.GRILO -> btnGrilo.setImageResource(R.drawable.grilo)
-                    SoundsName.VENTO -> btnVento.setImageResource(R.drawable.vento)
+                    SoundsName.CHUVA -> binding.btnChuva.setImageResource(R.drawable.chuva)
+                    SoundsName.TROVAO -> binding.btnTrovao.setImageResource(R.drawable.trovao)
+                    SoundsName.VENTILADOR -> binding.btnVentilador.setImageResource(R.drawable.ventilador)
+                    SoundsName.GUARDA -> binding.btnGuarda.setImageResource(R.drawable.guarda)
+                    SoundsName.CIDADE -> binding.btnCidade.setImageResource(R.drawable.cidade)
+                    SoundsName.CLIMATIZADOR -> binding.btnClimatizador.setImageResource(R.drawable.climatizador)
+                    SoundsName.FLORESTA -> binding.btnFloresta.setImageResource(R.drawable.floresta)
+                    SoundsName.PRAIA -> binding.btnPraia.setImageResource(R.drawable.praia)
+                    SoundsName.FOGUEIRA -> binding.btnFogueira.setImageResource(R.drawable.fogueira)
+                    SoundsName.RELOGIO -> binding.btnRelogio.setImageResource(R.drawable.relogio)
+                    SoundsName.CIGARRA -> binding.btnCigarra.setImageResource(R.drawable.cigarra)
+                    SoundsName.GRILO -> binding.btnGrilo.setImageResource(R.drawable.grilo)
+                    SoundsName.VENTO -> binding.btnVento.setImageResource(R.drawable.vento)
+                    SoundsName.CACHOEIRA -> binding.btnCachoeira.setImageResource(R.drawable.cachoeira)
                 }
             }
         }
@@ -460,151 +448,108 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeMusicandDescText(enum: SoundsName) {
-        textMusic.alpha = AlphaValues.fullVisibility
-        textDesc.alpha = AlphaValues.fullVisibility
+        binding.textMusic.alpha = AlphaValues.fullVisibility
+        binding.textDesc.alpha = AlphaValues.fullVisibility
 
-        textMusic.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
-        textDesc.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
+        binding.textMusic.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
+        binding.textDesc.animate().setDuration(15000).alpha(AlphaValues.AlmostTransparent)
         when (enum) {
             SoundsName.CHUVA -> {// aqui eu criei um enum para resumir mais o codigo e editar toodo o texto em um so lugar
-                textMusic.text = getString(R.string.barulho_de_chuva)
-                textDesc.text = getString(R.string.melodia_chuva)
+                binding.textMusic.text = getString(R.string.barulho_de_chuva)
+                binding.textDesc.text = getString(R.string.melodia_chuva)
             }
 
             SoundsName.TROVAO -> {
-                textMusic.text = getString(R.string.barulho_de_chuva_com_trovao)
-                textDesc.text = getString(R.string.desc_trovao)
+                binding.textMusic.text = getString(R.string.barulho_de_chuva_com_trovao)
+                binding.textDesc.text = getString(R.string.desc_trovao)
             }
 
             SoundsName.VENTILADOR -> {
-                textMusic.text = getString(R.string.barulho_de_ventilador)
-                textDesc.text = getString(R.string.desc_ventilador)
+                binding.textMusic.text = getString(R.string.barulho_de_ventilador)
+                binding.textDesc.text = getString(R.string.desc_ventilador)
             }
 
             SoundsName.GUARDA -> {
-                textMusic.text = getString(R.string.sirene_do_guarda_nortuno)
-                textDesc.text = getString(R.string.desc_guarda)
+                binding.textMusic.text = getString(R.string.sirene_do_guarda_nortuno)
+                binding.textDesc.text = getString(R.string.desc_guarda)
             }
 
             SoundsName.CIDADE -> {
-                textMusic.text = getString(R.string.som_rua)
-                textDesc.text = getString(R.string.desc_rua)
+                binding.textMusic.text = getString(R.string.som_rua)
+                binding.textDesc.text = getString(R.string.desc_rua)
             }
 
             SoundsName.FLORESTA -> {
-                textMusic.text = getString(R.string.floresta)
-                textDesc.text = getString(R.string.desc_floresta)
+                binding.textMusic.text = getString(R.string.floresta)
+                binding.textDesc.text = getString(R.string.desc_floresta)
             }
 
             SoundsName.CLIMATIZADOR -> {
-                textMusic.text = getString(R.string.ar_condicionado)
-                textDesc.text = getString(R.string.desc_ar_condicionado)
+                binding.textMusic.text = getString(R.string.ar_condicionado)
+                binding.textDesc.text = getString(R.string.desc_ar_condicionado)
             }
 
             SoundsName.PRAIA -> {
-                textMusic.text = getString(R.string.praia)
-                textDesc.text = getString(R.string.desc_praia)
+                binding.textMusic.text = getString(R.string.praia)
+                binding.textDesc.text = getString(R.string.desc_praia)
             }
 
             SoundsName.FOGUEIRA -> {
-                textMusic.text = getString(R.string.fogueira)
-                textDesc.text = getString(R.string.desc_fogueira)
+                binding.textMusic.text = getString(R.string.fogueira)
+                binding.textDesc.text = getString(R.string.desc_fogueira)
             }
 
             SoundsName.RELOGIO -> {
-                textMusic.text = getString(R.string.relogio)
-                textDesc.text = getString(R.string.desc_relogio)
+                binding.textMusic.text = getString(R.string.relogio)
+                binding.textDesc.text = getString(R.string.desc_relogio)
             }
             SoundsName.CIGARRA -> {
-                textMusic.text = getString(R.string.cigarra)
-                textDesc.text = getString(R.string.desc_cigarra)
+                binding.textMusic.text = getString(R.string.cigarra)
+                binding.textDesc.text = getString(R.string.desc_cigarra)
             }
             SoundsName.GRILO -> {
-                textMusic.text = getString(R.string.grilo)
-                textDesc.text = getString(R.string.desc_grilo)
+                binding.textMusic.text = getString(R.string.grilo)
+                binding.textDesc.text = getString(R.string.desc_grilo)
             }
             SoundsName.VENTO -> {
-                textMusic.text = getString(R.string.vento)
-                textDesc.text = getString(R.string.desc_vento)
+                binding.textMusic.text = getString(R.string.vento)
+                binding.textDesc.text = getString(R.string.desc_vento)
+            }
+
+            SoundsName.CACHOEIRA -> {
+                binding.textMusic.text = getString(R.string.cachoeira)
+                binding.textDesc.text = getString(R.string.desc_cachoeira)
             }
         }
     }
 
     private fun initialAnimation() {
-        textMusic.text = getString(R.string.First_message)
-        textMusic.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+        binding.textMusic.text = getString(R.string.First_message)
+        binding.textMusic.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
 
-        textDesc.text = ""
-        textDesc.animate().setDuration(200).alpha(AlphaValues.TransparencyMin)
+        binding.textDesc.text = ""
+        binding.textDesc.animate().setDuration(200).alpha(AlphaValues.TransparencyMin)
 
-        verticalScroll.animate().setDuration(750).alpha(AlphaValues.TransparencyMax)
+        binding.verticalScroll.animate().setDuration(750).alpha(AlphaValues.TransparencyMax)
 
-        btnPlay.animate().setDuration(750).alpha(AlphaValues.TransparencyMin)
+        binding.btnPlay.animate().setDuration(750).alpha(AlphaValues.TransparencyMin)
 
-        btnInfo.animate().setDuration(1000).alpha(AlphaValues.transparencyMedium)
+        binding.btnInfo.animate().setDuration(1000).alpha(AlphaValues.transparencyMedium)
 
 
     }
 
     private fun initInterfaceComponents() {
 
+        binding.btnPlay.alpha = AlphaValues.initialTransparency
 
-        btnPlay = findViewById(R.id.playButton)
-        btnPlay.alpha = AlphaValues.initialTransparency
+        binding.textMusic.alpha = AlphaValues.initialTransparency
 
-        textMusic = findViewById(R.id.textMusicaNome)
-        textMusic.alpha = AlphaValues.initialTransparency
+        binding.textDesc.alpha = AlphaValues.initialTransparency
 
-        textDesc = findViewById(R.id.textDesc)
-        textDesc.alpha = AlphaValues.initialTransparency
+        binding.verticalScroll.alpha = AlphaValues.initialTransparency
 
-
-        verticalScroll = findViewById(R.id.verticalScroll)
-        verticalScroll.alpha = AlphaValues.initialTransparency
-
-        btnChuva = findViewById(R.id.btnChuva)
-        btnChuva.tag = "not_pressed"
-
-        btnTrovao = findViewById(R.id.btnTrovao)
-        btnTrovao.tag = "not_pressed"
-
-        btnVentilador = findViewById(R.id.btnVentilador)
-        btnVentilador.tag = "not_pressed"
-
-        btnGuarda = findViewById(R.id.btnGuarda)
-        btnGuarda.tag = "not_pressed"
-
-        btnCidade = findViewById(R.id.btnCidade)
-        btnCidade.tag = "not_pressed"
-
-        btnClimatizador = findViewById(R.id.btnClimatizador)
-        btnClimatizador.tag = "not_pressed"
-
-        btnFloresta = findViewById(R.id.btnFloresta)
-        btnFloresta.tag = "not_pressed"
-
-        btnPraia = findViewById(R.id.btnPraia)
-        btnPraia.tag = "not_pressed"
-
-        btnFogueira = findViewById(R.id.btnFogueira)
-        btnFogueira.tag = "not_pressed"
-
-        btnInfo = findViewById(R.id.btnInfo)
-        btnInfo.alpha = AlphaValues.initialTransparency
-        btnInfo.tag = "not_pressed"
-
-        btnRelogio = findViewById(R.id.btnRelogio)
-        btnRelogio.tag = "not_pressed"
-
-        btnVento = findViewById(R.id.btnVento)
-        btnVento.tag = "not_pressed"
-
-        btnGrilo = findViewById(R.id.btnGrilo)
-        btnGrilo.tag = "not_pressed"
-
-        btnCigarra = findViewById(R.id.btnCigarra)
-        btnCigarra.tag = "not_pressed"
-
+        binding.btnInfo.alpha = AlphaValues.initialTransparency
 
     }
 }

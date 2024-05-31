@@ -37,6 +37,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="CHUVA"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/chuva" />
@@ -47,6 +48,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="TROVAO"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/trovao" />
@@ -57,6 +59,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="VENTILADOR"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ventilador" />
@@ -73,6 +76,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="CIDADE"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/cidade" />
@@ -83,6 +87,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="FLORESTA"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/floresta" />
@@ -93,6 +98,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="CLIMATIZADOR"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/climatizador" />
@@ -109,6 +115,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="FOGUEIRA"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/fogueira" />
@@ -119,6 +126,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="PRAIA"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/praia" />
@@ -129,6 +137,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="GUARDA"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/guarda" />
@@ -145,6 +154,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="RELOGIO"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/relogio" />
@@ -155,6 +165,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="VENTO"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/vento" />
@@ -165,6 +176,7 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="GRILO"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/grilo" />
@@ -181,9 +193,21 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="CIGARRA"
+                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/cigarra" />
+
+                <ImageButton
+                    android:id="@+id/btnCachoeira"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="CACHOEIRA"
+                    android:tag="not_pressed"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/cachoeira" />
 
             </TableRow>
 
@@ -221,7 +245,7 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <TextView
-        android:id="@+id/textMusicaNome"
+        android:id="@+id/textMusic"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -263,7 +287,7 @@
         app:layout_constraintGuide_percent="0.55" />
 
     <ImageButton
-        android:id="@+id/playButton"
+        android:id="@+id/btnPlay"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:background="@null"

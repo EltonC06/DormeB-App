@@ -1,26 +1,18 @@
 package com.dormeb.dormeb
 
-import android.app.Activity
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.view.View
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.SeekBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.dormeb.dormeb.databinding.ActivitySecondBinding
 import com.dormeb.dormeb.enums.SoundsName
 import com.dormeb.dormeb.values.AlphaValues
-import kotlin.concurrent.timer
 
 class SecondActivity : AppCompatActivity() {
 
@@ -28,28 +20,7 @@ class SecondActivity : AppCompatActivity() {
     private var secondMediaPlayer = MediaPlayer()
     private var thirdMediaPlayer = MediaPlayer()
 
-    private lateinit var desligarText: TextView
-
-    private lateinit var quiCheck: CheckBox
-    private lateinit var triCheck: CheckBox
-    private lateinit var umaCheck: CheckBox
-
-
-    private lateinit var btnPause: ImageButton
-    private lateinit var btnSleep: ImageButton
-
-    private lateinit var firstVolumeBar: SeekBar
-    private lateinit var firstVolumeImg: ImageView
-
-    private lateinit var secondVolumeBar: SeekBar
-    private lateinit var secondVolumeImg: ImageView
-
-    private lateinit var thirdVolumeBar: SeekBar
-    private lateinit var thirdVolumeImg: ImageView
-
-    private lateinit var sleepBackground: ImageView
-
-    private lateinit var thisActivity: View
+    private lateinit var binding: ActivitySecondBinding
 
     override fun onDestroy() {
         firstMediaPlayer.stop()
@@ -70,14 +41,13 @@ class SecondActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_second)
+        binding = ActivitySecondBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.second_activity)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
 
         initInterfaceComponents()
         initialAnimation()
@@ -310,13 +280,30 @@ class SecondActivity : AppCompatActivity() {
                     }
                 }
 
+                if (audios == SoundsName.CACHOEIRA.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.cachoeira)
+                        changeImgIcon(1, SoundsName.CACHOEIRA)
+                        mediaPlayerConfig(1)
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.cachoeira)
+                        changeImgIcon(2, SoundsName.CACHOEIRA)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.cachoeira)
+                        changeImgIcon(3, SoundsName.CACHOEIRA)
+                        mediaPlayerConfig(3)
+                    }
+                }
+
 
             }
         }
 
 
 
-        firstVolumeBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
+        binding.firstVolumeBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) { // seekbar.progress return a percent value (so i just need to divide /2 to adptate to mediaplayer)
                 val volume = progress.toFloat().div(100)
                 firstMediaPlayer.setVolume(volume, volume)
@@ -331,7 +318,7 @@ class SecondActivity : AppCompatActivity() {
             }
         })
 
-        secondVolumeBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+        binding.secondVolumeBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 val volume = progress.toFloat().div(100)
                 secondMediaPlayer.setVolume(volume, volume)
@@ -346,7 +333,7 @@ class SecondActivity : AppCompatActivity() {
             }
         })
 
-        thirdVolumeBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
+        binding.thirdVolumeBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 val volume = progress.toFloat().div(100)
                 thirdMediaPlayer.setVolume(volume, volume)
@@ -361,79 +348,79 @@ class SecondActivity : AppCompatActivity() {
             }
         })
 
-        btnSleep.setOnClickListener{
-            if (btnSleep.tag == "wake") { // animações de  elementos sumindo e ficando tudo escuro
-                btnSleep.tag = "sleep"
+        binding.btnSleep.setOnClickListener{
+            if (binding.btnSleep.tag == "wake") { // animações de  elementos sumindo e ficando tudo escuro
+                binding.btnSleep.tag = "sleep"
 
-                btnSleep.setImageResource(R.drawable.acordar)
+                binding.btnSleep.setImageResource(R.drawable.acordar)
 
-                thisActivity.setBackgroundResource(R.drawable.fundo_preto)
+                binding.secondActivity.setBackgroundResource(R.drawable.fundo_preto)
 
-                firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-                firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
 
-                secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-                secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
 
-                thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-                thirdVolumeBar.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.thirdVolumeBar.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
 
-                btnPause.animate().setDuration(2500).alpha(AlphaValues.AlmostTransparent)
-                btnSleep.animate().setDuration(2500).alpha(AlphaValues.AlmostTransparent)
+                binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.AlmostTransparent)
+                binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.AlmostTransparent)
 
-                desligarText.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.turnOffText.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
 
-                quiCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-                triCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-                umaCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.quiCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.triCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.umaCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
 
             }
             else {
-                btnSleep.tag = "wake"
+                binding.btnSleep.tag = "wake"
 
-                btnSleep.setImageResource(R.drawable.soneca)
+                binding.btnSleep.setImageResource(R.drawable.soneca)
 
-                thisActivity.setBackgroundResource(R.drawable.second_background)
+                binding.secondActivity.setBackgroundResource(R.drawable.second_background)
 
-                firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
-                firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
+                binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
-                secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
-                secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                binding.secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
+                binding.secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
-                thirdVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
-                thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                binding.thirdVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
+                binding.thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
-                btnPause.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-                btnSleep.animate().setDuration(2500).alpha(AlphaValues.transparencyMedium)
+                binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.transparencyMedium)
 
-                desligarText.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                binding.turnOffText.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
-                quiCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-                triCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-                umaCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                binding.quiCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                binding.triCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                binding.umaCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
 
             }
 
         }
 
-        btnPause.setOnClickListener{
+        binding.btnPause.setOnClickListener{
 
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        quiCheck.setOnClickListener{
-            if (!quiCheck.isChecked) {
+        binding.quiCheck.setOnClickListener{
+            if (!binding.quiCheck.isChecked) {
                 timerConfig(action = 1)
             } else {
-                if (triCheck.isChecked) {
-                    triCheck.isChecked = false
+                if (binding.triCheck.isChecked) {
+                    binding.triCheck.isChecked = false
                 }
-                else if (umaCheck.isChecked) {
-                    umaCheck.isChecked = false
+                else if (binding.umaCheck.isChecked) {
+                    binding.umaCheck.isChecked = false
                 }
                 timerConfig(15.0, 2)
             }
@@ -443,15 +430,15 @@ class SecondActivity : AppCompatActivity() {
 
         }
 
-        triCheck.setOnClickListener{
-            if (!triCheck.isChecked) {
+        binding.triCheck.setOnClickListener{
+            if (!binding.triCheck.isChecked) {
                 timerConfig(action = 1)
             } else {
-                if (quiCheck.isChecked) {
-                    quiCheck.isChecked = false
+                if (binding.quiCheck.isChecked) {
+                    binding.quiCheck.isChecked = false
                 }
-                else if (umaCheck.isChecked) {
-                    umaCheck.isChecked = false
+                else if (binding.umaCheck.isChecked) {
+                    binding.umaCheck.isChecked = false
                 }
                 timerConfig(30.0, 2)
             }
@@ -461,15 +448,15 @@ class SecondActivity : AppCompatActivity() {
 
         }
 
-        umaCheck.setOnClickListener{
-            if (!umaCheck.isChecked) {
+        binding.umaCheck.setOnClickListener{
+            if (!binding.umaCheck.isChecked) {
                 timerConfig(action = 1)
             } else {
-                if (quiCheck.isChecked) {
-                    quiCheck.isChecked = false
+                if (binding.quiCheck.isChecked) {
+                    binding.quiCheck.isChecked = false
                 }
-                else if (triCheck.isChecked) {
-                    triCheck.isChecked = false
+                else if (binding.triCheck.isChecked) {
+                    binding.triCheck.isChecked = false
                 }
                 timerConfig(60.0, 2)
             }
@@ -478,7 +465,7 @@ class SecondActivity : AppCompatActivity() {
 
     }
 
-    var count : CountDownTimer? = null
+    private var count : CountDownTimer? = null
     private fun timerConfig(minTime: Double = 0.1, action: Int = 0) { // action 1 to cancel and action 2 to start
         val convertedTime = minTime * 60000
 
@@ -505,36 +492,39 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun initialAnimation() {
-        btnPause.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
-        btnSleep.animate().setDuration(275).alpha(AlphaValues.transparencyMedium)
+        binding.btnPause.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+        binding.btnSleep.animate().setDuration(275).alpha(AlphaValues.transparencyMedium)
 
-        desligarText.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+        binding.turnOffText.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
 
-        quiCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
-        triCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
-        umaCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+        binding.quiCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+        binding.triCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+        binding.umaCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
     }
 
     private fun verifySoundQuantity(listSize: Int? = 0) {
         when (listSize) {
             0 -> displayErrorMsg(0)
             1 -> {
-                firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
             }
             2 -> {
-                firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
-                secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                binding.secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                binding.secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
             }
             3 -> {
-                firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
-                secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
-                thirdVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                thirdVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                binding.secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                binding.secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                binding.thirdVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
+                binding.thirdVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+            }
+            4 -> {
+                displayErrorMsg(1)
             }
         }
     }
@@ -542,6 +532,7 @@ class SecondActivity : AppCompatActivity() {
     private fun displayErrorMsg(errorNum: Int) {
         when (errorNum) {
             0-> Toast.makeText(this, "Essa mensagem não deveria aparecer aqui", Toast.LENGTH_SHORT).show()
+            1-> Toast.makeText(this, "Há mais áudio do que o aplicativo suporta", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -567,180 +558,221 @@ class SecondActivity : AppCompatActivity() {
     private fun changeImgIcon(mediaPlayerNum: Int, nameOfSound: SoundsName){
         when (mediaPlayerNum) {
             1-> {
-                if (nameOfSound == SoundsName.CHUVA){
-                    firstVolumeImg.setImageResource(R.drawable.chuva)
-                }
-                else if (nameOfSound == SoundsName.TROVAO) {
-                    firstVolumeImg.setImageResource(R.drawable.trovao)
-                }
-                else if (nameOfSound == SoundsName.VENTILADOR) {
-                    firstVolumeImg.setImageResource(R.drawable.ventilador)
-                }
-                else if (nameOfSound == SoundsName.CIDADE) {
-                    firstVolumeImg.setImageResource(R.drawable.cidade)
-                }
-                else if (nameOfSound == SoundsName.CLIMATIZADOR) {
-                    firstVolumeImg.setImageResource(R.drawable.climatizador)
-                }
-                else if (nameOfSound == SoundsName.GUARDA) {
-                    firstVolumeImg.setImageResource(R.drawable.guarda)
-                }
-                else if (nameOfSound == SoundsName.FOGUEIRA) {
-                    firstVolumeImg.setImageResource(R.drawable.fogueira)
-                }
-                else if (nameOfSound == SoundsName.PRAIA) {
-                    firstVolumeImg.setImageResource(R.drawable.praia)
-                }
-                else if (nameOfSound == SoundsName.FLORESTA) {
-                    firstVolumeImg.setImageResource(R.drawable.floresta)
-                }
-                else if (nameOfSound == SoundsName.RELOGIO) {
-                    firstVolumeImg.setImageResource(R.drawable.relogio)
-                }
-                else if (nameOfSound == SoundsName.VENTO) {
-                    firstVolumeImg.setImageResource(R.drawable.vento)
-                }
-                else if (nameOfSound == SoundsName.GRILO) {
-                    firstVolumeImg.setImageResource(R.drawable.grilo)
-                }
-                else if (nameOfSound == SoundsName.CIGARRA) {
-                    firstVolumeImg.setImageResource(R.drawable.cigarra)
+                when (nameOfSound) {
+                    SoundsName.CHUVA -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.chuva)
+                    }
+
+                    SoundsName.TROVAO -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.trovao)
+                    }
+
+                    SoundsName.VENTILADOR -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.ventilador)
+                    }
+
+                    SoundsName.CIDADE -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.cidade)
+                    }
+
+                    SoundsName.CLIMATIZADOR -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.climatizador)
+                    }
+
+                    SoundsName.GUARDA -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.guarda)
+                    }
+
+                    SoundsName.FOGUEIRA -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.fogueira)
+                    }
+
+                    SoundsName.PRAIA -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.praia)
+                    }
+
+                    SoundsName.FLORESTA -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.floresta)
+                    }
+
+                    SoundsName.RELOGIO -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.relogio)
+                    }
+
+                    SoundsName.VENTO -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.vento)
+                    }
+
+                    SoundsName.GRILO -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.grilo)
+                    }
+
+                    SoundsName.CIGARRA -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.cigarra)
+                    }
+
+                    SoundsName.CACHOEIRA -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.cachoeira)
+                    }
                 }
 
             }
             2-> {
-                if (nameOfSound == SoundsName.CHUVA){
-                    secondVolumeImg.setImageResource(R.drawable.chuva)
-                }
-                else if (nameOfSound == SoundsName.TROVAO) {
-                    secondVolumeImg.setImageResource(R.drawable.trovao)
-                }
-                else if (nameOfSound == SoundsName.VENTILADOR) {
-                    secondVolumeImg.setImageResource(R.drawable.ventilador)
-                }
-                else if (nameOfSound == SoundsName.CIDADE) {
-                    secondVolumeImg.setImageResource(R.drawable.cidade)
-                }
-                else if (nameOfSound == SoundsName.CLIMATIZADOR) {
-                    secondVolumeImg.setImageResource(R.drawable.climatizador)
-                }
-                else if (nameOfSound == SoundsName.GUARDA) {
-                    secondVolumeImg.setImageResource(R.drawable.guarda)
-                }
-                else if (nameOfSound == SoundsName.FOGUEIRA) {
-                    secondVolumeImg.setImageResource(R.drawable.fogueira)
-                }
-                else if (nameOfSound == SoundsName.PRAIA) {
-                    secondVolumeImg.setImageResource(R.drawable.praia)
-                }
-                else if (nameOfSound == SoundsName.FLORESTA) {
-                    secondVolumeImg.setImageResource(R.drawable.floresta)
-                }
-                else if (nameOfSound == SoundsName.RELOGIO) {
-                    secondVolumeImg.setImageResource(R.drawable.relogio)
-                }
-                else if (nameOfSound == SoundsName.VENTO) {
-                    secondVolumeImg.setImageResource(R.drawable.vento)
-                }
-                else if (nameOfSound == SoundsName.GRILO) {
-                    secondVolumeImg.setImageResource(R.drawable.grilo)
-                }
-                else if (nameOfSound == SoundsName.CIGARRA) {
-                    secondVolumeImg.setImageResource(R.drawable.cigarra)
+                when (nameOfSound) {
+                    SoundsName.CHUVA -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.chuva)
+                    }
+
+                    SoundsName.TROVAO -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.trovao)
+                    }
+
+                    SoundsName.VENTILADOR -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.ventilador)
+                    }
+
+                    SoundsName.CIDADE -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.cidade)
+                    }
+
+                    SoundsName.CLIMATIZADOR -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.climatizador)
+                    }
+
+                    SoundsName.GUARDA -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.guarda)
+                    }
+
+                    SoundsName.FOGUEIRA -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.fogueira)
+                    }
+
+                    SoundsName.PRAIA -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.praia)
+                    }
+
+                    SoundsName.FLORESTA -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.floresta)
+                    }
+
+                    SoundsName.RELOGIO -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.relogio)
+                    }
+
+                    SoundsName.VENTO -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.vento)
+                    }
+
+                    SoundsName.GRILO -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.grilo)
+                    }
+
+                    SoundsName.CIGARRA -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.cigarra)
+                    }
+
+                    SoundsName.CACHOEIRA -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.cachoeira)
+                    }
                 }
             }
-            3 ->{
-                if (nameOfSound == SoundsName.CHUVA){
-                    thirdVolumeImg.setImageResource(R.drawable.chuva)
-                }
-                else if (nameOfSound == SoundsName.TROVAO) {
-                    thirdVolumeImg.setImageResource(R.drawable.trovao)
-                }
-                else if (nameOfSound == SoundsName.VENTILADOR) {
-                    thirdVolumeImg.setImageResource(R.drawable.ventilador)
-                }
-                else if (nameOfSound == SoundsName.CIDADE) {
-                    thirdVolumeImg.setImageResource(R.drawable.cidade)
-                }
-                else if (nameOfSound == SoundsName.CLIMATIZADOR) {
-                    thirdVolumeImg.setImageResource(R.drawable.climatizador)
-                }
-                else if (nameOfSound == SoundsName.GUARDA) {
-                    thirdVolumeImg.setImageResource(R.drawable.guarda)
-                }
-                else if (nameOfSound == SoundsName.FOGUEIRA) {
-                    thirdVolumeImg.setImageResource(R.drawable.fogueira)
-                }
-                else if (nameOfSound == SoundsName.PRAIA) {
-                    thirdVolumeImg.setImageResource(R.drawable.praia)
-                }
-                else if (nameOfSound == SoundsName.FLORESTA) {
-                    thirdVolumeImg.setImageResource(R.drawable.floresta)
-                }
-                else if (nameOfSound == SoundsName.RELOGIO) {
-                    thirdVolumeImg.setImageResource(R.drawable.relogio)
-                }
-                else if (nameOfSound == SoundsName.VENTO) {
-                    thirdVolumeImg.setImageResource(R.drawable.vento)
-                }
-                else if (nameOfSound == SoundsName.GRILO) {
-                    thirdVolumeImg.setImageResource(R.drawable.grilo)
-                }
-                else if (nameOfSound == SoundsName.CIGARRA) {
-                    thirdVolumeImg.setImageResource(R.drawable.cigarra)
+            3 -> {
+                when (nameOfSound) {
+                    SoundsName.CHUVA -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.chuva)
+                    }
+
+                    SoundsName.TROVAO -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.trovao)
+                    }
+
+                    SoundsName.VENTILADOR -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.ventilador)
+                    }
+
+                    SoundsName.CIDADE -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.cidade)
+                    }
+
+                    SoundsName.CLIMATIZADOR -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.climatizador)
+                    }
+
+                    SoundsName.GUARDA -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.guarda)
+                    }
+
+                    SoundsName.FOGUEIRA -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.fogueira)
+                    }
+
+                    SoundsName.PRAIA -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.praia)
+                    }
+
+                    SoundsName.FLORESTA -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.floresta)
+                    }
+
+                    SoundsName.RELOGIO -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.relogio)
+                    }
+
+                    SoundsName.VENTO -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.vento)
+                    }
+
+                    SoundsName.GRILO -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.grilo)
+                    }
+
+                    SoundsName.CIGARRA -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.cigarra)
+                    }
+
+                    SoundsName.CACHOEIRA -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.cachoeira)
+                    }
                 }
             }
         }
     }
 
-
     private fun initInterfaceComponents() {
-
-        btnPause = findViewById(R.id.pauseButton)
-        btnPause.alpha = AlphaValues.initialTransparency
-
-        btnSleep = findViewById(R.id.btnSleep)
-        btnSleep.tag = "wake"
-        btnSleep.alpha = AlphaValues.initialTransparency
-
-        firstVolumeBar = findViewById(R.id.firstVolumeBar)
-        firstVolumeBar.progress = 50
-        firstVolumeBar.alpha = AlphaValues.initialTransparency
-
-        firstVolumeImg = findViewById(R.id.firstVolumeImg)
-        firstVolumeImg.alpha = AlphaValues.initialTransparency
-
-        secondVolumeBar = findViewById(R.id.secondVolumeBar)
-        secondVolumeBar.progress = 50
-        secondVolumeBar.alpha = AlphaValues.initialTransparency
-
-        secondVolumeImg = findViewById(R.id.secondVolumeImg)
-        secondVolumeImg.alpha = AlphaValues.initialTransparency
-
-        thirdVolumeBar = findViewById(R.id.thirdVolumeBar)
-        thirdVolumeBar.progress = 50
-        thirdVolumeBar.alpha = AlphaValues.initialTransparency
-
-        thirdVolumeImg = findViewById(R.id.thirdVolumeImg)
-        thirdVolumeImg.alpha = AlphaValues.initialTransparency
 
         firstMediaPlayer.setVolume(0.5F, 0.5F)
         secondMediaPlayer.setVolume(0.5F, 0.5F)
         thirdMediaPlayer.setVolume(0.5F, 0.5F)
 
-        thisActivity = findViewById<View>(R.id.second_activity) // tentando
+        binding.firstVolumeBar.progress = 50
+        binding.firstVolumeBar.alpha = AlphaValues.initialTransparency
 
-        desligarText = findViewById(R.id.turnOffText)
-        desligarText.alpha = AlphaValues.initialTransparency
+        binding.secondVolumeBar.progress = 50
+        binding.secondVolumeBar.alpha = AlphaValues.initialTransparency
 
-        quiCheck = findViewById(R.id.quinzeCheck)
-        quiCheck.alpha = AlphaValues.initialTransparency
+        binding.thirdVolumeBar.progress = 50
+        binding.thirdVolumeBar.alpha = AlphaValues.initialTransparency
 
-        triCheck = findViewById(R.id.trintaCheck)
-        triCheck.alpha = AlphaValues.initialTransparency
+        binding.btnPause.alpha = AlphaValues.initialTransparency
 
-        umaCheck = findViewById(R.id.umaCheck)
-        umaCheck.alpha = AlphaValues.initialTransparency
+        binding.btnSleep.tag = "wake"
+        binding.btnSleep.alpha = AlphaValues.initialTransparency
+
+        binding.firstVolumeImg.alpha = AlphaValues.initialTransparency
+
+        binding.secondVolumeImg.alpha = AlphaValues.initialTransparency
+
+        binding.thirdVolumeImg.alpha = AlphaValues.initialTransparency
+
+        binding.turnOffText.alpha = AlphaValues.initialTransparency
+
+        binding.quiCheck.alpha = AlphaValues.initialTransparency
+
+        binding.triCheck.alpha = AlphaValues.initialTransparency
+
+        binding.umaCheck.alpha = AlphaValues.initialTransparency
+
+
 
     }
 

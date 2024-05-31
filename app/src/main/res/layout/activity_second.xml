@@ -10,7 +10,7 @@
     tools:context=".SecondActivity">
 
     <ImageButton
-        android:id="@+id/pauseButton"
+        android:id="@+id/btnPause"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:background="@null"
@@ -133,43 +133,43 @@
         app:srcCompat="@drawable/botao_play" />
 
     <CheckBox
-        android:id="@+id/quinzeCheck"
+        android:id="@+id/quiCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/checkbox_border"
         android:paddingEnd="8dp"
         android:text="15 min"
-        android:background="@drawable/checkbox_border"
         android:textColor="@color/BlueforText"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toStartOf="@+id/trintaCheck"
+        app:layout_constraintEnd_toStartOf="@+id/triCheck"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
-        android:id="@+id/trintaCheck"
+        android:id="@+id/triCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/checkbox_border"
         android:paddingEnd="8dp"
         android:text="30 min"
-        android:background="@drawable/checkbox_border"
         android:textColor="@color/BlueforText"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/umaCheck"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/quinzeCheck" />
+        app:layout_constraintStart_toEndOf="@+id/quiCheck" />
 
     <CheckBox
         android:id="@+id/umaCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/checkbox_border"
         android:paddingEnd="8dp"
         android:text="1 h"
-        android:background="@drawable/checkbox_border"
         android:textColor="@color/BlueforText"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/trintaCheck" />
+        app:layout_constraintStart_toEndOf="@+id/triCheck" />
 
     <TextView
         android:id="@+id/turnOffText"
@@ -179,7 +179,7 @@
         android:background="@drawable/text_border"
         android:text="   Desligar em:   "
         android:textColor="@color/BlueforText"
-        app:layout_constraintBottom_toTopOf="@+id/trintaCheck"
+        app:layout_constraintBottom_toTopOf="@id/triCheck"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="@+id/guideline" />

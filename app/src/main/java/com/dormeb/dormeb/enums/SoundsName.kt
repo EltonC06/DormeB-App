@@ -15,6 +15,7 @@ enum class SoundsName {
     RELOGIO,
     CIGARRA,
     GRILO,
-    VENTO
+    VENTO,
+    CACHOEIRA
 
 }

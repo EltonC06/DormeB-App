@@ -76,4 +76,6 @@
     <string name="desc_vento">O clássico barulho de vento que dá a sensação de estar voando</string>
     <string name="desc_grilo">Primitivo barulho de grilo usado desde 7500 AC para dormir e relaxar</string>
     <string name="desc_cigarra">Essa \"baixa\" canção da cigarra pode tanto relaxar quanto ensurdecer quem estiver por perto</string>
+    <string name="cachoeira">Cachoeira</string>
+    <string name="desc_cachoeira">O reconfortante barulho de cachoeira é capaz de fazer o usuário relaxar, porém é recomendado que este não tenha bebido muita água antes de dormir</string>
 </resources>
