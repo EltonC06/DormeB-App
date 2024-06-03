@@ -2,13 +2,11 @@ package com.dormeb.dormeb.values
 
 class AlphaValues {
     companion object {
-        const val initialTransparency = 0F
-        const val transparencyMedium = 0.5F
-        const val TransparencyMax = 0.8F
-        const val TransparencyMin = 0.7F
-        const val AlmostTransparent = 0.1F
-        const val fullVisibility = 1F
+        const val TRANSPARENCY_INITIAL = 0F
+        const val TRANSPARENCY_MIN = 0.5F
+        const val TRANSPARENCY_MAX = 0.8F
+        const val TRANSPARENCY_MED = 0.7F
+        const val TRANSPARENCY_ALMOST = 0.1F
+        const val TRANSPARENCY_FULL = 1F
     }
-
-
 }

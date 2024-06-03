@@ -1,6 +1,5 @@
 package com.dormeb.dormeb
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -9,7 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.alpha
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dormeb.dormeb.values.AlphaValues
@@ -84,37 +82,37 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun initialAnimation() {
-        textWelcome.animate().setDuration(1000).alpha(AlphaValues.TransparencyMax)
+        textWelcome.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MAX)
 
-        textFirst.animate().setDuration(1500).alpha(AlphaValues.TransparencyMax)
-        textSecond.animate().setDuration(1500).alpha(AlphaValues.TransparencyMax)
-        textThird.animate().setDuration(1500).alpha(AlphaValues.TransparencyMax)
+        textFirst.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
+        textSecond.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
+        textThird.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
 
-        btnStart.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
+        btnStart.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
 
-        checkDontShow.animate().setDuration(1000).alpha(AlphaValues.TransparencyMin)
+        checkDontShow.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MED)
 
     }
 
     private fun initInterfaceComponents() {
         checkDontShow = findViewById(R.id.dontshowBox)
-        checkDontShow.alpha = AlphaValues.initialTransparency
+        checkDontShow.alpha = AlphaValues.TRANSPARENCY_INITIAL
         checkDontShow.tag = "false"
 
         btnStart = findViewById(R.id.btnStart)
-        btnStart.alpha = AlphaValues.initialTransparency
+        btnStart.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
         textWelcome = findViewById(R.id.textWelcome)
-        textWelcome.alpha = AlphaValues.initialTransparency
+        textWelcome.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
         textFirst = findViewById(R.id.textFirst)
-        textFirst.alpha = AlphaValues.initialTransparency
+        textFirst.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
         textSecond = findViewById(R.id.textSecond)
-        textSecond.alpha = AlphaValues.initialTransparency
+        textSecond.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
         textThird = findViewById(R.id.textThird)
-        textThird.alpha = AlphaValues.initialTransparency
+        textThird.alpha = AlphaValues.TRANSPARENCY_INITIAL
     }
 
     private fun initActivity() {

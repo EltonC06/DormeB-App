@@ -15,11 +15,26 @@
         android:background="@drawable/background_gradient">
 
         <TextView
+            android:id="@+id/textView2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="12dp"
+            android:gravity="center"
+            android:text="@string/dialog_timer_first_text"
+            android:textColor="@color/BlueforText"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Temporizador"
+            android:text="@string/dialog_timer_title"
             android:textColor="@color/BlueforText"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -32,7 +47,7 @@
             android:id="@+id/checkQui"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="15 minutos"
+            android:text="@string/dialog_timer_fifteen_minutes"
             android:textColor="@color/BlueforText"
             app:layout_constraintEnd_toStartOf="@+id/checkTri"
             app:layout_constraintHorizontal_bias="0.5"
@@ -44,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="30 minutos"
+            android:text="@string/dialog_timer_thirty_minutes"
             android:textColor="@color/BlueforText"
             app:layout_constraintEnd_toStartOf="@+id/checkUma"
             app:layout_constraintHorizontal_bias="0.5"
@@ -55,31 +70,13 @@
             android:id="@+id/checkUma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1 hora"
+            android:text="@string/dialog_timer_one_hour"
             android:textColor="@color/BlueforText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/checkTri"
             app:layout_constraintTop_toTopOf="@+id/checkTri" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="12dp"
-            android:gravity="center"
-            android:text="Selecione uma opção para programar desligamento do app"
-            android:textColor="@color/BlueforText"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView4"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 </androidx.cardview.widget.CardView>

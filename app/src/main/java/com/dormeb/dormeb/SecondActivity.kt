@@ -6,7 +6,6 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.CheckBox
 import android.widget.SeekBar
 import android.widget.Toast
@@ -361,74 +360,63 @@ class SecondActivity : AppCompatActivity() {
         })
 
         binding.btnSleep.setOnClickListener{
-            if (binding.btnSleep.tag == "wake") { // animações de  elementos sumindo e ficando tudo escuro
-                binding.btnSleep.tag = "sleep"
-
-                binding.btnSleep.setImageResource(R.drawable.acordar)
-
-                binding.secondActivity.setBackgroundResource(R.drawable.fundo_preto)
-
-                binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-                binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-
-                binding.secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-                binding.secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-
-                binding.thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-                binding.thirdVolumeBar.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-
-                binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.AlmostTransparent)
-                binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.AlmostTransparent)
-
-                binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-
-                binding.btnTimer.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-
+            if (binding.btnSleep.tag == getString(R.string.button_tag_wake)) { // animações de  elementos sumindo e ficando tudo escuro
+                changeComponentsVisibility(1)
+                binding.btnSleep.tag = getString(R.string.button_tag_sleep)
             }
             else {
-                binding.btnSleep.tag = "wake"
-
-                binding.btnSleep.setImageResource(R.drawable.soneca)
-
-                binding.secondActivity.setBackgroundResource(R.drawable.second_background)
-
-                binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
-                binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-
-                if (secondMediaPlayer.isPlaying) {
-                    binding.secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
-                    binding.secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-                }
-
-                if (thirdMediaPlayer.isPlaying) {
-                    binding.thirdVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
-                    binding.thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-                }
-
-                binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-                binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.transparencyMedium)
-
-                binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-
-                binding.btnTimer.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-
+                changeComponentsVisibility(2)
+                binding.btnSleep.tag = getString(R.string.button_tag_wake)
 
             }
 
         }
 
         binding.btnPause.setOnClickListener{
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-
-
-
         binding.btnTimer.setOnClickListener{
             showTimerDialogBox()
+        }
+    }
+
+    private fun changeComponentsVisibility(i: Int) { // 1 - tudo transparente, 2 - aparece tudo
+        when(i) {
+            1-> {
+                binding.btnSleep.setImageResource(R.drawable.acordar)
+                binding.secondActivity.setBackgroundResource(R.drawable.fundo_preto)
+                binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
+                binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
+                binding.secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
+                binding.secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
+                binding.thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
+                binding.thirdVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
+                binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_ALMOST)
+                binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_ALMOST)
+                binding.btnTimer.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
+            }
+            2-> {
+                binding.btnSleep.setImageResource(R.drawable.soneca)
+                binding.secondActivity.setBackgroundResource(R.drawable.second_background)
+                binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
+
+                if (secondMediaPlayer.isPlaying) {
+                    if (thirdMediaPlayer.isPlaying) {
+                        binding.thirdVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                        binding.thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
+                    }
+                    binding.secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                    binding.secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
+                }
+
+                binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
+                binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
+                binding.btnTimer.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
+            }
         }
 
 
@@ -444,7 +432,6 @@ class SecondActivity : AppCompatActivity() {
 
         when (action) {
             1-> {
-                println("Cancelado")
                 count?.cancel()
                 count = null
             }
@@ -453,7 +440,6 @@ class SecondActivity : AppCompatActivity() {
                 count = null
                 count = object : CountDownTimer(convertedTime.toLong(), 1000) {
                     override fun onTick(millisUntilFinished: Long) {
-                        println("Contando, tempo: $minTime")
                     }
 
                     override fun onFinish() {
@@ -467,31 +453,31 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun initialAnimation() {
-        binding.btnPause.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
-        binding.btnSleep.animate().setDuration(275).alpha(AlphaValues.transparencyMedium)
-        binding.btnTimer.animate().setDuration(275).alpha(AlphaValues.TransparencyMin)
+        binding.btnPause.animate().setDuration(250).alpha(AlphaValues.TRANSPARENCY_MED)
+        binding.btnSleep.animate().setDuration(275).alpha(AlphaValues.TRANSPARENCY_MIN)
+        binding.btnTimer.animate().setDuration(275).alpha(AlphaValues.TRANSPARENCY_MED)
     }
 
     private fun verifySoundQuantity(listSize: Int? = 0) {
         when (listSize) {
             0 -> displayErrorMsg(0)
             1 -> {
-                binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
             }
             2 -> {
-                binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
-                binding.secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                binding.secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
+                binding.secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                binding.secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
             }
             3 -> {
-                binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
-                binding.secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                binding.secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
-                binding.thirdVolumeBar.animate().setDuration(500).alpha(AlphaValues.TransparencyMax)
-                binding.thirdVolumeImg.animate().setDuration(700).alpha(AlphaValues.TransparencyMin)
+                binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
+                binding.secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                binding.secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
+                binding.thirdVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                binding.thirdVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
             }
             4 -> {
                 displayErrorMsg(1)
@@ -501,8 +487,8 @@ class SecondActivity : AppCompatActivity() {
 
     private fun displayErrorMsg(errorNum: Int) {
         when (errorNum) {
-            0-> Toast.makeText(this, "Essa mensagem não deveria aparecer aqui", Toast.LENGTH_SHORT).show()
-            1-> Toast.makeText(this, "Há mais áudio do que o aplicativo suporta", Toast.LENGTH_SHORT).show()
+            0-> Toast.makeText(this, getString(R.string.error_no_audio_playing), Toast.LENGTH_SHORT).show()
+            1-> Toast.makeText(this, getString(R.string.error_more_audio_than_support), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -717,26 +703,26 @@ class SecondActivity : AppCompatActivity() {
         thirdMediaPlayer.setVolume(0.5F, 0.5F)
 
         binding.firstVolumeBar.progress = 50
-        binding.firstVolumeBar.alpha = AlphaValues.initialTransparency
+        binding.firstVolumeBar.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
         binding.secondVolumeBar.progress = 50
-        binding.secondVolumeBar.alpha = AlphaValues.initialTransparency
+        binding.secondVolumeBar.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
         binding.thirdVolumeBar.progress = 50
-        binding.thirdVolumeBar.alpha = AlphaValues.initialTransparency
+        binding.thirdVolumeBar.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
-        binding.btnPause.alpha = AlphaValues.initialTransparency
+        binding.btnPause.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
-        binding.btnSleep.tag = "wake"
-        binding.btnSleep.alpha = AlphaValues.initialTransparency
+        binding.btnSleep.tag = getString(R.string.button_tag_wake)
+        binding.btnSleep.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
-        binding.firstVolumeImg.alpha = AlphaValues.initialTransparency
+        binding.firstVolumeImg.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
-        binding.secondVolumeImg.alpha = AlphaValues.initialTransparency
+        binding.secondVolumeImg.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
-        binding.thirdVolumeImg.alpha = AlphaValues.initialTransparency
+        binding.thirdVolumeImg.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
-        binding.btnTimer.alpha = AlphaValues.initialTransparency
+        binding.btnTimer.alpha = AlphaValues.TRANSPARENCY_INITIAL
     }
 
     private fun initDialogComponents() {

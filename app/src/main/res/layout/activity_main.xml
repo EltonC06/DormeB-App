@@ -32,33 +32,33 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/btnChuva"
+                    android:id="@+id/imgBtnRain"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="CHUVA"
+                    android:contentDescription="@string/desc_imgBtnRain"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/chuva" />
 
                 <ImageButton
-                    android:id="@+id/btnTrovao"
+                    android:id="@+id/imgBtnThunder"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="TROVAO"
+                    android:contentDescription="@string/desc_imgBtnThunder"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/trovao" />
 
                 <ImageButton
-                    android:id="@+id/btnVentilador"
+                    android:id="@+id/imgBtnFan"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="VENTILADOR"
+                    android:contentDescription="@string/desc_imgBtnFan"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
@@ -71,33 +71,33 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/btnCidade"
+                    android:id="@+id/imgBtnCity"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="CIDADE"
+                    android:contentDescription="@string/desc_imgBtnCity"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/cidade" />
 
                 <ImageButton
-                    android:id="@+id/btnFloresta"
+                    android:id="@+id/imgBtnForest"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="FLORESTA"
+                    android:contentDescription="@string/desc_imgBtnForest"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/floresta" />
 
                 <ImageButton
-                    android:id="@+id/btnClimatizador"
+                    android:id="@+id/imgBtnAirConditioner"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="CLIMATIZADOR"
+                    android:contentDescription="@string/desc_imgBtnAirConditioner"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
@@ -110,33 +110,33 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/btnFogueira"
+                    android:id="@+id/imgBtnFireplace"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="FOGUEIRA"
+                    android:contentDescription="@string/desc_imgBtnFireplace"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/fogueira" />
 
                 <ImageButton
-                    android:id="@+id/btnPraia"
+                    android:id="@+id/imgBtnBeach"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="PRAIA"
+                    android:contentDescription="@string/desc_imgBtnBeach"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/praia" />
 
                 <ImageButton
-                    android:id="@+id/btnGuarda"
+                    android:id="@+id/imgBtnNightGuard"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="GUARDA"
+                    android:contentDescription="@string/desc_imgBtnNightGuard"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
@@ -149,33 +149,33 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/btnRelogio"
+                    android:id="@+id/imgBtnClock"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="RELOGIO"
+                    android:contentDescription="@string/desc_imgBtnClock"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/relogio" />
 
                 <ImageButton
-                    android:id="@+id/btnVento"
+                    android:id="@+id/imgBtnWind"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="VENTO"
+                    android:contentDescription="@string/desc_imgBtnWind"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/vento" />
 
                 <ImageButton
-                    android:id="@+id/btnGrilo"
+                    android:id="@+id/imgBtnCricket"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="GRILO"
+                    android:contentDescription="@string/desc_imgBtnCricket"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
@@ -188,22 +188,22 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/btnCigarra"
+                    android:id="@+id/imgBtnCicada"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="CIGARRA"
+                    android:contentDescription="@string/desc_imgBtnCicada"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/cigarra" />
 
                 <ImageButton
-                    android:id="@+id/btnCachoeira"
+                    android:id="@+id/imgBtnWaterfall"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="CACHOEIRA"
+                    android:contentDescription="@string/desc_imgBtnWaterfall"
                     android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
@@ -245,11 +245,10 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <TextView
-        android:id="@+id/textMusic"
+        android:id="@+id/txtAudioName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Som selecionado"
         android:textAlignment="center"
         android:textColor="@color/BlueforText"
         android:textSize="30sp"
@@ -259,11 +258,10 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <TextView
-        android:id="@+id/textDesc"
+        android:id="@+id/txtAudioDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Descrição"
         android:textAlignment="center"
         android:textColor="@color/AnotherBlueforText"
         android:textSize="12sp"
@@ -287,7 +285,7 @@
         app:layout_constraintGuide_percent="0.55" />
 
     <ImageButton
-        android:id="@+id/btnPlay"
+        android:id="@+id/imgBtnPlay"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:background="@null"
@@ -299,7 +297,7 @@
         app:srcCompat="@drawable/botao_play" />
 
     <ImageButton
-        android:id="@+id/btnInfo"
+        android:id="@+id/imgBtnInfo"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="21dp"
