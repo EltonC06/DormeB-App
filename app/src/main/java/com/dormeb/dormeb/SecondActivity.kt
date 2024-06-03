@@ -1,9 +1,13 @@
 package com.dormeb.dormeb
 
+import android.app.Dialog
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CheckBox
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -21,6 +25,8 @@ class SecondActivity : AppCompatActivity() {
     private var thirdMediaPlayer = MediaPlayer()
 
     private lateinit var binding: ActivitySecondBinding
+
+    private lateinit var dialog: Dialog
 
     override fun onDestroy() {
         firstMediaPlayer.stop()
@@ -49,8 +55,14 @@ class SecondActivity : AppCompatActivity() {
             insets
         }
 
+
+
+
+
         initInterfaceComponents()
         initialAnimation()
+
+
 
         val transferList = intent.getParcelableExtra<AudiostoPass>("Sounds")?.audios // os sons transferidos
         verifySoundQuantity(transferList?.size)
@@ -368,11 +380,9 @@ class SecondActivity : AppCompatActivity() {
                 binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.AlmostTransparent)
                 binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.AlmostTransparent)
 
-                binding.turnOffText.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
 
-                binding.quiCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-                binding.triCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
-                binding.umaCheck.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
+                binding.btnTimer.animate().setDuration(2500).alpha(AlphaValues.initialTransparency)
 
             }
             else {
@@ -385,20 +395,22 @@ class SecondActivity : AppCompatActivity() {
                 binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
                 binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
-                binding.secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
-                binding.secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                if (secondMediaPlayer.isPlaying) {
+                    binding.secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
+                    binding.secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                }
 
-                binding.thirdVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
-                binding.thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                if (thirdMediaPlayer.isPlaying) {
+                    binding.thirdVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TransparencyMax)
+                    binding.thirdVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                }
 
                 binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
                 binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.transparencyMedium)
 
-                binding.turnOffText.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
-                binding.quiCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-                binding.triCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
-                binding.umaCheck.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
+                binding.btnTimer.animate().setDuration(2500).alpha(AlphaValues.TransparencyMin)
 
 
             }
@@ -412,57 +424,18 @@ class SecondActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.quiCheck.setOnClickListener{
-            if (!binding.quiCheck.isChecked) {
-                timerConfig(action = 1)
-            } else {
-                if (binding.triCheck.isChecked) {
-                    binding.triCheck.isChecked = false
-                }
-                else if (binding.umaCheck.isChecked) {
-                    binding.umaCheck.isChecked = false
-                }
-                timerConfig(15.0, 2)
-            }
 
 
 
-
+        binding.btnTimer.setOnClickListener{
+            showTimerDialogBox()
         }
 
-        binding.triCheck.setOnClickListener{
-            if (!binding.triCheck.isChecked) {
-                timerConfig(action = 1)
-            } else {
-                if (binding.quiCheck.isChecked) {
-                    binding.quiCheck.isChecked = false
-                }
-                else if (binding.umaCheck.isChecked) {
-                    binding.umaCheck.isChecked = false
-                }
-                timerConfig(30.0, 2)
-            }
 
+    }
 
-
-
-        }
-
-        binding.umaCheck.setOnClickListener{
-            if (!binding.umaCheck.isChecked) {
-                timerConfig(action = 1)
-            } else {
-                if (binding.quiCheck.isChecked) {
-                    binding.quiCheck.isChecked = false
-                }
-                else if (binding.triCheck.isChecked) {
-                    binding.triCheck.isChecked = false
-                }
-                timerConfig(60.0, 2)
-            }
-
-        }
-
+    private fun showTimerDialogBox() {
+        dialog.show()
     }
 
     private var count : CountDownTimer? = null
@@ -471,6 +444,7 @@ class SecondActivity : AppCompatActivity() {
 
         when (action) {
             1-> {
+                println("Cancelado")
                 count?.cancel()
                 count = null
             }
@@ -479,6 +453,7 @@ class SecondActivity : AppCompatActivity() {
                 count = null
                 count = object : CountDownTimer(convertedTime.toLong(), 1000) {
                     override fun onTick(millisUntilFinished: Long) {
+                        println("Contando, tempo: $minTime")
                     }
 
                     override fun onFinish() {
@@ -494,12 +469,7 @@ class SecondActivity : AppCompatActivity() {
     private fun initialAnimation() {
         binding.btnPause.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
         binding.btnSleep.animate().setDuration(275).alpha(AlphaValues.transparencyMedium)
-
-        binding.turnOffText.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
-
-        binding.quiCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
-        binding.triCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
-        binding.umaCheck.animate().setDuration(250).alpha(AlphaValues.TransparencyMin)
+        binding.btnTimer.animate().setDuration(275).alpha(AlphaValues.TransparencyMin)
     }
 
     private fun verifySoundQuantity(listSize: Int? = 0) {
@@ -740,6 +710,8 @@ class SecondActivity : AppCompatActivity() {
 
     private fun initInterfaceComponents() {
 
+        initDialogComponents()
+
         firstMediaPlayer.setVolume(0.5F, 0.5F)
         secondMediaPlayer.setVolume(0.5F, 0.5F)
         thirdMediaPlayer.setVolume(0.5F, 0.5F)
@@ -764,18 +736,62 @@ class SecondActivity : AppCompatActivity() {
 
         binding.thirdVolumeImg.alpha = AlphaValues.initialTransparency
 
-        binding.turnOffText.alpha = AlphaValues.initialTransparency
-
-        binding.quiCheck.alpha = AlphaValues.initialTransparency
-
-        binding.triCheck.alpha = AlphaValues.initialTransparency
-
-        binding.umaCheck.alpha = AlphaValues.initialTransparency
-
-
-
+        binding.btnTimer.alpha = AlphaValues.initialTransparency
     }
 
+    private fun initDialogComponents() {
+        dialog = Dialog(this@SecondActivity)
+        dialog.setContentView(R.layout.dialog_timer)
+        dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setBackgroundDrawableResource(R.drawable.background_dialog_box)
+        dialog.setCancelable(true)
+        val checkQui: CheckBox = dialog.findViewById(R.id.checkQui)
+        val checkTri: CheckBox = dialog.findViewById(R.id.checkTri)
+        val checkUma: CheckBox = dialog.findViewById(R.id.checkUma)
 
 
+        // configurando os botões para o usuario n ativar 2 tempos de uma vez so
+        checkQui.setOnClickListener{
+            if (!checkQui.isChecked) {
+                timerConfig(action = 1)
+            } else {
+                if (checkTri.isChecked) {
+                    checkTri.isChecked = false
+                }
+                else if (checkUma.isChecked) {
+                    checkUma.isChecked = false
+                }
+                timerConfig(15.0, 2)
+            }
+        }
+
+        checkTri.setOnClickListener{
+            if (!checkTri.isChecked) {
+                timerConfig(action = 1)
+            } else {
+                if (checkQui.isChecked) {
+                    checkQui.isChecked = false
+                }
+                else if (checkUma.isChecked) {
+                    checkUma.isChecked = false
+                }
+                timerConfig(30.0, 2)
+            }
+        }
+
+        checkUma.setOnClickListener{
+            if (!checkUma.isChecked) {
+                timerConfig(action = 1)
+            } else {
+                if (checkQui.isChecked) {
+                    checkQui.isChecked = false
+                }
+                else if (checkTri.isChecked) {
+                    checkTri.isChecked = false
+                }
+                timerConfig(60.0, 2)
+            }
+
+        }
+    }
 }

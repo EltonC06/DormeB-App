@@ -5,8 +5,9 @@
         android:radius="16dp"
         />
     <gradient
-        android:startColor="@color/darkBlue"
-        android:endColor="@color/BlueforText"
+        android:startColor="@color/black"
+        android:endColor="@color/darkerBlue"
+        android:angle="270"
         />
 
 </shape>
