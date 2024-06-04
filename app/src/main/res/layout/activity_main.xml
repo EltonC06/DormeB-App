@@ -242,7 +242,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.95" />
 
     <TextView
         android:id="@+id/txtAudioName"
@@ -251,6 +251,7 @@
         android:layout_marginTop="24dp"
         android:textAlignment="center"
         android:textColor="@color/BlueforText"
+        android:fontFamily="@font/roboto_regular"
         android:textSize="30sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -261,7 +262,8 @@
         android:id="@+id/txtAudioDesc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_regular"
         android:textAlignment="center"
         android:textColor="@color/AnotherBlueforText"
         android:textSize="12sp"
@@ -282,7 +284,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.56" />
 
     <ImageButton
         android:id="@+id/imgBtnPlay"

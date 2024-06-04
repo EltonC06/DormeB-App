@@ -11,7 +11,7 @@
 
     <!-- Splash activity -->
 
-    <string name="splash_welcome_msg">Bem-vindo ao DormeB</string>
+    <string name="splash_welcome_msg">DORMƎB</string>
     <string name="splash_first_msg">Durma Melhor: Nosso aplicativo é projetado para ajudar você a dormir com mais facilidade.</string>
     <string name="splash_second_msg">Escolha de Sons: Personalize sua experiência escolhendo entre três tipos de sons relaxantes para dormir.</string>
     <string name="splash_third_msg">Facilidade de Uso: Interface simples e intuitiva para que você possa configurar seu ambiente de sono rapidamente.</string>
