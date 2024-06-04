@@ -5,6 +5,7 @@ import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.SeekBar
@@ -16,6 +17,11 @@ import androidx.core.view.WindowInsetsCompat
 import com.dormeb.dormeb.databinding.ActivitySecondBinding
 import com.dormeb.dormeb.enums.SoundsName
 import com.dormeb.dormeb.values.AlphaValues
+import com.google.android.gms.ads.AdError
+import com.google.android.gms.ads.FullScreenContentCallback
+import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
 class SecondActivity : AppCompatActivity() {
 
@@ -27,15 +33,29 @@ class SecondActivity : AppCompatActivity() {
 
     private lateinit var dialog: Dialog
 
+    private var mInterstitialAd: InterstitialAd? = null
+    private val tag = "SecondActivityAd"
+
+
     override fun onDestroy() {
-        firstMediaPlayer.stop()
-        firstMediaPlayer.release()
 
-        secondMediaPlayer.stop()
-        secondMediaPlayer.release()
+        if (firstMediaPlayer.isPlaying) {
+            firstMediaPlayer.pause()
+            firstMediaPlayer.reset()
+            firstMediaPlayer.release()
+        }
 
-        thirdMediaPlayer.stop()
-        thirdMediaPlayer.release()
+        if (secondMediaPlayer.isPlaying) {
+            secondMediaPlayer.pause()
+            secondMediaPlayer.reset()
+            secondMediaPlayer.release()
+        }
+
+        if (thirdMediaPlayer.isPlaying) {
+            thirdMediaPlayer.pause()
+            thirdMediaPlayer.reset()
+            thirdMediaPlayer.release()
+        }
 
         count?.cancel()
 
@@ -54,17 +74,27 @@ class SecondActivity : AppCompatActivity() {
             insets
         }
 
+        val adRequest = com.google.android.gms.ads.AdRequest.Builder().build()
+        // carregando anuncio
+        InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+            override fun onAdFailedToLoad(adError: LoadAdError) {
+                Log.d(tag, adError.toString())
+                mInterstitialAd = null
+            }
 
+            override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                Log.d(tag, "Ad was loaded.")
+                mInterstitialAd = interstitialAd
+                setupCallBackCalls()
+            }
 
-
+        })
 
         initInterfaceComponents()
         initialAnimation()
 
-
-
         val transferList = intent.getParcelableExtra<AudiostoPass>("Sounds")?.audios // os sons transferidos
-        verifySoundQuantity(transferList?.size)
+        val soundQuantity = verifySoundQuantity(transferList?.size)
 
         if (transferList != null) {
             for (audios in transferList){
@@ -373,14 +403,85 @@ class SecondActivity : AppCompatActivity() {
         }
 
         binding.btnPause.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            // exibindo anuncio antes de voltar pra outra tela
+            if (soundQuantity > 2) { // o anuncio so aparecerá se tiver tocando 3 audios na hora que der pause
+                if (mInterstitialAd != null) {
+                    mInterstitialAd?.show(this)
+                } else {
+                    Log.d("TAG", "The interstitial ad wasn't ready yet.")
+                    changeToMainActivity()
+                }
+            } else {
+                changeToMainActivity()
+            }
         }
 
         binding.btnTimer.setOnClickListener{
             showTimerDialogBox()
         }
+    }
+
+    /*
+    private fun releaseMediaPlayer(mediaplayer: MediaPlayer) {
+        if (mediaplayer.isPlaying) {
+            mediaplayer.stop()
+        }
+        mediaplayer.reset()
+        mediaplayer.release()
+    }
+     */
+
+    /*
+    private fun releaseAllMediaPlayers() {
+        releaseMediaPlayer(firstMediaPlayer)
+        releaseMediaPlayer(secondMediaPlayer)
+        releaseMediaPlayer(thirdMediaPlayer)
+    }
+    */
+
+    private fun setupCallBackCalls() { // setando o anuncio full screen
+        Log.d(tag, "ad full screen set up")
+
+        mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
+            override fun onAdClicked() {
+                // Called when a click is recorded for an ad.
+                Log.d(tag, "Ad was clicked.")
+            }
+
+            override fun onAdDismissedFullScreenContent() {
+                // Called when ad is dismissed.
+                Log.d(tag, "Ad dismissed fullscreen content.")
+                mInterstitialAd = null
+                changeToMainActivity()
+            }
+
+            override fun onAdFailedToShowFullScreenContent(p0: AdError) {
+                // Called when ad fails to show.
+                Log.e(tag, "Ad failed to show fullscreen content.")
+                mInterstitialAd = null
+                changeToMainActivity()
+            }
+
+            override fun onAdImpression() {
+                // Called when an impression is recorded for an ad.
+                Log.d(tag, "Ad recorded an impression.")
+            }
+
+            override fun onAdShowedFullScreenContent() {
+                // Called when ad is shown.
+                firstMediaPlayer.pause()
+                secondMediaPlayer.pause()
+                thirdMediaPlayer.pause()
+                Log.d(tag, "Ad showed fullscreen content.")
+            }
+
+        }
+    }
+
+    private fun changeToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun changeComponentsVisibility(i: Int) { // 1 - tudo transparente, 2 - aparece tudo
@@ -458,18 +559,23 @@ class SecondActivity : AppCompatActivity() {
         binding.btnTimer.animate().setDuration(275).alpha(AlphaValues.TRANSPARENCY_MED)
     }
 
-    private fun verifySoundQuantity(listSize: Int? = 0) {
+    private fun verifySoundQuantity(listSize: Int? = 0): Int {
         when (listSize) {
-            0 -> displayErrorMsg(0)
+            0 -> {
+                displayErrorMsg(0)
+                return 0
+            }
             1 -> {
                 binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
                 binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
+                return 1
             }
             2 -> {
                 binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
                 binding.firstVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
                 binding.secondVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
                 binding.secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
+                return 2
             }
             3 -> {
                 binding.firstVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
@@ -478,11 +584,14 @@ class SecondActivity : AppCompatActivity() {
                 binding.secondVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
                 binding.thirdVolumeBar.animate().setDuration(500).alpha(AlphaValues.TRANSPARENCY_MAX)
                 binding.thirdVolumeImg.animate().setDuration(700).alpha(AlphaValues.TRANSPARENCY_MED)
+                return 3
             }
             4 -> {
                 displayErrorMsg(1)
+                return 4
             }
         }
+        return 0
     }
 
     private fun displayErrorMsg(errorNum: Int) {

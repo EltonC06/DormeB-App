@@ -37,10 +37,16 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+
+
+
 }
 
 dependencies {
 
+    //noinspection UseTomlInstead
+    implementation("com.google.android.gms:play-services-ads:23.1.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
