@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- other settings -->
 
-    <string name="app_name">DormeB</string>
+    <string name="app_name" translatable="false">DormeB</string>
     <string name="preference_file_key">com.dormeb.dormeb.PREFERENCE_FILE_KEY</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="first_fragment_label">First Fragment</string>
@@ -12,69 +13,69 @@
     <!-- Splash activity -->
 
     <string name="splash_welcome_msg">DORMƎB</string>
-    <string name="splash_first_msg">Durma Melhor: Nosso aplicativo é projetado para ajudar você a dormir com mais facilidade.</string>
-    <string name="splash_second_msg">Escolha de Sons: Personalize sua experiência escolhendo entre três tipos de sons relaxantes para dormir.</string>
-    <string name="splash_third_msg">Facilidade de Uso: Interface simples e intuitiva para que você possa configurar seu ambiente de sono rapidamente.</string>
-    <string name="splash_button_start">INICIAR EXPERIÊNCIA</string>
-    <string name="splash_check_show_again">Não mostrar isso novamente</string>
+    <string name="splash_first_msg">Sleep Better: Our app is designed to help you sleep more easily.</string>
+    <string name="splash_second_msg">Sound Choices: Personalize your experience by choosing from three types of relaxing sounds for sleep.</string>
+    <string name="splash_third_msg">Easy to Use: Simple and intuitive interface so you can set up your sleep environment quickly.</string>
+    <string name="splash_button_start">START EXPERIENCE</string>
+    <string name="splash_check_show_again">Don\'t show this again</string>
 
     <!-- Main activity -->
 
-    <string name="message_audio_choose">Selecione um áudio para dormir</string>
+    <string name="message_audio_choose">Select an audio for sleeping</string>
 
-    <string name="audio_rain">Chuva</string>
-    <string name="audio_desc_rain">Essa melodia suave e calma é um dos métodos mais antigos usados para cair no sono</string>
+    <string name="audio_rain">Rain</string>
+    <string name="audio_desc_rain">This soft and calm melody is one of the oldest methods used to fall asleep.</string>
 
-    <string name="audio_thunder">Chuva com trovão</string>
-    <string name="audio_desc_thunder">Diferente de um simples barulho de chuva, esta melodia liberta o guerreiro dentro de sua alma que o-faz dormir instantaneamente</string>
+    <string name="audio_thunder">Rain with Thunder</string>
+    <string name="audio_desc_thunder">Relax with the sound of raindrops and distant thunder, creating a calm and immersive atmosphere.</string>
 
-    <string name="audio_fan">Ventilador</string>
-    <string name="audio_desc_fan">Essa melodia, um pouco moderna, além de esfriar o ambiente (as vezes) também ajuda a relaxar o seu corpo depois de um dia corrido</string>
+    <string name="audio_fan">Fan</string>
+    <string name="audio_desc_fan">This slightly modern melody, besides cooling the environment (sometimes), also helps relax your body after a busy day.</string>
 
-    <string name="audio_night_guard">Sirene do guarda nortuno</string>
-    <string name="audio_desc_night_guard">Nem tanto desconhecida, essa é a melodia favorita dos que dormem tranquilo somente quando se sentem seguros</string>
+    <string name="audio_night_guard">Night Guard Siren</string>
+    <string name="audio_desc_night_guard">Not so unfamiliar, this is the favorite melody of those who only sleep soundly when they feel safe.</string>
 
-    <string name="audio_street">Som ambiente de rua</string>
-    <string name="audio_desc_street">O relaxante som ambiente de rua \"pouco\" movimentada dispensa explicações, é simplesmente relaxante</string>
+    <string name="audio_street">Street Ambient Sound</string>
+    <string name="audio_desc_street">Listen to the sounds of cars passing by in the distance and the gentle wind whispering through the trees. This combination creates a calm and tranquil atmosphere, perfect for relaxation and reflection.</string>
 
-    <string name="audio_forest">Floresta</string>
-    <string name="audio_desc_forest">Transporte-se para a natureza com o som calmante dos pássaros e o sussurro das folhas</string>
+    <string name="audio_forest">Forest</string>
+    <string name="audio_desc_forest">Transport yourself to nature with the tranquil sounds of birds and the rustle of leaves.</string>
 
-    <string name="audio_air_conditioner">Ar-Condicionado</string>
-    <string name="audio_desc_air_conditioner">Essa melodia, já moderna, além de esfriar o ambiente (de verdade) também colabora para esfriar a cabeça de seu usuário</string>
+    <string name="audio_air_conditioner">Air Conditioner</string>
+    <string name="audio_desc_air_conditioner">This melody, besides cooling the environment, also helps to cool the mind of those who listen to it.</string>
 
-    <string name="audio_beach">Praia</string>
-    <string name="audio_desc_beach">Relaxe ao som das ondas quebrando suavemente na costa</string>
+    <string name="audio_beach">Beach</string>
+    <string name="audio_desc_beach">Relax to the sound of waves gently breaking on the shore.</string>
 
-    <string name="audio_fireplace">Fogueira</string>
-    <string name="audio_desc_fireplace">Uma atmosfera acolhedora criada pelo crepitar reconfortante das chamas</string>
+    <string name="audio_fireplace">Campfire</string>
+    <string name="audio_desc_fireplace">A cozy atmosphere created by the comforting crackle of flames.</string>
 
-    <string name="audio_clock">Relógio</string>
-    <string name="audio_desc_clock">Som de tic tac do relógio para quem tem medo de perder a hora</string>
+    <string name="audio_clock">Clock</string>
+    <string name="audio_desc_clock">The ticking sound of the clock for those who are afraid of losing track of time.</string>
 
-    <string name="audio_cicada">Cigarra</string>
-    <string name="audio_desc_cicada">Essa "baixa" canção da cigarra pode tanto relaxar quanto ensurdecer quem estiver por perto</string>
+    <string name="audio_cicada">Cicada</string>
+    <string name="audio_desc_cicada">This "gentle" cicada song can both relax and deafen those nearby.</string>
 
-    <string name="audio_cricket">Grilo</string>
-    <string name="audio_desc_cricket">Primitivo barulho de grilo usado desde 7500 AC para dormir e relaxar</string>
+    <string name="audio_cricket">Cricket</string>
+    <string name="audio_desc_cricket">The primitive sound of crickets has been used since 7500 B.C. to sleep and relax.</string>
 
-    <string name="audio_wind">Vento</string>
-    <string name="audio_desc_wind">O clássico barulho de vento que dá a sensação de estar voando</string>
+    <string name="audio_wind">Wind</string>
+    <string name="audio_desc_wind">The classic sound of wind that gives the sensation of flying.</string>
 
-    <string name="audio_waterfall">Cachoeira</string>
-    <string name="audio_desc_waterfall">O reconfortante barulho de cachoeira é capaz de fazer o usuário relaxar, porém é recomendado que este não tenha bebido muita água antes de dormir</string>
+    <string name="audio_waterfall">Waterfall</string>
+    <string name="audio_desc_waterfall">The comforting sound of a waterfall is capable of making the user relax, but it is recommended that they not drink too much water before sleeping.</string>
 
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>
 
     <!--         Dialog info -->
 
-    <string name="dialog_info_tab">Tabela de informações</string>
-    <string name="dialog_info_title">Central de suporte</string>
-    <string name="dialog_info_first_text">Encontrou algum erro no aplicativo?</string>
-    <string name="dialog_info_email">Nos contate imediatamente: dormebapp@gmail.com</string>
-    <string name="dialog_app_email">Email de suporte: dormebapp@gmail.com</string>
-    <string name="dialog_select_timer">Selecione uma opção do temporizador</string>
+    <string name="dialog_info_tab">Information Table</string>
+    <string name="dialog_info_title">Support Center</string>
+    <string name="dialog_info_first_text">Found any errors in the app?</string>
+    <string name="dialog_info_email">Contact us immediately: dormebapp@gmail.com</string>
+    <string name="dialog_app_email">Support Email: dormebapp@gmail.com</string>
+    <string name="dialog_select_timer">Select a timer option</string>
 
     <!-- Second activity -->
 
@@ -83,48 +84,50 @@
 
     <!-- descriptions second activity -->
 
-    <string name="second_activity_btn_pause">Pausar</string>
-    <string name="second_activity_timer_btn">Temporizador</string>
-    <string name="second_activity_sleep_btn">Apagar a tela</string>
-    <string name="second_activity_firstvolumeimg">1º Ícone de volume</string>
-    <string name="second_activity_sceondvolumeimg">2º Ícone de volume</string>
-    <string name="second_activity_thirdimagevolume">3º Ícone de volume</string>
+    <string name="second_activity_btn_pause">Pause</string>
+    <string name="second_activity_timer_btn">Timer</string>
+    <string name="second_activity_sleep_btn">Turn Off Screen</string>
+    <string name="second_activity_firstvolumeimg">1st Volume Icon</string>
+    <string name="second_activity_sceondvolumeimg">2nd Volume Icon</string> <!-- tem um erro aq -->
+    <string name="second_activity_thirdimagevolume">3rd Volume Icon</string>
 
     <!--         Dialog timer -->
 
-    <string name="dialog_timer_title">Temporizador</string>
-    <string name="dialog_timer_fifteen_minutes">15 minutos</string>
-    <string name="dialog_timer_thirty_minutes">30 minutos</string>
-    <string name="dialog_timer_one_hour">1 hora</string>
-    <string name="dialog_timer_first_text">Selecione uma opção para programar desligamento do app</string>
+    <string name="dialog_timer_title">Timer</string>
+    <string name="dialog_timer_fifteen_minutes">15 minutes</string>
+    <string name="dialog_timer_thirty_minutes">30 minutes</string>
+    <string name="dialog_timer_one_hour">1 hour</string>
+    <string name="dialog_timer_first_text">Select an option to schedule the app shutdown</string>
 
     <!-- Toast messages Main Activty -->
 
-    <string name="error_max_audio_capacity_reached">Você só pode escolher no máximo 3 áudios para tocar</string>
-    <string name="error_min_audio_quantity_to_play">Escolha ao menos 1 áudio para tocar</string>
+    <string name="error_max_audio_capacity_reached">You can only choose a maximum of 3 audios to play</string>
+    <string name="error_min_audio_quantity_to_play">Choose at least 1 audio to play</string>
 
     <!-- Toast messages Second Activity -->
 
-    <string name="error_no_audio_playing">Essa mensagem não deveria aparecer aqui</string>
-    <string name="error_more_audio_than_support">Há mais áudio do que o aplicativo suporta</string>
+    <string name="error_no_audio_playing">This message shouldn\'t appear here, please contact support or restart the application</string>
+    <string name="error_more_audio_than_support">There are more audios playing than the application supports</string>
 
     <!-- descriptions of buttons -->
 
     <string name="btn_play">PLAY</string>
-    <string name="btn_info">INFORMAÇÕES</string>
-    <string name="desc_imgBtnRain">CHUVA</string>
-    <string name="desc_imgBtnThunder">TROVAO</string>
-    <string name="desc_imgBtnFan">VENTILADOR</string>
-    <string name="desc_imgBtnCity">CIDADE</string>
-    <string name="desc_imgBtnForest">FLORESTA</string>
-    <string name="desc_imgBtnAirConditioner">CLIMATIZADOR</string>
-    <string name="desc_imgBtnFireplace">FOGUEIRA</string>
-    <string name="desc_imgBtnBeach">PRAIA</string>
-    <string name="desc_imgBtnNightGuard">GUARDA</string>
-    <string name="desc_imgBtnClock">RELOGIO</string>
-    <string name="desc_imgBtnWind">VENTO</string>
-    <string name="desc_imgBtnCricket">GRILO</string>
-    <string name="desc_imgBtnCicada">CIGARRA</string>
-    <string name="desc_imgBtnWaterfall">CACHOEIRA</string>
+    <string name="btn_info">INFORMATIONS</string>
+
+    <!-- do not translate, important for code working -->
+    <string name="desc_imgBtnRain" translatable="false">CHUVA</string>
+    <string name="desc_imgBtnThunder" translatable="false">TROVAO</string>
+    <string name="desc_imgBtnFan" translatable="false">VENTILADOR</string>
+    <string name="desc_imgBtnCity" translatable="false">CIDADE</string>
+    <string name="desc_imgBtnForest" translatable="false">FLORESTA</string>
+    <string name="desc_imgBtnAirConditioner" translatable="false">CLIMATIZADOR</string>
+    <string name="desc_imgBtnFireplace" translatable="false">FOGUEIRA</string>
+    <string name="desc_imgBtnBeach" translatable="false">PRAIA</string>
+    <string name="desc_imgBtnNightGuard" translatable="false">GUARDA</string>
+    <string name="desc_imgBtnClock" translatable="false">RELOGIO</string>
+    <string name="desc_imgBtnWind" translatable="false">VENTO</string>
+    <string name="desc_imgBtnCricket" translatable="false">GRILO</string>
+    <string name="desc_imgBtnCicada" translatable="false">CIGARRA</string>
+    <string name="desc_imgBtnWaterfall" translatable="false">CACHOEIRA</string>
 
 </resources>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- other settings -->
+
+    <string name="app_name">DormeB</string>
+    <string name="preference_file_key">com.dormeb.dormeb.PREFERENCE_FILE_KEY</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <!-- Splash activity -->
+
+    <string name="splash_welcome_msg">DORMƎB</string>
+    <string name="splash_first_msg">Durma Melhor: Nosso aplicativo é projetado para ajudar você a dormir com mais facilidade.</string>
+    <string name="splash_second_msg">Escolha de Sons: Personalize sua experiência escolhendo entre três tipos de sons relaxantes para dormir.</string>
+    <string name="splash_third_msg">Facilidade de Uso: Interface simples e intuitiva para que você possa configurar seu ambiente de sono rapidamente.</string>
+    <string name="splash_button_start">INICIAR EXPERIÊNCIA</string>
+    <string name="splash_check_show_again">Não mostrar isso novamente</string>
+
+    <!-- Main activity -->
+
+    <string name="message_audio_choose">Selecione um áudio para dormir</string>
+
+    <string name="audio_rain">Chuva</string>
+    <string name="audio_desc_rain">Essa melodia suave e calma é um dos métodos mais antigos usados para cair no sono</string>
+
+    <string name="audio_thunder">Chuva com trovão</string>
+    <string name="audio_desc_thunder">Relaxe com o som das gotas de chuva e os trovões distantes, criando uma atmosfera calma e envolvente</string>
+
+    <string name="audio_fan">Ventilador</string>
+    <string name="audio_desc_fan">Essa melodia, um pouco moderna, além de esfriar o ambiente (as vezes) também ajuda a relaxar o seu corpo depois de um dia corrido</string>
+
+    <string name="audio_night_guard">Sirene do guarda nortuno</string>
+    <string name="audio_desc_night_guard">Nem tanto desconhecida, essa é a melodia favorita dos que dormem tranquilo somente quando se sentem seguros</string>
+
+    <string name="audio_street">Som ambiente de rua</string>
+    <string name="audio_desc_street">Ouça os sons dos carros passando ao longe e o vento suave sussurrando entre as árvores. Esta combinação cria uma atmosfera calma e tranquila, perfeita para relaxar e refletir</string>
+
+    <string name="audio_forest">Floresta</string>
+    <string name="audio_desc_forest">Transporte-se para a natureza com o tranquilo som dos pássaros e o sussurro das folhas</string>
+
+    <string name="audio_air_conditioner">Ar-Condicionado</string>
+    <string name="audio_desc_air_conditioner">Essa melodia, além de esfriar o ambiente, também colabora para esfriar a cabeça de quem a escuta</string>
+
+    <string name="audio_beach">Praia</string>
+    <string name="audio_desc_beach">Relaxe ao som das ondas quebrando suavemente na costa</string>
+
+    <string name="audio_fireplace">Fogueira</string>
+    <string name="audio_desc_fireplace">Uma atmosfera acolhedora criada pelo crepitar reconfortante das chamas</string>
+
+    <string name="audio_clock">Relógio</string>
+    <string name="audio_desc_clock">Som de tic tac do relógio para quem tem medo de perder a hora</string>
+
+    <string name="audio_cicada">Cigarra</string>
+    <string name="audio_desc_cicada">Essa "suave" canção da cigarra pode tanto relaxar quanto ensurdecer quem estiver por perto</string>
+
+    <string name="audio_cricket">Grilo</string>
+    <string name="audio_desc_cricket">O primitivo barulho de grilo é usado desde 7500 AC para dormir e relaxar</string>
+
+    <string name="audio_wind">Vento</string>
+    <string name="audio_desc_wind">O clássico barulho de vento que dá a sensação de estar voando</string>
+
+    <string name="audio_waterfall">Cachoeira</string>
+    <string name="audio_desc_waterfall">O reconfortante barulho de cachoeira é capaz de fazer o usuário relaxar, porém é recomendado que este não tenha bebido muita água antes de dormir</string>
+
+    <string name="button_pressed">pressed</string>
+    <string name="button_not_pressed">not_pressed</string>
+
+    <!--         Dialog info -->
+
+    <string name="dialog_info_tab">Tabela de informações</string>
+    <string name="dialog_info_title">Central de suporte</string>
+    <string name="dialog_info_first_text">Encontrou algum erro no aplicativo?</string>
+    <string name="dialog_info_email">Nos contate imediatamente: dormebapp@gmail.com</string>
+    <string name="dialog_app_email">Email de suporte: dormebapp@gmail.com</string>
+    <string name="dialog_select_timer">Selecione uma opção do temporizador</string>
+
+    <!-- Second activity -->
+
+    <string name="button_tag_wake">wake</string>
+    <string name="button_tag_sleep">sleep</string>
+
+    <!-- descriptions second activity -->
+
+    <string name="second_activity_btn_pause">Pausar</string>
+    <string name="second_activity_timer_btn">Temporizador</string>
+    <string name="second_activity_sleep_btn">Apagar a tela</string>
+    <string name="second_activity_firstvolumeimg">1º Ícone de volume</string>
+    <string name="second_activity_sceondvolumeimg">2º Ícone de volume</string>
+    <string name="second_activity_thirdimagevolume">3º Ícone de volume</string>
+
+    <!--         Dialog timer -->
+
+    <string name="dialog_timer_title">Temporizador</string>
+    <string name="dialog_timer_fifteen_minutes">15 minutos</string>
+    <string name="dialog_timer_thirty_minutes">30 minutos</string>
+    <string name="dialog_timer_one_hour">1 hora</string>
+    <string name="dialog_timer_first_text">Selecione uma opção para programar desligamento do app</string>
+
+    <!-- Toast messages Main Activty -->
+
+    <string name="error_max_audio_capacity_reached">Você só pode escolher no máximo 3 áudios para tocar</string>
+    <string name="error_min_audio_quantity_to_play">Escolha ao menos 1 áudio para tocar</string>
+
+    <!-- Toast messages Second Activity -->
+
+    <string name="error_no_audio_playing">Essa mensagem não deveria aparecer aqui, por favor contate ajuda ou reinicie o aplicativo</string>
+    <string name="error_more_audio_than_support">Há mais áudios tocando do que o aplicativo suporta</string>
+
+    <!-- descriptions of buttons -->
+
+    <string name="btn_play">PLAY</string>
+    <string name="btn_info">INFORMAÇÕES</string>
+
+    <!-- do not translate, important for code working -->
+    <string name="desc_imgBtnRain">CHUVA</string>
+    <string name="desc_imgBtnThunder">TROVAO</string>
+    <string name="desc_imgBtnFan">VENTILADOR</string>
+    <string name="desc_imgBtnCity">CIDADE</string>
+    <string name="desc_imgBtnForest">FLORESTA</string>
+    <string name="desc_imgBtnAirConditioner">CLIMATIZADOR</string>
+    <string name="desc_imgBtnFireplace">FOGUEIRA</string>
+    <string name="desc_imgBtnBeach">PRAIA</string>
+    <string name="desc_imgBtnNightGuard">GUARDA</string>
+    <string name="desc_imgBtnClock">RELOGIO</string>
+    <string name="desc_imgBtnWind">VENTO</string>
+    <string name="desc_imgBtnCricket">GRILO</string>
+    <string name="desc_imgBtnCicada">CIGARRA</string>
+    <string name="desc_imgBtnWaterfall">CACHOEIRA</string>
+
+</resources>
