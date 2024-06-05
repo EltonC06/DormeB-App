@@ -1,6 +1,7 @@
 package com.dormeb.dormeb
 
 import android.app.Dialog
+import android.os.Build
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -40,21 +41,28 @@ class SecondActivity : AppCompatActivity() {
     override fun onDestroy() {
 
         if (firstMediaPlayer.isPlaying) {
+            Log.d("MediaPlayerReleasing", "Releasing firstMediaPlayer")
             firstMediaPlayer.pause()
+            firstMediaPlayer.stop()
             firstMediaPlayer.reset()
             firstMediaPlayer.release()
         }
 
         if (secondMediaPlayer.isPlaying) {
+            Log.d("MediaPlayerReleasing", "Releasing secondMediaPlayer")
             secondMediaPlayer.pause()
+            secondMediaPlayer.stop()
             secondMediaPlayer.reset()
             secondMediaPlayer.release()
         }
 
         if (thirdMediaPlayer.isPlaying) {
+            Log.d("MediaPlayerReleasing", "Releasing thirdMediaPlayer")
             thirdMediaPlayer.pause()
+            thirdMediaPlayer.stop()
             thirdMediaPlayer.reset()
             thirdMediaPlayer.release()
+
         }
 
         count?.cancel()
@@ -93,8 +101,15 @@ class SecondActivity : AppCompatActivity() {
         initInterfaceComponents()
         initialAnimation()
 
-        val transferList = intent.getParcelableExtra<AudiostoPass>("Sounds")?.audios // os sons transferidos
+        val transferList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // aqui é para versões mais recentes do andoid
+            intent.getParcelableExtra("Sounds", AudiostoPass::class.java)?.audios
+        } else { // versões mais antigas do android
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra<AudiostoPass>("Sounds")?.audios
+        }
+
         val soundQuantity = verifySoundQuantity(transferList?.size)
+
 
         if (transferList != null) {
             for (audios in transferList){
@@ -421,24 +436,6 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
-    /*
-    private fun releaseMediaPlayer(mediaplayer: MediaPlayer) {
-        if (mediaplayer.isPlaying) {
-            mediaplayer.stop()
-        }
-        mediaplayer.reset()
-        mediaplayer.release()
-    }
-     */
-
-    /*
-    private fun releaseAllMediaPlayers() {
-        releaseMediaPlayer(firstMediaPlayer)
-        releaseMediaPlayer(secondMediaPlayer)
-        releaseMediaPlayer(thirdMediaPlayer)
-    }
-    */
-
     private fun setupCallBackCalls() { // setando o anuncio full screen
         Log.d(tag, "ad full screen set up")
 
@@ -451,8 +448,8 @@ class SecondActivity : AppCompatActivity() {
             override fun onAdDismissedFullScreenContent() {
                 // Called when ad is dismissed.
                 Log.d(tag, "Ad dismissed fullscreen content.")
-                mInterstitialAd = null
                 changeToMainActivity()
+                mInterstitialAd = null
             }
 
             override fun onAdFailedToShowFullScreenContent(p0: AdError) {
@@ -469,9 +466,9 @@ class SecondActivity : AppCompatActivity() {
 
             override fun onAdShowedFullScreenContent() {
                 // Called when ad is shown.
-                firstMediaPlayer.pause()
-                secondMediaPlayer.pause()
-                thirdMediaPlayer.pause()
+                firstMediaPlayer.setVolume(0.0F, 0.0f)
+                secondMediaPlayer.setVolume(0.0F, 0.0f)
+                thirdMediaPlayer.setVolume(0.0F, 0.0f)
                 Log.d(tag, "Ad showed fullscreen content.")
             }
 

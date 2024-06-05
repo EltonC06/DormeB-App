@@ -16,7 +16,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/splash_welcome_msg"
         android:textAlignment="center"
-        android:textColor="@color/blue"
+        android:textColor="@color/BlueforText"
         android:textColorLink="@color/white"
         android:fontFamily="@font/horta"
         android:textSize="56sp"
@@ -101,7 +101,7 @@
 
     <Button
         android:id="@+id/btnStart"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="92dp"

@@ -69,15 +69,26 @@
 
     <!--         Dialog info -->
 
+    <string name="dialog_info_tab">Tabela de informações</string>
     <string name="dialog_info_title">Central de suporte</string>
     <string name="dialog_info_first_text">Encontrou algum erro no aplicativo?</string>
     <string name="dialog_info_email">Nos contate imediatamente: dormebapp@gmail.com</string>
-
+    <string name="dialog_app_email">Email de suporte: dormebapp@gmail.com</string>
+    <string name="dialog_select_timer">Selecione uma opção do temporizador</string>
 
     <!-- Second activity -->
 
     <string name="button_tag_wake">wake</string>
     <string name="button_tag_sleep">sleep</string>
+
+    <!-- descriptions second activity -->
+
+    <string name="second_activity_btn_pause">Pausar</string>
+    <string name="second_activity_timer_btn">Temporizador</string>
+    <string name="second_activity_sleep_btn">Apagar a tela</string>
+    <string name="second_activity_firstvolumeimg">1º Ícone de volume</string>
+    <string name="second_activity_sceondvolumeimg">2º Ícone de volume</string>
+    <string name="second_activity_thirdimagevolume">3º Ícone de volume</string>
 
     <!--         Dialog timer -->
 
@@ -96,6 +107,11 @@
 
     <string name="error_no_audio_playing">Essa mensagem não deveria aparecer aqui</string>
     <string name="error_more_audio_than_support">Há mais áudio do que o aplicativo suporta</string>
+
+    <!-- descriptions of buttons -->
+
+    <string name="btn_play">PLAY</string>
+    <string name="btn_info">INFORMAÇÕES</string>
     <string name="desc_imgBtnRain">CHUVA</string>
     <string name="desc_imgBtnThunder">TROVAO</string>
     <string name="desc_imgBtnFan">VENTILADOR</string>
@@ -110,13 +126,5 @@
     <string name="desc_imgBtnCricket">GRILO</string>
     <string name="desc_imgBtnCicada">CIGARRA</string>
     <string name="desc_imgBtnWaterfall">CACHOEIRA</string>
-
-    <!-- descriptions of buttons -->
-
-
-
-
-
-
 
 </resources>

@@ -287,6 +287,7 @@
         app:layout_constraintGuide_percent="0.56" />
 
     <ImageButton
+        android:contentDescription="@string/btn_play"
         android:id="@+id/imgBtnPlay"
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -300,6 +301,7 @@
 
     <ImageButton
         android:id="@+id/imgBtnInfo"
+        android:contentDescription="@string/btn_info"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="21dp"
