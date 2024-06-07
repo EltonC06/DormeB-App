@@ -10,5 +10,4 @@
         <item name="android:windowBackground">@color/background</item>
     </style>
 
-    <style name="Theme.DormeBApp" parent="Base.Theme.DormeBApp" />
 </resources>

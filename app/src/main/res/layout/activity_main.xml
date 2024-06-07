@@ -25,7 +25,7 @@
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:stretchColumns="0,1">
+            android:stretchColumns="0,1,2">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -37,9 +37,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnRain"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/chuva" />
 
                 <ImageButton
@@ -48,9 +48,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnThunder"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/trovao" />
 
                 <ImageButton
@@ -59,9 +59,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnFan"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/ventilador" />
 
             </TableRow>
@@ -76,9 +76,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnCity"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/cidade" />
 
                 <ImageButton
@@ -87,9 +87,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnForest"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/floresta" />
 
                 <ImageButton
@@ -98,9 +98,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnAirConditioner"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/climatizador" />
 
             </TableRow>
@@ -115,9 +115,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnFireplace"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/fogueira" />
 
                 <ImageButton
@@ -126,9 +126,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnBeach"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/praia" />
 
                 <ImageButton
@@ -137,9 +137,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnNightGuard"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/guarda" />
 
             </TableRow>
@@ -154,9 +154,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnClock"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/relogio" />
 
                 <ImageButton
@@ -165,9 +165,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnWind"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/vento" />
 
                 <ImageButton
@@ -176,9 +176,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnCricket"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/grilo" />
 
             </TableRow>
@@ -193,9 +193,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnCicada"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/cigarra" />
 
                 <ImageButton
@@ -204,9 +204,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnWaterfall"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/cachoeira" />
 
                 <ImageButton
@@ -215,9 +215,9 @@
                     android:layout_height="120dp"
                     android:background="@null"
                     android:contentDescription="@string/desc_imgBtnGoose"
-                    android:tag="not_pressed"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
+                    android:tag="not_pressed"
                     app:srcCompat="@drawable/ganso" />
 
             </TableRow>

@@ -49,6 +49,8 @@ dependencies {
     implementation("com.google.android.gms:play-services-ads:23.1.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    //noinspection UseTomlInstead
+    implementation("androidx.core:core-splashscreen:1.0.1")
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
