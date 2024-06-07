@@ -209,6 +209,17 @@
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/cachoeira" />
 
+                <ImageButton
+                    android:id="@+id/imgBtnGoose"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnGoose"
+                    android:tag="not_pressed"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ganso" />
+
             </TableRow>
 
         </TableLayout>

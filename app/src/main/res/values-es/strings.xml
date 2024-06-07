@@ -25,46 +25,49 @@
     <string name="message_audio_choose">Selecciona un audio para dormir</string>
 
     <string name="audio_rain">Lluvia</string>
-    <string name="audio_desc_rain">Esta suave y tranquila melodía es uno de los métodos más antiguos utilizados para conciliar el sueño.</string>
+    <string name="audio_desc_rain">Esta suave y tranquila melodía es uno de los métodos más antiguos utilizados para conciliar el sueño</string>
 
     <string name="audio_thunder">Lluvia con Truenos</string>
-    <string name="audio_desc_thunder">Relájate con el sonido de las gotas de lluvia y los truenos distantes, creando una atmósfera calmada e inmersiva.</string>
+    <string name="audio_desc_thunder">Relájate con el sonido de las gotas de lluvia y los truenos distantes, creando una atmósfera calmada e inmersiva</string>
 
     <string name="audio_fan">Ventilador</string>
-    <string name="audio_desc_fan">Esta melodía ligeramente moderna, además de enfriar el ambiente (a veces), también ayuda a relajar tu cuerpo después de un día ocupado.</string>
+    <string name="audio_desc_fan">Esta melodía ligeramente moderna, además de enfriar el ambiente (a veces), también ayuda a relajar tu cuerpo después de un día ocupado</string>
 
     <string name="audio_night_guard">Sirena del Guardia Nocturno</string>
-    <string name="audio_desc_night_guard">No tan desconocida, esta es la melodía favorita de aquellos que solo duermen profundamente cuando se sienten seguros.</string>
+    <string name="audio_desc_night_guard">No tan desconocida, esta es la melodía favorita de aquellos que solo duermen profundamente cuando se sienten seguros</string>
 
     <string name="audio_street">Sonido Ambiente de la Calle</string>
-    <string name="audio_desc_street">Escucha los sonidos de los autos pasando a lo lejos y el suave viento susurrando entre los árboles. Esta combinación crea una atmósfera tranquila y apacible, perfecta para relajarse y reflexionar.</string>
+    <string name="audio_desc_street">Escucha los sonidos de los autos pasando a lo lejos y el suave viento susurrando entre los árboles. Esta combinación crea una atmósfera tranquila y apacible, perfecta para relajarse y reflexionar</string>
 
     <string name="audio_forest">Bosque</string>
-    <string name="audio_desc_forest">Trasládate a la naturaleza con los tranquilos sonidos de los pájaros y el susurro de las hojas.</string>
+    <string name="audio_desc_forest">Trasládate a la naturaleza con los tranquilos sonidos de los pájaros y el susurro de las hojas</string>
 
     <string name="audio_air_conditioner">Aire Acondicionado</string>
-    <string name="audio_desc_air_conditioner">Esta melodía, además de enfriar el ambiente, también ayuda a enfriar la mente de quienes la escuchan.</string>
+    <string name="audio_desc_air_conditioner">Esta melodía, además de enfriar el ambiente, también ayuda a enfriar la mente de quienes la escuchan</string>
 
     <string name="audio_beach">Playa</string>
-    <string name="audio_desc_beach">Relájate con el sonido de las olas rompiendo suavemente en la costa.</string>
+    <string name="audio_desc_beach">Relájate con el sonido de las olas rompiendo suavemente en la costa</string>
 
     <string name="audio_fireplace">Fogata</string>
-    <string name="audio_desc_fireplace">Una atmósfera acogedora creada por el reconfortante crepitar de las llamas.</string>
+    <string name="audio_desc_fireplace">Una atmósfera acogedora creada por el reconfortante crepitar de las llamas</string>
 
     <string name="audio_clock">Reloj</string>
-    <string name="audio_desc_clock">El sonido del tic-tac del reloj para aquellos que temen perder la noción del tiempo.</string>
+    <string name="audio_desc_clock">El sonido del tic-tac del reloj para aquellos que temen perder la noción del tiempo</string>
 
     <string name="audio_cicada">Cigarra</string>
-    <string name="audio_desc_cicada">Esta "suave" canción de cigarra puede relajar y ensordecer a quienes están cerca.</string>
+    <string name="audio_desc_cicada">Esta "suave" canción de cigarra puede relajar y ensordecer a quienes están cerca</string>
 
     <string name="audio_cricket">Grillo</string>
-    <string name="audio_desc_cricket">El primitivo sonido de los grillos se ha utilizado desde el 7500 a.C. para dormir y relajarse.</string>
+    <string name="audio_desc_cricket">El primitivo sonido de los grillos se ha utilizado desde el 7500 a.C. para dormir y relajarse</string>
 
     <string name="audio_wind">Viento</string>
-    <string name="audio_desc_wind">El clásico sonido del viento que da la sensación de volar.</string>
+    <string name="audio_desc_wind">El clásico sonido del viento que da la sensación de volar</string>
 
     <string name="audio_waterfall">Cascada</string>
-    <string name="audio_desc_waterfall">El reconfortante sonido de una cascada es capaz de relajar al usuario, pero se recomienda que no beba demasiada agua antes de dormir.</string>
+    <string name="audio_desc_waterfall">El reconfortante sonido de una cascada es capaz de relajar al usuario, pero se recomienda que no beba demasiada agua antes de dormir</string>
+
+    <string name="audio_goose">Ganso</string>
+    <string name="audio_desc_goose">Duerme tranquilamente escuchando el sonido reconfortante de los gansos en el estanque</string>
 
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>

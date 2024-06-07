@@ -57,13 +57,16 @@
     <string name="audio_desc_cicada">Essa "suave" canção da cigarra pode tanto relaxar quanto ensurdecer quem estiver por perto</string>
 
     <string name="audio_cricket">Grilo</string>
-    <string name="audio_desc_cricket">O primitivo barulho de grilo é usado desde 7500 AC para dormir e relaxar</string>
+    <string name="audio_desc_cricket">O primitivo barulho de grilo é usado desde 7500 A.C. para dormir e relaxar</string>
 
     <string name="audio_wind">Vento</string>
     <string name="audio_desc_wind">O clássico barulho de vento que dá a sensação de estar voando</string>
 
     <string name="audio_waterfall">Cachoeira</string>
     <string name="audio_desc_waterfall">O reconfortante barulho de cachoeira é capaz de fazer o usuário relaxar, porém é recomendado que este não tenha bebido muita água antes de dormir</string>
+
+    <string name="audio_goose">Ganso</string>
+    <string name="audio_desc_goose">Durma tranquilamente ouvindo o som reconfortante dos gansos na lagoa</string>
 
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>

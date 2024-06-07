@@ -151,8 +151,6 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
 
                     }
-
-
                 }
                 else if (audios == SoundsName.VENTILADOR.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
@@ -349,6 +347,23 @@ class SecondActivity : AppCompatActivity() {
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.cachoeira)
                         changeImgIcon(3, SoundsName.CACHOEIRA)
+                        mediaPlayerConfig(3)
+                    }
+                }
+
+                if (audios == SoundsName.GANSO.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.ganso)
+                        changeImgIcon(1, SoundsName.GANSO)
+                        mediaPlayerConfig(1)
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.ganso)
+                        changeImgIcon(2, SoundsName.GANSO)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.ganso)
+                        changeImgIcon(3, SoundsName.GANSO)
                         mediaPlayerConfig(3)
                     }
                 }
@@ -676,6 +691,10 @@ class SecondActivity : AppCompatActivity() {
                     SoundsName.CACHOEIRA -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.cachoeira)
                     }
+
+                    SoundsName.GANSO -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.ganso)
+                    }
                 }
 
             }
@@ -736,6 +755,10 @@ class SecondActivity : AppCompatActivity() {
                     SoundsName.CACHOEIRA -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.cachoeira)
                     }
+
+                    SoundsName.GANSO -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.ganso)
+                    }
                 }
             }
             3 -> {
@@ -794,6 +817,10 @@ class SecondActivity : AppCompatActivity() {
 
                     SoundsName.CACHOEIRA -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.cachoeira)
+                    }
+
+                    SoundsName.GANSO -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.ganso)
                     }
                 }
             }

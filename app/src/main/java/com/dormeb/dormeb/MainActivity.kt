@@ -60,7 +60,8 @@ class MainActivity : AppCompatActivity() {
             binding.imgBtnWind,
             binding.imgBtnCricket,
             binding.imgBtnCicada,
-            binding.imgBtnWaterfall
+            binding.imgBtnWaterfall,
+            binding.imgBtnGoose
         ) // o codigo pra passar pra second activity vai percorrer essa lista e vai verificar quais audios estão "pressed"
 
 
@@ -290,6 +291,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.imgBtnGoose.setOnClickListener{
+            changeScrollsVisibility()
+
+            if (binding.imgBtnGoose.tag == getString(R.string.button_pressed)) {
+                changeImgButtonandText(SoundsName.GANSO, 2)
+                binding.imgBtnGoose.tag = getString(R.string.button_not_pressed)
+                selectCount -= 1
+            } else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.GANSO, 1)
+                binding.imgBtnGoose.tag = getString(R.string.button_pressed)
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
         // migrating all data to another class VVV
 
         binding.imgBtnPlay.setOnClickListener {
@@ -425,6 +442,11 @@ class MainActivity : AppCompatActivity() {
                         binding.imgBtnWaterfall.setImageResource(R.drawable.cachoeira_pressed)
                         changeMusicandDescText(SoundsName.CACHOEIRA)
                     }
+
+                    SoundsName.GANSO -> {
+                        binding.imgBtnGoose.setImageResource(R.drawable.ganso_pressed)
+                        changeMusicandDescText(SoundsName.GANSO)
+                    }
                 }
             }
 
@@ -444,6 +466,7 @@ class MainActivity : AppCompatActivity() {
                     SoundsName.GRILO -> binding.imgBtnCricket.setImageResource(R.drawable.grilo)
                     SoundsName.VENTO -> binding.imgBtnWind.setImageResource(R.drawable.vento)
                     SoundsName.CACHOEIRA -> binding.imgBtnWaterfall.setImageResource(R.drawable.cachoeira)
+                    SoundsName.GANSO -> binding.imgBtnGoose.setImageResource(R.drawable.ganso)
                 }
             }
         }
@@ -525,6 +548,11 @@ class MainActivity : AppCompatActivity() {
             SoundsName.CACHOEIRA -> {
                 binding.txtAudioName.text = getString(R.string.audio_waterfall)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_waterfall)
+            }
+
+            SoundsName.GANSO -> {
+                binding.txtAudioName.text = getString(R.string.audio_goose)
+                binding.txtAudioDesc.text = getString(R.string.audio_desc_goose)
             }
         }
     }

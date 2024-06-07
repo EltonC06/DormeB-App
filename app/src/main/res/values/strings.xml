@@ -24,46 +24,49 @@
     <string name="message_audio_choose">Select an audio for sleeping</string>
 
     <string name="audio_rain">Rain</string>
-    <string name="audio_desc_rain">This soft and calm melody is one of the oldest methods used to fall asleep.</string>
+    <string name="audio_desc_rain">This soft and calm melody is one of the oldest methods used to fall asleep</string>
 
     <string name="audio_thunder">Rain with Thunder</string>
-    <string name="audio_desc_thunder">Relax with the sound of raindrops and distant thunder, creating a calm and immersive atmosphere.</string>
+    <string name="audio_desc_thunder">Relax with the sound of raindrops and distant thunder, creating a calm and immersive atmosphere</string>
 
     <string name="audio_fan">Fan</string>
-    <string name="audio_desc_fan">This slightly modern melody, besides cooling the environment (sometimes), also helps relax your body after a busy day.</string>
+    <string name="audio_desc_fan">This slightly modern melody, besides cooling the environment (sometimes), also helps relax your body after a busy day</string>
 
     <string name="audio_night_guard">Night Guard Siren</string>
-    <string name="audio_desc_night_guard">Not so unfamiliar, this is the favorite melody of those who only sleep soundly when they feel safe.</string>
+    <string name="audio_desc_night_guard">Not so unfamiliar, this is the favorite melody of those who only sleep soundly when they feel safe</string>
 
     <string name="audio_street">Street Ambient Sound</string>
-    <string name="audio_desc_street">Listen to the sounds of cars passing by in the distance and the gentle wind whispering through the trees. This combination creates a calm and tranquil atmosphere, perfect for relaxation and reflection.</string>
+    <string name="audio_desc_street">Listen to the sounds of cars passing by in the distance and the gentle wind whispering through the trees. This combination creates a calm and tranquil atmosphere, perfect for relaxation and reflection</string>
 
     <string name="audio_forest">Forest</string>
-    <string name="audio_desc_forest">Transport yourself to nature with the tranquil sounds of birds and the rustle of leaves.</string>
+    <string name="audio_desc_forest">Transport yourself to nature with the tranquil sounds of birds and the rustle of leaves</string>
 
     <string name="audio_air_conditioner">Air Conditioner</string>
-    <string name="audio_desc_air_conditioner">This melody, besides cooling the environment, also helps to cool the mind of those who listen to it.</string>
+    <string name="audio_desc_air_conditioner">This melody, besides cooling the environment, also helps to cool the mind of those who listen to it</string>
 
     <string name="audio_beach">Beach</string>
-    <string name="audio_desc_beach">Relax to the sound of waves gently breaking on the shore.</string>
+    <string name="audio_desc_beach">Relax to the sound of waves gently breaking on the shore</string>
 
     <string name="audio_fireplace">Campfire</string>
-    <string name="audio_desc_fireplace">A cozy atmosphere created by the comforting crackle of flames.</string>
+    <string name="audio_desc_fireplace">A cozy atmosphere created by the comforting crackle of flames</string>
 
     <string name="audio_clock">Clock</string>
-    <string name="audio_desc_clock">The ticking sound of the clock for those who are afraid of losing track of time.</string>
+    <string name="audio_desc_clock">The ticking sound of the clock for those who are afraid of losing track of time</string>
 
     <string name="audio_cicada">Cicada</string>
-    <string name="audio_desc_cicada">This "gentle" cicada song can both relax and deafen those nearby.</string>
+    <string name="audio_desc_cicada">This "gentle" cicada song can both relax and deafen those nearby</string>
 
     <string name="audio_cricket">Cricket</string>
-    <string name="audio_desc_cricket">The primitive sound of crickets has been used since 7500 B.C. to sleep and relax.</string>
+    <string name="audio_desc_cricket">The primitive sound of crickets has been used since 7500 B.C. to sleep and relax</string>
 
     <string name="audio_wind">Wind</string>
-    <string name="audio_desc_wind">The classic sound of wind that gives the sensation of flying.</string>
+    <string name="audio_desc_wind">The classic sound of wind that gives the sensation of flying</string>
 
     <string name="audio_waterfall">Waterfall</string>
-    <string name="audio_desc_waterfall">The comforting sound of a waterfall is capable of making the user relax, but it is recommended that they not drink too much water before sleeping.</string>
+    <string name="audio_desc_waterfall">The comforting sound of a waterfall is capable of making the user relax, but it is recommended that they not drink too much water before sleeping</string>
+
+    <string name="audio_goose">Goose</string>
+    <string name="audio_desc_goose">Sleep peacefully listening to the comforting sound of geese on the pond</string>
 
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>
@@ -129,5 +132,6 @@
     <string name="desc_imgBtnCricket" translatable="false">GRILO</string>
     <string name="desc_imgBtnCicada" translatable="false">CIGARRA</string>
     <string name="desc_imgBtnWaterfall" translatable="false">CACHOEIRA</string>
+    <string name="desc_imgBtnGoose" translatable="false">GANSO</string>
 
 </resources>
