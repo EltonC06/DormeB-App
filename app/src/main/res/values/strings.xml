@@ -12,7 +12,7 @@
 
     <!-- Splash activity -->
 
-    <string name="splash_welcome_msg">DORMƎB</string>
+    <string name="splash_appname_msg">DORMƎB</string>
     <string name="splash_first_msg">Sleep Better: Our app is designed to help you sleep more easily.</string>
     <string name="splash_second_msg">Sound Choices: Personalize your experience by choosing from three types of relaxing sounds for sleep.</string>
     <string name="splash_third_msg">Easy to Use: Simple and intuitive interface so you can set up your sleep environment quickly.</string>
@@ -70,6 +70,16 @@
 
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>
+
+    <string name="txt_natural">Natural sounds</string>
+    <string name="txt_water">Water sounds</string>
+    <string name="txt_animal">Animals sounds</string>
+    <string name="txt_urban">Urban sounds</string>
+
+    <string name="desc_btn_natural">Ir a sonidos naturales</string>
+    <string name="desc_btn_water">Ir a sonidos de agua</string>
+    <string name="desc_btn_animals">Ir a sonidos de animales</string>
+    <string name="desc_btn_urban">Ir a sonidos urbanos</string>
 
     <!--         Dialog info -->
 
@@ -133,13 +143,6 @@
     <string name="desc_imgBtnCicada" translatable="false">CIGARRA</string>
     <string name="desc_imgBtnWaterfall" translatable="false">CACHOEIRA</string>
     <string name="desc_imgBtnGoose" translatable="false">GANSO</string>
-    <string name="btn_toaudios_natural">Sons naturais</string>
-    <string name="btn_toaudios_water">Sons hídricos</string>
-    <string name="btn_toaudios_animal">Sons de animais</string>
-    <string name="btn_toaudios_urban">Sons urbanos</string>
-    <string name="txt_urban">Sons urbanos</string>
-    <string name="txt_animal">Sons de animais</string>
-    <string name="txt_water">Sons hídricos</string>
-    <string name="txt_natural">Sons naturais</string>
+
 
 </resources>

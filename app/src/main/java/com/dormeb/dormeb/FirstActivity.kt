@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dormeb.dormeb.values.AlphaValues
@@ -16,7 +17,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SplashActivity : AppCompatActivity() {
+class FirstActivity : AppCompatActivity() {
 
     private lateinit var btnStart: Button
     private lateinit var checkDontShow: CheckBox
@@ -28,13 +29,12 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_splash)
+        setContentView(R.layout.activity_first)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
 
 
         val preference = loadData()
@@ -66,11 +66,11 @@ class SplashActivity : AppCompatActivity() {
     }
 
 
-
     private fun saveData() {
-        val sharedPreferences = getSharedPreferences("UserPreference", MODE_PRIVATE) // instanciando e dando o nome
+        val sharedPreferences =
+            getSharedPreferences("UserPreference", MODE_PRIVATE) // instanciando e dando o nome
         val edit = sharedPreferences.edit() // instanciando o editor, onde eu posso botar os dados
-        edit.apply{
+        edit.apply {
             putString("Preference", checkDontShow.tag.toString())
         }.apply() // botando os dados dentro
 
@@ -78,10 +78,14 @@ class SplashActivity : AppCompatActivity() {
 
     }
 
-    private fun loadData (): String { // carregando os dados
+    private fun loadData(): String { // carregando os dados
         var preference = ""
-        val sharedPreferences = getSharedPreferences("UserPreference", MODE_PRIVATE) // instanciando e dando o nome
-        val savedPreferences =  sharedPreferences.getString("Preference", null) // pegando a chave que instanciei (null é se tivesse alguma segurança)
+        val sharedPreferences =
+            getSharedPreferences("UserPreference", MODE_PRIVATE) // instanciando e dando o nome
+        val savedPreferences = sharedPreferences.getString(
+            "Preference",
+            null
+        ) // pegando a chave que instanciei (null é se tivesse alguma segurança)
 
         preference = savedPreferences.toString()
         return preference

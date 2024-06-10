@@ -12,22 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DormeBApp"
         tools:targetApi="31">
+
         <activity
-            android:name=".SecondActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="DiscouragedApi,LockedOrientationActivity" />
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            tools:ignore="DiscouragedApi,LockedOrientationActivity">
+            android:name=".FirstActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
+        <activity
+            android:name=".SecondActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -36,7 +38,7 @@
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6843878713996691~2869409488"/>
+            android:value="ca-app-pub-6843878713996691~2869409488" />
     </application>
 
 </manifest>

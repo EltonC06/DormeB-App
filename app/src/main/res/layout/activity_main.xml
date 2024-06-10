@@ -9,7 +9,6 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
     <HorizontalScrollView
         android:id="@+id/horizontalScroll"
         android:layout_width="0dp"
@@ -22,36 +21,54 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:scrollbarSize="0.1dp">
+            tools:ignore="VisualLintBounds">
 
             <Button
                 android:id="@+id/btnNatural"
-                android:layout_width="match_parent"
+                style="?android:attr/buttonBarStyle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_toaudios_natural" />
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/txt_natural"
+                android:contentDescription="@string/desc_btn_natural"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <Button
                 android:id="@+id/btnWater"
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/btn_toaudios_water" />
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/txt_water"
+                android:contentDescription="@string/desc_btn_water"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <Button
                 android:id="@+id/btnAnimal"
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/btn_toaudios_animal" />
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/txt_animal"
+                android:contentDescription="@string/desc_btn_animals"
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <Button
                 android:id="@+id/btnUrban"
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/btn_toaudios_urban" />
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/desc_btn_urban"
+                android:text="@string/txt_urban" />
         </LinearLayout>
+
     </HorizontalScrollView>
 
     <ScrollView
@@ -440,6 +457,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/info" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

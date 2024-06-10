@@ -2,7 +2,6 @@
 <resources>
     <!-- other settings -->
 
-    <string name="app_name">DormeB</string>
     <string name="preference_file_key">com.dormeb.dormeb.PREFERENCE_FILE_KEY</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="first_fragment_label">First Fragment</string>
@@ -12,7 +11,7 @@
 
     <!-- Splash activity -->
 
-    <string name="splash_welcome_msg">DORMƎB</string>
+    <string name="splash_appname_msg">DORMƎB</string>
     <string name="splash_first_msg">Durma Melhor: Nosso aplicativo é projetado para ajudar você a dormir com mais facilidade.</string>
     <string name="splash_second_msg">Escolha de Sons: Personalize sua experiência escolhendo entre três tipos de sons relaxantes para dormir.</string>
     <string name="splash_third_msg">Facilidade de Uso: Interface simples e intuitiva para que você possa configurar seu ambiente de sono rapidamente.</string>
@@ -71,6 +70,16 @@
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>
 
+    <string name="txt_natural">Sons naturais</string>
+    <string name="txt_water">Sons hídricos</string>
+    <string name="txt_animal">Sons de animais</string>
+    <string name="txt_urban">Sons urbanos</string>
+
+    <string name="desc_btn_natural">Ir para os sons naturais</string>
+    <string name="desc_btn_water">Ir para os sons hídricos</string>
+    <string name="desc_btn_animals">Ir para os sons de animais</string>
+    <string name="desc_btn_urban">Ir para os sons urbanos</string>
+
     <!--         Dialog info -->
 
     <string name="dialog_info_tab">Tabela de informações</string>
@@ -118,19 +127,5 @@
     <string name="btn_info">INFORMAÇÕES</string>
 
     <!-- do not translate, important for code working -->
-    <string name="desc_imgBtnRain">CHUVA</string>
-    <string name="desc_imgBtnThunder">TROVAO</string>
-    <string name="desc_imgBtnFan">VENTILADOR</string>
-    <string name="desc_imgBtnCity">CIDADE</string>
-    <string name="desc_imgBtnForest">FLORESTA</string>
-    <string name="desc_imgBtnAirConditioner">CLIMATIZADOR</string>
-    <string name="desc_imgBtnFireplace">FOGUEIRA</string>
-    <string name="desc_imgBtnBeach">PRAIA</string>
-    <string name="desc_imgBtnNightGuard">GUARDA</string>
-    <string name="desc_imgBtnClock">RELOGIO</string>
-    <string name="desc_imgBtnWind">VENTO</string>
-    <string name="desc_imgBtnCricket">GRILO</string>
-    <string name="desc_imgBtnCicada">CIGARRA</string>
-    <string name="desc_imgBtnWaterfall">CACHOEIRA</string>
 
 </resources>
