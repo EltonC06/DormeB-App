@@ -133,5 +133,13 @@
     <string name="desc_imgBtnCicada" translatable="false">CIGARRA</string>
     <string name="desc_imgBtnWaterfall" translatable="false">CACHOEIRA</string>
     <string name="desc_imgBtnGoose" translatable="false">GANSO</string>
+    <string name="btn_toaudios_natural">Sons naturais</string>
+    <string name="btn_toaudios_water">Sons hídricos</string>
+    <string name="btn_toaudios_animal">Sons de animais</string>
+    <string name="btn_toaudios_urban">Sons urbanos</string>
+    <string name="txt_urban">Sons urbanos</string>
+    <string name="txt_animal">Sons de animais</string>
+    <string name="txt_water">Sons hídricos</string>
+    <string name="txt_natural">Sons naturais</string>
 
 </resources>

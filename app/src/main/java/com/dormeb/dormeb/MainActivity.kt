@@ -65,9 +65,28 @@ class MainActivity : AppCompatActivity() {
         ) // o codigo pra passar pra second activity vai percorrer essa lista e vai verificar quais audios estão "pressed"
 
 
+        binding.btnNatural.setOnClickListener{
+            binding.verticalScroll.smoothScrollTo(0,binding.textCatNat.y.toInt())
+
+        }
+
+        binding.btnWater.setOnClickListener{
+            binding.verticalScroll.smoothScrollTo(0,binding.textCatWat.y.toInt())
+
+        }
+
+        binding.btnAnimal.setOnClickListener{
+            binding.verticalScroll.smoothScrollTo(0,binding.textCatAni.y.toInt())
+
+        }
+
+        binding.btnUrban.setOnClickListener{
+            binding.verticalScroll.smoothScrollTo(0,binding.textCatUrb.y.toInt())
+
+        }
 
         binding.imgBtnRain.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnRain.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.CHUVA, 2)
@@ -83,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         }
         // o codigo executa normal, mas quando é pra pausar ele não pausa o audio atual pois o mp3 é um recurso global aí se eu pedir pra pausar fora da ordem reversa, ele buga o sistema e nunca da pra pausar um elemento
         binding.imgBtnThunder.setOnClickListener { // posso criar uma variavel mp3 para cada audio
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnThunder.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.TROVAO, 2)
@@ -100,7 +119,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnFan.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnFan.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.VENTILADOR, 2)
@@ -116,7 +135,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnNightGuard.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnNightGuard.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.GUARDA, 2)
@@ -132,7 +151,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnCity.setOnClickListener { // ao inves dessa complexidade, eu posso fazer uma fun (nome do som) e associar os dois botões a uma so função
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnCity.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.CIDADE, 2)
@@ -148,7 +167,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnAirConditioner.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnAirConditioner.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.CLIMATIZADOR, 2)
@@ -164,7 +183,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnForest.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnForest.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.FLORESTA, 2)
@@ -180,7 +199,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnBeach.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnBeach.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.PRAIA, 2)
@@ -196,7 +215,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnFireplace.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnFireplace.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.FOGUEIRA, 2)
@@ -212,7 +231,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnClock.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnClock.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.RELOGIO, 2)
@@ -228,7 +247,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnWind.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnWind.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.VENTO, 2)
@@ -244,7 +263,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnCricket.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnCricket.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.GRILO, 2)
@@ -260,7 +279,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnCicada.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnCicada.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.CIGARRA, 2)
@@ -276,7 +295,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnWaterfall.setOnClickListener {
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnWaterfall.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.CACHOEIRA, 2)
@@ -292,7 +311,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgBtnGoose.setOnClickListener{
-            changeScrollsVisibility()
+            changeScrollsVisibility(2)
 
             if (binding.imgBtnGoose.tag == getString(R.string.button_pressed)) {
                 changeImgButtonandText(SoundsName.GANSO, 2)
@@ -330,9 +349,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.verticalScroll.setOnScrollChangeListener { _, _, _, _, _ ->
-            binding.verticalScroll.alpha = AlphaValues.TRANSPARENCY_MAX
-            binding.verticalScroll.animate().setDuration(12000)
-                .alpha(AlphaValues.TRANSPARENCY_ALMOST)
+            changeScrollsVisibility(2)
+        }
+
+        binding.horizontalScroll.setOnScrollChangeListener{ _, _, _, _, _ ->
+            changeScrollsVisibility(1)
         }
 
 
@@ -363,9 +384,22 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun changeScrollsVisibility() {
-        binding.verticalScroll.alpha = AlphaValues.TRANSPARENCY_MAX
-        binding.verticalScroll.animate().setDuration(15000).alpha(AlphaValues.TRANSPARENCY_ALMOST)
+    private fun changeScrollsVisibility(num: Int) {
+        when (num) {
+            1 -> {
+                binding.horizontalScroll.alpha = AlphaValues.TRANSPARENCY_MAX
+                binding.horizontalScroll.animate().setDuration(15000)
+                    .alpha(AlphaValues.TRANSPARENCY_ALMOST)
+
+            }
+
+            2 -> {
+                binding.verticalScroll.alpha = AlphaValues.TRANSPARENCY_MAX
+                binding.verticalScroll.animate().setDuration(15000)
+                    .alpha(AlphaValues.TRANSPARENCY_ALMOST)
+            }
+        }
+
     }
 
     private fun changeImgButtonandText(enum: SoundsName, playorpause: Int
@@ -570,6 +604,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.imgBtnInfo.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MIN)
 
+        binding.horizontalScroll.animate().setDuration(750).alpha(AlphaValues.TRANSPARENCY_MAX)
+
 
     }
 
@@ -584,6 +620,8 @@ class MainActivity : AppCompatActivity() {
         binding.verticalScroll.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
         binding.imgBtnInfo.alpha = AlphaValues.TRANSPARENCY_INITIAL
+
+        binding.horizontalScroll.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
     }
 }

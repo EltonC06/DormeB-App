@@ -10,6 +10,49 @@
     tools:context=".MainActivity">
 
 
+    <HorizontalScrollView
+        android:id="@+id/horizontalScroll"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:scrollbarSize="0.1dp"
+        app:layout_constraintBottom_toTopOf="@+id/verticalScroll"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/imgBtnPlay">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:scrollbarSize="0.1dp">
+
+            <Button
+                android:id="@+id/btnNatural"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_toaudios_natural" />
+
+            <Button
+                android:id="@+id/btnWater"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_toaudios_water" />
+
+            <Button
+                android:id="@+id/btnAnimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btn_toaudios_animal" />
+
+            <Button
+                android:id="@+id/btnUrban"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btn_toaudios_urban" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <ScrollView
         android:id="@+id/verticalScroll"
@@ -26,6 +69,78 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:stretchColumns="0,1,2">
+
+
+            <TextView
+                android:id="@+id/textCatNat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/txt_natural"
+                android:textAlignment="center"
+                android:textColor="@color/BlueforText"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline10"
+                app:layout_constraintStart_toStartOf="@+id/guideline9"
+                app:layout_constraintTop_toTopOf="@+id/guideline8"
+                app:drawableStartCompat="@drawable/forest_icon"
+                app:drawableEndCompat="@drawable/forest_icon" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imgBtnWind"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnWind"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/vento" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnForest"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnForest"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/floresta" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnFireplace"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnFireplace"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/fogueira" />
+
+            </TableRow>
+
+            <TextView
+                android:id="@+id/textCatWat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/txt_water"
+                android:textAlignment="center"
+                android:textColor="@color/BlueforText"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline10"
+                app:layout_constraintStart_toStartOf="@+id/guideline9"
+                app:layout_constraintTop_toTopOf="@+id/guideline8"
+                app:drawableStartCompat="@drawable/water_icon"
+                app:drawableEndCompat="@drawable/water_icon" />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -54,21 +169,122 @@
                     app:srcCompat="@drawable/trovao" />
 
                 <ImageButton
-                    android:id="@+id/imgBtnFan"
+                    android:id="@+id/imgBtnBeach"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="@string/desc_imgBtnFan"
+                    android:contentDescription="@string/desc_imgBtnBeach"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/ventilador" />
+                    app:srcCompat="@drawable/praia" />
 
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imgBtnWaterfall"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnWaterfall"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/cachoeira" />
+
+            </TableRow>
+
+            <TextView
+                android:id="@+id/textCatAni"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/txt_animal"
+                android:textAlignment="center"
+                android:textColor="@color/BlueforText"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline10"
+                app:layout_constraintStart_toStartOf="@+id/guideline9"
+                app:layout_constraintTop_toTopOf="@+id/guideline8"
+                app:drawableStartCompat="@drawable/animal_icon"
+                app:drawableEndCompat="@drawable/animal_icon" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imgBtnGoose"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnGoose"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/ganso" />
+
+
+                <ImageButton
+                    android:id="@+id/imgBtnCicada"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnCicada"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/cigarra" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnCricket"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnCricket"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/grilo" />
+
+            </TableRow>
+
+            <TextView
+                android:id="@+id/textCatUrb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/txt_urban"
+                android:textAlignment="center"
+                android:textColor="@color/BlueforText"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/guideline10"
+                app:layout_constraintStart_toStartOf="@+id/guideline9"
+                app:layout_constraintTop_toTopOf="@+id/guideline8"
+                app:drawableStartCompat="@drawable/apartment_icon"
+                app:drawableEndCompat="@drawable/apartment_icon" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imgBtnClock"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnClock"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/relogio" />
+
 
                 <ImageButton
                     android:id="@+id/imgBtnCity"
@@ -80,17 +296,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/cidade" />
-
-                <ImageButton
-                    android:id="@+id/imgBtnForest"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@null"
-                    android:contentDescription="@string/desc_imgBtnForest"
-                    android:paddingBottom="10dp"
-                    android:scaleType="centerInside"
-                    android:tag="not_pressed"
-                    app:srcCompat="@drawable/floresta" />
 
                 <ImageButton
                     android:id="@+id/imgBtnAirConditioner"
@@ -110,26 +315,16 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:id="@+id/imgBtnFireplace"
+                    android:id="@+id/imgBtnFan"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:background="@null"
-                    android:contentDescription="@string/desc_imgBtnFireplace"
+                    android:contentDescription="@string/desc_imgBtnFan"
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/fogueira" />
+                    app:srcCompat="@drawable/ventilador" />
 
-                <ImageButton
-                    android:id="@+id/imgBtnBeach"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@null"
-                    android:contentDescription="@string/desc_imgBtnBeach"
-                    android:paddingBottom="10dp"
-                    android:scaleType="centerInside"
-                    android:tag="not_pressed"
-                    app:srcCompat="@drawable/praia" />
 
                 <ImageButton
                     android:id="@+id/imgBtnNightGuard"
@@ -141,84 +336,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/guarda" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageButton
-                    android:id="@+id/imgBtnClock"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@null"
-                    android:contentDescription="@string/desc_imgBtnClock"
-                    android:paddingBottom="10dp"
-                    android:scaleType="centerInside"
-                    android:tag="not_pressed"
-                    app:srcCompat="@drawable/relogio" />
-
-                <ImageButton
-                    android:id="@+id/imgBtnWind"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@null"
-                    android:contentDescription="@string/desc_imgBtnWind"
-                    android:paddingBottom="10dp"
-                    android:scaleType="centerInside"
-                    android:tag="not_pressed"
-                    app:srcCompat="@drawable/vento" />
-
-                <ImageButton
-                    android:id="@+id/imgBtnCricket"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@null"
-                    android:contentDescription="@string/desc_imgBtnCricket"
-                    android:paddingBottom="10dp"
-                    android:scaleType="centerInside"
-                    android:tag="not_pressed"
-                    app:srcCompat="@drawable/grilo" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageButton
-                    android:id="@+id/imgBtnCicada"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@null"
-                    android:contentDescription="@string/desc_imgBtnCicada"
-                    android:paddingBottom="10dp"
-                    android:scaleType="centerInside"
-                    android:tag="not_pressed"
-                    app:srcCompat="@drawable/cigarra" />
-
-                <ImageButton
-                    android:id="@+id/imgBtnWaterfall"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@null"
-                    android:contentDescription="@string/desc_imgBtnWaterfall"
-                    android:paddingBottom="10dp"
-                    android:scaleType="centerInside"
-                    android:tag="not_pressed"
-                    app:srcCompat="@drawable/cachoeira" />
-
-                <ImageButton
-                    android:id="@+id/imgBtnGoose"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@null"
-                    android:contentDescription="@string/desc_imgBtnGoose"
-                    android:paddingBottom="10dp"
-                    android:scaleType="centerInside"
-                    android:tag="not_pressed"
-                    app:srcCompat="@drawable/ganso" />
 
             </TableRow>
 
@@ -253,7 +370,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.95" />
+        app:layout_constraintGuide_percent="0.98" />
 
     <TextView
         android:id="@+id/txtAudioName"
@@ -295,7 +412,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.56" />
+        app:layout_constraintGuide_percent="0.48" />
 
     <ImageButton
         android:contentDescription="@string/btn_play"
