@@ -39,7 +39,7 @@ class FirstActivity : AppCompatActivity() {
 
         val preference = loadData()
         if (preference == "true") {
-            initActivity()
+            initMainActivity()
             finish()
         }
 
@@ -50,7 +50,7 @@ class FirstActivity : AppCompatActivity() {
         initialAnimation()
 
         btnStart.setOnClickListener {
-            initActivity() // mesmo assim o usuario consegue voltar, logo eu tenho que finalizar essa atividade
+            initMainActivity() // mesmo assim o usuario consegue voltar, logo eu tenho que finalizar essa atividade
             finish() // finalizando
         }
 
@@ -125,7 +125,10 @@ class FirstActivity : AppCompatActivity() {
         textThird.alpha = AlphaValues.TRANSPARENCY_INITIAL
     }
 
-    private fun initActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
+    private fun initMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("KeepMainActivity", 2) // passando 2, para não ficar em loop
+        startActivity(intent)
+        finish()
     }
 }

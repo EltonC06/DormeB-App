@@ -493,6 +493,7 @@ class SecondActivity : AppCompatActivity() {
 
     private fun changeToMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("KeepMainActivity", 2)
         startActivity(intent)
         finish()
     }

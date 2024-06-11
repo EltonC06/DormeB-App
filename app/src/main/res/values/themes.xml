@@ -9,6 +9,12 @@
 
         <item name="android:windowBackground">@color/background</item>
     </style>
+    
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <item name="backgroundColor">@color/darkerBlue</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/hotel</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.DormeBApp</item>
+    </style>
 
 
 </resources>

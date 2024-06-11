@@ -2,6 +2,7 @@ package com.dormeb.dormeb
 
 import android.app.Dialog
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Toast
@@ -20,10 +21,24 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding // agr eu vou inflar ele la no init
     private var selectCount = 0
 
+    private fun welcomeActivity(num: Int) {
+        when (num) {
+            1 -> {  // 1 é porque é a primeira vez entrando no app e na main activity
+                val intent = Intent(this, FirstActivity::class.java)
+                startActivity(intent)
+
+
+            }
+            2 -> { // 2 é porque ele so pausou o second activity ou o first e voltou pra main acitvity
+
+
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
+        installSplashScreen()
         enableEdgeToEdge()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -34,6 +49,9 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        val keepMainActivity: Int = intent.getIntExtra("KeepMainActivity", 1) // 1 é o valor default se nada for passado, ent ele vai iniciar a first acitivty
+
+        welcomeActivity(keepMainActivity)
 
         initInterfaceComponents()
 
