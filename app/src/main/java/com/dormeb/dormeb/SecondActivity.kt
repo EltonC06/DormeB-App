@@ -13,7 +13,6 @@ import android.widget.SeekBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dormeb.dormeb.databinding.ActivitySecondBinding
@@ -501,7 +500,7 @@ class SecondActivity : AppCompatActivity() {
     private fun changeComponentsVisibility(i: Int) { // 1 - tudo transparente, 2 - aparece tudo
         when(i) {
             1-> {
-                binding.btnSleep.setImageResource(R.drawable.acordar)
+                binding.btnSleep.setImageResource(R.drawable.wake)
                 binding.secondActivity.setBackgroundResource(R.drawable.fundo_preto)
                 binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
                 binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
@@ -514,7 +513,7 @@ class SecondActivity : AppCompatActivity() {
                 binding.btnTimer.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
             }
             2-> {
-                binding.btnSleep.setImageResource(R.drawable.soneca)
+                binding.btnSleep.setImageResource(R.drawable.sleep)
                 binding.secondActivity.setBackgroundResource(R.drawable.second_background)
                 binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
                 binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
@@ -639,190 +638,190 @@ class SecondActivity : AppCompatActivity() {
             1-> {
                 when (nameOfSound) {
                     SoundsName.CHUVA -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.chuva)
+                        binding.firstVolumeImg.setImageResource(R.drawable.rain)
                     }
 
                     SoundsName.TROVAO -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.trovao)
+                        binding.firstVolumeImg.setImageResource(R.drawable.thunder)
                     }
 
                     SoundsName.VENTILADOR -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.ventilador)
+                        binding.firstVolumeImg.setImageResource(R.drawable.fan)
                     }
 
                     SoundsName.CIDADE -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.cidade)
+                        binding.firstVolumeImg.setImageResource(R.drawable.city)
                     }
 
                     SoundsName.CLIMATIZADOR -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.climatizador)
+                        binding.firstVolumeImg.setImageResource(R.drawable.air_conditioner)
                     }
 
                     SoundsName.GUARDA -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.guarda)
+                        binding.firstVolumeImg.setImageResource(R.drawable.night_guard)
                     }
 
                     SoundsName.FOGUEIRA -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.fogueira)
+                        binding.firstVolumeImg.setImageResource(R.drawable.fireplace)
                     }
 
                     SoundsName.PRAIA -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.praia)
+                        binding.firstVolumeImg.setImageResource(R.drawable.beach)
                     }
 
                     SoundsName.FLORESTA -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.floresta)
+                        binding.firstVolumeImg.setImageResource(R.drawable.forest)
                     }
 
                     SoundsName.RELOGIO -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.relogio)
+                        binding.firstVolumeImg.setImageResource(R.drawable.clock)
                     }
 
                     SoundsName.VENTO -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.vento)
+                        binding.firstVolumeImg.setImageResource(R.drawable.wind)
                     }
 
                     SoundsName.GRILO -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.grilo)
+                        binding.firstVolumeImg.setImageResource(R.drawable.cricket)
                     }
 
                     SoundsName.CIGARRA -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.cigarra)
+                        binding.firstVolumeImg.setImageResource(R.drawable.cicada)
                     }
 
                     SoundsName.CACHOEIRA -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.cachoeira)
+                        binding.firstVolumeImg.setImageResource(R.drawable.waterfall)
                     }
 
                     SoundsName.GANSO -> {
-                        binding.firstVolumeImg.setImageResource(R.drawable.ganso)
+                        binding.firstVolumeImg.setImageResource(R.drawable.goose)
                     }
                 }
 
             }
             2-> {
                 when (nameOfSound) {
-                    SoundsName.CHUVA -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.chuva)
+                    SoundsName.CHUVA -> { // posso simplificar assim: secondVolumeImg.setImageResource(variavel que vai ser associada ao som selecionado)
+                        binding.secondVolumeImg.setImageResource(R.drawable.rain)
                     }
 
                     SoundsName.TROVAO -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.trovao)
+                        binding.secondVolumeImg.setImageResource(R.drawable.thunder)
                     }
 
                     SoundsName.VENTILADOR -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.ventilador)
+                        binding.secondVolumeImg.setImageResource(R.drawable.fan)
                     }
 
                     SoundsName.CIDADE -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.cidade)
+                        binding.secondVolumeImg.setImageResource(R.drawable.city)
                     }
 
                     SoundsName.CLIMATIZADOR -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.climatizador)
+                        binding.secondVolumeImg.setImageResource(R.drawable.air_conditioner)
                     }
 
                     SoundsName.GUARDA -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.guarda)
+                        binding.secondVolumeImg.setImageResource(R.drawable.night_guard)
                     }
 
                     SoundsName.FOGUEIRA -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.fogueira)
+                        binding.secondVolumeImg.setImageResource(R.drawable.fireplace)
                     }
 
                     SoundsName.PRAIA -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.praia)
+                        binding.secondVolumeImg.setImageResource(R.drawable.beach)
                     }
 
                     SoundsName.FLORESTA -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.floresta)
+                        binding.secondVolumeImg.setImageResource(R.drawable.forest)
                     }
 
                     SoundsName.RELOGIO -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.relogio)
+                        binding.secondVolumeImg.setImageResource(R.drawable.clock)
                     }
 
                     SoundsName.VENTO -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.vento)
+                        binding.secondVolumeImg.setImageResource(R.drawable.wind)
                     }
 
                     SoundsName.GRILO -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.grilo)
+                        binding.secondVolumeImg.setImageResource(R.drawable.cricket)
                     }
 
                     SoundsName.CIGARRA -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.cigarra)
+                        binding.secondVolumeImg.setImageResource(R.drawable.cicada)
                     }
 
                     SoundsName.CACHOEIRA -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.cachoeira)
+                        binding.secondVolumeImg.setImageResource(R.drawable.waterfall)
                     }
 
                     SoundsName.GANSO -> {
-                        binding.secondVolumeImg.setImageResource(R.drawable.ganso)
+                        binding.secondVolumeImg.setImageResource(R.drawable.goose)
                     }
                 }
             }
             3 -> {
                 when (nameOfSound) {
                     SoundsName.CHUVA -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.chuva)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.rain)
                     }
 
                     SoundsName.TROVAO -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.trovao)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.thunder)
                     }
 
                     SoundsName.VENTILADOR -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.ventilador)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.fan)
                     }
 
                     SoundsName.CIDADE -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.cidade)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.city)
                     }
 
                     SoundsName.CLIMATIZADOR -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.climatizador)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.air_conditioner)
                     }
 
                     SoundsName.GUARDA -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.guarda)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.night_guard)
                     }
 
                     SoundsName.FOGUEIRA -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.fogueira)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.fireplace)
                     }
 
                     SoundsName.PRAIA -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.praia)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.beach)
                     }
 
                     SoundsName.FLORESTA -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.floresta)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.forest)
                     }
 
                     SoundsName.RELOGIO -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.relogio)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.clock)
                     }
 
                     SoundsName.VENTO -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.vento)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.wind)
                     }
 
                     SoundsName.GRILO -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.grilo)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.cricket)
                     }
 
                     SoundsName.CIGARRA -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.cigarra)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.cicada)
                     }
 
                     SoundsName.CACHOEIRA -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.cachoeira)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.waterfall)
                     }
 
                     SoundsName.GANSO -> {
-                        binding.thirdVolumeImg.setImageResource(R.drawable.ganso)
+                        binding.thirdVolumeImg.setImageResource(R.drawable.goose)
                     }
                 }
             }

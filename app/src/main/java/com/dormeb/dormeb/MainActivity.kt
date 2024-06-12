@@ -2,7 +2,6 @@ package com.dormeb.dormeb
 
 import android.app.Dialog
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Toast
@@ -428,77 +427,77 @@ class MainActivity : AppCompatActivity() {
             1 -> {
                 when (enum) {
                     SoundsName.CHUVA -> {
-                        binding.imgBtnRain.setImageResource(R.drawable.chuva_pressed)
+                        binding.imgBtnRain.setImageResource(R.drawable.rain_pressed)
                         changeMusicandDescText(SoundsName.CHUVA)
                     }
 
                     SoundsName.TROVAO -> {
-                        binding.imgBtnThunder.setImageResource(R.drawable.trovao_pressed)
+                        binding.imgBtnThunder.setImageResource(R.drawable.thunder_pressed)
                         changeMusicandDescText(SoundsName.TROVAO)
                     }
 
                     SoundsName.VENTILADOR -> {
-                        binding.imgBtnFan.setImageResource(R.drawable.ventilador_pressed)
+                        binding.imgBtnFan.setImageResource(R.drawable.fan_pressed)
                         changeMusicandDescText(SoundsName.VENTILADOR)
                     }
 
                     SoundsName.GUARDA -> {
-                        binding.imgBtnNightGuard.setImageResource(R.drawable.guarda_pressed)
+                        binding.imgBtnNightGuard.setImageResource(R.drawable.night_guard_pressed)
                         changeMusicandDescText(SoundsName.GUARDA)
                     }
 
                     SoundsName.CIDADE -> {
-                        binding.imgBtnCity.setImageResource(R.drawable.cidade_pressed)
+                        binding.imgBtnCity.setImageResource(R.drawable.city_pressed)
                         changeMusicandDescText(SoundsName.CIDADE)
                     }
 
                     SoundsName.CLIMATIZADOR -> {
-                        binding.imgBtnAirConditioner.setImageResource(R.drawable.climatizador_pressed)
+                        binding.imgBtnAirConditioner.setImageResource(R.drawable.air_conditioner_pressed)
                         changeMusicandDescText(SoundsName.CLIMATIZADOR)
                     }
 
                     SoundsName.FLORESTA -> {
-                        binding.imgBtnForest.setImageResource(R.drawable.floresta_pressed)
+                        binding.imgBtnForest.setImageResource(R.drawable.forest_pressed)
                         changeMusicandDescText(SoundsName.FLORESTA)
                     }
 
                     SoundsName.PRAIA -> {
-                        binding.imgBtnBeach.setImageResource(R.drawable.praia_pressed)
+                        binding.imgBtnBeach.setImageResource(R.drawable.beach_pressed)
                         changeMusicandDescText(SoundsName.PRAIA)
                     }
 
                     SoundsName.FOGUEIRA -> {
-                        binding.imgBtnFireplace.setImageResource(R.drawable.fogueira_pressed)
+                        binding.imgBtnFireplace.setImageResource(R.drawable.fireplace_pressed)
                         changeMusicandDescText(SoundsName.FOGUEIRA)
                     }
 
                     SoundsName.RELOGIO -> {
-                        binding.imgBtnClock.setImageResource(R.drawable.relogio_pressed)
+                        binding.imgBtnClock.setImageResource(R.drawable.clock_pressed)
                         changeMusicandDescText(SoundsName.RELOGIO)
                     }
 
                     SoundsName.CIGARRA -> {
-                        binding.imgBtnCicada.setImageResource(R.drawable.cigarra_pressed)
+                        binding.imgBtnCicada.setImageResource(R.drawable.cicada_pressed)
                         changeMusicandDescText(SoundsName.CIGARRA)
                     }
 
                     SoundsName.GRILO -> {
-                        binding.imgBtnCricket.setImageResource(R.drawable.grilo_pressed)
+                        binding.imgBtnCricket.setImageResource(R.drawable.cricket_pressed)
                         changeMusicandDescText(SoundsName.GRILO)
                     }
 
                     SoundsName.VENTO -> {
-                        binding.imgBtnWind.setImageResource(R.drawable.vento_pressed)
+                        binding.imgBtnWind.setImageResource(R.drawable.wind_pressed)
                         changeMusicandDescText(SoundsName.VENTO)
                     }
 
                     SoundsName.CACHOEIRA -> {
-                        binding.imgBtnWaterfall.setImageResource(R.drawable.cachoeira_pressed)
+                        binding.imgBtnWaterfall.setImageResource(R.drawable.waterfall_pressed)
                         changeMusicandDescText(SoundsName.CACHOEIRA)
                     }
 
                     SoundsName.GANSO -> {
-                        binding.imgBtnGoose.setImageResource(R.drawable.ganso_pressed)
+                        binding.imgBtnGoose.setImageResource(R.drawable.goose_pressed)
                         changeMusicandDescText(SoundsName.GANSO)
                     }
                 }
@@ -506,21 +505,21 @@ class MainActivity : AppCompatActivity() {
 
             2 -> {
                 when (enum) {
-                    SoundsName.CHUVA -> binding.imgBtnRain.setImageResource(R.drawable.chuva)
-                    SoundsName.TROVAO -> binding.imgBtnThunder.setImageResource(R.drawable.trovao)
-                    SoundsName.VENTILADOR -> binding.imgBtnFan.setImageResource(R.drawable.ventilador)
-                    SoundsName.GUARDA -> binding.imgBtnNightGuard.setImageResource(R.drawable.guarda)
-                    SoundsName.CIDADE -> binding.imgBtnCity.setImageResource(R.drawable.cidade)
-                    SoundsName.CLIMATIZADOR -> binding.imgBtnAirConditioner.setImageResource(R.drawable.climatizador)
-                    SoundsName.FLORESTA -> binding.imgBtnForest.setImageResource(R.drawable.floresta)
-                    SoundsName.PRAIA -> binding.imgBtnBeach.setImageResource(R.drawable.praia)
-                    SoundsName.FOGUEIRA -> binding.imgBtnFireplace.setImageResource(R.drawable.fogueira)
-                    SoundsName.RELOGIO -> binding.imgBtnClock.setImageResource(R.drawable.relogio)
-                    SoundsName.CIGARRA -> binding.imgBtnCicada.setImageResource(R.drawable.cigarra)
-                    SoundsName.GRILO -> binding.imgBtnCricket.setImageResource(R.drawable.grilo)
-                    SoundsName.VENTO -> binding.imgBtnWind.setImageResource(R.drawable.vento)
-                    SoundsName.CACHOEIRA -> binding.imgBtnWaterfall.setImageResource(R.drawable.cachoeira)
-                    SoundsName.GANSO -> binding.imgBtnGoose.setImageResource(R.drawable.ganso)
+                    SoundsName.CHUVA -> binding.imgBtnRain.setImageResource(R.drawable.rain)
+                    SoundsName.TROVAO -> binding.imgBtnThunder.setImageResource(R.drawable.thunder)
+                    SoundsName.VENTILADOR -> binding.imgBtnFan.setImageResource(R.drawable.fan)
+                    SoundsName.GUARDA -> binding.imgBtnNightGuard.setImageResource(R.drawable.night_guard)
+                    SoundsName.CIDADE -> binding.imgBtnCity.setImageResource(R.drawable.city)
+                    SoundsName.CLIMATIZADOR -> binding.imgBtnAirConditioner.setImageResource(R.drawable.air_conditioner)
+                    SoundsName.FLORESTA -> binding.imgBtnForest.setImageResource(R.drawable.forest)
+                    SoundsName.PRAIA -> binding.imgBtnBeach.setImageResource(R.drawable.beach)
+                    SoundsName.FOGUEIRA -> binding.imgBtnFireplace.setImageResource(R.drawable.fireplace)
+                    SoundsName.RELOGIO -> binding.imgBtnClock.setImageResource(R.drawable.clock)
+                    SoundsName.CIGARRA -> binding.imgBtnCicada.setImageResource(R.drawable.cicada)
+                    SoundsName.GRILO -> binding.imgBtnCricket.setImageResource(R.drawable.cricket)
+                    SoundsName.VENTO -> binding.imgBtnWind.setImageResource(R.drawable.wind)
+                    SoundsName.CACHOEIRA -> binding.imgBtnWaterfall.setImageResource(R.drawable.waterfall)
+                    SoundsName.GANSO -> binding.imgBtnGoose.setImageResource(R.drawable.goose)
                 }
             }
         }

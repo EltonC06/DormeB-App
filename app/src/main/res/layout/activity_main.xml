@@ -92,17 +92,19 @@
                 android:id="@+id/textCatNat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="70dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/txt_natural"
                 android:textAlignment="center"
                 android:textColor="@color/BlueforText"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:drawableEndCompat="@drawable/forest_icon"
+                app:drawableStartCompat="@drawable/forest_icon"
                 app:layout_constraintEnd_toStartOf="@+id/guideline10"
                 app:layout_constraintStart_toStartOf="@+id/guideline9"
-                app:layout_constraintTop_toTopOf="@+id/guideline8"
-                app:drawableStartCompat="@drawable/forest_icon"
-                app:drawableEndCompat="@drawable/forest_icon" />
+                app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -117,7 +119,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/vento" />
+                    app:srcCompat="@drawable/wind" />
 
                 <ImageButton
                     android:id="@+id/imgBtnForest"
@@ -128,7 +130,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/floresta" />
+                    app:srcCompat="@drawable/forest" />
 
                 <ImageButton
                     android:id="@+id/imgBtnFireplace"
@@ -139,7 +141,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/fogueira" />
+                    app:srcCompat="@drawable/fireplace" />
 
             </TableRow>
 
@@ -147,17 +149,19 @@
                 android:id="@+id/textCatWat"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="70dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/txt_water"
                 android:textAlignment="center"
                 android:textColor="@color/BlueforText"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:drawableEndCompat="@drawable/water_icon"
+                app:drawableStartCompat="@drawable/water_icon"
                 app:layout_constraintEnd_toStartOf="@+id/guideline10"
                 app:layout_constraintStart_toStartOf="@+id/guideline9"
-                app:layout_constraintTop_toTopOf="@+id/guideline8"
-                app:drawableStartCompat="@drawable/water_icon"
-                app:drawableEndCompat="@drawable/water_icon" />
+                app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -172,7 +176,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/chuva" />
+                    app:srcCompat="@drawable/rain" />
 
                 <ImageButton
                     android:id="@+id/imgBtnThunder"
@@ -183,7 +187,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/trovao" />
+                    app:srcCompat="@drawable/thunder" />
 
                 <ImageButton
                     android:id="@+id/imgBtnBeach"
@@ -194,7 +198,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/praia" />
+                    app:srcCompat="@drawable/beach" />
 
             </TableRow>
 
@@ -211,7 +215,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/cachoeira" />
+                    app:srcCompat="@drawable/waterfall" />
 
             </TableRow>
 
@@ -219,17 +223,19 @@
                 android:id="@+id/textCatAni"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="70dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/txt_animal"
                 android:textAlignment="center"
                 android:textColor="@color/BlueforText"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:drawableEndCompat="@drawable/animal_icon"
+                app:drawableStartCompat="@drawable/animal_icon"
                 app:layout_constraintEnd_toStartOf="@+id/guideline10"
                 app:layout_constraintStart_toStartOf="@+id/guideline9"
-                app:layout_constraintTop_toTopOf="@+id/guideline8"
-                app:drawableStartCompat="@drawable/animal_icon"
-                app:drawableEndCompat="@drawable/animal_icon" />
+                app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -244,7 +250,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/ganso" />
+                    app:srcCompat="@drawable/goose" />
 
 
                 <ImageButton
@@ -256,7 +262,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/cigarra" />
+                    app:srcCompat="@drawable/cicada" />
 
                 <ImageButton
                     android:id="@+id/imgBtnCricket"
@@ -267,7 +273,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/grilo" />
+                    app:srcCompat="@drawable/cricket" />
 
             </TableRow>
 
@@ -275,17 +281,19 @@
                 android:id="@+id/textCatUrb"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="70dp"
+                android:layout_marginEnd="70dp"
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/txt_urban"
                 android:textAlignment="center"
                 android:textColor="@color/BlueforText"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:drawableEndCompat="@drawable/apartment_icon"
+                app:drawableStartCompat="@drawable/apartment_icon"
                 app:layout_constraintEnd_toStartOf="@+id/guideline10"
                 app:layout_constraintStart_toStartOf="@+id/guideline9"
-                app:layout_constraintTop_toTopOf="@+id/guideline8"
-                app:drawableStartCompat="@drawable/apartment_icon"
-                app:drawableEndCompat="@drawable/apartment_icon" />
+                app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
             <TableRow
                 android:layout_width="match_parent"
@@ -300,7 +308,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/relogio" />
+                    app:srcCompat="@drawable/clock" />
 
 
                 <ImageButton
@@ -312,7 +320,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/cidade" />
+                    app:srcCompat="@drawable/city" />
 
                 <ImageButton
                     android:id="@+id/imgBtnAirConditioner"
@@ -323,7 +331,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/climatizador" />
+                    app:srcCompat="@drawable/air_conditioner" />
 
             </TableRow>
 
@@ -340,7 +348,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/ventilador" />
+                    app:srcCompat="@drawable/fan" />
 
 
                 <ImageButton
@@ -352,7 +360,7 @@
                     android:paddingBottom="10dp"
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
-                    app:srcCompat="@drawable/guarda" />
+                    app:srcCompat="@drawable/night_guard" />
 
             </TableRow>
 
@@ -442,7 +450,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
-        app:srcCompat="@drawable/botao_play" />
+        app:srcCompat="@drawable/btn_play" />
 
     <ImageButton
         android:id="@+id/imgBtnInfo"

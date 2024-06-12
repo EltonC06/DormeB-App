@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
-        app:srcCompat="@drawable/botao_pause" />
+        app:srcCompat="@drawable/btn_pause" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -117,7 +117,7 @@
         app:layout_constraintEnd_toStartOf="@+id/firstVolumeBar"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/firstVolumeBar"
-        app:srcCompat="@drawable/botao_play" />
+        app:srcCompat="@drawable/btn_play" />
 
     <ImageView
         android:id="@+id/thirdVolumeImg"
@@ -130,7 +130,7 @@
         app:layout_constraintEnd_toStartOf="@+id/thirdVolumeBar"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/thirdVolumeBar"
-        app:srcCompat="@drawable/botao_play" />
+        app:srcCompat="@drawable/btn_play" />
 
     <ImageView
         android:id="@+id/secondVolumeImg"
@@ -143,7 +143,7 @@
         app:layout_constraintEnd_toStartOf="@+id/secondVolumeBar"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/secondVolumeBar"
-        app:srcCompat="@drawable/botao_play" />
+        app:srcCompat="@drawable/btn_play" />
 
     <ImageButton
         android:id="@+id/btnSleep"
@@ -157,7 +157,7 @@
         android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/soneca" />
+        app:srcCompat="@drawable/sleep" />
 
     <ImageButton
         android:id="@+id/btnTimer"
@@ -170,7 +170,7 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/thirdVolumeBar"
-        app:srcCompat="@drawable/ampulheta" />
+        app:srcCompat="@drawable/timer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
