@@ -68,6 +68,10 @@
     <string name="audio_goose">Goose</string>
     <string name="audio_desc_goose">Sleep peacefully listening to the comforting sound of geese on the pond</string>
 
+    <string name="audio_whale">Whale</string>
+    <string name="audio_desc_whale">Whale songs, which could once be heard up to 1,000 km away, are now limited to 100–500 km due to increased noise pollution in the oceans</string>
+
+
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>
 
@@ -143,6 +147,7 @@
     <string name="desc_imgBtnCicada" translatable="false">CIGARRA</string>
     <string name="desc_imgBtnWaterfall" translatable="false">CACHOEIRA</string>
     <string name="desc_imgBtnGoose" translatable="false">GANSO</string>
+    <string name="desc_imgBtnWhale" translatable="false">BALEIA</string>
 
 
 </resources>

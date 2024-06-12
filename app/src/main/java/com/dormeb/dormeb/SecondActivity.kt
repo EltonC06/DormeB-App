@@ -367,6 +367,22 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
                     }
                 }
+                if (audios == SoundsName.BALEIA.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.baleia)
+                        changeImgIcon(1, SoundsName.BALEIA)
+                        mediaPlayerConfig(1)
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.baleia)
+                        changeImgIcon(2, SoundsName.BALEIA)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.baleia)
+                        changeImgIcon(3, SoundsName.BALEIA)
+                        mediaPlayerConfig(3)
+                    }
+                }
 
 
             }
@@ -696,6 +712,10 @@ class SecondActivity : AppCompatActivity() {
                     SoundsName.GANSO -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.goose)
                     }
+
+                    SoundsName.BALEIA -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.whale)
+                    }
                 }
 
             }
@@ -760,6 +780,10 @@ class SecondActivity : AppCompatActivity() {
                     SoundsName.GANSO -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.goose)
                     }
+
+                    SoundsName.BALEIA -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.whale)
+                    }
                 }
             }
             3 -> {
@@ -822,6 +846,10 @@ class SecondActivity : AppCompatActivity() {
 
                     SoundsName.GANSO -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.goose)
+                    }
+
+                    SoundsName.BALEIA -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.whale)
                     }
                 }
             }

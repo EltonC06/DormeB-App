@@ -68,6 +68,9 @@
     <string name="audio_goose">Ganso</string>
     <string name="audio_desc_goose">Duerme tranquilamente escuchando el sonido reconfortante de los gansos en el estanque</string>
 
+    <string name="audio_whale">Ballena</string>
+    <string name="audio_desc_whale">Los cantos de las ballenas, que alguna vez se podían escuchar a hasta 1.000 kilómetros de distancia, ahora están limitados a 100–500 kilómetros debido al aumento de la contaminación acústica en los océanos</string>
+
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>
 

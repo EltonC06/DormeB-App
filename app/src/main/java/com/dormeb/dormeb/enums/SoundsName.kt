@@ -17,6 +17,7 @@ enum class SoundsName {
     GRILO,
     VENTO,
     CACHOEIRA,
-    GANSO
+    GANSO,
+    BALEIA
 
 }

@@ -67,6 +67,10 @@
     <string name="audio_goose">Ganso</string>
     <string name="audio_desc_goose">Durma tranquilamente ouvindo o som reconfortante dos gansos na lagoa</string>
 
+    <string name="audio_whale">Baleia</string>
+    <string name="audio_desc_whale">O canto das baleias, que antes podia ser ouvido a até 1.000 quilômetros de distância, está agora limitado a 100–500 quilômetros devido ao aumento da poluição sonora nos oceanos</string>
+
+
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>
 
