@@ -372,11 +372,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnPenguin.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.PENGUIM, 2)
+                changeImgButtonandText(SoundsName.PINGUIM, 2)
                 binding.imgBtnPenguin.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.PENGUIM, 1)
+                changeImgButtonandText(SoundsName.PINGUIM, 1)
                 binding.imgBtnPenguin.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -619,9 +619,9 @@ class MainActivity : AppCompatActivity() {
                         changeMusicandDescText(SoundsName.PASSARO)
                     }
 
-                    SoundsName.PENGUIM -> {
+                    SoundsName.PINGUIM -> {
                         binding.imgBtnPenguin.setImageResource(R.drawable.penguin_pressed)
-                        changeMusicandDescText(SoundsName.PENGUIM)
+                        changeMusicandDescText(SoundsName.PINGUIM)
                     }
 
                     SoundsName.CARRO -> {
@@ -656,7 +656,7 @@ class MainActivity : AppCompatActivity() {
                     SoundsName.BALEIA -> binding.imgBtnWhale.setImageResource(R.drawable.whale)
                     SoundsName.DESERTO -> binding.imgBtnDesert.setImageResource(R.drawable.desert)
                     SoundsName.PASSARO -> binding.imgBtnBird.setImageResource(R.drawable.bird)
-                    SoundsName.PENGUIM -> binding.imgBtnPenguin.setImageResource(R.drawable.penguin)
+                    SoundsName.PINGUIM -> binding.imgBtnPenguin.setImageResource(R.drawable.penguin)
                     SoundsName.CARRO -> binding.imgBtnCar.setImageResource(R.drawable.car)
                     SoundsName.OBRA -> binding.imgBtnConstructionSite.setImageResource(R.drawable.construction_site)
                 }
@@ -752,11 +752,26 @@ class MainActivity : AppCompatActivity() {
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_whale)
             }
 
-            SoundsName.DESERTO -> TODO()
-            SoundsName.PASSARO -> TODO()
-            SoundsName.PENGUIM -> TODO()
-            SoundsName.CARRO -> TODO()
-            SoundsName.OBRA -> TODO()
+            SoundsName.DESERTO -> {
+                binding.txtAudioName.text = getString(R.string.audio_desert)
+                binding.txtAudioDesc.text = getString(R.string.audio_desc_desert)
+            }
+            SoundsName.PASSARO -> {
+                binding.txtAudioName.text = getString(R.string.audio_bird)
+                binding.txtAudioDesc.text = getString(R.string.audio_desc_bird)
+            }
+            SoundsName.PINGUIM -> {
+                binding.txtAudioName.text = getString(R.string.audio_penguin)
+                binding.txtAudioDesc.text = getString(R.string.audio_desc_penguin)
+            }
+            SoundsName.CARRO -> {
+                binding.txtAudioName.text = getString(R.string.audio_car)
+                binding.txtAudioDesc.text = getString(R.string.audio_desc_car)
+            }
+            SoundsName.OBRA -> {
+                binding.txtAudioName.text = getString(R.string.audio_construction_site)
+                binding.txtAudioDesc.text = getString(R.string.audio_desc_construction_site)
+            }
         }
     }
 

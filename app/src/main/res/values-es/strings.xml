@@ -71,6 +71,21 @@
     <string name="audio_whale">Ballena</string>
     <string name="audio_desc_whale">Los cantos de las ballenas, que alguna vez se podían escuchar a hasta 1.000 kilómetros de distancia, ahora están limitados a 100–500 kilómetros debido al aumento de la contaminación acústica en los océanos</string>
 
+    <string name="audio_desert">Desierto</string>
+    <string name="audio_desc_desert">Disfrute de la serenidad de los sonidos del desierto, donde lo único que se escucha es el viento y los pequeños granos de arena siendo llevados por él</string>
+
+    <string name="audio_bird">Pájaro</string>
+    <string name="audio_desc_bird">Disfrute y relájese con los tranquilos cantos de los pájaros en un bosque</string>
+
+    <string name="audio_penguin">Pingüino</string>
+    <string name="audio_desc_penguin">Siéntase en la Antártida sin salir de casa con los sonidos emitidos por los pingüinos</string>
+
+    <string name="audio_car">Coche</string>
+    <string name="audio_desc_car">Siéntase como un piloto a punto de ganar una carrera o un viajero conduciendo largas distancias con este sonido de motor en marcha</string>
+
+    <string name="audio_construction_site">Obras</string>
+    <string name="audio_desc_construction_site">¿Cómo puede alguien relajarse escuchando el ruido de una obra al lado? En fin, ¡Relájese!</string>
+
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>
 

@@ -21,7 +21,7 @@ enum class SoundsName {
     BALEIA,
     DESERTO,
     PASSARO,
-    PENGUIM,
+    PINGUIM,
     CARRO,
     OBRA
 

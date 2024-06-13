@@ -72,6 +72,28 @@
     <string name="audio_desc_whale">Whale songs, which could once be heard up to 1,000 km away, are now limited to 100–500 km due to increased noise pollution in the oceans</string>
 
 
+    <string name="audio_desert">Desert</string>
+    <string name="audio_desc_desert">Enjoy the serenity of desert noises, where the only things to hear are the wind and the small grains of sand being carried by it</string>
+
+    <string name="audio_bird">Bird</string>
+    <string name="audio_desc_bird">Enjoy and relax with the calm songs of birds in a forest</string>
+
+    <string name="audio_penguin">Penguin</string>
+    <string name="audio_desc_penguin">Feel like you\'re in Antarctica without leaving home with the sounds emitted by penguins</string>
+
+    <string name="audio_car">Car</string>
+    <string name="audio_desc_car">Feel like a race car driver about to win a race or a traveler driving long distances with the sound of the engine running</string>
+
+    <string name="audio_construction_site">Construction Site</string>
+    <string name="audio_desc_construction_site">How can someone relax listening to the noise of a construction site next door? Anyway, Relax!</string>
+
+
+
+
+
+
+
+
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>
 
@@ -148,11 +170,13 @@
     <string name="desc_imgBtnWaterfall" translatable="false">CACHOEIRA</string>
     <string name="desc_imgBtnGoose" translatable="false">GANSO</string>
     <string name="desc_imgBtnWhale" translatable="false">BALEIA</string>
-    <string name="desc_imgBtnDesert">DESERTO</string>
-    <string name="desc_imgBtnConstructionSite">Construction Site\n</string>
-    <string name="desc_imgBtnCar">Car</string>
-    <string name="desc_imgBtnBird">Bird</string>
-    <string name="desc_imgBtnPenguin">Penguin</string>
+    <string name="desc_imgBtnDesert" translatable="false">DESERTO</string>
+    <string name="desc_imgBtnConstructionSite" translatable="false">OBRA</string>
+    <string name="desc_imgBtnCar" translatable="false">CARRO</string>
+    <string name="desc_imgBtnBird" translatable="false">PASSARO</string>
+    <string name="desc_imgBtnPenguin" translatable="false">PINGUIM</string>
+
+
 
 
 </resources>

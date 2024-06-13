@@ -414,18 +414,18 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
                     }
                 }
-                if (audios == SoundsName.PENGUIM.toString()) {
+                if (audios == SoundsName.PINGUIM.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.pinguim)
-                        changeImgIcon(1, SoundsName.PENGUIM)
+                        changeImgIcon(1, SoundsName.PINGUIM)
                         mediaPlayerConfig(1)
                     } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.pinguim)
-                        changeImgIcon(2, SoundsName.PENGUIM)
+                        changeImgIcon(2, SoundsName.PINGUIM)
                         mediaPlayerConfig(2)
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.pinguim)
-                        changeImgIcon(3, SoundsName.PENGUIM)
+                        changeImgIcon(3, SoundsName.PINGUIM)
                         mediaPlayerConfig(3)
                     }
                 }
@@ -800,7 +800,7 @@ class SecondActivity : AppCompatActivity() {
                         binding.firstVolumeImg.setImageResource(R.drawable.bird)
                     }
 
-                    SoundsName.PENGUIM -> {
+                    SoundsName.PINGUIM -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.penguin)
                     }
 
@@ -888,7 +888,7 @@ class SecondActivity : AppCompatActivity() {
                         binding.secondVolumeImg.setImageResource(R.drawable.bird)
                     }
 
-                    SoundsName.PENGUIM -> {
+                    SoundsName.PINGUIM -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.penguin)
                     }
 
@@ -974,7 +974,7 @@ class SecondActivity : AppCompatActivity() {
                         binding.thirdVolumeImg.setImageResource(R.drawable.bird)
                     }
 
-                    SoundsName.PENGUIM -> {
+                    SoundsName.PINGUIM -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.penguin)
                     }
 

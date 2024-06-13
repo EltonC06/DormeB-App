@@ -70,6 +70,20 @@
     <string name="audio_whale">Baleia</string>
     <string name="audio_desc_whale">O canto das baleias, que antes podia ser ouvido a até 1.000 quilômetros de distância, está agora limitado a 100–500 quilômetros devido ao aumento da poluição sonora nos oceanos</string>
 
+    <string name="audio_desert">Deserto</string>
+    <string name="audio_desc_desert">Desfrute a serenidade dos ruídos do deserto, no qual as únicas coisas a se escutar são a ventania e os pequenos grãos de areias sendo carregado por ela</string>
+
+    <string name="audio_bird">Pássaro</string>
+    <string name="audio_desc_bird">Desfrute e relaxe sobre os calmos cantos dos pássaros em um bosque</string>
+
+    <string name="audio_penguin">Pinguim</string>
+    <string name="audio_desc_penguin">Sinta-se na antartida sem sair de casa com os sons emitidos pelos pinguins</string>
+
+    <string name="audio_car">Carro</string>
+    <string name="audio_desc_car">Sinta-se um piloto prestes a vencer uma corrida ou um viajante dirigindo por longas distâncias com esse barulho de motor ligado</string>
+
+    <string name="audio_construction_site">Obras</string>
+    <string name="audio_desc_construction_site">Como alguém consegue relaxa escutando o barulho de uma obra ao lado? Enfim, Relaxe!</string>
 
     <string name="button_pressed">pressed</string>
     <string name="button_not_pressed">not_pressed</string>
