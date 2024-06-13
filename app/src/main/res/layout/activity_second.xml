@@ -11,10 +11,11 @@
 
     <ImageButton
         android:id="@+id/btnPause"
-        android:contentDescription="@string/second_activity_btn_pause"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:layout_marginBottom="98dp"
         android:background="@null"
+        android:contentDescription="@string/second_activity_btn_pause"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -62,14 +63,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.6" />
+        app:layout_constraintGuide_percent="0.59" />
 
     <SeekBar
         android:id="@+id/firstVolumeBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:progressBackgroundTint="@color/AnotherBlueforText"
         android:progressTint="@color/BlueforText"
@@ -83,7 +84,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
         android:progressBackgroundTint="@color/AnotherBlueforText"
         android:progressTint="@color/BlueforText"
@@ -97,7 +98,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
         android:progressBackgroundTint="@color/AnotherBlueforText"
         android:progressTint="@color/BlueforText"
@@ -161,12 +162,13 @@
 
     <ImageButton
         android:id="@+id/btnTimer"
-        android:contentDescription="@string/second_activity_timer_btn"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="32dp"
         android:background="@null"
+        android:contentDescription="@string/second_activity_timer_btn"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/thirdVolumeBar"

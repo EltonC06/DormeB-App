@@ -82,380 +82,384 @@ class SecondActivity : AppCompatActivity() {
             insets
         }
 
-        val adRequest = com.google.android.gms.ads.AdRequest.Builder().build()
-        // carregando anuncio
-        InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
-            override fun onAdFailedToLoad(adError: LoadAdError) {
-                Log.d(tag, adError.toString())
-                mInterstitialAd = null
-            }
-
-            override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                Log.d(tag, "Ad was loaded.")
-                mInterstitialAd = interstitialAd
-                setupCallBackCalls()
-            }
-
-        })
-
-        initInterfaceComponents()
-        initialAnimation()
-
-        val transferList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // aqui é para versões mais recentes do andoid
+        val transferList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // this is for most recent android versions
             intent.getParcelableExtra("Sounds", AudiostoPass::class.java)?.audios
-        } else { // versões mais antigas do android
+        } else { // older android versions
             @Suppress("DEPRECATION")
             intent.getParcelableExtra<AudiostoPass>("Sounds")?.audios
         }
 
         val soundQuantity = verifySoundQuantity(transferList?.size)
 
+        if (soundQuantity > 2) { // loading ads only if the audio quantity is > 2
+            val adRequest = com.google.android.gms.ads.AdRequest.Builder().build()
+            // loading ads
+            InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+                override fun onAdFailedToLoad(adError: LoadAdError) {
+                    Log.d(tag, adError.toString())
+                    mInterstitialAd = null
+                }
+
+                override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                    Log.d(tag, "Ad was loaded.")
+                    mInterstitialAd = interstitialAd
+                    setupCallBackCalls()
+                }
+
+            })
+        }
+
+
+        initInterfaceComponents()
+        initialAnimation()
+
+
 
         if (transferList != null) {
             for (audios in transferList){
-                if (audios == SoundsName.CHUVA.toString()) {
+                if (audios == SoundsName.RAIN.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
-                        changeImgIcon(1, SoundsName.CHUVA)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.rain)
+                        changeImgIcon(1, SoundsName.RAIN)
                         mediaPlayerConfig(1)
 
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
-                        changeImgIcon(2, SoundsName.CHUVA)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.rain)
+                        changeImgIcon(2, SoundsName.RAIN)
                         mediaPlayerConfig(2)
 
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.chuva)
-                        changeImgIcon(3, SoundsName.CHUVA)
-                        mediaPlayerConfig(3)
-
-                    }
-                }
-
-                else if (audios == SoundsName.TROVAO.toString()) {
-                    if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
-                        changeImgIcon(1, SoundsName.TROVAO)
-                        mediaPlayerConfig(1)
-
-                    }
-                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
-                        changeImgIcon(2, SoundsName.TROVAO)
-                        mediaPlayerConfig(2)
-
-                    } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.trovao)
-                        changeImgIcon(3, SoundsName.TROVAO)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.rain)
+                        changeImgIcon(3, SoundsName.RAIN)
                         mediaPlayerConfig(3)
 
                     }
                 }
-                else if (audios == SoundsName.VENTILADOR.toString()) {
+
+                else if (audios == SoundsName.THUNDER.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.ventilador)
-                        changeImgIcon(1, SoundsName.VENTILADOR)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.thunder)
+                        changeImgIcon(1, SoundsName.THUNDER)
+                        mediaPlayerConfig(1)
+
+                    }
+                    else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.thunder)
+                        changeImgIcon(2, SoundsName.THUNDER)
+                        mediaPlayerConfig(2)
+
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.thunder)
+                        changeImgIcon(3, SoundsName.THUNDER)
+                        mediaPlayerConfig(3)
+
+                    }
+                }
+                else if (audios == SoundsName.FAN.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.fan)
+                        changeImgIcon(1, SoundsName.FAN)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.ventilador)
-                        changeImgIcon(2, SoundsName.VENTILADOR)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.fan)
+                        changeImgIcon(2, SoundsName.FAN)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.ventilador)
-                        changeImgIcon(3, SoundsName.VENTILADOR)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.fan)
+                        changeImgIcon(3, SoundsName.FAN)
                         mediaPlayerConfig(3)
                     }
                 }
-                else if (audios == SoundsName.CIDADE.toString()) {
+                else if (audios == SoundsName.CITY.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.cidade)
-                        changeImgIcon(1, SoundsName.CIDADE)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.city)
+                        changeImgIcon(1, SoundsName.CITY)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.cidade)
-                        changeImgIcon(2, SoundsName.CIDADE)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.city)
+                        changeImgIcon(2, SoundsName.CITY)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.cidade)
-                        changeImgIcon(3, SoundsName.CIDADE)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.city)
+                        changeImgIcon(3, SoundsName.CITY)
                         mediaPlayerConfig(3)
                     }
                 }
-                else if (audios == SoundsName.CLIMATIZADOR.toString()) {
+                else if (audios == SoundsName.AIR_CONDITIONER.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.climatizador)
-                        changeImgIcon(1, SoundsName.CLIMATIZADOR)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.air_conditioner)
+                        changeImgIcon(1, SoundsName.AIR_CONDITIONER)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.climatizador)
-                        changeImgIcon(2, SoundsName.CLIMATIZADOR)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.air_conditioner)
+                        changeImgIcon(2, SoundsName.AIR_CONDITIONER)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.climatizador)
-                        changeImgIcon(3, SoundsName.CLIMATIZADOR)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.air_conditioner)
+                        changeImgIcon(3, SoundsName.AIR_CONDITIONER)
                         mediaPlayerConfig(3)
                     }
                 }
-                else if (audios == SoundsName.FLORESTA.toString()) {
+                else if (audios == SoundsName.FOREST.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
-                        changeImgIcon(1, SoundsName.FLORESTA)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.forest)
+                        changeImgIcon(1, SoundsName.FOREST)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
-                        changeImgIcon(2, SoundsName.FLORESTA)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.forest)
+                        changeImgIcon(2, SoundsName.FOREST)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.floresta)
-                        changeImgIcon(3, SoundsName.FLORESTA)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.forest)
+                        changeImgIcon(3, SoundsName.FOREST)
                         mediaPlayerConfig(3)
                     }
                 }
-                else if (audios == SoundsName.FOGUEIRA.toString()) {
+                else if (audios == SoundsName.FIREPLACE.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
-                        changeImgIcon(1, SoundsName.FOGUEIRA)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.fireplace)
+                        changeImgIcon(1, SoundsName.FIREPLACE)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
-                        changeImgIcon(2, SoundsName.FOGUEIRA)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.fireplace)
+                        changeImgIcon(2, SoundsName.FIREPLACE)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.fogueira)
-                        changeImgIcon(3, SoundsName.FOGUEIRA)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.fireplace)
+                        changeImgIcon(3, SoundsName.FIREPLACE)
                         mediaPlayerConfig(3)
                     }
                 }
-                else if (audios == SoundsName.PRAIA.toString()) {
+                else if (audios == SoundsName.BEACH.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.praia)
-                        changeImgIcon(1, SoundsName.PRAIA)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.beach)
+                        changeImgIcon(1, SoundsName.BEACH)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.praia)
-                        changeImgIcon(2, SoundsName.PRAIA)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.beach)
+                        changeImgIcon(2, SoundsName.BEACH)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.praia)
-                        changeImgIcon(3, SoundsName.PRAIA)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.beach)
+                        changeImgIcon(3, SoundsName.BEACH)
                         mediaPlayerConfig(3)
                     }
                 }
-                else if (audios == SoundsName.GUARDA.toString()) {
+                else if (audios == SoundsName.NIGHT_GUARD.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.guarda)
-                        changeImgIcon(1, SoundsName.GUARDA)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.night_guard)
+                        changeImgIcon(1, SoundsName.NIGHT_GUARD)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.guarda)
-                        changeImgIcon(2, SoundsName.GUARDA)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.night_guard)
+                        changeImgIcon(2, SoundsName.NIGHT_GUARD)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.guarda)
-                        changeImgIcon(3, SoundsName.GUARDA)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.night_guard)
+                        changeImgIcon(3, SoundsName.NIGHT_GUARD)
                         mediaPlayerConfig(3)
                     }
                 }
 
-                if (audios == SoundsName.RELOGIO.toString()) {
+                if (audios == SoundsName.CLOCK.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.relogio)
-                        changeImgIcon(1, SoundsName.RELOGIO)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.clock)
+                        changeImgIcon(1, SoundsName.CLOCK)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.relogio)
-                        changeImgIcon(2, SoundsName.RELOGIO)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.clock)
+                        changeImgIcon(2, SoundsName.CLOCK)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.relogio)
-                        changeImgIcon(3, SoundsName.RELOGIO)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.clock)
+                        changeImgIcon(3, SoundsName.CLOCK)
                         mediaPlayerConfig(3)
                     }
                 }
 
-                if (audios == SoundsName.VENTO.toString()) {
+                if (audios == SoundsName.WIND.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.vento)
-                        changeImgIcon(1, SoundsName.VENTO)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.wind)
+                        changeImgIcon(1, SoundsName.WIND)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.vento)
-                        changeImgIcon(2, SoundsName.VENTO)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.wind)
+                        changeImgIcon(2, SoundsName.WIND)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.vento)
-                        changeImgIcon(3, SoundsName.VENTO)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.wind)
+                        changeImgIcon(3, SoundsName.WIND)
                         mediaPlayerConfig(3)
                     }
                 }
 
-                if (audios == SoundsName.GRILO.toString()) {
+                if (audios == SoundsName.CRICKET.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.grilo)
-                        changeImgIcon(1, SoundsName.GRILO)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.cricket)
+                        changeImgIcon(1, SoundsName.CRICKET)
                         mediaPlayerConfig(1)
                         firstMediaPlayer.start()
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.grilo)
-                        changeImgIcon(2, SoundsName.GRILO)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.cricket)
+                        changeImgIcon(2, SoundsName.CRICKET)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.grilo)
-                        changeImgIcon(3, SoundsName.GRILO)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.cricket)
+                        changeImgIcon(3, SoundsName.CRICKET)
                         mediaPlayerConfig(3)
                     }
                 }
 
-                if (audios == SoundsName.CIGARRA.toString()) {
+                if (audios == SoundsName.CICADA.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.cigarra)
-                        changeImgIcon(1, SoundsName.CIGARRA)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.cicada)
+                        changeImgIcon(1, SoundsName.CICADA)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.cigarra)
-                        changeImgIcon(2, SoundsName.CIGARRA)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.cicada)
+                        changeImgIcon(2, SoundsName.CICADA)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.cigarra)
-                        changeImgIcon(3, SoundsName.CIGARRA)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.cicada)
+                        changeImgIcon(3, SoundsName.CICADA)
                         mediaPlayerConfig(3)
                     }
                 }
 
-                if (audios == SoundsName.CACHOEIRA.toString()) {
+                if (audios == SoundsName.WATERFALL.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.cachoeira)
-                        changeImgIcon(1, SoundsName.CACHOEIRA)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.waterfall)
+                        changeImgIcon(1, SoundsName.WATERFALL)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.cachoeira)
-                        changeImgIcon(2, SoundsName.CACHOEIRA)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.waterfall)
+                        changeImgIcon(2, SoundsName.WATERFALL)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.cachoeira)
-                        changeImgIcon(3, SoundsName.CACHOEIRA)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.waterfall)
+                        changeImgIcon(3, SoundsName.WATERFALL)
                         mediaPlayerConfig(3)
                     }
                 }
 
-                if (audios == SoundsName.GANSO.toString()) {
+                if (audios == SoundsName.GOOSE.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.ganso)
-                        changeImgIcon(1, SoundsName.GANSO)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.goose)
+                        changeImgIcon(1, SoundsName.GOOSE)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.ganso)
-                        changeImgIcon(2, SoundsName.GANSO)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.goose)
+                        changeImgIcon(2, SoundsName.GOOSE)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.ganso)
-                        changeImgIcon(3, SoundsName.GANSO)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.goose)
+                        changeImgIcon(3, SoundsName.GOOSE)
                         mediaPlayerConfig(3)
                     }
                 }
-                if (audios == SoundsName.BALEIA.toString()) {
+                if (audios == SoundsName.WHALE.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.baleia)
-                        changeImgIcon(1, SoundsName.BALEIA)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.whale)
+                        changeImgIcon(1, SoundsName.WHALE)
                         mediaPlayerConfig(1)
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.baleia)
-                        changeImgIcon(2, SoundsName.BALEIA)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.whale)
+                        changeImgIcon(2, SoundsName.WHALE)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.baleia)
-                        changeImgIcon(3, SoundsName.BALEIA)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.whale)
+                        changeImgIcon(3, SoundsName.WHALE)
                         mediaPlayerConfig(3)
                     }
                 }
 
-                if (audios == SoundsName.DESERTO.toString()) {
+                if (audios == SoundsName.DESERT.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.deserto)
-                        changeImgIcon(1, SoundsName.DESERTO)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.desert)
+                        changeImgIcon(1, SoundsName.DESERT)
                         mediaPlayerConfig(1)
                     } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.deserto)
-                        changeImgIcon(2, SoundsName.DESERTO)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.desert)
+                        changeImgIcon(2, SoundsName.DESERT)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.deserto)
-                        changeImgIcon(3, SoundsName.DESERTO)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.desert)
+                        changeImgIcon(3, SoundsName.DESERT)
                         mediaPlayerConfig(3)
                     }
                 }
-                if (audios == SoundsName.PASSARO.toString()) {
+                if (audios == SoundsName.BIRD.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.passaro)
-                        changeImgIcon(1, SoundsName.PASSARO)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.bird)
+                        changeImgIcon(1, SoundsName.BIRD)
                         mediaPlayerConfig(1)
                     } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.passaro)
-                        changeImgIcon(2, SoundsName.PASSARO)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.bird)
+                        changeImgIcon(2, SoundsName.BIRD)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.passaro)
-                        changeImgIcon(3, SoundsName.PASSARO)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.bird)
+                        changeImgIcon(3, SoundsName.BIRD)
                         mediaPlayerConfig(3)
                     }
                 }
-                if (audios == SoundsName.PINGUIM.toString()) {
+                if (audios == SoundsName.PENGUIN.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.pinguim)
-                        changeImgIcon(1, SoundsName.PINGUIM)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.penguin)
+                        changeImgIcon(1, SoundsName.PENGUIN)
                         mediaPlayerConfig(1)
                     } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.pinguim)
-                        changeImgIcon(2, SoundsName.PINGUIM)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.penguin)
+                        changeImgIcon(2, SoundsName.PENGUIN)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.pinguim)
-                        changeImgIcon(3, SoundsName.PINGUIM)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.penguin)
+                        changeImgIcon(3, SoundsName.PENGUIN)
                         mediaPlayerConfig(3)
                     }
                 }
-                if (audios == SoundsName.CARRO.toString()) {
+                if (audios == SoundsName.CAR.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.carro)
-                        changeImgIcon(1, SoundsName.CARRO)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.car)
+                        changeImgIcon(1, SoundsName.CAR)
                         mediaPlayerConfig(1)
                     } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.carro)
-                        changeImgIcon(2, SoundsName.CARRO)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.car)
+                        changeImgIcon(2, SoundsName.CAR)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.carro)
-                        changeImgIcon(3, SoundsName.CARRO)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.car)
+                        changeImgIcon(3, SoundsName.CAR)
                         mediaPlayerConfig(3)
                     }
                 }
-                if (audios == SoundsName.OBRA.toString()) {
+                if (audios == SoundsName.CONSTRUCTION_SITE.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
-                        firstMediaPlayer = MediaPlayer.create(this, R.raw.obras)
-                        changeImgIcon(1, SoundsName.OBRA)
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.construction_site)
+                        changeImgIcon(1, SoundsName.CONSTRUCTION_SITE)
                         mediaPlayerConfig(1)
                     } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
-                        secondMediaPlayer = MediaPlayer.create(this, R.raw.obras)
-                        changeImgIcon(2, SoundsName.OBRA)
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.construction_site)
+                        changeImgIcon(2, SoundsName.CONSTRUCTION_SITE)
                         mediaPlayerConfig(2)
                     } else {
-                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.obras)
-                        changeImgIcon(3, SoundsName.OBRA)
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.construction_site)
+                        changeImgIcon(3, SoundsName.CONSTRUCTION_SITE)
                         mediaPlayerConfig(3)
                     }
                 }
@@ -467,7 +471,7 @@ class SecondActivity : AppCompatActivity() {
 
 
         binding.firstVolumeBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) { // seekbar.progress return a percent value (so i just need to divide /2 to adptate to mediaplayer)
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) { // seekbar.progress return a percent value (so i just need to divide /100 to adapt to mediaplayer)
                 val volume = progress.toFloat().div(100)
                 firstMediaPlayer.setVolume(volume, volume)
             }
@@ -512,7 +516,7 @@ class SecondActivity : AppCompatActivity() {
         })
 
         binding.btnSleep.setOnClickListener{
-            if (binding.btnSleep.tag == getString(R.string.button_tag_wake)) { // animações de  elementos sumindo e ficando tudo escuro
+            if (binding.btnSleep.tag == getString(R.string.button_tag_wake)) {
                 changeComponentsVisibility(1)
                 binding.btnSleep.tag = getString(R.string.button_tag_sleep)
             }
@@ -525,8 +529,8 @@ class SecondActivity : AppCompatActivity() {
         }
 
         binding.btnPause.setOnClickListener{
-            // exibindo anuncio antes de voltar pra outra tela
-            if (soundQuantity > 2) { // o anuncio so aparecerá se tiver tocando 3 audios na hora que der pause
+            // showing ads before going back to main activity
+            if (soundQuantity > 2) { // the ads will only show if there is 3 audios playing
                 if (mInterstitialAd != null) {
                     mInterstitialAd?.show(this)
                 } else {
@@ -543,7 +547,7 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupCallBackCalls() { // setando o anuncio full screen
+    private fun setupCallBackCalls() { // ads full screen
         Log.d(tag, "ad full screen set up")
 
         mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
@@ -589,7 +593,7 @@ class SecondActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun changeComponentsVisibility(i: Int) { // 1 - tudo transparente, 2 - aparece tudo
+    private fun changeComponentsVisibility(i: Int) { // 1 - everything transparent, 2 - show everything
         when(i) {
             1-> {
                 binding.btnSleep.setImageResource(R.drawable.wake)
@@ -651,7 +655,6 @@ class SecondActivity : AppCompatActivity() {
                     override fun onFinish() {
                         finish()
                     }
-
 
                 }.start()
             }
@@ -728,87 +731,87 @@ class SecondActivity : AppCompatActivity() {
         when (mediaPlayerNum) {
             1-> {
                 when (nameOfSound) {
-                    SoundsName.CHUVA -> {
+                    SoundsName.RAIN -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.rain)
                     }
 
-                    SoundsName.TROVAO -> {
+                    SoundsName.THUNDER -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.thunder)
                     }
 
-                    SoundsName.VENTILADOR -> {
+                    SoundsName.FAN -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.fan)
                     }
 
-                    SoundsName.CIDADE -> {
+                    SoundsName.CITY -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.city)
                     }
 
-                    SoundsName.CLIMATIZADOR -> {
+                    SoundsName.AIR_CONDITIONER -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.air_conditioner)
                     }
 
-                    SoundsName.GUARDA -> {
+                    SoundsName.NIGHT_GUARD -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.night_guard)
                     }
 
-                    SoundsName.FOGUEIRA -> {
+                    SoundsName.FIREPLACE -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.fireplace)
                     }
 
-                    SoundsName.PRAIA -> {
+                    SoundsName.BEACH -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.beach)
                     }
 
-                    SoundsName.FLORESTA -> {
+                    SoundsName.FOREST -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.forest)
                     }
 
-                    SoundsName.RELOGIO -> {
+                    SoundsName.CLOCK -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.clock)
                     }
 
-                    SoundsName.VENTO -> {
+                    SoundsName.WIND -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.wind)
                     }
 
-                    SoundsName.GRILO -> {
+                    SoundsName.CRICKET -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.cricket)
                     }
 
-                    SoundsName.CIGARRA -> {
+                    SoundsName.CICADA -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.cicada)
                     }
 
-                    SoundsName.CACHOEIRA -> {
+                    SoundsName.WATERFALL -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.waterfall)
                     }
 
-                    SoundsName.GANSO -> {
+                    SoundsName.GOOSE -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.goose)
                     }
 
-                    SoundsName.BALEIA -> {
+                    SoundsName.WHALE -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.whale)
                     }
 
-                    SoundsName.DESERTO -> {
+                    SoundsName.DESERT -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.desert)
                     }
 
-                    SoundsName.PASSARO -> {
+                    SoundsName.BIRD -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.bird)
                     }
 
-                    SoundsName.PINGUIM -> {
+                    SoundsName.PENGUIN -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.penguin)
                     }
 
-                    SoundsName.CARRO -> {
+                    SoundsName.CAR -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.car)
                     }
 
-                    SoundsName.OBRA -> {
+                    SoundsName.CONSTRUCTION_SITE -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.construction_site)
                     }
                 }
@@ -816,173 +819,173 @@ class SecondActivity : AppCompatActivity() {
             }
             2-> {
                 when (nameOfSound) {
-                    SoundsName.CHUVA -> { // posso simplificar assim: secondVolumeImg.setImageResource(variavel que vai ser associada ao som selecionado)
+                    SoundsName.RAIN -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.rain)
                     }
 
-                    SoundsName.TROVAO -> {
+                    SoundsName.THUNDER -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.thunder)
                     }
 
-                    SoundsName.VENTILADOR -> {
+                    SoundsName.FAN -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.fan)
                     }
 
-                    SoundsName.CIDADE -> {
+                    SoundsName.CITY -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.city)
                     }
 
-                    SoundsName.CLIMATIZADOR -> {
+                    SoundsName.AIR_CONDITIONER -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.air_conditioner)
                     }
 
-                    SoundsName.GUARDA -> {
+                    SoundsName.NIGHT_GUARD -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.night_guard)
                     }
 
-                    SoundsName.FOGUEIRA -> {
+                    SoundsName.FIREPLACE -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.fireplace)
                     }
 
-                    SoundsName.PRAIA -> {
+                    SoundsName.BEACH -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.beach)
                     }
 
-                    SoundsName.FLORESTA -> {
+                    SoundsName.FOREST -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.forest)
                     }
 
-                    SoundsName.RELOGIO -> {
+                    SoundsName.CLOCK -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.clock)
                     }
 
-                    SoundsName.VENTO -> {
+                    SoundsName.WIND -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.wind)
                     }
 
-                    SoundsName.GRILO -> {
+                    SoundsName.CRICKET -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.cricket)
                     }
 
-                    SoundsName.CIGARRA -> {
+                    SoundsName.CICADA -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.cicada)
                     }
 
-                    SoundsName.CACHOEIRA -> {
+                    SoundsName.WATERFALL -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.waterfall)
                     }
 
-                    SoundsName.GANSO -> {
+                    SoundsName.GOOSE -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.goose)
                     }
 
-                    SoundsName.BALEIA -> {
+                    SoundsName.WHALE -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.whale)
                     }
 
-                    SoundsName.DESERTO -> {
+                    SoundsName.DESERT -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.desert)
                     }
 
-                    SoundsName.PASSARO -> {
+                    SoundsName.BIRD -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.bird)
                     }
 
-                    SoundsName.PINGUIM -> {
+                    SoundsName.PENGUIN -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.penguin)
                     }
 
-                    SoundsName.CARRO -> {
+                    SoundsName.CAR -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.car)
                     }
 
-                    SoundsName.OBRA -> {
+                    SoundsName.CONSTRUCTION_SITE -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.construction_site)
                     }
                 }
             }
             3 -> {
                 when (nameOfSound) {
-                    SoundsName.CHUVA -> {
+                    SoundsName.RAIN -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.rain)
                     }
 
-                    SoundsName.TROVAO -> {
+                    SoundsName.THUNDER -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.thunder)
                     }
 
-                    SoundsName.VENTILADOR -> {
+                    SoundsName.FAN -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.fan)
                     }
 
-                    SoundsName.CIDADE -> {
+                    SoundsName.CITY -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.city)
                     }
 
-                    SoundsName.CLIMATIZADOR -> {
+                    SoundsName.AIR_CONDITIONER -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.air_conditioner)
                     }
 
-                    SoundsName.GUARDA -> {
+                    SoundsName.NIGHT_GUARD -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.night_guard)
                     }
 
-                    SoundsName.FOGUEIRA -> {
+                    SoundsName.FIREPLACE -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.fireplace)
                     }
 
-                    SoundsName.PRAIA -> {
+                    SoundsName.BEACH -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.beach)
                     }
 
-                    SoundsName.FLORESTA -> {
+                    SoundsName.FOREST -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.forest)
                     }
 
-                    SoundsName.RELOGIO -> {
+                    SoundsName.CLOCK -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.clock)
                     }
 
-                    SoundsName.VENTO -> {
+                    SoundsName.WIND -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.wind)
                     }
 
-                    SoundsName.GRILO -> {
+                    SoundsName.CRICKET -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.cricket)
                     }
 
-                    SoundsName.CIGARRA -> {
+                    SoundsName.CICADA -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.cicada)
                     }
 
-                    SoundsName.CACHOEIRA -> {
+                    SoundsName.WATERFALL -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.waterfall)
                     }
 
-                    SoundsName.GANSO -> {
+                    SoundsName.GOOSE -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.goose)
                     }
 
-                    SoundsName.BALEIA -> {
+                    SoundsName.WHALE -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.whale)
                     }
-                    SoundsName.DESERTO -> {
+                    SoundsName.DESERT -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.desert)
                     }
 
-                    SoundsName.PASSARO -> {
+                    SoundsName.BIRD -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.bird)
                     }
 
-                    SoundsName.PINGUIM -> {
+                    SoundsName.PENGUIN -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.penguin)
                     }
 
-                    SoundsName.CARRO -> {
+                    SoundsName.CAR -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.car)
                     }
 
-                    SoundsName.OBRA -> {
+                    SoundsName.CONSTRUCTION_SITE -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.construction_site)
                     }
                 }
@@ -993,10 +996,6 @@ class SecondActivity : AppCompatActivity() {
     private fun initInterfaceComponents() {
 
         initDialogComponents()
-
-        firstMediaPlayer.setVolume(0.5F, 0.5F)
-        secondMediaPlayer.setVolume(0.5F, 0.5F)
-        thirdMediaPlayer.setVolume(0.5F, 0.5F)
 
         binding.firstVolumeBar.progress = 50
         binding.firstVolumeBar.alpha = AlphaValues.TRANSPARENCY_INITIAL
@@ -1021,7 +1020,7 @@ class SecondActivity : AppCompatActivity() {
         binding.btnTimer.alpha = AlphaValues.TRANSPARENCY_INITIAL
     }
 
-    private fun initDialogComponents() {
+    private fun initDialogComponents() { // timer dialog box
         dialog = Dialog(this@SecondActivity)
         dialog.setContentView(R.layout.dialog_timer)
         dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -1031,8 +1030,7 @@ class SecondActivity : AppCompatActivity() {
         val checkTri: CheckBox = dialog.findViewById(R.id.checkTri)
         val checkUma: CheckBox = dialog.findViewById(R.id.checkUma)
 
-
-        // configurando os botões para o usuario n ativar 2 tempos de uma vez so
+        // the user cant activate 2 timers at the same time
         checkQui.setOnClickListener{
             if (!checkQui.isChecked) {
                 timerConfig(action = 1)

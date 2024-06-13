@@ -43,8 +43,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="@string/txt_water"
                 android:contentDescription="@string/desc_btn_water"
+                android:text="@string/txt_water"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
             <Button

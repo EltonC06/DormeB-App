@@ -17,7 +17,7 @@ class FirstActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityFirstBinding.inflate(layoutInflater) // inflando binding
+        binding = ActivityFirstBinding.inflate(layoutInflater) // inflating binding
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -38,7 +38,7 @@ class FirstActivity : AppCompatActivity() {
         initialAnimation()
 
         binding.btnStart.setOnClickListener {
-            initMainActivity() // mesmo assim o usuario consegue voltar, logo eu tenho que finalizar essa atividade
+            initMainActivity()
         }
 
         binding.checkDontShow.setOnClickListener {
@@ -55,24 +55,24 @@ class FirstActivity : AppCompatActivity() {
 
     private fun saveData() {
         val sharedPreferences =
-            getSharedPreferences("UserPreference", MODE_PRIVATE) // instanciando e dando o nome
-        val edit = sharedPreferences.edit() // instanciando o editor, onde eu posso botar os dados
+            getSharedPreferences("UserPreference", MODE_PRIVATE)
+        val edit = sharedPreferences.edit()
         edit.apply {
             putString("Preference", binding.checkDontShow.tag.toString())
-        }.apply() // botando os dados dentro
+        }.apply() // saving data
 
-        Toast.makeText(this, "Preferência salva", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.saved_preference), Toast.LENGTH_SHORT).show()
 
     }
 
-    private fun loadData(): String { // carregando os dados
-        var preference = ""
+    private fun loadData(): String { // loading data
+        val preference: String
         val sharedPreferences =
-            getSharedPreferences("UserPreference", MODE_PRIVATE) // instanciando e dando o nome
+            getSharedPreferences("UserPreference", MODE_PRIVATE) // instancing and naming it
         val savedPreferences = sharedPreferences.getString(
             "Preference",
             null
-        ) // pegando a chave que instanciei (null é se tivesse alguma segurança)
+        ) // catching the key that i saved
 
         preference = savedPreferences.toString()
         return preference
@@ -110,7 +110,7 @@ class FirstActivity : AppCompatActivity() {
 
     private fun initMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("KeepMainActivity", 2) // passando 2, para não ficar em loop
+        intent.putExtra("KeepMainActivity", 2) // passing 2 to main activity, so it wont generate a loop
         startActivity(intent)
         finish()
     }

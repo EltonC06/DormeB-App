@@ -10,7 +10,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <!-- Splash activity -->
+    <!-- First activity -->
 
     <string name="splash_appname_msg">DORMƎB</string>
     <string name="splash_first_msg">Sleep Better: Our app is designed to help you sleep more easily.</string>
@@ -18,6 +18,7 @@
     <string name="splash_third_msg">Easy to Use: Simple and intuitive interface so you can set up your sleep environment quickly.</string>
     <string name="splash_button_start">START EXPERIENCE</string>
     <string name="splash_check_show_again">Don\'t show this again</string>
+    <string name="saved_preference">Saved preference</string>
 
     <!-- Main activity -->
 
@@ -153,30 +154,28 @@
     <string name="btn_play">PLAY</string>
     <string name="btn_info">INFORMATIONS</string>
 
-    <!-- do not translate, important for code working -->
-    <string name="desc_imgBtnRain" translatable="false">CHUVA</string>
-    <string name="desc_imgBtnThunder" translatable="false">TROVAO</string>
-    <string name="desc_imgBtnFan" translatable="false">VENTILADOR</string>
-    <string name="desc_imgBtnCity" translatable="false">CIDADE</string>
-    <string name="desc_imgBtnForest" translatable="false">FLORESTA</string>
-    <string name="desc_imgBtnAirConditioner" translatable="false">CLIMATIZADOR</string>
-    <string name="desc_imgBtnFireplace" translatable="false">FOGUEIRA</string>
-    <string name="desc_imgBtnBeach" translatable="false">PRAIA</string>
-    <string name="desc_imgBtnNightGuard" translatable="false">GUARDA</string>
-    <string name="desc_imgBtnClock" translatable="false">RELOGIO</string>
-    <string name="desc_imgBtnWind" translatable="false">VENTO</string>
-    <string name="desc_imgBtnCricket" translatable="false">GRILO</string>
-    <string name="desc_imgBtnCicada" translatable="false">CIGARRA</string>
-    <string name="desc_imgBtnWaterfall" translatable="false">CACHOEIRA</string>
-    <string name="desc_imgBtnGoose" translatable="false">GANSO</string>
-    <string name="desc_imgBtnWhale" translatable="false">BALEIA</string>
-    <string name="desc_imgBtnDesert" translatable="false">DESERTO</string>
-    <string name="desc_imgBtnConstructionSite" translatable="false">OBRA</string>
-    <string name="desc_imgBtnCar" translatable="false">CARRO</string>
-    <string name="desc_imgBtnBird" translatable="false">PASSARO</string>
-    <string name="desc_imgBtnPenguin" translatable="false">PINGUIM</string>
-
-
+    <!-- do not translate, important for code working. Coop work with SoundsName.kt -->
+    <string name="desc_imgBtnRain" translatable="false">RAIN</string>
+    <string name="desc_imgBtnThunder" translatable="false">THUNDER</string>
+    <string name="desc_imgBtnFan" translatable="false">FAN</string>
+    <string name="desc_imgBtnNightGuard" translatable="false">NIGHT_GUARD</string>
+    <string name="desc_imgBtnCity" translatable="false">CITY</string>
+    <string name="desc_imgBtnAirConditioner" translatable="false">AIR_CONDITIONER</string>
+    <string name="desc_imgBtnForest" translatable="false">FOREST</string>
+    <string name="desc_imgBtnBeach" translatable="false">BEACH</string>
+    <string name="desc_imgBtnFireplace" translatable="false">FIREPLACE</string>
+    <string name="desc_imgBtnClock" translatable="false">CLOCK</string>
+    <string name="desc_imgBtnCicada" translatable="false">CICADA</string>
+    <string name="desc_imgBtnCricket" translatable="false">CRICKET</string>
+    <string name="desc_imgBtnWind" translatable="false">WIND</string>
+    <string name="desc_imgBtnWaterfall" translatable="false">WATERFALL</string>
+    <string name="desc_imgBtnGoose" translatable="false">GOOSE</string>
+    <string name="desc_imgBtnWhale" translatable="false">WHALE</string>
+    <string name="desc_imgBtnDesert" translatable="false">DESERT</string>
+    <string name="desc_imgBtnBird" translatable="false">BIRD</string>
+    <string name="desc_imgBtnPenguin" translatable="false">PENGUIN</string>
+    <string name="desc_imgBtnCar" translatable="false">CAR</string>
+    <string name="desc_imgBtnConstructionSite" translatable="false">CONSTRUCTION_SITE</string>
 
 
 </resources>

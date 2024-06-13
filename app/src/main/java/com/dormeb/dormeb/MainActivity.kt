@@ -22,13 +22,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun welcomeActivity(num: Int) {
         when (num) {
-            1 -> {  // 1 é porque é a primeira vez entrando no app e na main activity
+            1 -> {  // 1 because its opening (or reopening) the app
                 val intent = Intent(this, FirstActivity::class.java)
                 startActivity(intent)
 
 
             }
-            2 -> { // 2 é porque ele so pausou o second activity ou o first e voltou pra main acitvity
+            2 -> { // 2 is because the user passed from second activity or first to the main activity, so it wont show the welcome screen (first activity)
 
 
             }
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val keepMainActivity: Int = intent.getIntExtra("KeepMainActivity", 1) // 1 é o valor default se nada for passado, ent ele vai iniciar a first acitivty
+        val keepMainActivity: Int = intent.getIntExtra("KeepMainActivity", 1) // 1 is a default value. This value make the app open the welcome screen (first activity)
 
         welcomeActivity(keepMainActivity)
 
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         dialog.window?.setBackgroundDrawableResource(R.drawable.background_dialog_box)
-        dialog.setCancelable(true) // se o usuario clicar fora, ela vai desaparecer
+        dialog.setCancelable(true)
 
 
         initialAnimation()
@@ -88,7 +88,8 @@ class MainActivity : AppCompatActivity() {
             binding.imgBtnConstructionSite,
             binding.imgBtnPenguin
 
-        ) // o codigo pra passar pra second activity vai percorrer essa lista e vai verificar quais audios estão "pressed"
+        )
+        // the code to pass to second activity will pass through this list and verify the audios who is tagged "pressed"
 
 
         binding.btnNatural.setOnClickListener{
@@ -115,27 +116,27 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnRain.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.CHUVA, 2)
+                changeImgButtonAndText(SoundsName.RAIN, 2)
                 binding.imgBtnRain.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.CHUVA, 1)
+                changeImgButtonAndText(SoundsName.RAIN, 1)
                 binding.imgBtnRain.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
                 displayErrorMsg(1)
             }
         }
-        // o codigo executa normal, mas quando é pra pausar ele não pausa o audio atual pois o mp3 é um recurso global aí se eu pedir pra pausar fora da ordem reversa, ele buga o sistema e nunca da pra pausar um elemento
-        binding.imgBtnThunder.setOnClickListener { // posso criar uma variavel mp3 para cada audio
+
+        binding.imgBtnThunder.setOnClickListener {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnThunder.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.TROVAO, 2)
+                changeImgButtonAndText(SoundsName.THUNDER, 2)
                 binding.imgBtnThunder.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.TROVAO, 1)
+                changeImgButtonAndText(SoundsName.THUNDER, 1)
                 binding.imgBtnThunder.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -148,11 +149,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnFan.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.VENTILADOR, 2)
+                changeImgButtonAndText(SoundsName.FAN, 2)
                 binding.imgBtnFan.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.VENTILADOR, 1)
+                changeImgButtonAndText(SoundsName.FAN, 1)
                 binding.imgBtnFan.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -164,11 +165,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnNightGuard.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.GUARDA, 2)
+                changeImgButtonAndText(SoundsName.NIGHT_GUARD, 2)
                 binding.imgBtnNightGuard.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.GUARDA, 1)
+                changeImgButtonAndText(SoundsName.NIGHT_GUARD, 1)
                 binding.imgBtnNightGuard.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -176,15 +177,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.imgBtnCity.setOnClickListener { // ao inves dessa complexidade, eu posso fazer uma fun (nome do som) e associar os dois botões a uma so função
+        binding.imgBtnCity.setOnClickListener {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnCity.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.CIDADE, 2)
+                changeImgButtonAndText(SoundsName.CITY, 2)
                 binding.imgBtnCity.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.CIDADE, 1)
+                changeImgButtonAndText(SoundsName.CITY, 1)
                 binding.imgBtnCity.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -196,11 +197,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnAirConditioner.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.CLIMATIZADOR, 2)
+                changeImgButtonAndText(SoundsName.AIR_CONDITIONER, 2)
                 binding.imgBtnAirConditioner.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.CLIMATIZADOR, 1)
+                changeImgButtonAndText(SoundsName.AIR_CONDITIONER, 1)
                 binding.imgBtnAirConditioner.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -212,11 +213,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnForest.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.FLORESTA, 2)
+                changeImgButtonAndText(SoundsName.FOREST, 2)
                 binding.imgBtnForest.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.FLORESTA, 1)
+                changeImgButtonAndText(SoundsName.FOREST, 1)
                 binding.imgBtnForest.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -228,11 +229,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnBeach.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.PRAIA, 2)
+                changeImgButtonAndText(SoundsName.BEACH, 2)
                 binding.imgBtnBeach.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.PRAIA, 1)
+                changeImgButtonAndText(SoundsName.BEACH, 1)
                 binding.imgBtnBeach.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -244,11 +245,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnFireplace.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.FOGUEIRA, 2)
+                changeImgButtonAndText(SoundsName.FIREPLACE, 2)
                 binding.imgBtnFireplace.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.FOGUEIRA, 1)
+                changeImgButtonAndText(SoundsName.FIREPLACE, 1)
                 binding.imgBtnFireplace.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -260,11 +261,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnClock.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.RELOGIO, 2)
+                changeImgButtonAndText(SoundsName.CLOCK, 2)
                 binding.imgBtnClock.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.RELOGIO, 1)
+                changeImgButtonAndText(SoundsName.CLOCK, 1)
                 binding.imgBtnClock.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -276,11 +277,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnWind.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.VENTO, 2)
+                changeImgButtonAndText(SoundsName.WIND, 2)
                 binding.imgBtnWind.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.VENTO, 1)
+                changeImgButtonAndText(SoundsName.WIND, 1)
                 binding.imgBtnWind.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -292,11 +293,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnCricket.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.GRILO, 2)
+                changeImgButtonAndText(SoundsName.CRICKET, 2)
                 binding.imgBtnCricket.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.GRILO, 1)
+                changeImgButtonAndText(SoundsName.CRICKET, 1)
                 binding.imgBtnCricket.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -308,11 +309,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnCicada.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.CIGARRA, 2)
+                changeImgButtonAndText(SoundsName.CICADA, 2)
                 binding.imgBtnCicada.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.CIGARRA, 1)
+                changeImgButtonAndText(SoundsName.CICADA, 1)
                 binding.imgBtnCicada.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -324,11 +325,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnWaterfall.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.CACHOEIRA, 2)
+                changeImgButtonAndText(SoundsName.WATERFALL, 2)
                 binding.imgBtnWaterfall.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.CACHOEIRA, 1)
+                changeImgButtonAndText(SoundsName.WATERFALL, 1)
                 binding.imgBtnWaterfall.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -340,11 +341,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnGoose.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.GANSO, 2)
+                changeImgButtonAndText(SoundsName.GOOSE, 2)
                 binding.imgBtnGoose.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.GANSO, 1)
+                changeImgButtonAndText(SoundsName.GOOSE, 1)
                 binding.imgBtnGoose.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -356,11 +357,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnWhale.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.BALEIA, 2)
+                changeImgButtonAndText(SoundsName.WHALE, 2)
                 binding.imgBtnWhale.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.BALEIA, 1)
+                changeImgButtonAndText(SoundsName.WHALE, 1)
                 binding.imgBtnWhale.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -372,11 +373,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnPenguin.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.PINGUIM, 2)
+                changeImgButtonAndText(SoundsName.PENGUIN, 2)
                 binding.imgBtnPenguin.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.PINGUIM, 1)
+                changeImgButtonAndText(SoundsName.PENGUIN, 1)
                 binding.imgBtnPenguin.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -388,11 +389,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnBird.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.PASSARO, 2)
+                changeImgButtonAndText(SoundsName.BIRD, 2)
                 binding.imgBtnBird.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.PASSARO, 1)
+                changeImgButtonAndText(SoundsName.BIRD, 1)
                 binding.imgBtnBird.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -404,11 +405,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnCar.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.CARRO, 2)
+                changeImgButtonAndText(SoundsName.CAR, 2)
                 binding.imgBtnCar.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.CARRO, 1)
+                changeImgButtonAndText(SoundsName.CAR, 1)
                 binding.imgBtnCar.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -420,11 +421,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnDesert.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.DESERTO, 2)
+                changeImgButtonAndText(SoundsName.DESERT, 2)
                 binding.imgBtnDesert.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.DESERTO, 1)
+                changeImgButtonAndText(SoundsName.DESERT, 1)
                 binding.imgBtnDesert.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -436,11 +437,11 @@ class MainActivity : AppCompatActivity() {
             changeScrollsVisibility(2)
 
             if (binding.imgBtnConstructionSite.tag == getString(R.string.button_pressed)) {
-                changeImgButtonandText(SoundsName.OBRA, 2)
+                changeImgButtonAndText(SoundsName.CONSTRUCTION_SITE, 2)
                 binding.imgBtnConstructionSite.tag = getString(R.string.button_not_pressed)
                 selectCount -= 1
             } else if (selectCount < 3) {
-                changeImgButtonandText(SoundsName.OBRA, 1)
+                changeImgButtonAndText(SoundsName.CONSTRUCTION_SITE, 1)
                 binding.imgBtnConstructionSite.tag = getString(R.string.button_pressed)
                 selectCount += 1
             } else {
@@ -451,20 +452,20 @@ class MainActivity : AppCompatActivity() {
         // migrating all data to another class VVV
 
         binding.imgBtnPlay.setOnClickListener {
-            if (selectCount == 0) { // não pode apertar play sem ter escolhido ao menos 1 audio
+            if (selectCount == 0) { // cant press play without choosing at least 1 audio
                 displayErrorMsg(2)
             } else {
                 // Me
                 val audioMutable = mutableListOf<String>()
-                for (audio in audiosArray) { // lista com todos os botões (vou percorre-la e procurar qual botão está pressionado
+                for (audio in audiosArray) { // list with all buttons (this "for" will go through the list and verify what audios are tagged "pressed")
                     if (audio.tag == getString(R.string.button_pressed)) {
-                        audioMutable.add(audio.contentDescription.toString()) // pegando a descrição do audio (que é o nome dos enum)
+                        audioMutable.add(audio.contentDescription.toString()) // the contentDescription of audio matches with its enum equivalent
                     }
                 }
                 val transfer = AudiostoPass(audioMutable)
 
                 val intent = Intent(this, SecondActivity::class.java)
-                intent.putExtra("Sounds", transfer) // passando como string o nome dos audios
+                intent.putExtra("Sounds", transfer) // passing as string the name of audios to be played
                 startActivity(intent)
                 finish()
             }
@@ -497,7 +498,7 @@ class MainActivity : AppCompatActivity() {
             1 -> Toast.makeText(
                 this,
                 getString(R.string.error_max_audio_capacity_reached), Toast.LENGTH_SHORT
-            ).show() // mensagem de erro se o usuario tentar escolher 4 elementos
+            ).show() // error message if the user try to choose 4 audios to play
             2 -> Toast.makeText(
                 this,
                 getString(R.string.error_min_audio_quantity_to_play), Toast.LENGTH_SHORT
@@ -524,251 +525,251 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun changeImgButtonandText(enum: SoundsName, playorpause: Int
+    private fun changeImgButtonAndText(enum: SoundsName, playOrPause: Int
     ) { // 1 - play and 2 - pause
-        when (playorpause) {
+        when (playOrPause) {
             1 -> {
                 when (enum) {
-                    SoundsName.CHUVA -> {
+                    SoundsName.RAIN -> {
                         binding.imgBtnRain.setImageResource(R.drawable.rain_pressed)
-                        changeMusicandDescText(SoundsName.CHUVA)
+                        changeMusicAndDescText(SoundsName.RAIN)
                     }
 
-                    SoundsName.TROVAO -> {
+                    SoundsName.THUNDER -> {
                         binding.imgBtnThunder.setImageResource(R.drawable.thunder_pressed)
-                        changeMusicandDescText(SoundsName.TROVAO)
+                        changeMusicAndDescText(SoundsName.THUNDER)
                     }
 
-                    SoundsName.VENTILADOR -> {
+                    SoundsName.FAN -> {
                         binding.imgBtnFan.setImageResource(R.drawable.fan_pressed)
-                        changeMusicandDescText(SoundsName.VENTILADOR)
+                        changeMusicAndDescText(SoundsName.FAN)
                     }
 
-                    SoundsName.GUARDA -> {
+                    SoundsName.NIGHT_GUARD -> {
                         binding.imgBtnNightGuard.setImageResource(R.drawable.night_guard_pressed)
-                        changeMusicandDescText(SoundsName.GUARDA)
+                        changeMusicAndDescText(SoundsName.NIGHT_GUARD)
                     }
 
-                    SoundsName.CIDADE -> {
+                    SoundsName.CITY -> {
                         binding.imgBtnCity.setImageResource(R.drawable.city_pressed)
-                        changeMusicandDescText(SoundsName.CIDADE)
+                        changeMusicAndDescText(SoundsName.CITY)
                     }
 
-                    SoundsName.CLIMATIZADOR -> {
+                    SoundsName.AIR_CONDITIONER -> {
                         binding.imgBtnAirConditioner.setImageResource(R.drawable.air_conditioner_pressed)
-                        changeMusicandDescText(SoundsName.CLIMATIZADOR)
+                        changeMusicAndDescText(SoundsName.AIR_CONDITIONER)
                     }
 
-                    SoundsName.FLORESTA -> {
+                    SoundsName.FOREST -> {
                         binding.imgBtnForest.setImageResource(R.drawable.forest_pressed)
-                        changeMusicandDescText(SoundsName.FLORESTA)
+                        changeMusicAndDescText(SoundsName.FOREST)
                     }
 
-                    SoundsName.PRAIA -> {
+                    SoundsName.BEACH -> {
                         binding.imgBtnBeach.setImageResource(R.drawable.beach_pressed)
-                        changeMusicandDescText(SoundsName.PRAIA)
+                        changeMusicAndDescText(SoundsName.BEACH)
                     }
 
-                    SoundsName.FOGUEIRA -> {
+                    SoundsName.FIREPLACE -> {
                         binding.imgBtnFireplace.setImageResource(R.drawable.fireplace_pressed)
-                        changeMusicandDescText(SoundsName.FOGUEIRA)
+                        changeMusicAndDescText(SoundsName.FIREPLACE)
                     }
 
-                    SoundsName.RELOGIO -> {
+                    SoundsName.CLOCK -> {
                         binding.imgBtnClock.setImageResource(R.drawable.clock_pressed)
-                        changeMusicandDescText(SoundsName.RELOGIO)
+                        changeMusicAndDescText(SoundsName.CLOCK)
                     }
 
-                    SoundsName.CIGARRA -> {
+                    SoundsName.CICADA -> {
                         binding.imgBtnCicada.setImageResource(R.drawable.cicada_pressed)
-                        changeMusicandDescText(SoundsName.CIGARRA)
+                        changeMusicAndDescText(SoundsName.CICADA)
                     }
 
-                    SoundsName.GRILO -> {
+                    SoundsName.CRICKET -> {
                         binding.imgBtnCricket.setImageResource(R.drawable.cricket_pressed)
-                        changeMusicandDescText(SoundsName.GRILO)
+                        changeMusicAndDescText(SoundsName.CRICKET)
                     }
 
-                    SoundsName.VENTO -> {
+                    SoundsName.WIND -> {
                         binding.imgBtnWind.setImageResource(R.drawable.wind_pressed)
-                        changeMusicandDescText(SoundsName.VENTO)
+                        changeMusicAndDescText(SoundsName.WIND)
                     }
 
-                    SoundsName.CACHOEIRA -> {
+                    SoundsName.WATERFALL -> {
                         binding.imgBtnWaterfall.setImageResource(R.drawable.waterfall_pressed)
-                        changeMusicandDescText(SoundsName.CACHOEIRA)
+                        changeMusicAndDescText(SoundsName.WATERFALL)
                     }
 
-                    SoundsName.GANSO -> {
+                    SoundsName.GOOSE -> {
                         binding.imgBtnGoose.setImageResource(R.drawable.goose_pressed)
-                        changeMusicandDescText(SoundsName.GANSO)
+                        changeMusicAndDescText(SoundsName.GOOSE)
                     }
 
-                    SoundsName.BALEIA -> {
+                    SoundsName.WHALE -> {
                         binding.imgBtnWhale.setImageResource(R.drawable.whale_pressed)
-                        changeMusicandDescText(SoundsName.BALEIA)
+                        changeMusicAndDescText(SoundsName.WHALE)
                     }
 
-                    SoundsName.DESERTO -> {
+                    SoundsName.DESERT -> {
                         binding.imgBtnDesert.setImageResource(R.drawable.desert_pressed)
-                        changeMusicandDescText(SoundsName.DESERTO)
+                        changeMusicAndDescText(SoundsName.DESERT)
                     }
 
-                    SoundsName.PASSARO -> {
+                    SoundsName.BIRD -> {
                         binding.imgBtnBird.setImageResource(R.drawable.bird_pressed)
-                        changeMusicandDescText(SoundsName.PASSARO)
+                        changeMusicAndDescText(SoundsName.BIRD)
                     }
 
-                    SoundsName.PINGUIM -> {
+                    SoundsName.PENGUIN -> {
                         binding.imgBtnPenguin.setImageResource(R.drawable.penguin_pressed)
-                        changeMusicandDescText(SoundsName.PINGUIM)
+                        changeMusicAndDescText(SoundsName.PENGUIN)
                     }
 
-                    SoundsName.CARRO -> {
+                    SoundsName.CAR -> {
                         binding.imgBtnCar.setImageResource(R.drawable.car_pressed)
-                        changeMusicandDescText(SoundsName.CARRO)
+                        changeMusicAndDescText(SoundsName.CAR)
                     }
 
-                    SoundsName.OBRA -> {
+                    SoundsName.CONSTRUCTION_SITE -> {
                         binding.imgBtnConstructionSite.setImageResource(R.drawable.construction_site_pressed)
-                        changeMusicandDescText(SoundsName.OBRA)
+                        changeMusicAndDescText(SoundsName.CONSTRUCTION_SITE)
                     }
                 }
             }
 
             2 -> {
                 when (enum) {
-                    SoundsName.CHUVA -> binding.imgBtnRain.setImageResource(R.drawable.rain)
-                    SoundsName.TROVAO -> binding.imgBtnThunder.setImageResource(R.drawable.thunder)
-                    SoundsName.VENTILADOR -> binding.imgBtnFan.setImageResource(R.drawable.fan)
-                    SoundsName.GUARDA -> binding.imgBtnNightGuard.setImageResource(R.drawable.night_guard)
-                    SoundsName.CIDADE -> binding.imgBtnCity.setImageResource(R.drawable.city)
-                    SoundsName.CLIMATIZADOR -> binding.imgBtnAirConditioner.setImageResource(R.drawable.air_conditioner)
-                    SoundsName.FLORESTA -> binding.imgBtnForest.setImageResource(R.drawable.forest)
-                    SoundsName.PRAIA -> binding.imgBtnBeach.setImageResource(R.drawable.beach)
-                    SoundsName.FOGUEIRA -> binding.imgBtnFireplace.setImageResource(R.drawable.fireplace)
-                    SoundsName.RELOGIO -> binding.imgBtnClock.setImageResource(R.drawable.clock)
-                    SoundsName.CIGARRA -> binding.imgBtnCicada.setImageResource(R.drawable.cicada)
-                    SoundsName.GRILO -> binding.imgBtnCricket.setImageResource(R.drawable.cricket)
-                    SoundsName.VENTO -> binding.imgBtnWind.setImageResource(R.drawable.wind)
-                    SoundsName.CACHOEIRA -> binding.imgBtnWaterfall.setImageResource(R.drawable.waterfall)
-                    SoundsName.GANSO -> binding.imgBtnGoose.setImageResource(R.drawable.goose)
-                    SoundsName.BALEIA -> binding.imgBtnWhale.setImageResource(R.drawable.whale)
-                    SoundsName.DESERTO -> binding.imgBtnDesert.setImageResource(R.drawable.desert)
-                    SoundsName.PASSARO -> binding.imgBtnBird.setImageResource(R.drawable.bird)
-                    SoundsName.PINGUIM -> binding.imgBtnPenguin.setImageResource(R.drawable.penguin)
-                    SoundsName.CARRO -> binding.imgBtnCar.setImageResource(R.drawable.car)
-                    SoundsName.OBRA -> binding.imgBtnConstructionSite.setImageResource(R.drawable.construction_site)
+                    SoundsName.RAIN -> binding.imgBtnRain.setImageResource(R.drawable.rain)
+                    SoundsName.THUNDER -> binding.imgBtnThunder.setImageResource(R.drawable.thunder)
+                    SoundsName.FAN -> binding.imgBtnFan.setImageResource(R.drawable.fan)
+                    SoundsName.NIGHT_GUARD -> binding.imgBtnNightGuard.setImageResource(R.drawable.night_guard)
+                    SoundsName.CITY -> binding.imgBtnCity.setImageResource(R.drawable.city)
+                    SoundsName.AIR_CONDITIONER -> binding.imgBtnAirConditioner.setImageResource(R.drawable.air_conditioner)
+                    SoundsName.FOREST -> binding.imgBtnForest.setImageResource(R.drawable.forest)
+                    SoundsName.BEACH -> binding.imgBtnBeach.setImageResource(R.drawable.beach)
+                    SoundsName.FIREPLACE -> binding.imgBtnFireplace.setImageResource(R.drawable.fireplace)
+                    SoundsName.CLOCK -> binding.imgBtnClock.setImageResource(R.drawable.clock)
+                    SoundsName.CICADA -> binding.imgBtnCicada.setImageResource(R.drawable.cicada)
+                    SoundsName.CRICKET -> binding.imgBtnCricket.setImageResource(R.drawable.cricket)
+                    SoundsName.WIND -> binding.imgBtnWind.setImageResource(R.drawable.wind)
+                    SoundsName.WATERFALL -> binding.imgBtnWaterfall.setImageResource(R.drawable.waterfall)
+                    SoundsName.GOOSE -> binding.imgBtnGoose.setImageResource(R.drawable.goose)
+                    SoundsName.WHALE -> binding.imgBtnWhale.setImageResource(R.drawable.whale)
+                    SoundsName.DESERT -> binding.imgBtnDesert.setImageResource(R.drawable.desert)
+                    SoundsName.BIRD -> binding.imgBtnBird.setImageResource(R.drawable.bird)
+                    SoundsName.PENGUIN -> binding.imgBtnPenguin.setImageResource(R.drawable.penguin)
+                    SoundsName.CAR -> binding.imgBtnCar.setImageResource(R.drawable.car)
+                    SoundsName.CONSTRUCTION_SITE -> binding.imgBtnConstructionSite.setImageResource(R.drawable.construction_site)
                 }
             }
         }
 
     }
 
-    private fun changeMusicandDescText(enum: SoundsName) {
+    private fun changeMusicAndDescText(enum: SoundsName) {
         binding.txtAudioName.alpha = AlphaValues.TRANSPARENCY_FULL
         binding.txtAudioDesc.alpha = AlphaValues.TRANSPARENCY_FULL
 
         binding.txtAudioName.animate().setDuration(15000).alpha(AlphaValues.TRANSPARENCY_ALMOST)
         binding.txtAudioDesc.animate().setDuration(15000).alpha(AlphaValues.TRANSPARENCY_ALMOST)
         when (enum) {
-            SoundsName.CHUVA -> {// aqui eu criei um enum para resumir mais o codigo e editar toodo o texto em um so lugar
+            SoundsName.RAIN -> {// the enum class resumed the code and its complexity
                 binding.txtAudioName.text = getString(R.string.audio_rain)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_rain)
             }
 
-            SoundsName.TROVAO -> {
+            SoundsName.THUNDER -> {
                 binding.txtAudioName.text = getString(R.string.audio_thunder)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_thunder)
             }
 
-            SoundsName.VENTILADOR -> {
+            SoundsName.FAN -> {
                 binding.txtAudioName.text = getString(R.string.audio_fan)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_fan)
             }
 
-            SoundsName.GUARDA -> {
+            SoundsName.NIGHT_GUARD -> {
                 binding.txtAudioName.text = getString(R.string.audio_night_guard)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_night_guard)
             }
 
-            SoundsName.CIDADE -> {
+            SoundsName.CITY -> {
                 binding.txtAudioName.text = getString(R.string.audio_street)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_street)
             }
 
-            SoundsName.FLORESTA -> {
+            SoundsName.FOREST -> {
                 binding.txtAudioName.text = getString(R.string.audio_forest)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_forest)
             }
 
-            SoundsName.CLIMATIZADOR -> {
+            SoundsName.AIR_CONDITIONER -> {
                 binding.txtAudioName.text = getString(R.string.audio_air_conditioner)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_air_conditioner)
             }
 
-            SoundsName.PRAIA -> {
+            SoundsName.BEACH -> {
                 binding.txtAudioName.text = getString(R.string.audio_beach)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_beach)
             }
 
-            SoundsName.FOGUEIRA -> {
+            SoundsName.FIREPLACE -> {
                 binding.txtAudioName.text = getString(R.string.audio_fireplace)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_fireplace)
             }
 
-            SoundsName.RELOGIO -> {
+            SoundsName.CLOCK -> {
                 binding.txtAudioName.text = getString(R.string.audio_clock)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_clock)
             }
 
-            SoundsName.CIGARRA -> {
+            SoundsName.CICADA -> {
                 binding.txtAudioName.text = getString(R.string.audio_cicada)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_cicada)
             }
 
-            SoundsName.GRILO -> {
+            SoundsName.CRICKET -> {
                 binding.txtAudioName.text = getString(R.string.audio_cricket)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_cricket)
             }
 
-            SoundsName.VENTO -> {
+            SoundsName.WIND -> {
                 binding.txtAudioName.text = getString(R.string.audio_wind)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_wind)
             }
 
-            SoundsName.CACHOEIRA -> {
+            SoundsName.WATERFALL -> {
                 binding.txtAudioName.text = getString(R.string.audio_waterfall)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_waterfall)
             }
 
-            SoundsName.GANSO -> {
+            SoundsName.GOOSE -> {
                 binding.txtAudioName.text = getString(R.string.audio_goose)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_goose)
             }
 
-            SoundsName.BALEIA -> {
+            SoundsName.WHALE -> {
                 binding.txtAudioName.text = getString(R.string.audio_whale)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_whale)
             }
 
-            SoundsName.DESERTO -> {
+            SoundsName.DESERT -> {
                 binding.txtAudioName.text = getString(R.string.audio_desert)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_desert)
             }
-            SoundsName.PASSARO -> {
+            SoundsName.BIRD -> {
                 binding.txtAudioName.text = getString(R.string.audio_bird)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_bird)
             }
-            SoundsName.PINGUIM -> {
+            SoundsName.PENGUIN -> {
                 binding.txtAudioName.text = getString(R.string.audio_penguin)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_penguin)
             }
-            SoundsName.CARRO -> {
+            SoundsName.CAR -> {
                 binding.txtAudioName.text = getString(R.string.audio_car)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_car)
             }
-            SoundsName.OBRA -> {
+            SoundsName.CONSTRUCTION_SITE -> {
                 binding.txtAudioName.text = getString(R.string.audio_construction_site)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_construction_site)
             }

@@ -9,7 +9,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
-    <!-- Splash activity -->
+    <!-- First activity -->
 
     <string name="splash_appname_msg">DORMƎB</string>
     <string name="splash_first_msg">Durma Melhor: Nosso aplicativo é projetado para ajudar você a dormir com mais facilidade.</string>
@@ -17,6 +17,7 @@
     <string name="splash_third_msg">Facilidade de Uso: Interface simples e intuitiva para que você possa configurar seu ambiente de sono rapidamente.</string>
     <string name="splash_button_start">INICIAR EXPERIÊNCIA</string>
     <string name="splash_check_show_again">Não mostrar isso novamente</string>
+    <string name="saved_preference">Preferência salva</string>
 
     <!-- Main activity -->
 
