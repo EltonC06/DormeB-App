@@ -17,7 +17,7 @@ import com.dormeb.dormeb.values.AlphaValues
 class MainActivity : AppCompatActivity() {
 
     private lateinit var dialog: Dialog
-    private lateinit var binding: ActivityMainBinding // agr eu vou inflar ele la no init
+    private lateinit var binding: ActivityMainBinding
     private var selectCount = 0
 
     private fun welcomeActivity(num: Int) {
@@ -81,7 +81,13 @@ class MainActivity : AppCompatActivity() {
             binding.imgBtnCicada,
             binding.imgBtnWaterfall,
             binding.imgBtnGoose,
-            binding.imgBtnWhale
+            binding.imgBtnWhale,
+            binding.imgBtnBird,
+            binding.imgBtnDesert,
+            binding.imgBtnCar,
+            binding.imgBtnConstructionSite,
+            binding.imgBtnPenguin
+
         ) // o codigo pra passar pra second activity vai percorrer essa lista e vai verificar quais audios estão "pressed"
 
 
@@ -362,6 +368,86 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.imgBtnPenguin.setOnClickListener {
+            changeScrollsVisibility(2)
+
+            if (binding.imgBtnPenguin.tag == getString(R.string.button_pressed)) {
+                changeImgButtonandText(SoundsName.PENGUIM, 2)
+                binding.imgBtnPenguin.tag = getString(R.string.button_not_pressed)
+                selectCount -= 1
+            } else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.PENGUIM, 1)
+                binding.imgBtnPenguin.tag = getString(R.string.button_pressed)
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
+        binding.imgBtnBird.setOnClickListener {
+            changeScrollsVisibility(2)
+
+            if (binding.imgBtnBird.tag == getString(R.string.button_pressed)) {
+                changeImgButtonandText(SoundsName.PASSARO, 2)
+                binding.imgBtnBird.tag = getString(R.string.button_not_pressed)
+                selectCount -= 1
+            } else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.PASSARO, 1)
+                binding.imgBtnBird.tag = getString(R.string.button_pressed)
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
+        binding.imgBtnCar.setOnClickListener {
+            changeScrollsVisibility(2)
+
+            if (binding.imgBtnCar.tag == getString(R.string.button_pressed)) {
+                changeImgButtonandText(SoundsName.CARRO, 2)
+                binding.imgBtnCar.tag = getString(R.string.button_not_pressed)
+                selectCount -= 1
+            } else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.CARRO, 1)
+                binding.imgBtnCar.tag = getString(R.string.button_pressed)
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
+        binding.imgBtnDesert.setOnClickListener {
+            changeScrollsVisibility(2)
+
+            if (binding.imgBtnDesert.tag == getString(R.string.button_pressed)) {
+                changeImgButtonandText(SoundsName.DESERTO, 2)
+                binding.imgBtnDesert.tag = getString(R.string.button_not_pressed)
+                selectCount -= 1
+            } else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.DESERTO, 1)
+                binding.imgBtnDesert.tag = getString(R.string.button_pressed)
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
+        binding.imgBtnConstructionSite.setOnClickListener {
+            changeScrollsVisibility(2)
+
+            if (binding.imgBtnConstructionSite.tag == getString(R.string.button_pressed)) {
+                changeImgButtonandText(SoundsName.OBRA, 2)
+                binding.imgBtnConstructionSite.tag = getString(R.string.button_not_pressed)
+                selectCount -= 1
+            } else if (selectCount < 3) {
+                changeImgButtonandText(SoundsName.OBRA, 1)
+                binding.imgBtnConstructionSite.tag = getString(R.string.button_pressed)
+                selectCount += 1
+            } else {
+                displayErrorMsg(1)
+            }
+        }
+
         // migrating all data to another class VVV
 
         binding.imgBtnPlay.setOnClickListener {
@@ -522,6 +608,31 @@ class MainActivity : AppCompatActivity() {
                         binding.imgBtnWhale.setImageResource(R.drawable.whale_pressed)
                         changeMusicandDescText(SoundsName.BALEIA)
                     }
+
+                    SoundsName.DESERTO -> {
+                        binding.imgBtnDesert.setImageResource(R.drawable.desert_pressed)
+                        changeMusicandDescText(SoundsName.DESERTO)
+                    }
+
+                    SoundsName.PASSARO -> {
+                        binding.imgBtnBird.setImageResource(R.drawable.bird_pressed)
+                        changeMusicandDescText(SoundsName.PASSARO)
+                    }
+
+                    SoundsName.PENGUIM -> {
+                        binding.imgBtnPenguin.setImageResource(R.drawable.penguin_pressed)
+                        changeMusicandDescText(SoundsName.PENGUIM)
+                    }
+
+                    SoundsName.CARRO -> {
+                        binding.imgBtnCar.setImageResource(R.drawable.car_pressed)
+                        changeMusicandDescText(SoundsName.CARRO)
+                    }
+
+                    SoundsName.OBRA -> {
+                        binding.imgBtnConstructionSite.setImageResource(R.drawable.construction_site_pressed)
+                        changeMusicandDescText(SoundsName.OBRA)
+                    }
                 }
             }
 
@@ -543,6 +654,11 @@ class MainActivity : AppCompatActivity() {
                     SoundsName.CACHOEIRA -> binding.imgBtnWaterfall.setImageResource(R.drawable.waterfall)
                     SoundsName.GANSO -> binding.imgBtnGoose.setImageResource(R.drawable.goose)
                     SoundsName.BALEIA -> binding.imgBtnWhale.setImageResource(R.drawable.whale)
+                    SoundsName.DESERTO -> binding.imgBtnDesert.setImageResource(R.drawable.desert)
+                    SoundsName.PASSARO -> binding.imgBtnBird.setImageResource(R.drawable.bird)
+                    SoundsName.PENGUIM -> binding.imgBtnPenguin.setImageResource(R.drawable.penguin)
+                    SoundsName.CARRO -> binding.imgBtnCar.setImageResource(R.drawable.car)
+                    SoundsName.OBRA -> binding.imgBtnConstructionSite.setImageResource(R.drawable.construction_site)
                 }
             }
         }
@@ -635,6 +751,12 @@ class MainActivity : AppCompatActivity() {
                 binding.txtAudioName.text = getString(R.string.audio_whale)
                 binding.txtAudioDesc.text = getString(R.string.audio_desc_whale)
             }
+
+            SoundsName.DESERTO -> TODO()
+            SoundsName.PASSARO -> TODO()
+            SoundsName.PENGUIM -> TODO()
+            SoundsName.CARRO -> TODO()
+            SoundsName.OBRA -> TODO()
         }
     }
 

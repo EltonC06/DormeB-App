@@ -113,7 +113,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textThird" />
 
     <CheckBox
-        android:id="@+id/dontshowBox"
+        android:id="@+id/checkDontShow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"

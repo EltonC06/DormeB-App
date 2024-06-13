@@ -145,6 +145,23 @@
 
             </TableRow>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imgBtnDesert"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnDesert"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/desert" />
+
+            </TableRow>
+
             <TextView
                 android:id="@+id/textCatWat"
                 android:layout_width="0dp"
@@ -292,6 +309,28 @@
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/whale" />
 
+                <ImageButton
+                    android:id="@+id/imgBtnBird"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnBird"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/bird" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnPenguin"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnPenguin"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/penguin" />
+
             </TableRow>
 
             <TextView
@@ -378,6 +417,34 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/night_guard" />
+
+                <ImageButton
+                    android:id="@+id/imgBtnCar"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnCar"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/car" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imgBtnConstructionSite"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@null"
+                    android:contentDescription="@string/desc_imgBtnConstructionSite"
+                    android:paddingBottom="10dp"
+                    android:scaleType="centerInside"
+                    android:tag="not_pressed"
+                    app:srcCompat="@drawable/construction_site" />
 
             </TableRow>
 

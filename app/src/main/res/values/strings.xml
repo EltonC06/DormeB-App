@@ -148,6 +148,11 @@
     <string name="desc_imgBtnWaterfall" translatable="false">CACHOEIRA</string>
     <string name="desc_imgBtnGoose" translatable="false">GANSO</string>
     <string name="desc_imgBtnWhale" translatable="false">BALEIA</string>
+    <string name="desc_imgBtnDesert">DESERTO</string>
+    <string name="desc_imgBtnConstructionSite">Construction Site\n</string>
+    <string name="desc_imgBtnCar">Car</string>
+    <string name="desc_imgBtnBird">Bird</string>
+    <string name="desc_imgBtnPenguin">Penguin</string>
 
 
 </resources>

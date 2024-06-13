@@ -2,34 +2,23 @@ package com.dormeb.dormeb
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.dormeb.dormeb.databinding.ActivityFirstBinding
 import com.dormeb.dormeb.values.AlphaValues
-import com.google.android.gms.ads.MobileAds
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class FirstActivity : AppCompatActivity() {
 
-    private lateinit var btnStart: Button
-    private lateinit var checkDontShow: CheckBox
+    private lateinit var binding: ActivityFirstBinding
 
-    private lateinit var textWelcome: TextView
-    private lateinit var textFirst: TextView
-    private lateinit var textSecond: TextView
-    private lateinit var textThird: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_first)
+        binding = ActivityFirstBinding.inflate(layoutInflater) // inflando binding
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -40,7 +29,6 @@ class FirstActivity : AppCompatActivity() {
         val preference = loadData()
         if (preference == "true") {
             initMainActivity()
-            finish()
         }
 
 
@@ -49,16 +37,15 @@ class FirstActivity : AppCompatActivity() {
         initInterfaceComponents()
         initialAnimation()
 
-        btnStart.setOnClickListener {
+        binding.btnStart.setOnClickListener {
             initMainActivity() // mesmo assim o usuario consegue voltar, logo eu tenho que finalizar essa atividade
-            finish() // finalizando
         }
 
-        checkDontShow.setOnClickListener {
-            if (checkDontShow.tag == "false") {
-                checkDontShow.tag = "true"
-            } else if (checkDontShow.tag == "true") {
-                checkDontShow.tag = "false"
+        binding.checkDontShow.setOnClickListener {
+            if (binding.checkDontShow.tag == "false") {
+                binding.checkDontShow.tag = "true"
+            } else if (binding.checkDontShow.tag == "true") {
+                binding.checkDontShow.tag = "false"
             }
             saveData()
         }
@@ -71,7 +58,7 @@ class FirstActivity : AppCompatActivity() {
             getSharedPreferences("UserPreference", MODE_PRIVATE) // instanciando e dando o nome
         val edit = sharedPreferences.edit() // instanciando o editor, onde eu posso botar os dados
         edit.apply {
-            putString("Preference", checkDontShow.tag.toString())
+            putString("Preference", binding.checkDontShow.tag.toString())
         }.apply() // botando os dados dentro
 
         Toast.makeText(this, "Preferência salva", Toast.LENGTH_SHORT).show()
@@ -92,37 +79,33 @@ class FirstActivity : AppCompatActivity() {
     }
 
     private fun initialAnimation() {
-        textWelcome.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MAX)
+        binding.textWelcome.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MAX)
 
-        textFirst.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
-        textSecond.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
-        textThird.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
+        binding.textFirst.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
+        binding.textSecond.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
+        binding.textThird.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
 
-        btnStart.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
+        binding.btnStart.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
 
-        checkDontShow.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MED)
+        binding.checkDontShow.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MED)
 
     }
 
     private fun initInterfaceComponents() {
-        checkDontShow = findViewById(R.id.dontshowBox)
-        checkDontShow.alpha = AlphaValues.TRANSPARENCY_INITIAL
-        checkDontShow.tag = "false"
 
-        btnStart = findViewById(R.id.btnStart)
-        btnStart.alpha = AlphaValues.TRANSPARENCY_INITIAL
+        binding.checkDontShow.alpha = AlphaValues.TRANSPARENCY_INITIAL
+        binding.checkDontShow.tag = "false"
 
-        textWelcome = findViewById(R.id.textWelcome)
-        textWelcome.alpha = AlphaValues.TRANSPARENCY_INITIAL
+        binding.btnStart.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
-        textFirst = findViewById(R.id.textFirst)
-        textFirst.alpha = AlphaValues.TRANSPARENCY_INITIAL
+        binding.textWelcome.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
-        textSecond = findViewById(R.id.textSecond)
-        textSecond.alpha = AlphaValues.TRANSPARENCY_INITIAL
+        binding.textFirst.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
-        textThird = findViewById(R.id.textThird)
-        textThird.alpha = AlphaValues.TRANSPARENCY_INITIAL
+        binding.textSecond.alpha = AlphaValues.TRANSPARENCY_INITIAL
+
+        binding.textThird.alpha = AlphaValues.TRANSPARENCY_INITIAL
+
     }
 
     private fun initMainActivity() {

@@ -18,6 +18,11 @@ enum class SoundsName {
     VENTO,
     CACHOEIRA,
     GANSO,
-    BALEIA
+    BALEIA,
+    DESERTO,
+    PASSARO,
+    PENGUIM,
+    CARRO,
+    OBRA
 
 }

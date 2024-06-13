@@ -384,6 +384,82 @@ class SecondActivity : AppCompatActivity() {
                     }
                 }
 
+                if (audios == SoundsName.DESERTO.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.deserto)
+                        changeImgIcon(1, SoundsName.DESERTO)
+                        mediaPlayerConfig(1)
+                    } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.deserto)
+                        changeImgIcon(2, SoundsName.DESERTO)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.deserto)
+                        changeImgIcon(3, SoundsName.DESERTO)
+                        mediaPlayerConfig(3)
+                    }
+                }
+                if (audios == SoundsName.PASSARO.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.passaro)
+                        changeImgIcon(1, SoundsName.PASSARO)
+                        mediaPlayerConfig(1)
+                    } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.passaro)
+                        changeImgIcon(2, SoundsName.PASSARO)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.passaro)
+                        changeImgIcon(3, SoundsName.PASSARO)
+                        mediaPlayerConfig(3)
+                    }
+                }
+                if (audios == SoundsName.PENGUIM.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.pinguim)
+                        changeImgIcon(1, SoundsName.PENGUIM)
+                        mediaPlayerConfig(1)
+                    } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.pinguim)
+                        changeImgIcon(2, SoundsName.PENGUIM)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.pinguim)
+                        changeImgIcon(3, SoundsName.PENGUIM)
+                        mediaPlayerConfig(3)
+                    }
+                }
+                if (audios == SoundsName.CARRO.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.carro)
+                        changeImgIcon(1, SoundsName.CARRO)
+                        mediaPlayerConfig(1)
+                    } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.carro)
+                        changeImgIcon(2, SoundsName.CARRO)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.carro)
+                        changeImgIcon(3, SoundsName.CARRO)
+                        mediaPlayerConfig(3)
+                    }
+                }
+                if (audios == SoundsName.OBRA.toString()) {
+                    if (!firstMediaPlayer.isPlaying) {
+                        firstMediaPlayer = MediaPlayer.create(this, R.raw.obras)
+                        changeImgIcon(1, SoundsName.OBRA)
+                        mediaPlayerConfig(1)
+                    } else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
+                        secondMediaPlayer = MediaPlayer.create(this, R.raw.obras)
+                        changeImgIcon(2, SoundsName.OBRA)
+                        mediaPlayerConfig(2)
+                    } else {
+                        thirdMediaPlayer = MediaPlayer.create(this, R.raw.obras)
+                        changeImgIcon(3, SoundsName.OBRA)
+                        mediaPlayerConfig(3)
+                    }
+                }
+
 
             }
         }
@@ -631,7 +707,6 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun mediaPlayerConfig(number: Int) {
-        println(number)
 
         when (number) {
             1-> {firstMediaPlayer.isLooping = true
@@ -716,6 +791,26 @@ class SecondActivity : AppCompatActivity() {
                     SoundsName.BALEIA -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.whale)
                     }
+
+                    SoundsName.DESERTO -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.desert)
+                    }
+
+                    SoundsName.PASSARO -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.bird)
+                    }
+
+                    SoundsName.PENGUIM -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.penguin)
+                    }
+
+                    SoundsName.CARRO -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.car)
+                    }
+
+                    SoundsName.OBRA -> {
+                        binding.firstVolumeImg.setImageResource(R.drawable.construction_site)
+                    }
                 }
 
             }
@@ -784,6 +879,26 @@ class SecondActivity : AppCompatActivity() {
                     SoundsName.BALEIA -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.whale)
                     }
+
+                    SoundsName.DESERTO -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.desert)
+                    }
+
+                    SoundsName.PASSARO -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.bird)
+                    }
+
+                    SoundsName.PENGUIM -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.penguin)
+                    }
+
+                    SoundsName.CARRO -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.car)
+                    }
+
+                    SoundsName.OBRA -> {
+                        binding.secondVolumeImg.setImageResource(R.drawable.construction_site)
+                    }
                 }
             }
             3 -> {
@@ -850,6 +965,25 @@ class SecondActivity : AppCompatActivity() {
 
                     SoundsName.BALEIA -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.whale)
+                    }
+                    SoundsName.DESERTO -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.desert)
+                    }
+
+                    SoundsName.PASSARO -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.bird)
+                    }
+
+                    SoundsName.PENGUIM -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.penguin)
+                    }
+
+                    SoundsName.CARRO -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.car)
+                    }
+
+                    SoundsName.OBRA -> {
+                        binding.thirdVolumeImg.setImageResource(R.drawable.construction_site)
                     }
                 }
             }
