@@ -22,31 +22,31 @@
       android:strokeColor="#00000000"/>
   <path
       android:pathData="M199.02,304.99C198.43,311.04 198.81,316.93 196.99,322.05C194.79,328.22 186.64,331.78 180.54,330.89C173.25,329.82 167.03,324.35 165.33,317.51C163.61,310.61 166.23,303.37 172.63,299.28C180.86,294.01 189.38,289.17 199.02,283.4C199.02,291.09 199.02,297.79 199.02,304.99z"
-      android:fillColor="@color/AnotherBlueforText"
+      android:fillColor="@color/AnotherBlueForText"
       android:strokeColor="#00000000"/>
   <path
       android:pathData="M314.98,349.95C308.58,340.27 310.32,330.66 319.65,324.68C327.58,319.59 335.75,314.89 343.91,309.96C344.42,310.74 344.87,311.11 344.89,311.51C345.28,320.45 345.77,329.4 345.93,338.35C346.07,346.31 341.85,352.7 335.19,355.32C328.58,357.92 320.52,355.89 314.98,349.95z"
-      android:fillColor="@color/AnotherBlueforText"
+      android:fillColor="@color/AnotherBlueForText"
       android:strokeColor="#00000000"/>
   <path
       android:pathData="M153.78,364.75C162.78,359.24 171.52,353.98 180.13,348.8C180.89,349.62 181.32,349.85 181.32,350.09C181.36,361.15 182.05,372.27 181.13,383.26C180.58,389.78 173.69,394.47 167.32,394.98C159.46,395.62 153,391.98 149.48,384.96C146.64,379.3 147.61,371.53 151.76,366.78C152.31,366.15 152.93,365.59 153.78,364.75z"
-      android:fillColor="@color/AnotherBlueforText"
+      android:fillColor="@color/AnotherBlueForText"
       android:strokeColor="#00000000"/>
   <path
       android:pathData="M139.02,333.96C139.9,343.21 138.05,350.71 129.32,354.86C121.53,358.57 111.27,355.38 107.07,348.05C102.62,340.26 104.82,329.97 112.35,325.18C120.44,320.04 128.77,315.26 137.59,309.97C140.09,318.09 138.5,325.86 139.02,333.96z"
-      android:fillColor="@color/AnotherBlueforText"
+      android:fillColor="@color/AnotherBlueForText"
       android:strokeColor="#00000000"/>
   <path
       android:pathData="M251.31,390.19C255.94,382.48 260.81,375.01 265.92,367.3C272.07,363.79 277.98,360.53 284.41,356.98C284.64,358.51 284.91,359.7 284.97,360.91C285.32,367.84 285.54,374.79 285.95,381.72C286.51,391.25 282.73,399.15 276.18,401.8C265.48,406.12 255.85,401.67 251.31,390.19z"
-      android:fillColor="@color/AnotherBlueforText"
+      android:fillColor="@color/AnotherBlueForText"
       android:strokeColor="#00000000"/>
   <path
       android:pathData="M294.01,317.38C286.21,317.89 278.41,317.95 270.61,318C269.63,318.01 268.64,318 266.78,318C271.86,308.47 276.66,299.46 281.96,290.13C282.63,289.51 282.8,289.21 282.97,288.92C282.97,288.92 282.9,288.97 282.86,288.95C285.8,287.68 288.79,286.44 292.73,284.79C293.15,287.02 293.86,289.1 293.89,291.19C294.04,299.77 293.99,308.34 294.01,317.38z"
-      android:fillColor="@color/AnotherBlueforText"
+      android:fillColor="@color/AnotherBlueForText"
       android:strokeColor="#00000000"/>
   <path
       android:pathData="M207.99,349.21C219.14,348.81 230.31,348.81 242.01,348.81C241.28,352.02 240.56,355.17 239.66,358.6C235.63,360.92 231.94,364.24 227.9,364.76C216.59,366.2 210.67,361.21 207.99,349.21z"
-      android:fillColor="@color/AnotherBlueforText"
+      android:fillColor="@color/AnotherBlueForText"
       android:strokeColor="#00000000"/>
   <path
       android:pathData="M282.68,288.94C282.8,289.21 282.63,289.51 282.22,289.92C282.12,289.68 282.25,289.32 282.68,288.94z"

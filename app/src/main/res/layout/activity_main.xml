@@ -32,8 +32,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="@string/txt_natural"
                 android:contentDescription="@string/desc_btn_natural"
+                android:text="@string/txt_natural"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
             <Button
@@ -54,8 +54,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:text="@string/txt_animal"
                 android:contentDescription="@string/desc_btn_animals"
+                android:text="@string/txt_animal"
                 tools:ignore="DuplicateSpeakableTextCheck" />
 
             <Button
@@ -97,7 +97,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/txt_natural"
                 android:textAlignment="center"
-                android:textColor="@color/BlueforText"
+                android:textColor="@color/BlueForText"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:drawableEndCompat="@drawable/forest_icon"
@@ -171,7 +171,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/txt_water"
                 android:textAlignment="center"
-                android:textColor="@color/BlueforText"
+                android:textColor="@color/BlueForText"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:drawableEndCompat="@drawable/water_icon"
@@ -245,7 +245,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/txt_animal"
                 android:textAlignment="center"
-                android:textColor="@color/BlueforText"
+                android:textColor="@color/BlueForText"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:drawableEndCompat="@drawable/animal_icon"
@@ -342,7 +342,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="@string/txt_urban"
                 android:textAlignment="center"
-                android:textColor="@color/BlueforText"
+                android:textColor="@color/BlueForText"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:drawableEndCompat="@drawable/apartment_icon"
@@ -487,7 +487,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:textAlignment="center"
-        android:textColor="@color/BlueforText"
+        android:textColor="@color/BlueForText"
         android:fontFamily="@font/roboto_regular"
         android:textSize="30sp"
         android:textStyle="normal"
@@ -502,7 +502,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_regular"
         android:textAlignment="center"
-        android:textColor="@color/AnotherBlueforText"
+        android:textColor="@color/AnotherBlueForText"
         android:textSize="12sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"

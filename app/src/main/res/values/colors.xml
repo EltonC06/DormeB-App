@@ -6,8 +6,8 @@
     <color name="darkBlue">#081440</color>
     <color name="blue">#203580</color>
     <color name="darkerBlue">#081235</color>
-    <color name="BlueforText">#A1B2EC</color>
-    <color name="AnotherBlueforText">#6376AC</color>
+    <color name="BlueForText">#A1B2EC</color>
+    <color name="AnotherBlueForText">#6376AC</color>
     <color name="brightBlue">#1EEACB</color>
 
     <!-- Button colors -->

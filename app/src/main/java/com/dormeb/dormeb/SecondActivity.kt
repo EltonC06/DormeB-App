@@ -470,6 +470,8 @@ class SecondActivity : AppCompatActivity() {
 
 
 
+
+
         binding.firstVolumeBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) { // seekbar.progress return a percent value (so i just need to divide /100 to adapt to mediaplayer)
                 val volume = progress.toFloat().div(100)
@@ -712,9 +714,12 @@ class SecondActivity : AppCompatActivity() {
     private fun mediaPlayerConfig(number: Int) {
 
         when (number) {
-            1-> {firstMediaPlayer.isLooping = true
-            firstMediaPlayer.setVolume(0.5F, 0.5F)
-            firstMediaPlayer.start()}
+            1-> {
+                firstMediaPlayer.isLooping = true
+                firstMediaPlayer.setVolume(0.5F, 0.5F)
+                firstMediaPlayer.start()
+
+            }
 
             2-> {secondMediaPlayer.isLooping = true
             secondMediaPlayer.setVolume(0.5F, 0.5F)

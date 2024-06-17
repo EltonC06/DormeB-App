@@ -11,7 +11,7 @@
 
     <!-- First activity -->
 
-    <string name="splash_appname_msg">DORMƎB</string>
+    <string name="splash_app_name_msg">DORMƎB</string>
     <string name="splash_first_msg">Dormir Mejor: Nuestra aplicación está diseñada para ayudarte a dormir más fácilmente.</string>
     <string name="splash_second_msg">Opciones de Sonido: Personaliza tu experiencia eligiendo entre tres tipos de sonidos relajantes para dormir.</string>
     <string name="splash_third_msg">Fácil de Usar: Interfaz simple e intuitiva para que puedas configurar tu entorno de sueño rápidamente.</string>
@@ -118,9 +118,9 @@
     <string name="second_activity_btn_pause">Pausa</string>
     <string name="second_activity_timer_btn">Temporizador</string>
     <string name="second_activity_sleep_btn">Apagar Pantalla</string>
-    <string name="second_activity_firstvolumeimg">Icono de Volumen 1</string>
-    <string name="second_activity_sceondvolumeimg">Icono de Volumen 2</string>
-    <string name="second_activity_thirdimagevolume">Icono de Volumen 3</string>
+    <string name="second_activity_first_volume_img">Icono de Volumen 1</string>
+    <string name="second_activity_second_volume_img">Icono de Volumen 2</string>
+    <string name="second_activity_third_volume_img">Icono de Volumen 3</string>
 
     <!--         Dialog timer -->
 

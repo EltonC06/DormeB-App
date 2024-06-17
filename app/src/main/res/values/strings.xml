@@ -12,7 +12,7 @@
 
     <!-- First activity -->
 
-    <string name="splash_appname_msg">DORMƎB</string>
+    <string name="splash_app_name_msg">DORMƎB</string>
     <string name="splash_first_msg">Sleep Better: Our app is designed to help you sleep more easily.</string>
     <string name="splash_second_msg">Sound Choices: Personalize your experience by choosing from three types of relaxing sounds for sleep.</string>
     <string name="splash_third_msg">Easy to Use: Simple and intuitive interface so you can set up your sleep environment quickly.</string>
@@ -103,10 +103,10 @@
     <string name="txt_animal">Animals sounds</string>
     <string name="txt_urban">Urban sounds</string>
 
-    <string name="desc_btn_natural">Ir a sonidos naturales</string>
-    <string name="desc_btn_water">Ir a sonidos de agua</string>
-    <string name="desc_btn_animals">Ir a sonidos de animales</string>
-    <string name="desc_btn_urban">Ir a sonidos urbanos</string>
+    <string name="desc_btn_natural">Go to naturals sounds</string>
+    <string name="desc_btn_water">Go to water sounds</string>
+    <string name="desc_btn_animals">Go to animals sounds</string>
+    <string name="desc_btn_urban">Go to urban sounds</string>
 
     <!--         Dialog info -->
 
@@ -127,9 +127,9 @@
     <string name="second_activity_btn_pause">Pause</string>
     <string name="second_activity_timer_btn">Timer</string>
     <string name="second_activity_sleep_btn">Turn Off Screen</string>
-    <string name="second_activity_firstvolumeimg">1st Volume Icon</string>
-    <string name="second_activity_sceondvolumeimg">2nd Volume Icon</string> <!-- tem um erro aq -->
-    <string name="second_activity_thirdimagevolume">3rd Volume Icon</string>
+    <string name="second_activity_first_volume_img">1st Volume Icon</string>
+    <string name="second_activity_second_volume_img">2nd Volume Icon</string> <!-- tem um erro aq -->
+    <string name="second_activity_third_volume_img">3rd Volume Icon</string>
 
     <!--         Dialog timer -->
 

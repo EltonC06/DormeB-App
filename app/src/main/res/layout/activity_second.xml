@@ -72,9 +72,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:progressBackgroundTint="@color/AnotherBlueforText"
-        android:progressTint="@color/BlueforText"
-        android:thumbTint="@color/AnotherBlueforText"
+        android:progressBackgroundTint="@color/AnotherBlueForText"
+        android:progressTint="@color/BlueForText"
+        android:thumbTint="@color/AnotherBlueForText"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
@@ -86,9 +86,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
-        android:progressBackgroundTint="@color/AnotherBlueforText"
-        android:progressTint="@color/BlueforText"
-        android:thumbTint="@color/AnotherBlueforText"
+        android:progressBackgroundTint="@color/AnotherBlueForText"
+        android:progressTint="@color/BlueForText"
+        android:thumbTint="@color/AnotherBlueForText"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/firstVolumeBar" />
@@ -100,16 +100,16 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
-        android:progressBackgroundTint="@color/AnotherBlueforText"
-        android:progressTint="@color/BlueforText"
-        android:thumbTint="@color/AnotherBlueforText"
+        android:progressBackgroundTint="@color/AnotherBlueForText"
+        android:progressTint="@color/BlueForText"
+        android:thumbTint="@color/AnotherBlueForText"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/secondVolumeBar" />
 
     <ImageView
         android:id="@+id/firstVolumeImg"
-        android:contentDescription="@string/second_activity_firstvolumeimg"
+        android:contentDescription="@string/second_activity_first_volume_img"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
@@ -122,7 +122,7 @@
 
     <ImageView
         android:id="@+id/thirdVolumeImg"
-        android:contentDescription="@string/second_activity_thirdimagevolume"
+        android:contentDescription="@string/second_activity_third_volume_img"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
@@ -135,7 +135,7 @@
 
     <ImageView
         android:id="@+id/secondVolumeImg"
-        android:contentDescription="@string/second_activity_sceondvolumeimg"
+        android:contentDescription="@string/second_activity_second_volume_img"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
