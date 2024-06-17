@@ -94,7 +94,7 @@ class SecondActivity : AppCompatActivity() {
         if (soundQuantity > 2) { // loading ads only if the audio quantity is > 2
             val adRequest = com.google.android.gms.ads.AdRequest.Builder().build()
             // loading ads
-            InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest, object : InterstitialAdLoadCallback() {
+            InterstitialAd.load(this, "ca-app-pub-5048096201990671/1739551832", adRequest, object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
                     Log.d(tag, adError.toString())
                     mInterstitialAd = null
@@ -721,15 +721,19 @@ class SecondActivity : AppCompatActivity() {
 
             }
 
-            2-> {secondMediaPlayer.isLooping = true
-            secondMediaPlayer.setVolume(0.5F, 0.5F)
-            secondMediaPlayer.start()}
+            2-> {
+                secondMediaPlayer.isLooping = true
+                secondMediaPlayer.setVolume(0.5F, 0.5F)
+                secondMediaPlayer.start()}
 
-            3-> {thirdMediaPlayer.isLooping = true
-            thirdMediaPlayer.setVolume(0.5F, 0.5F)
-            thirdMediaPlayer.start()}
+            3-> {
+                thirdMediaPlayer.isLooping = true
+                thirdMediaPlayer.setVolume(0.5F, 0.5F)
+                thirdMediaPlayer.start()}
         }
     }
+
+
 
 
     private fun changeImgIcon(mediaPlayerNum: Int, nameOfSound: SoundsName){

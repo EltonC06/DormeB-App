@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
             1 -> {  // 1 because its opening (or reopening) the app
                 val intent = Intent(this, FirstActivity::class.java)
                 startActivity(intent)
+                finish()
 
 
             }
