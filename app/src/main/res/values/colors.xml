@@ -12,9 +12,9 @@
 
     <!-- Button colors -->
 
-    <color name="background_button">#023073</color>
+    <color name="background_button">#A609BA97</color>
     <color name="border_button">#3C9CD6</color>
-    <color name="border_pressed_button">#57D99B</color>
+    <color name="border_pressed_button">#7DFF4E</color>
     <color name="icon_primary_color">#010D2F</color>
     <color name="icon_secondary_color">#051D40</color>
     <color name="icon_tertiary_color">#010D2F</color>
