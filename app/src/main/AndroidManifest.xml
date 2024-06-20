@@ -15,9 +15,9 @@
 
         <activity
             android:name=".FirstActivity"
-            android:exported="false" >
-
-
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="DiscouragedApi,LockedOrientationActivity">
         </activity>
 
         <activity
