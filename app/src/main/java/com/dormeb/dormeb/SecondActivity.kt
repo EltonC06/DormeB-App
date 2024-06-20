@@ -26,9 +26,9 @@ import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 
 class SecondActivity : AppCompatActivity() {
 
-    private var firstMediaPlayer = MediaPlayer()
-    private var secondMediaPlayer = MediaPlayer()
-    private var thirdMediaPlayer = MediaPlayer()
+    private lateinit var firstMediaPlayer: MediaPlayer
+    private lateinit var secondMediaPlayer: MediaPlayer
+    private lateinit var thirdMediaPlayer: MediaPlayer
 
     private lateinit var binding: ActivitySecondBinding
 
@@ -71,6 +71,10 @@ class SecondActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        firstMediaPlayer = MediaPlayer()
+        secondMediaPlayer = MediaPlayer()
+        thirdMediaPlayer = MediaPlayer()
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -537,7 +541,7 @@ class SecondActivity : AppCompatActivity() {
                     mInterstitialAd?.show(this)
                 } else {
                     Log.d("TAG", "The interstitial ad wasn't ready yet.")
-                    changeToMainActivity()
+                    displayErrorMsg(2)
                 }
             } else {
                 changeToMainActivity()
@@ -708,6 +712,7 @@ class SecondActivity : AppCompatActivity() {
         when (errorNum) {
             0-> Toast.makeText(this, getString(R.string.error_no_audio_playing), Toast.LENGTH_SHORT).show()
             1-> Toast.makeText(this, getString(R.string.error_more_audio_than_support), Toast.LENGTH_SHORT).show()
+            2-> Toast.makeText(this, getString(R.string.error_wait_ads), Toast.LENGTH_SHORT).show()
         }
     }
 

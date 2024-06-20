@@ -148,6 +148,7 @@
 
     <string name="error_no_audio_playing">This message shouldn\'t appear here, please contact support or restart the application</string>
     <string name="error_more_audio_than_support">There are more audios playing than the application supports</string>
+    <string name="error_wait_ads">Wait the ads to load and press the button again</string>
 
     <!-- descriptions of buttons -->
 
@@ -176,6 +177,7 @@
     <string name="desc_imgBtnPenguin" translatable="false">PENGUIN</string>
     <string name="desc_imgBtnCar" translatable="false">CAR</string>
     <string name="desc_imgBtnConstructionSite" translatable="false">CONSTRUCTION_SITE</string>
+
 
 
 </resources>

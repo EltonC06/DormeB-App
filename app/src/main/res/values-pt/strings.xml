@@ -139,6 +139,7 @@
 
     <string name="error_no_audio_playing">Essa mensagem não deveria aparecer aqui, por favor contate ajuda ou reinicie o aplicativo</string>
     <string name="error_more_audio_than_support">Há mais áudios tocando do que o aplicativo suporta</string>
+    <string name="error_wait_ads">Espere o anúncio carregar e pressione o botão novamente</string>
 
     <!-- descriptions of buttons -->
 
