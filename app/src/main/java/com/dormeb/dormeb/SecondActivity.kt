@@ -94,6 +94,7 @@ class SecondActivity : AppCompatActivity() {
         }
 
         val soundQuantity = verifySoundQuantity(transferList?.size)
+        var adStatus = 1
 
         if (soundQuantity > 2) { // loading ads only if the audio quantity is > 2
             val adRequest = com.google.android.gms.ads.AdRequest.Builder().build()
@@ -102,6 +103,7 @@ class SecondActivity : AppCompatActivity() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
                     Log.d(tag, adError.toString())
                     mInterstitialAd = null
+                    adStatus = 0
                 }
 
                 override fun onAdLoaded(interstitialAd: InterstitialAd) {
@@ -537,13 +539,24 @@ class SecondActivity : AppCompatActivity() {
         binding.btnPause.setOnClickListener{
             // showing ads before going back to main activity
             if (soundQuantity > 2) { // the ads will only show if there is 3 audios playing
-                if (mInterstitialAd != null) {
-                    mInterstitialAd?.show(this)
+
+                if (adStatus == 1) { // ad status 1: Was loaded or is being loaded. status 0: Didn't load
+
+                    if (mInterstitialAd != null) {
+
+                        mInterstitialAd?.show(this)
+                    } else {
+
+                        Log.d("TAG", "The interstitial ad wasn't ready yet.")
+                        displayErrorMsg(2)
+                    }
                 } else {
-                    Log.d("TAG", "The interstitial ad wasn't ready yet.")
-                    displayErrorMsg(2)
+
+                    changeToMainActivity()
+
                 }
             } else {
+
                 changeToMainActivity()
             }
         }
@@ -588,6 +601,7 @@ class SecondActivity : AppCompatActivity() {
                 thirdMediaPlayer.setVolume(0.0F, 0.0f)
                 Log.d(tag, "Ad showed fullscreen content.")
             }
+
 
         }
     }
