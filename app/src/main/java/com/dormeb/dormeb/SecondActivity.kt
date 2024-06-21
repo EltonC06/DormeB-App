@@ -98,7 +98,7 @@ class SecondActivity : AppCompatActivity() {
         if (soundQuantity > 2) { // loading ads only if the audio quantity is > 2
             val adRequest = com.google.android.gms.ads.AdRequest.Builder().build()
             // loading ads
-            InterstitialAd.load(this, "ca-app-pub-5048096201990671/1739551832", adRequest, object : InterstitialAdLoadCallback() {
+            InterstitialAd.load(this, "ca-app-pub-5048096201990671/1271119298", adRequest, object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
                     Log.d(tag, adError.toString())
                     mInterstitialAd = null
