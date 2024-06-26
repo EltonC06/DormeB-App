@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-        dialog.window?.setBackgroundDrawableResource(R.drawable.background_dialog_box)
+        dialog.window?.setBackgroundDrawableResource(R.drawable.background_gradient)
         dialog.setCancelable(true)
 
 
@@ -463,7 +463,7 @@ class MainActivity : AppCompatActivity() {
                         audioMutable.add(audio.contentDescription.toString()) // the contentDescription of audio matches with its enum equivalent
                     }
                 }
-                val transfer = AudiostoPass(audioMutable)
+                val transfer = AudiosToPass(audioMutable)
 
                 val intent = Intent(this, SecondActivity::class.java)
                 intent.putExtra("Sounds", transfer) // passing as string the name of audios to be played

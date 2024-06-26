@@ -122,6 +122,9 @@
     <string name="button_tag_wake">wake</string>
     <string name="button_tag_sleep">sleep</string>
 
+    <string name="countdown_timer" translatable="false">%s:%s</string>
+    <string name="countdown_timer_zero" translatable="false">00:00</string>
+
     <!-- descriptions second activity -->
 
     <string name="second_activity_btn_pause">Pause</string>
@@ -177,6 +180,10 @@
     <string name="desc_imgBtnPenguin" translatable="false">PENGUIN</string>
     <string name="desc_imgBtnCar" translatable="false">CAR</string>
     <string name="desc_imgBtnConstructionSite" translatable="false">CONSTRUCTION_SITE</string>
+
+
+
+
 
 
 

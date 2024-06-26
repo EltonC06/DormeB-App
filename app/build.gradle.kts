@@ -12,8 +12,8 @@ android {
         applicationId = "com.dormeb.dormeb"
         minSdk = 24
         targetSdk = 34
-        versionCode = 8
-        versionName = "8"
+        versionCode = 10
+        versionName = "10"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

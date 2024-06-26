@@ -66,6 +66,7 @@ class SecondActivity : AppCompatActivity() {
         }
 
         count?.cancel()
+        isRunning = false
 
         super.onDestroy()
     }
@@ -87,10 +88,10 @@ class SecondActivity : AppCompatActivity() {
         }
 
         val transferList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // this is for most recent android versions
-            intent.getParcelableExtra("Sounds", AudiostoPass::class.java)?.audios
+            intent.getParcelableExtra("Sounds", AudiosToPass::class.java)?.audios
         } else { // older android versions
             @Suppress("DEPRECATION")
-            intent.getParcelableExtra<AudiostoPass>("Sounds")?.audios
+            intent.getParcelableExtra<AudiosToPass>("Sounds")?.audios
         }
 
         val soundQuantity = verifySoundQuantity(transferList?.size)
@@ -627,6 +628,9 @@ class SecondActivity : AppCompatActivity() {
                 binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_ALMOST)
                 binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_ALMOST)
                 binding.btnTimer.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
+                if (isRunning) {
+                    binding.txtTimer.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_ALMOST)
+                }
             }
             2-> {
                 binding.btnSleep.setImageResource(R.drawable.sleep)
@@ -646,34 +650,59 @@ class SecondActivity : AppCompatActivity() {
                 binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
                 binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
                 binding.btnTimer.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
+
+                if (isRunning) {
+                    binding.txtTimer.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                }
             }
         }
-
-
     }
 
     private fun showTimerDialogBox() {
         dialog.show()
     }
 
+    private var isRunning : Boolean = false
     private var count : CountDownTimer? = null
+
     private fun timerConfig(minTime: Double = 0.1, action: Int = 0) { // action 1 to cancel and action 2 to start
         val convertedTime = minTime * 60000
 
-        when (action) {
+        when (action) { // 1 to pause // 2 to start a new timer
             1-> {
                 count?.cancel()
+                isRunning = false
                 count = null
+                binding.txtTimer.text = getString(R.string.countdown_timer, "00", "00")
+                binding.txtTimer.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
             }
             2 -> {
+                binding.txtTimer.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
                 count?.cancel()
                 count = null
+                isRunning = true
                 count = object : CountDownTimer(convertedTime.toLong(), 1000) {
                     override fun onTick(millisUntilFinished: Long) {
+                        var secsUntilFinish: Int = millisUntilFinished.toInt() / 1000
+                        val minUntilFinish: Int = secsUntilFinish  / 60
+                        secsUntilFinish %= 60
+
+
+                        if (secsUntilFinish < 10) {
+                            binding.txtTimer.text = getString(R.string.countdown_timer, minUntilFinish.toString(), "0$secsUntilFinish")
+                        }
+                        else {
+                            binding.txtTimer.text = getString(R.string.countdown_timer, minUntilFinish.toString(), secsUntilFinish.toString())
+                        }
+
+
                     }
 
                     override fun onFinish() {
+                        isRunning = false
                         finish()
+                        binding.txtTimer.text = getString(R.string.countdown_timer, "00", "00")
+                        binding.txtTimer.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
                     }
 
                 }.start()
@@ -1046,13 +1075,15 @@ class SecondActivity : AppCompatActivity() {
         binding.thirdVolumeImg.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
         binding.btnTimer.alpha = AlphaValues.TRANSPARENCY_INITIAL
+
+        binding.txtTimer.alpha = AlphaValues.TRANSPARENCY_INITIAL
     }
 
     private fun initDialogComponents() { // timer dialog box
         dialog = Dialog(this@SecondActivity)
         dialog.setContentView(R.layout.dialog_timer)
         dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog.window?.setBackgroundDrawableResource(R.drawable.background_dialog_box)
+        dialog.window?.setBackgroundDrawableResource(R.drawable.background_gradient)
         dialog.setCancelable(true)
         val checkQui: CheckBox = dialog.findViewById(R.id.checkQui)
         val checkTri: CheckBox = dialog.findViewById(R.id.checkTri)
