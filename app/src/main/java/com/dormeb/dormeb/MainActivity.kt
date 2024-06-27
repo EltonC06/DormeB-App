@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +17,8 @@ import com.dormeb.dormeb.values.AlphaValues
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var dialog: Dialog
+    private lateinit var dialogSupport: Dialog
+    private lateinit var dialogThemes: Dialog
     private lateinit var binding: ActivityMainBinding
     private var selectCount = 0
 
@@ -55,14 +57,13 @@ class MainActivity : AppCompatActivity() {
 
         initInterfaceComponents()
 
-        dialog = Dialog(this@MainActivity)
-        dialog.setContentView(R.layout.dialog_box)
-        dialog.window?.setLayout(
+        dialogSupport = Dialog(this@MainActivity)
+        dialogSupport.setContentView(R.layout.dialog_support)
+        dialogSupport.window?.setLayout(
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-        dialog.window?.setBackgroundDrawableResource(R.drawable.background_gradient)
-        dialog.setCancelable(true)
+
 
 
         initialAnimation()
@@ -463,7 +464,7 @@ class MainActivity : AppCompatActivity() {
                         audioMutable.add(audio.contentDescription.toString()) // the contentDescription of audio matches with its enum equivalent
                     }
                 }
-                val transfer = AudiosToPass(audioMutable)
+                val transfer = AudiostoPass(audioMutable)
 
                 val intent = Intent(this, SecondActivity::class.java)
                 intent.putExtra("Sounds", transfer) // passing as string the name of audios to be played
@@ -482,13 +483,14 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.imgBtnInfo.setOnClickListener {
-            if (binding.imgBtnInfo.tag == getString(R.string.button_pressed)) {
-                binding.imgBtnInfo.tag = getString(R.string.button_not_pressed)
-            } else {
-                binding.imgBtnInfo.tag = getString(R.string.button_pressed)
-            }
 
-            dialog.show()
+            dialogSupport.show()
+
+        }
+
+        binding.imgBtnTheme.setOnClickListener{
+
+            dialogThemes.show()
 
         }
 
@@ -797,6 +799,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initInterfaceComponents() {
 
+        initThemesDialogComponents()
+
         binding.imgBtnPlay.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
         binding.txtAudioName.alpha = AlphaValues.TRANSPARENCY_INITIAL
@@ -810,4 +814,71 @@ class MainActivity : AppCompatActivity() {
         binding.horizontalScroll.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
     }
+
+    private fun initThemesDialogComponents() {
+        dialogThemes = Dialog(this@MainActivity)
+        dialogThemes.setContentView(R.layout.dialog_theme)
+        dialogThemes.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialogThemes.window?.setBackgroundDrawableResource(R.drawable.background_gradient_second)
+        dialogThemes.setCancelable(true)
+
+
+        val spaceTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnSpaceTheme)
+        val forestTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnTheme)
+        val cityTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnCityTheme)
+        val beachTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnBeachTheme)
+
+        spaceTheme.setOnClickListener{
+            // se tema for igual ao atual não permitir usuario a desmarcar o botão
+            // TODO verificar qual é o tema atual
+            // TODO add animações
+
+            println(binding.main.background.toString())
+
+            if (spaceTheme.tag == "pressed") {
+                spaceTheme.tag = "not_pressed"
+                spaceTheme.setImageResource(R.drawable.space_theme)
+            } else {
+                spaceTheme.tag = "pressed"
+                spaceTheme.setImageResource(R.drawable.space_theme_pressed)
+            }
+        }
+
+        forestTheme.setOnClickListener {
+            if (forestTheme.tag == "pressed") {
+                forestTheme.tag = "not_pressed"
+                forestTheme.setImageResource(R.drawable.forest_theme)
+            } else {
+                forestTheme.tag = "pressed"
+                forestTheme.setImageResource(R.drawable.forest_theme_pressed)
+            }
+
+
+        }
+
+        cityTheme.setOnClickListener {
+            if (cityTheme.tag == "pressed") {
+                cityTheme.tag = "not_pressed"
+                cityTheme.setImageResource(R.drawable.city_theme)
+            } else {
+                cityTheme.tag = "pressed"
+                cityTheme.setImageResource(R.drawable.city_theme_pressed)
+
+            }
+
+
+        }
+
+        beachTheme.setOnClickListener {
+            if (beachTheme.tag == "pressed") {
+                beachTheme.tag = "not_pressed"
+                beachTheme.setImageResource(R.drawable.beach_theme)
+            } else {
+                beachTheme.tag = "pressed"
+                beachTheme.setImageResource(R.drawable.beach_theme_pressed)
+
+            }
+        }
+    }
+
 }

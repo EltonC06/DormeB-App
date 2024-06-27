@@ -88,10 +88,10 @@ class SecondActivity : AppCompatActivity() {
         }
 
         val transferList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // this is for most recent android versions
-            intent.getParcelableExtra("Sounds", AudiosToPass::class.java)?.audios
+            intent.getParcelableExtra("Sounds", AudiostoPass::class.java)?.audios
         } else { // older android versions
             @Suppress("DEPRECATION")
-            intent.getParcelableExtra<AudiosToPass>("Sounds")?.audios
+            intent.getParcelableExtra<AudiostoPass>("Sounds")?.audios
         }
 
         val soundQuantity = verifySoundQuantity(transferList?.size)
@@ -617,6 +617,7 @@ class SecondActivity : AppCompatActivity() {
     private fun changeComponentsVisibility(i: Int) { // 1 - everything transparent, 2 - show everything
         when(i) {
             1-> {
+                isSleeping = true
                 binding.btnSleep.setImageResource(R.drawable.wake)
                 binding.secondActivity.setBackgroundResource(R.drawable.fundo_preto)
                 binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
@@ -633,6 +634,7 @@ class SecondActivity : AppCompatActivity() {
                 }
             }
             2-> {
+                isSleeping = false
                 binding.btnSleep.setImageResource(R.drawable.sleep)
                 binding.secondActivity.setBackgroundResource(R.drawable.second_background)
                 binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
@@ -663,6 +665,7 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private var isRunning : Boolean = false
+    private var isSleeping : Boolean = false
     private var count : CountDownTimer? = null
 
     private fun timerConfig(minTime: Double = 0.1, action: Int = 0) { // action 1 to cancel and action 2 to start
@@ -677,7 +680,13 @@ class SecondActivity : AppCompatActivity() {
                 binding.txtTimer.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
             }
             2 -> {
-                binding.txtTimer.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                if (isSleeping) {
+                    binding.txtTimer.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_ALMOST)
+                }
+                else {
+                    binding.txtTimer.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
+                }
+
                 count?.cancel()
                 count = null
                 isRunning = true
