@@ -8,8 +8,6 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.graphics.drawable.toBitmap
-import androidx.core.graphics.drawable.toDrawable
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -466,10 +464,16 @@ class MainActivity : AppCompatActivity() {
                         audioMutable.add(audio.contentDescription.toString()) // the contentDescription of audio matches with its enum equivalent
                     }
                 }
+
                 val transfer = AudiostoPass(audioMutable)
+                val themeToPass = verifyTheme()
+
+                println("Tema que vai ser passado: $themeToPass")
 
                 val intent = Intent(this, SecondActivity::class.java)
                 intent.putExtra("Sounds", transfer) // passing as string the name of audios to be played
+                intent.putExtra("Theme", themeToPass)
+
                 startActivity(intent)
                 finish()
             }
@@ -507,6 +511,11 @@ class MainActivity : AppCompatActivity() {
             2 -> Toast.makeText(
                 this,
                 getString(R.string.error_min_audio_quantity_to_play), Toast.LENGTH_SHORT
+            ).show()
+
+            3 -> Toast.makeText(
+                this,
+                "The app can't run without any theme", Toast.LENGTH_SHORT
             ).show()
         }
     }
@@ -794,6 +803,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.imgBtnInfo.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MIN)
 
+        binding.imgBtnTheme.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MIN)
+
         binding.horizontalScroll.animate().setDuration(750).alpha(AlphaValues.TRANSPARENCY_MAX)
 
 
@@ -815,9 +826,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.imgBtnInfo.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
+        binding.imgBtnTheme.alpha = AlphaValues.TRANSPARENCY_INITIAL
+
         binding.horizontalScroll.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
+
     }
+
 
     private fun initThemesDialogComponents() {
         dialogThemes = Dialog(this@MainActivity)
@@ -829,7 +844,7 @@ class MainActivity : AppCompatActivity() {
         val spaceTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnSpaceTheme)
         spaceTheme.tag = R.string.button_not_pressed
 
-        val forestTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnTheme)
+        val forestTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnForestTheme)
         forestTheme.tag = R.string.button_not_pressed
 
         val cityTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnCityTheme)
@@ -837,6 +852,28 @@ class MainActivity : AppCompatActivity() {
 
         val beachTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnBeachTheme)
         beachTheme.tag = R.string.button_not_pressed
+
+        val listOfButtonsThemes = mutableListOf(spaceTheme, forestTheme, cityTheme, beachTheme)
+
+        fun changeButtonImage(themeButton: ImageButton?) {
+            when (themeButton) {
+                spaceTheme -> spaceTheme.setImageResource(R.drawable.space_theme)
+                forestTheme -> forestTheme.setImageResource(R.drawable.forest_theme)
+                cityTheme -> cityTheme.setImageResource(R.drawable.city_theme)
+                beachTheme -> beachTheme.setImageResource(R.drawable.beach_theme)
+            }
+        }
+
+        fun diselectAnyMarkedTheme() {
+            for (themes in listOfButtonsThemes) {
+                if (themes.tag == R.string.button_pressed) {
+                    themes.tag = R.string.button_not_pressed
+                    changeButtonImage(themes)
+                }
+            }
+        }
+
+
 
 
         when (verifyTheme()) {
@@ -858,27 +895,29 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
         spaceTheme.setOnClickListener{
-            // se tema for igual ao atual não permitir usuario a desmarcar o botão
-            // TODO add animações
 
-            verifyTheme()
-
-            if (spaceTheme.tag == "pressed") {
-                spaceTheme.tag = "not_pressed"
-                spaceTheme.setImageResource(R.drawable.space_theme)
+            if (spaceTheme.tag == R.string.button_pressed) {
+                displayErrorMsg(3)
             } else {
-                spaceTheme.tag = "pressed"
+                diselectAnyMarkedTheme()
+
+                changeActivityTheme(Themes.SPACE)
+                spaceTheme.tag = R.string.button_pressed
                 spaceTheme.setImageResource(R.drawable.space_theme_pressed)
+
             }
         }
 
         forestTheme.setOnClickListener {
-            if (forestTheme.tag == "pressed") {
-                forestTheme.tag = "not_pressed"
-                forestTheme.setImageResource(R.drawable.forest_theme)
+            if (forestTheme.tag == R.string.button_pressed) {
+                displayErrorMsg(3)
             } else {
-                forestTheme.tag = "pressed"
+                diselectAnyMarkedTheme()
+
+                changeActivityTheme(Themes.FOREST)
+                forestTheme.tag = R.string.button_pressed
                 forestTheme.setImageResource(R.drawable.forest_theme_pressed)
             }
 
@@ -886,11 +925,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         cityTheme.setOnClickListener {
-            if (cityTheme.tag == "pressed") {
-                cityTheme.tag = "not_pressed"
-                cityTheme.setImageResource(R.drawable.city_theme)
+            if (cityTheme.tag == R.string.button_pressed) {
+                displayErrorMsg(3)
             } else {
-                cityTheme.tag = "pressed"
+                diselectAnyMarkedTheme()
+
+                changeActivityTheme(Themes.CITY)
+                cityTheme.tag = R.string.button_pressed
                 cityTheme.setImageResource(R.drawable.city_theme_pressed)
 
             }
@@ -899,21 +940,51 @@ class MainActivity : AppCompatActivity() {
         }
 
         beachTheme.setOnClickListener {
-            if (beachTheme.tag == "pressed") {
-                beachTheme.tag = "not_pressed"
-                beachTheme.setImageResource(R.drawable.beach_theme)
+            if (beachTheme.tag == R.string.button_pressed) {
+                displayErrorMsg(3)
             } else {
-                beachTheme.tag = "pressed"
+                diselectAnyMarkedTheme()
+
+                changeActivityTheme(Themes.BEACH)
+                beachTheme.tag = R.string.button_pressed
                 beachTheme.setImageResource(R.drawable.beach_theme_pressed)
 
             }
         }
+
+
+
     }
+
+    private fun changeActivityTheme(theme: Themes) {
+
+        when (theme) {
+            Themes.SPACE -> {
+                binding.main.setBackgroundResource(R.drawable.space_main_background)
+                binding.main.tag = Themes.SPACE.toString() // tambem tem que mudar a tag para depois o verifytheme() funcionar
+            }
+            Themes.FOREST -> {
+                binding.main.setBackgroundResource(R.drawable.forest_main_background)
+                binding.main.tag = Themes.FOREST.toString()
+            }
+            Themes.CITY -> {
+                binding.main.setBackgroundResource(R.drawable.city_main_background)
+                binding.main.tag = Themes.CITY.toString()
+            }
+            Themes.BEACH -> {
+                binding.main.setBackgroundResource(R.drawable.beach_main_background)
+                binding.main.tag = Themes.BEACH.toString()
+            }
+
+
+        }
+
+    }
+
 
     private fun verifyTheme(): String {
         for (theme in Themes.entries) {
             if (theme.toString() == binding.main.tag.toString()) {
-                println("tema atual = $theme")
                 return theme.toString()
             }
         }
@@ -926,5 +997,4 @@ class MainActivity : AppCompatActivity() {
         CITY,
         BEACH
     }
-
 }

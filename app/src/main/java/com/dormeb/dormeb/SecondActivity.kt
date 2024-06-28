@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dormeb.dormeb.databinding.ActivitySecondBinding
 import com.dormeb.dormeb.enums.SoundsName
+import com.dormeb.dormeb.enums.Themes
 import com.dormeb.dormeb.values.AlphaValues
 import com.google.android.gms.ads.AdError
 import com.google.android.gms.ads.FullScreenContentCallback
@@ -94,6 +95,8 @@ class SecondActivity : AppCompatActivity() {
             intent.getParcelableExtra<AudiostoPass>("Sounds")?.audios
         }
 
+        val passedTheme = intent.getStringExtra("Theme")
+
         val soundQuantity = verifySoundQuantity(transferList?.size)
         var adStatus = 1
 
@@ -116,7 +119,7 @@ class SecondActivity : AppCompatActivity() {
             })
         }
 
-
+        changeBackgroundTheme(passedTheme)
         initInterfaceComponents()
         initialAnimation()
 
@@ -567,6 +570,8 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun setupCallBackCalls() { // ads full screen
         Log.d(tag, "ad full screen set up")
 
@@ -636,7 +641,13 @@ class SecondActivity : AppCompatActivity() {
             2-> {
                 isSleeping = false
                 binding.btnSleep.setImageResource(R.drawable.sleep)
-                binding.secondActivity.setBackgroundResource(R.drawable.second_background)
+                when (binding.secondActivity.tag) {
+                    Themes.SPACE.toString() -> binding.secondActivity.setBackgroundResource(R.drawable.space_second_background)
+                    Themes.FOREST.toString() -> binding.secondActivity.setBackgroundResource(R.drawable.forest_second_background)
+                    Themes.CITY.toString() -> binding.secondActivity.setBackgroundResource(R.drawable.city_second_background)
+                    Themes.BEACH.toString() -> binding.secondActivity.setBackgroundResource(R.drawable.beach_second_background)
+                }
+
                 binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
                 binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
 
@@ -1086,6 +1097,27 @@ class SecondActivity : AppCompatActivity() {
         binding.btnTimer.alpha = AlphaValues.TRANSPARENCY_INITIAL
 
         binding.txtTimer.alpha = AlphaValues.TRANSPARENCY_INITIAL
+    }
+
+    private fun changeBackgroundTheme(passedTheme: String?) {
+        when (passedTheme) {
+            Themes.SPACE.toString() -> {
+                binding.secondActivity.setBackgroundResource(R.drawable.space_second_background)
+                binding.secondActivity.tag = Themes.SPACE.toString()
+            }
+            Themes.FOREST.toString() -> {
+                binding.secondActivity.setBackgroundResource(R.drawable.forest_second_background)
+                binding.secondActivity.tag = Themes.FOREST.toString()
+            }
+            Themes.CITY.toString() -> {
+                binding.secondActivity.setBackgroundResource(R.drawable.city_second_background)
+                binding.secondActivity.tag = Themes.CITY.toString()
+            }
+            Themes.BEACH.toString() -> {
+                binding.secondActivity.setBackgroundResource(R.drawable.beach_second_background)
+                binding.secondActivity.tag = Themes.BEACH.toString()
+            }
+        }
     }
 
     private fun initDialogComponents() { // timer dialog box

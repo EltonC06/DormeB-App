@@ -31,10 +31,28 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/imgBtnTheme"
+            android:id="@+id/imgBtnSpaceTheme"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="120dp"
+            android:background="@null"
+            android:foregroundGravity="center"
+            android:scaleType="centerInside"
+            android:contentDescription="SPACE"
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:tag="not_pressed"
+            app:srcCompat="@drawable/space_theme" />
+
+        <ImageButton
+            android:id="@+id/imgBtnForestTheme"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_marginStart="120dp"
+            android:contentDescription="FOREST"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:background="@null"
@@ -46,38 +64,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             android:tag="not_pressed"
             app:srcCompat="@drawable/forest_theme" />
-
-        <ImageButton
-            android:id="@+id/imgBtnSpaceTheme"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="120dp"
-            android:background="@null"
-            android:foregroundGravity="center"
-            android:scaleType="centerInside"
-            app:layout_constraintEnd_toEndOf="@+id/textView4"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4"
-            android:tag="not_pressed"
-            app:srcCompat="@drawable/space_theme" />
-
-        <ImageButton
-            android:id="@+id/imgBtnBeachTheme"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@null"
-            android:foregroundGravity="center"
-            android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/imgBtnTheme"
-            app:layout_constraintStart_toStartOf="@+id/imgBtnTheme"
-            app:layout_constraintTop_toBottomOf="@+id/imgBtnTheme"
-            android:tag="not_pressed"
-            app:srcCompat="@drawable/beach_theme" />
 
         <ImageButton
             android:id="@+id/imgBtnCityTheme"
@@ -93,7 +79,27 @@
             app:layout_constraintStart_toStartOf="@+id/imgBtnSpaceTheme"
             app:layout_constraintTop_toBottomOf="@+id/imgBtnSpaceTheme"
             android:tag="not_pressed"
+            android:contentDescription="CITY"
             app:srcCompat="@drawable/city_theme" />
+
+        <ImageButton
+            android:id="@+id/imgBtnBeachTheme"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@null"
+            android:foregroundGravity="center"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imgBtnForestTheme"
+            app:layout_constraintStart_toStartOf="@+id/imgBtnForestTheme"
+            app:layout_constraintTop_toBottomOf="@+id/imgBtnForestTheme"
+            android:tag="not_pressed"
+            android:contentDescription="BEACH"
+            app:srcCompat="@drawable/beach_theme" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
