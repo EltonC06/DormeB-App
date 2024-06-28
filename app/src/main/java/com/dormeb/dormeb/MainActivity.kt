@@ -8,6 +8,8 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.toBitmap
+import androidx.core.graphics.drawable.toDrawable
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -799,6 +801,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initInterfaceComponents() {
 
+        binding.main.tag = Themes.SPACE.toString()
+
         initThemesDialogComponents()
 
         binding.imgBtnPlay.alpha = AlphaValues.TRANSPARENCY_INITIAL
@@ -822,18 +826,43 @@ class MainActivity : AppCompatActivity() {
         dialogThemes.window?.setBackgroundDrawableResource(R.drawable.background_gradient_second)
         dialogThemes.setCancelable(true)
 
-
         val spaceTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnSpaceTheme)
+        spaceTheme.tag = R.string.button_not_pressed
+
         val forestTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnTheme)
+        forestTheme.tag = R.string.button_not_pressed
+
         val cityTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnCityTheme)
+        cityTheme.tag = R.string.button_not_pressed
+
         val beachTheme: ImageButton = dialogThemes.findViewById(R.id.imgBtnBeachTheme)
+        beachTheme.tag = R.string.button_not_pressed
+
+
+        when (verifyTheme()) {
+            Themes.SPACE.toString() -> {
+                spaceTheme.setImageResource(R.drawable.space_theme_pressed)
+                spaceTheme.tag = R.string.button_pressed
+            }
+            Themes.FOREST.toString() -> {
+                forestTheme.setImageResource(R.drawable.forest_theme_pressed)
+                forestTheme.tag = R.string.button_pressed
+            }
+            Themes.CITY.toString() -> {
+                cityTheme.setImageResource(R.drawable.city_theme_pressed)
+                cityTheme.tag = R.string.button_pressed
+            }
+            Themes.BEACH.toString() -> {
+                beachTheme.setImageResource(R.drawable.beach_theme_pressed)
+                beachTheme.tag = R.string.button_pressed
+            }
+        }
 
         spaceTheme.setOnClickListener{
             // se tema for igual ao atual não permitir usuario a desmarcar o botão
-            // TODO verificar qual é o tema atual
             // TODO add animações
 
-            println(binding.main.background.toString())
+            verifyTheme()
 
             if (spaceTheme.tag == "pressed") {
                 spaceTheme.tag = "not_pressed"
@@ -879,6 +908,23 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+    }
+
+    private fun verifyTheme(): String {
+        for (theme in Themes.entries) {
+            if (theme.toString() == binding.main.tag.toString()) {
+                println("tema atual = $theme")
+                return theme.toString()
+            }
+        }
+        return "error"
+    }
+
+    private enum class Themes {
+        SPACE,
+        FOREST,
+        CITY,
+        BEACH
     }
 
 }
