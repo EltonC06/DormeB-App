@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.dormeb.dormeb.databinding.ActivityMainBinding
 import com.dormeb.dormeb.enums.SoundsName
+import com.dormeb.dormeb.enums.Themes
 import com.dormeb.dormeb.values.AlphaValues
 
 class MainActivity : AppCompatActivity() {
@@ -468,8 +469,6 @@ class MainActivity : AppCompatActivity() {
                 val transfer = AudiostoPass(audioMutable)
                 val themeToPass = verifyTheme()
 
-                println("Tema que vai ser passado: $themeToPass")
-
                 val intent = Intent(this, SecondActivity::class.java)
                 intent.putExtra("Sounds", transfer) // passing as string the name of audios to be played
                 intent.putExtra("Theme", themeToPass)
@@ -864,7 +863,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        fun diselectAnyMarkedTheme() {
+        fun deselectAnyMarkedTheme() {
             for (themes in listOfButtonsThemes) {
                 if (themes.tag == R.string.button_pressed) {
                     themes.tag = R.string.button_not_pressed
@@ -893,6 +892,9 @@ class MainActivity : AppCompatActivity() {
                 beachTheme.setImageResource(R.drawable.beach_theme_pressed)
                 beachTheme.tag = R.string.button_pressed
             }
+            null -> {
+                displayErrorMsg(3)
+            }
         }
 
 
@@ -901,7 +903,7 @@ class MainActivity : AppCompatActivity() {
             if (spaceTheme.tag == R.string.button_pressed) {
                 displayErrorMsg(3)
             } else {
-                diselectAnyMarkedTheme()
+                deselectAnyMarkedTheme()
 
                 changeActivityTheme(Themes.SPACE)
                 spaceTheme.tag = R.string.button_pressed
@@ -914,7 +916,7 @@ class MainActivity : AppCompatActivity() {
             if (forestTheme.tag == R.string.button_pressed) {
                 displayErrorMsg(3)
             } else {
-                diselectAnyMarkedTheme()
+                deselectAnyMarkedTheme()
 
                 changeActivityTheme(Themes.FOREST)
                 forestTheme.tag = R.string.button_pressed
@@ -928,7 +930,7 @@ class MainActivity : AppCompatActivity() {
             if (cityTheme.tag == R.string.button_pressed) {
                 displayErrorMsg(3)
             } else {
-                diselectAnyMarkedTheme()
+                deselectAnyMarkedTheme()
 
                 changeActivityTheme(Themes.CITY)
                 cityTheme.tag = R.string.button_pressed
@@ -943,7 +945,7 @@ class MainActivity : AppCompatActivity() {
             if (beachTheme.tag == R.string.button_pressed) {
                 displayErrorMsg(3)
             } else {
-                diselectAnyMarkedTheme()
+                deselectAnyMarkedTheme()
 
                 changeActivityTheme(Themes.BEACH)
                 beachTheme.tag = R.string.button_pressed
@@ -961,7 +963,7 @@ class MainActivity : AppCompatActivity() {
         when (theme) {
             Themes.SPACE -> {
                 binding.main.setBackgroundResource(R.drawable.space_main_background)
-                binding.main.tag = Themes.SPACE.toString() // tambem tem que mudar a tag para depois o verifytheme() funcionar
+                binding.main.tag = Themes.SPACE.toString() // It has to change the tag of main, cause the verifyTheme() will analyse this to determine the actual theme
             }
             Themes.FOREST -> {
                 binding.main.setBackgroundResource(R.drawable.forest_main_background)
@@ -982,19 +984,14 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun verifyTheme(): String {
+    private fun verifyTheme(): String? {
         for (theme in Themes.entries) {
             if (theme.toString() == binding.main.tag.toString()) {
                 return theme.toString()
             }
         }
-        return "error"
+        return null
     }
 
-    private enum class Themes {
-        SPACE,
-        FOREST,
-        CITY,
-        BEACH
-    }
+
 }

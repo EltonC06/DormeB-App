@@ -624,7 +624,7 @@ class SecondActivity : AppCompatActivity() {
             1-> {
                 isSleeping = true
                 binding.btnSleep.setImageResource(R.drawable.wake)
-                binding.secondActivity.setBackgroundResource(R.drawable.fundo_preto)
+                binding.secondActivity.setBackgroundResource(R.drawable.black_background)
                 binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
                 binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
                 binding.secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_INITIAL)

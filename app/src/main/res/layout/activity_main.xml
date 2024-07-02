@@ -557,7 +557,7 @@
         android:layout_marginTop="21dp"
         android:layout_marginEnd="21dp"
         android:background="@null"
-        android:contentDescription="themes"
+        android:contentDescription="@string/btn_themes"
         android:foregroundGravity="center"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"

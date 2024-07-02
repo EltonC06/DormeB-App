@@ -99,6 +99,8 @@
     <string name="desc_btn_animals">Ir al botón de sonidos de animales</string>
     <string name="desc_btn_urban">Ir al botón de sonidos urbanos</string>
 
+    <string name="btn_themes">Temas</string>
+
     <!--         Dialog info -->
 
     <string name="dialog_info_tab">Tabla de Información</string>
@@ -146,6 +148,8 @@
     <string name="btn_play">REPRODUCIR</string>
     <string name="btn_info">INFORMACIONES</string>
 
-    <!-- do not translate, important for code working -->
+    <!-- Dialog themes -->
+
+    <string name="dialog_theme_title">Temas</string>
 
 </resources>

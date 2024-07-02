@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/background_gradient"
@@ -22,7 +21,7 @@
             android:fontFamily="@font/roboto_regular"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:text="Themes"
+            android:text="@string/dialog_theme_title"
             android:textColor="@color/AnotherBlueForText"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -40,7 +39,7 @@
             android:background="@null"
             android:foregroundGravity="center"
             android:scaleType="centerInside"
-            android:contentDescription="SPACE"
+            android:contentDescription="@string/desc_imgBtnThemeSpace"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -52,7 +51,7 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_marginStart="120dp"
-            android:contentDescription="FOREST"
+            android:contentDescription="@string/desc_imgBtnThemeForest"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:background="@null"
@@ -79,7 +78,7 @@
             app:layout_constraintStart_toStartOf="@+id/imgBtnSpaceTheme"
             app:layout_constraintTop_toBottomOf="@+id/imgBtnSpaceTheme"
             android:tag="not_pressed"
-            android:contentDescription="CITY"
+            android:contentDescription="@string/desc_imgBtnThemeCity"
             app:srcCompat="@drawable/city_theme" />
 
         <ImageButton
@@ -96,7 +95,7 @@
             app:layout_constraintStart_toStartOf="@+id/imgBtnForestTheme"
             app:layout_constraintTop_toBottomOf="@+id/imgBtnForestTheme"
             android:tag="not_pressed"
-            android:contentDescription="BEACH"
+            android:contentDescription="@string/desc_imgBtnThemeBeach"
             app:srcCompat="@drawable/beach_theme" />
 
 
