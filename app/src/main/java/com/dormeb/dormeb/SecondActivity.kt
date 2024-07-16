@@ -103,7 +103,7 @@ class SecondActivity : AppCompatActivity() {
         if (soundQuantity > 2) { // loading ads only if the audio quantity is > 2
             val adRequest = com.google.android.gms.ads.AdRequest.Builder().build()
             // loading ads
-            InterstitialAd.load(this, "ca-app-pub-5048096201990671/1271119298", adRequest, object : InterstitialAdLoadCallback() {
+            InterstitialAd.load(this, "changed to publish on github", adRequest, object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
                     Log.d(tag, adError.toString())
                     mInterstitialAd = null
@@ -541,6 +541,8 @@ class SecondActivity : AppCompatActivity() {
         }
 
         binding.btnPause.setOnClickListener{
+            // change to publish on github
+            changeToMainActivity()
             // showing ads before going back to main activity
             if (soundQuantity > 2) { // the ads will only show if there is 3 audios playing
 
@@ -613,6 +615,7 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun changeToMainActivity() {
+        // clearCache()
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("KeepMainActivity", 2)
         startActivity(intent)
@@ -1119,6 +1122,17 @@ class SecondActivity : AppCompatActivity() {
             }
         }
     }
+/*
+    private fun clearCache() {
+        try {
+            cacheDir.delete()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+ */
+
 
     private fun initDialogComponents() { // timer dialog box
         dialog = Dialog(this@SecondActivity)
@@ -1174,4 +1188,9 @@ class SecondActivity : AppCompatActivity() {
 
         }
     }
+
+
+
+
+
 }
