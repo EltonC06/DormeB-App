@@ -1,5 +1,6 @@
 # DormeB
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/EltonC06/DormeB-App/blob/main/LICENSE)
 
 ## About the Project
 
@@ -29,9 +30,6 @@ Alongside the audios, DormeB provides a Timer function to stop audios after the 
 ## Technologies Used
 - Android SDK
 - Kotlin
-
-## License
-This project doesn't have a license, which means the default GitHub copyright laws apply. The owner retains all rights to the source code, and no one may reproduce, distribute, or create derivative works from this project.
 
 ## How to test the App
 
