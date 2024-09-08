@@ -17,23 +17,17 @@ class FirstActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityFirstBinding.inflate(layoutInflater) // inflating binding
+        binding = ActivityFirstBinding.inflate(layoutInflater)
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
         val preference = loadData()
         if (preference == "true") {
             initMainActivity()
         }
-
-
-
-
         initInterfaceComponents()
         initialAnimation()
 
@@ -49,9 +43,7 @@ class FirstActivity : AppCompatActivity() {
             }
             saveData()
         }
-
     }
-
 
     private fun saveData() {
         val sharedPreferences =
@@ -59,58 +51,44 @@ class FirstActivity : AppCompatActivity() {
         val edit = sharedPreferences.edit()
         edit.apply {
             putString("Preference", binding.checkDontShow.tag.toString())
-        }.apply() // saving data
-
+        }.apply()
         Toast.makeText(this, getString(R.string.saved_preference), Toast.LENGTH_SHORT).show()
-
     }
 
-    private fun loadData(): String { // loading data
+    private fun loadData(): String {
         val preference: String
         val sharedPreferences =
-            getSharedPreferences("UserPreference", MODE_PRIVATE) // instancing and naming it
+            getSharedPreferences("UserPreference", MODE_PRIVATE)
         val savedPreferences = sharedPreferences.getString(
             "Preference",
             null
-        ) // catching the key that i saved
-
+        )
         preference = savedPreferences.toString()
         return preference
     }
 
     private fun initialAnimation() {
         binding.textWelcome.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MAX)
-
         binding.textFirst.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
         binding.textSecond.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
         binding.textThird.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
-
         binding.btnStart.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
-
         binding.checkDontShow.animate().setDuration(1000).alpha(AlphaValues.TRANSPARENCY_MED)
-
     }
 
     private fun initInterfaceComponents() {
-
         binding.checkDontShow.alpha = AlphaValues.TRANSPARENCY_INITIAL
         binding.checkDontShow.tag = "false"
-
         binding.btnStart.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.textWelcome.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.textFirst.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.textSecond.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.textThird.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
     }
 
     private fun initMainActivity() {
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("KeepMainActivity", 2) // passing 2 to main activity, so it wont generate a loop
+        intent.putExtra("KeepMainActivity", 2)
         startActivity(intent)
         finish()
     }

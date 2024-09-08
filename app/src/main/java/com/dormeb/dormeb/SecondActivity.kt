@@ -38,9 +38,7 @@ class SecondActivity : AppCompatActivity() {
     private var mInterstitialAd: InterstitialAd? = null
     private val tag = "SecondActivityAd"
 
-
     override fun onDestroy() {
-
         if (firstMediaPlayer.isPlaying) {
             Log.d("MediaPlayerReleasing", "Releasing firstMediaPlayer")
             firstMediaPlayer.pause()
@@ -48,7 +46,6 @@ class SecondActivity : AppCompatActivity() {
             firstMediaPlayer.reset()
             firstMediaPlayer.release()
         }
-
         if (secondMediaPlayer.isPlaying) {
             Log.d("MediaPlayerReleasing", "Releasing secondMediaPlayer")
             secondMediaPlayer.pause()
@@ -56,24 +53,19 @@ class SecondActivity : AppCompatActivity() {
             secondMediaPlayer.reset()
             secondMediaPlayer.release()
         }
-
         if (thirdMediaPlayer.isPlaying) {
             Log.d("MediaPlayerReleasing", "Releasing thirdMediaPlayer")
             thirdMediaPlayer.pause()
             thirdMediaPlayer.stop()
             thirdMediaPlayer.reset()
             thirdMediaPlayer.release()
-
         }
-
         count?.cancel()
         isRunning = false
-
         super.onDestroy()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         firstMediaPlayer = MediaPlayer()
         secondMediaPlayer = MediaPlayer()
         thirdMediaPlayer = MediaPlayer()
@@ -87,7 +79,6 @@ class SecondActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         val transferList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // this is for most recent android versions
             intent.getParcelableExtra("Sounds", AudiostoPass::class.java)?.audios
         } else { // older android versions
@@ -96,14 +87,12 @@ class SecondActivity : AppCompatActivity() {
         }
 
         val passedTheme = intent.getStringExtra("Theme")
-
         val soundQuantity = verifySoundQuantity(transferList?.size)
         var adStatus = 1
 
-        if (soundQuantity > 2) { // loading ads only if the audio quantity is > 2
+        if (soundQuantity > 2) {
             val adRequest = com.google.android.gms.ads.AdRequest.Builder().build()
-            // loading ads
-            InterstitialAd.load(this, "changed to publish on github", adRequest, object : InterstitialAdLoadCallback() {
+            InterstitialAd.load(this, "ca-app-pub-5048096201990671/1271119298", adRequest, object : InterstitialAdLoadCallback() {
                 override fun onAdFailedToLoad(adError: LoadAdError) {
                     Log.d(tag, adError.toString())
                     mInterstitialAd = null
@@ -115,15 +104,11 @@ class SecondActivity : AppCompatActivity() {
                     mInterstitialAd = interstitialAd
                     setupCallBackCalls()
                 }
-
             })
         }
-
         changeBackgroundTheme(passedTheme)
         initInterfaceComponents()
         initialAnimation()
-
-
 
         if (transferList != null) {
             for (audios in transferList){
@@ -132,38 +117,31 @@ class SecondActivity : AppCompatActivity() {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.rain)
                         changeImgIcon(1, SoundsName.RAIN)
                         mediaPlayerConfig(1)
-
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.rain)
                         changeImgIcon(2, SoundsName.RAIN)
                         mediaPlayerConfig(2)
-
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.rain)
                         changeImgIcon(3, SoundsName.RAIN)
                         mediaPlayerConfig(3)
-
                     }
                 }
-
                 else if (audios == SoundsName.THUNDER.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.thunder)
                         changeImgIcon(1, SoundsName.THUNDER)
                         mediaPlayerConfig(1)
-
                     }
                     else if (firstMediaPlayer.isPlaying && !secondMediaPlayer.isPlaying) {
                         secondMediaPlayer = MediaPlayer.create(this, R.raw.thunder)
                         changeImgIcon(2, SoundsName.THUNDER)
                         mediaPlayerConfig(2)
-
                     } else {
                         thirdMediaPlayer = MediaPlayer.create(this, R.raw.thunder)
                         changeImgIcon(3, SoundsName.THUNDER)
                         mediaPlayerConfig(3)
-
                     }
                 }
                 else if (audios == SoundsName.FAN.toString()) {
@@ -278,7 +256,6 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
                     }
                 }
-
                 if (audios == SoundsName.CLOCK.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.clock)
@@ -295,7 +272,6 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
                     }
                 }
-
                 if (audios == SoundsName.WIND.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.wind)
@@ -312,7 +288,6 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
                     }
                 }
-
                 if (audios == SoundsName.CRICKET.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.cricket)
@@ -330,7 +305,6 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
                     }
                 }
-
                 if (audios == SoundsName.CICADA.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.cicada)
@@ -347,7 +321,6 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
                     }
                 }
-
                 if (audios == SoundsName.WATERFALL.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.waterfall)
@@ -364,7 +337,6 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
                     }
                 }
-
                 if (audios == SoundsName.GOOSE.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.goose)
@@ -397,7 +369,6 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
                     }
                 }
-
                 if (audios == SoundsName.DESERT.toString()) {
                     if (!firstMediaPlayer.isPlaying) {
                         firstMediaPlayer = MediaPlayer.create(this, R.raw.desert)
@@ -473,60 +444,38 @@ class SecondActivity : AppCompatActivity() {
                         mediaPlayerConfig(3)
                     }
                 }
-
-
             }
         }
-
-
-
-
-
         binding.firstVolumeBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) { // seekbar.progress return a percent value (so i just need to divide /100 to adapt to mediaplayer)
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 val volume = progress.toFloat().div(100)
                 firstMediaPlayer.setVolume(volume, volume)
             }
-
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
-
             }
-
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-
             }
         })
-
         binding.secondVolumeBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 val volume = progress.toFloat().div(100)
                 secondMediaPlayer.setVolume(volume, volume)
             }
-
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
-
             }
-
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-
             }
         })
-
         binding.thirdVolumeBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 val volume = progress.toFloat().div(100)
                 thirdMediaPlayer.setVolume(volume, volume)
             }
-
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
-
             }
-
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-
             }
         })
-
         binding.btnSleep.setOnClickListener{
             if (binding.btnSleep.tag == getString(R.string.button_tag_wake)) {
                 changeComponentsVisibility(1)
@@ -535,94 +484,65 @@ class SecondActivity : AppCompatActivity() {
             else {
                 changeComponentsVisibility(2)
                 binding.btnSleep.tag = getString(R.string.button_tag_wake)
-
             }
-
         }
-
         binding.btnPause.setOnClickListener{
-            // change to publish on github
-            changeToMainActivity()
-            // showing ads before going back to main activity
-            if (soundQuantity > 2) { // the ads will only show if there is 3 audios playing
-
-                if (adStatus == 1) { // ad status 1: Was loaded or is being loaded. status 0: Didn't load
-
+            if (soundQuantity > 2) {
+                if (adStatus == 1) {
                     if (mInterstitialAd != null) {
-
                         mInterstitialAd?.show(this)
                     } else {
-
                         Log.d("TAG", "The interstitial ad wasn't ready yet.")
                         displayErrorMsg(2)
                     }
                 } else {
-
                     changeToMainActivity()
-
                 }
             } else {
-
                 changeToMainActivity()
             }
         }
-
         binding.btnTimer.setOnClickListener{
             showTimerDialogBox()
         }
     }
 
-
-
-    private fun setupCallBackCalls() { // ads full screen
+    private fun setupCallBackCalls() {
         Log.d(tag, "ad full screen set up")
-
         mInterstitialAd?.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdClicked() {
-                // Called when a click is recorded for an ad.
                 Log.d(tag, "Ad was clicked.")
             }
-
             override fun onAdDismissedFullScreenContent() {
-                // Called when ad is dismissed.
                 Log.d(tag, "Ad dismissed fullscreen content.")
                 changeToMainActivity()
                 mInterstitialAd = null
             }
-
             override fun onAdFailedToShowFullScreenContent(p0: AdError) {
-                // Called when ad fails to show.
                 Log.e(tag, "Ad failed to show fullscreen content.")
                 mInterstitialAd = null
                 changeToMainActivity()
             }
-
             override fun onAdImpression() {
-                // Called when an impression is recorded for an ad.
                 Log.d(tag, "Ad recorded an impression.")
             }
-
             override fun onAdShowedFullScreenContent() {
-                // Called when ad is shown.
                 firstMediaPlayer.setVolume(0.0F, 0.0f)
                 secondMediaPlayer.setVolume(0.0F, 0.0f)
                 thirdMediaPlayer.setVolume(0.0F, 0.0f)
                 Log.d(tag, "Ad showed fullscreen content.")
             }
-
-
         }
     }
 
     private fun changeToMainActivity() {
-        // clearCache()
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("KeepMainActivity", 2)
         startActivity(intent)
         finish()
     }
 
-    private fun changeComponentsVisibility(i: Int) { // 1 - everything transparent, 2 - show everything
+    private fun changeComponentsVisibility(i: Int) {
         when(i) {
             1-> {
                 isSleeping = true
@@ -650,7 +570,6 @@ class SecondActivity : AppCompatActivity() {
                     Themes.CITY.toString() -> binding.secondActivity.setBackgroundResource(R.drawable.city_second_background)
                     Themes.BEACH.toString() -> binding.secondActivity.setBackgroundResource(R.drawable.beach_second_background)
                 }
-
                 binding.firstVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
                 binding.firstVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
 
@@ -662,7 +581,6 @@ class SecondActivity : AppCompatActivity() {
                     binding.secondVolumeBar.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MAX)
                     binding.secondVolumeImg.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
                 }
-
                 binding.btnPause.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
                 binding.btnSleep.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
                 binding.btnTimer.animate().setDuration(2500).alpha(AlphaValues.TRANSPARENCY_MED)
@@ -682,10 +600,9 @@ class SecondActivity : AppCompatActivity() {
     private var isSleeping : Boolean = false
     private var count : CountDownTimer? = null
 
-    private fun timerConfig(minTime: Double = 0.1, action: Int = 0) { // action 1 to cancel and action 2 to start
+    private fun timerConfig(minTime: Double = 0.1, action: Int = 0) {
         val convertedTime = minTime * 60000
-
-        when (action) { // 1 to pause // 2 to start a new timer
+        when (action) {
             1-> {
                 count?.cancel()
                 isRunning = false
@@ -700,7 +617,6 @@ class SecondActivity : AppCompatActivity() {
                 else {
                     binding.txtTimer.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_MAX)
                 }
-
                 count?.cancel()
                 count = null
                 isRunning = true
@@ -710,24 +626,19 @@ class SecondActivity : AppCompatActivity() {
                         val minUntilFinish: Int = secsUntilFinish  / 60
                         secsUntilFinish %= 60
 
-
                         if (secsUntilFinish < 10) {
                             binding.txtTimer.text = getString(R.string.countdown_timer, minUntilFinish.toString(), "0$secsUntilFinish")
                         }
                         else {
                             binding.txtTimer.text = getString(R.string.countdown_timer, minUntilFinish.toString(), secsUntilFinish.toString())
                         }
-
-
                     }
-
                     override fun onFinish() {
                         isRunning = false
                         finish()
                         binding.txtTimer.text = getString(R.string.countdown_timer, "00", "00")
                         binding.txtTimer.animate().setDuration(1500).alpha(AlphaValues.TRANSPARENCY_INITIAL)
                     }
-
                 }.start()
             }
         }
@@ -783,15 +694,12 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun mediaPlayerConfig(number: Int) {
-
         when (number) {
             1-> {
                 firstMediaPlayer.isLooping = true
                 firstMediaPlayer.setVolume(0.5F, 0.5F)
                 firstMediaPlayer.start()
-
             }
-
             2-> {
                 secondMediaPlayer.isLooping = true
                 secondMediaPlayer.setVolume(0.5F, 0.5F)
@@ -804,9 +712,6 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
-
-
-
     private fun changeImgIcon(mediaPlayerNum: Int, nameOfSound: SoundsName){
         when (mediaPlayerNum) {
             1-> {
@@ -814,171 +719,130 @@ class SecondActivity : AppCompatActivity() {
                     SoundsName.RAIN -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.rain)
                     }
-
                     SoundsName.THUNDER -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.thunder)
                     }
-
                     SoundsName.FAN -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.fan)
                     }
-
                     SoundsName.CITY -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.city)
                     }
-
                     SoundsName.AIR_CONDITIONER -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.air_conditioner)
                     }
-
                     SoundsName.NIGHT_GUARD -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.night_guard)
                     }
-
                     SoundsName.FIREPLACE -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.fireplace)
                     }
-
                     SoundsName.BEACH -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.beach)
                     }
-
                     SoundsName.FOREST -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.forest)
                     }
-
                     SoundsName.CLOCK -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.clock)
                     }
-
                     SoundsName.WIND -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.wind)
                     }
-
                     SoundsName.CRICKET -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.cricket)
                     }
-
                     SoundsName.CICADA -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.cicada)
                     }
-
                     SoundsName.WATERFALL -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.waterfall)
                     }
-
                     SoundsName.GOOSE -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.goose)
                     }
-
                     SoundsName.WHALE -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.whale)
                     }
-
                     SoundsName.DESERT -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.desert)
                     }
-
                     SoundsName.BIRD -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.bird)
                     }
-
                     SoundsName.PENGUIN -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.penguin)
                     }
-
                     SoundsName.CAR -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.car)
                     }
-
                     SoundsName.CONSTRUCTION_SITE -> {
                         binding.firstVolumeImg.setImageResource(R.drawable.construction_site)
                     }
                 }
-
             }
             2-> {
                 when (nameOfSound) {
                     SoundsName.RAIN -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.rain)
                     }
-
                     SoundsName.THUNDER -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.thunder)
                     }
-
                     SoundsName.FAN -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.fan)
                     }
-
                     SoundsName.CITY -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.city)
                     }
-
                     SoundsName.AIR_CONDITIONER -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.air_conditioner)
                     }
-
                     SoundsName.NIGHT_GUARD -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.night_guard)
                     }
-
                     SoundsName.FIREPLACE -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.fireplace)
                     }
-
                     SoundsName.BEACH -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.beach)
                     }
-
                     SoundsName.FOREST -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.forest)
                     }
-
                     SoundsName.CLOCK -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.clock)
                     }
-
                     SoundsName.WIND -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.wind)
                     }
-
                     SoundsName.CRICKET -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.cricket)
                     }
-
                     SoundsName.CICADA -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.cicada)
                     }
-
                     SoundsName.WATERFALL -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.waterfall)
                     }
-
                     SoundsName.GOOSE -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.goose)
                     }
-
                     SoundsName.WHALE -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.whale)
                     }
-
                     SoundsName.DESERT -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.desert)
                     }
-
                     SoundsName.BIRD -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.bird)
                     }
-
                     SoundsName.PENGUIN -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.penguin)
                     }
-
                     SoundsName.CAR -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.car)
                     }
-
                     SoundsName.CONSTRUCTION_SITE -> {
                         binding.secondVolumeImg.setImageResource(R.drawable.construction_site)
                     }
@@ -989,82 +853,63 @@ class SecondActivity : AppCompatActivity() {
                     SoundsName.RAIN -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.rain)
                     }
-
                     SoundsName.THUNDER -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.thunder)
                     }
-
                     SoundsName.FAN -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.fan)
                     }
-
                     SoundsName.CITY -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.city)
                     }
-
                     SoundsName.AIR_CONDITIONER -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.air_conditioner)
                     }
-
                     SoundsName.NIGHT_GUARD -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.night_guard)
                     }
-
                     SoundsName.FIREPLACE -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.fireplace)
                     }
-
                     SoundsName.BEACH -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.beach)
                     }
-
                     SoundsName.FOREST -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.forest)
                     }
-
                     SoundsName.CLOCK -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.clock)
                     }
-
                     SoundsName.WIND -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.wind)
                     }
-
                     SoundsName.CRICKET -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.cricket)
                     }
-
                     SoundsName.CICADA -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.cicada)
                     }
-
                     SoundsName.WATERFALL -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.waterfall)
                     }
-
                     SoundsName.GOOSE -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.goose)
                     }
-
                     SoundsName.WHALE -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.whale)
                     }
                     SoundsName.DESERT -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.desert)
                     }
-
                     SoundsName.BIRD -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.bird)
                     }
-
                     SoundsName.PENGUIN -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.penguin)
                     }
-
                     SoundsName.CAR -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.car)
                     }
-
                     SoundsName.CONSTRUCTION_SITE -> {
                         binding.thirdVolumeImg.setImageResource(R.drawable.construction_site)
                     }
@@ -1074,31 +919,21 @@ class SecondActivity : AppCompatActivity() {
     }
 
     private fun initInterfaceComponents() {
-
         initDialogComponents()
 
         binding.firstVolumeBar.progress = 50
         binding.firstVolumeBar.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.secondVolumeBar.progress = 50
         binding.secondVolumeBar.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.thirdVolumeBar.progress = 50
         binding.thirdVolumeBar.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.btnPause.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.btnSleep.tag = getString(R.string.button_tag_wake)
         binding.btnSleep.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.firstVolumeImg.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.secondVolumeImg.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.thirdVolumeImg.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.btnTimer.alpha = AlphaValues.TRANSPARENCY_INITIAL
-
         binding.txtTimer.alpha = AlphaValues.TRANSPARENCY_INITIAL
     }
 
@@ -1122,19 +957,8 @@ class SecondActivity : AppCompatActivity() {
             }
         }
     }
-/*
-    private fun clearCache() {
-        try {
-            cacheDir.delete()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
 
- */
-
-
-    private fun initDialogComponents() { // timer dialog box
+    private fun initDialogComponents() {
         dialog = Dialog(this@SecondActivity)
         dialog.setContentView(R.layout.dialog_timer)
         dialog.window?.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -1144,7 +968,6 @@ class SecondActivity : AppCompatActivity() {
         val checkTri: CheckBox = dialog.findViewById(R.id.checkTri)
         val checkUma: CheckBox = dialog.findViewById(R.id.checkUma)
 
-        // the user cant activate 2 timers at the same time
         checkQui.setOnClickListener{
             if (!checkQui.isChecked) {
                 timerConfig(action = 1)
@@ -1158,7 +981,6 @@ class SecondActivity : AppCompatActivity() {
                 timerConfig(15.0, 2)
             }
         }
-
         checkTri.setOnClickListener{
             if (!checkTri.isChecked) {
                 timerConfig(action = 1)
@@ -1172,7 +994,6 @@ class SecondActivity : AppCompatActivity() {
                 timerConfig(30.0, 2)
             }
         }
-
         checkUma.setOnClickListener{
             if (!checkUma.isChecked) {
                 timerConfig(action = 1)
@@ -1185,12 +1006,6 @@ class SecondActivity : AppCompatActivity() {
                 }
                 timerConfig(60.0, 2)
             }
-
         }
     }
-
-
-
-
-
 }

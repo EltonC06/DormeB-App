@@ -68,7 +68,6 @@
                 android:contentDescription="@string/desc_btn_urban"
                 android:text="@string/txt_urban" />
         </LinearLayout>
-
     </HorizontalScrollView>
 
     <ScrollView
@@ -142,7 +141,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/fireplace" />
-
             </TableRow>
 
             <TableRow
@@ -159,7 +157,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/desert" />
-
             </TableRow>
 
             <TextView
@@ -216,7 +213,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/beach" />
-
             </TableRow>
 
             <TableRow
@@ -233,7 +229,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/waterfall" />
-
             </TableRow>
 
             <TextView
@@ -269,7 +264,6 @@
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/goose" />
 
-
                 <ImageButton
                     android:id="@+id/imgBtnCicada"
                     android:layout_width="110dp"
@@ -291,7 +285,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/cricket" />
-
             </TableRow>
 
             <TableRow
@@ -330,7 +323,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/penguin" />
-
             </TableRow>
 
             <TextView
@@ -366,7 +358,6 @@
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/clock" />
 
-
                 <ImageButton
                     android:id="@+id/imgBtnCity"
                     android:layout_width="110dp"
@@ -388,7 +379,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/air_conditioner" />
-
             </TableRow>
 
             <TableRow
@@ -405,7 +395,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/fan" />
-
 
                 <ImageButton
                     android:id="@+id/imgBtnNightGuard"
@@ -428,7 +417,6 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/car" />
-
             </TableRow>
 
             <TableRow
@@ -445,13 +433,9 @@
                     android:scaleType="centerInside"
                     android:tag="not_pressed"
                     app:srcCompat="@drawable/construction_site" />
-
             </TableRow>
-
         </TableLayout>
-
     </ScrollView>
-
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

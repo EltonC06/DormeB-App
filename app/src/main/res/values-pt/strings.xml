@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- other settings -->
-
     <string name="preference_file_key">com.dormeb.dormeb.PREFERENCE_FILE_KEY</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-    <!-- First activity -->
 
     <string name="splash_app_name_msg">DORMƎB</string>
     <string name="splash_first_msg">Durma Melhor: Nosso aplicativo é projetado para ajudar você a dormir com mais facilidade.</string>
@@ -18,8 +14,6 @@
     <string name="splash_button_start">INICIAR EXPERIÊNCIA</string>
     <string name="splash_check_show_again">Não mostrar isso novamente</string>
     <string name="saved_preference">Preferência salva</string>
-
-    <!-- Main activity -->
 
     <string name="message_audio_choose">Selecione um áudio para dormir</string>
 
@@ -101,8 +95,6 @@
 
     <string name="btn_themes">Temas</string>
 
-    <!--         Dialog info -->
-
     <string name="dialog_info_tab">Tabela de informações</string>
     <string name="dialog_info_title">Central de suporte</string>
     <string name="dialog_info_first_text">Encontrou algum erro no aplicativo?</string>
@@ -110,12 +102,8 @@
     <string name="dialog_app_email">Email de suporte: dormebapp@gmail.com</string>
     <string name="dialog_select_timer">Selecione uma opção do temporizador</string>
 
-    <!-- Second activity -->
-
     <string name="button_tag_wake">wake</string>
     <string name="button_tag_sleep">sleep</string>
-
-    <!-- descriptions second activity -->
 
     <string name="second_activity_btn_pause">Pausar</string>
     <string name="second_activity_timer_btn">Temporizador</string>
@@ -124,32 +112,21 @@
     <string name="second_activity_second_volume_img">2º Ícone de volume</string>
     <string name="second_activity_third_volume_img">3º Ícone de volume</string>
 
-    <!--         Dialog timer -->
-
     <string name="dialog_timer_title">Temporizador</string>
     <string name="dialog_timer_fifteen_minutes">15 minutos</string>
     <string name="dialog_timer_thirty_minutes">30 minutos</string>
     <string name="dialog_timer_one_hour">1 hora</string>
     <string name="dialog_timer_first_text">Selecione uma opção para programar desligamento do app</string>
 
-    <!-- Toast messages Main Activty -->
-
     <string name="error_max_audio_capacity_reached">Você só pode escolher no máximo 3 áudios para tocar</string>
     <string name="error_min_audio_quantity_to_play">Escolha ao menos 1 áudio para tocar</string>
-
-    <!-- Toast messages Second Activity -->
 
     <string name="error_no_audio_playing">Essa mensagem não deveria aparecer aqui, por favor contate ajuda ou reinicie o aplicativo</string>
     <string name="error_more_audio_than_support">Há mais áudios tocando do que o aplicativo suporta</string>
     <string name="error_wait_ads">Espere o anúncio carregar e pressione o botão novamente</string>
 
-    <!-- descriptions of buttons -->
-
     <string name="btn_play">PLAY</string>
     <string name="btn_info">INFORMAÇÕES</string>
 
-    <!-- Dialog themes -->
-
     <string name="dialog_theme_title">Temas</string>
-
 </resources>

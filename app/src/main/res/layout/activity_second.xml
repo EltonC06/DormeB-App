@@ -192,6 +192,5 @@
         app:layout_constraintStart_toStartOf="@+id/btnPause"
         app:layout_constraintTop_toBottomOf="@+id/btnPause" />
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 

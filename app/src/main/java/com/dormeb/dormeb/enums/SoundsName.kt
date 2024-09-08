@@ -22,5 +22,4 @@ enum class SoundsName {
     PENGUIN,
     CAR,
     CONSTRUCTION_SITE
-
 }

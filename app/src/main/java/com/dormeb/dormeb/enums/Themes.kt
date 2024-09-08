@@ -5,5 +5,4 @@ enum class Themes {
     FOREST,
     CITY,
     BEACH
-
 }

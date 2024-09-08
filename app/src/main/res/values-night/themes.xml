@@ -1,11 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.DormeBApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
         <item name="colorPrimary">@color/darkBlue</item>
         <item name="colorPrimaryVariant">@color/darkerBlue</item>
         <item name="colorOnPrimary">@color/white</item>
-
         <item name="android:windowBackground">@drawable/background_gradient</item>
     </style>
     <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
